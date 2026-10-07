@@ -1,6 +1,6 @@
 """One offline runner for every scaffold check (contract revision H2, PROPOSED CONTRACT).
 
-    PYTHONPATH=src python -m bllt_publish.check --all --report results/check_results.json \
+    PYTHONPATH=src python -m feltwillow_publish.check --all --report results/check_results.json \
         [--tmp DIR] [--node PATH_TO_NODE]
 
 Suites (tests/test_*.py): contracts, imports, web, podcast, ops. Plus two runner-level checks:
@@ -8,8 +8,8 @@ Suites (tests/test_*.py): contracts, imports, web, podcast, ops. Plus two runner
   js_parity        only with --node: tools/js/cj1.mjs on the golden cases and on every example record,
                    compared byte-for-byte (digest) with the Python implementation
 Needs only this checkout (no production repository, no credentials, no network except the podcast probe
-tests' local 127.0.0.1 server). Writes only --report and throw-away files under --tmp (default
-build/check-tmp inside this checkout, git-ignored). Exit 0 when every case passes.
+tests' local 127.0.0.1 server). Writes only --report and throw-away files under --tmp (default: a new
+folder in the system temp dir, outside the checkout). Exit 0 when every case passes.
 """
 from __future__ import annotations
 
@@ -22,6 +22,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import unicodedata
 from pathlib import Path
 
@@ -93,15 +94,19 @@ def main(argv=None) -> int:
     ap.add_argument("--all", action="store_true", help="run every suite (default when no --suite is given)")
     ap.add_argument("--suite", action="append", choices=SUITES)
     ap.add_argument("--report", type=Path)
-    ap.add_argument("--tmp", type=Path, default=ROOT / "build" / "check-tmp")
+    ap.add_argument("--tmp", type=Path, default=None,
+                    help="scratch folder (default: a new folder in the system temp dir, outside any git checkout)")
     ap.add_argument("--node", help="Node.js binary for the JavaScript canonicalization parity check")
     a = ap.parse_args(argv)
     suites = SUITES if a.all or not a.suite else tuple(a.suite)
     sys.path.insert(0, str(ROOT / "tests"))
     sys.dont_write_bytecode = True
-    if a.tmp.exists():
+    if a.tmp is None:
+        # Outside the checkout: the storage-root tests must not run inside a git work tree.
+        a.tmp = Path(tempfile.mkdtemp(prefix="feltwillow-check-"))
+    elif a.tmp.exists():
         shutil.rmtree(a.tmp)
-    a.tmp.mkdir(parents=True)
+    a.tmp.mkdir(parents=True, exist_ok=True)
     results = {}
     for s in suites:
         mod = importlib.import_module("test_" + s)
@@ -116,7 +121,7 @@ def main(argv=None) -> int:
     summary = {g: f"{sum(c['pass'] for c in cs)}/{len(cs)}" for g, cs in counted.items()}
     total = sum(len(cs) for cs in counted.values())
     passed = sum(c["pass"] for cs in counted.values() for c in cs)
-    report = {"tool": "bllt_publish.check", "contract_revision": "H2 (PROPOSED CONTRACT)",
+    report = {"tool": "feltwillow_publish.check", "contract_revision": "H2 (PROPOSED CONTRACT)",
               "summary": summary, "totals": {"cases": total, "passed": passed}, "success": passed == total,
               "js_parity_run": bool(a.node),
               "environment": {"python": platform.python_version(), "unicodedata": unicodedata.unidata_version,

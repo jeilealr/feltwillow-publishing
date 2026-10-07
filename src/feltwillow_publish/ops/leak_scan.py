@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Content-level leakage scan of a built public bundle (Agent E; integrated as bllt_publish.ops.leak_scan, H2).
+"""Content-level leakage scan of a built public bundle (Agent E; integrated as feltwillow_publish.ops.leak_scan, H2).
 
 Complements Agent B's PUBLIC_FORBIDDEN_FILE check (file *names* in a public-bundle-manifest) with checks
 of file *contents* and of the directory that will actually be uploaded.
 
-    python -m bllt_publish.ops.leak_scan <bundle_dir> --manifest <public-bundle-manifest.json>
+    python -m feltwillow_publish.ops.leak_scan <bundle_dir> --manifest <public-bundle-manifest.json>
         [--policy <scan-policy.json>] [--report <out.json>]
 
 Standard library only. Offline: no network, no subprocess, reads only <bundle_dir>, the manifest and the
@@ -66,7 +66,7 @@ MACHINE_PATH = re.compile(
 PRODUCTION_PATH = re.compile(
     rb"(?<![A-Za-z0-9_/.-])(?:stories/[a-z0-9_]+/(?:story\.ya?ml|dialogue_coverage\.json|prompt_manifest\.json"
     rb"|runtime_inputs\.json|voices?\.ya?ml)|character/(?:characters|locations)/|work/stories/|voice/(?:cast|narrators)/"
-    rb"|lumi/[a-z_]+\.(?:sh|py)|bllt/paths\.py"
+    rb"|lumi/[a-z_]+\.(?:sh|py)|feltwillow/paths\.py"
     # H2 (M5): any production story folder (slugs contain '_', public slugs never do), character/ and work/
     rb"|stories/[a-z0-9]+_[a-z0-9_]*/|character/|work/)")
 # private JSON keys checked on parsed JSON (H2, M5): escapes such as "voice\u005fid" cannot hide a key

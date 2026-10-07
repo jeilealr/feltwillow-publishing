@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Offline lint of GitHub Actions workflow files (Agent E; integrated as bllt_publish.ops.ci_lint, H2).
+"""Offline lint of GitHub Actions workflow files (Agent E; integrated as feltwillow_publish.ops.ci_lint, H2).
 
-    python -m bllt_publish.ops.ci_lint <workflow.yml>... [--allow-placeholder-pins] [--report out.json]
+    python -m feltwillow_publish.ops.ci_lint <workflow.yml>... [--allow-placeholder-pins] [--report out.json]
 
 Encodes the CI rules CI-R1..CI-R12 of E-02 section 4. Requires PyYAML (already pinned for the blueprint
 checks); parses with SafeLoader only; offline; writes only --report. It inspects declarations, it does not
@@ -29,10 +29,10 @@ STANDARD_RUNNERS = {"ubuntu-latest", "ubuntu-24.04", "ubuntu-22.04"}
 PIN = re.compile(r"^[^@\s]+@([0-9a-f]{40})$")
 UNTRUSTED_EXPR = re.compile(r"\$\{\{\s*(github\.event\.|github\.head_ref|inputs\.|github\.event_name\b.*\|\|)")
 PROD_CREDS = re.compile(r"(?i)GEMINI_API_KEY|GOOGLE_API_KEY|OPENAI_API_KEY|ELEVENLABS|HF_TOKEN|HUGGING_?FACE"
-                        r"|LUMI|SLURM|sbatch|BLLT_REPO\b|big_lessons_little_tales")
+                        r"|LUMI|SLURM|sbatch|FELTWILLOW_REPO\b|feltwillow-production")
 SECRET_REF = re.compile(r"\$\{\{\s*secrets\.([A-Za-z0-9_]+)")
-DEPLOY_CMD = re.compile(r"(?i)\bbllt[-_]publish\s+(apply|rollback)\b|wrangler\s+pages\s+deploy|netlify\s+deploy")
-IMPORT_CMD = re.compile(r"(?i)\bbllt[-_]publish\s+import\b|bllt_publish\.imports|h1_import\.py")
+DEPLOY_CMD = re.compile(r"(?i)\bfeltwillow[-_]publish\s+(apply|rollback)\b|wrangler\s+pages\s+deploy|netlify\s+deploy")
+IMPORT_CMD = re.compile(r"(?i)\bfeltwillow[-_]publish\s+import\b|feltwillow_publish\.imports|h1_import\.py")
 MAX_TIMEOUT = 30
 
 

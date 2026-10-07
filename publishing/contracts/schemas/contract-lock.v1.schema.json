@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/contract-lock.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/contract-lock.v1.json",
   "title": "Contract lock v1",
   "description": "Pinned copy of a released contract package (production/contracts/CONTRACT.lock). Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,28 +16,28 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "package": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "name": {
-          "const": "bllt-contracts"
+          "const": "feltwillow-contracts"
         },
         "version": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/semver"
         },
         "archive_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         "source_repository": {
-          "const": "jeilealr/bllt-publishing"
+          "const": "jeilealr/feltwillow-publishing"
         },
         "source_commit": {
           "anyOf": [
             {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/git_commit"
             },
             {
               "type": "null"
@@ -45,7 +45,7 @@
           ]
         },
         "released_at": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
         }
       },
       "required": [
@@ -64,10 +64,10 @@
         "additionalProperties": false,
         "properties": {
           "path": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/relpath"
           },
           "sha256": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
           }
         },
         "required": [

@@ -1,5 +1,5 @@
 {
- "catalogue": "BLLT error codes",
+ "catalogue": "Feltwillow error codes",
  "contract_revision": "H2 (PROPOSED CONTRACT)",
  "format": "Codes are reported as CODE or CODE: context; context never contains secrets.",
  "codes": [
@@ -7,7 +7,7 @@
    "code": "ACTION_DESTINATION_MISMATCH",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -16,7 +16,7 @@
    "code": "AGE_RANGE_REVERSED",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -25,7 +25,7 @@
    "code": "AI_DISCLOSURE_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -43,7 +43,7 @@
    "code": "APPROVAL_CHAIN_MISSING",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -61,7 +61,7 @@
    "code": "APPROVAL_SELF_DEPENDENCY",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -70,7 +70,7 @@
    "code": "ARCHIVAL_LOCATOR_MISMATCH",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -79,7 +79,7 @@
    "code": "ARCHIVE_CASE_COLLISION",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -88,7 +88,7 @@
    "code": "ARCHIVE_DIGEST_MISMATCH",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -97,7 +97,7 @@
    "code": "ARCHIVE_DUPLICATE_MEMBER",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -106,7 +106,7 @@
    "code": "ARCHIVE_FORMAT_UNSUPPORTED",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -115,7 +115,7 @@
    "code": "ARCHIVE_LINK_FORBIDDEN",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -124,7 +124,7 @@
    "code": "ARCHIVE_MALFORMED",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -133,7 +133,7 @@
    "code": "ARCHIVE_MEMBER_PREFIX_COLLISION",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -142,7 +142,7 @@
    "code": "ARCHIVE_OUTSIDE_INBOX",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -151,7 +151,7 @@
    "code": "ARCHIVE_SIZE_LIMIT",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -160,7 +160,7 @@
    "code": "ARCHIVE_SPECIAL_FILE",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -169,7 +169,7 @@
    "code": "ARCHIVE_STORE_CORRUPT",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -178,7 +178,7 @@
    "code": "ARCHIVE_TOO_MANY_MEMBERS",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -187,7 +187,7 @@
    "code": "ARCHIVE_UNSAFE_PATH",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -196,7 +196,7 @@
    "code": "ARTIFACT_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -205,7 +205,7 @@
    "code": "ARTIFACT_UNEXPECTED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -214,7 +214,7 @@
    "code": "AUDIO_REPLACEMENT_WITHOUT_NEW_AUDIO",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -223,7 +223,7 @@
    "code": "BACKPORT_REFERENCE_MISSING",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -232,7 +232,7 @@
    "code": "BUNDLE_HASH_MISMATCH",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -241,7 +241,7 @@
    "code": "BUNDLE_MANIFEST_INVALID",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -250,7 +250,7 @@
    "code": "BUNDLE_MISSING_FILE",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -259,7 +259,7 @@
    "code": "BUNDLE_SIZE_MISMATCH",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -268,7 +268,7 @@
    "code": "BUNDLE_UNDECLARED_FILE",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -277,7 +277,7 @@
    "code": "CHANNEL_ARTWORK_MISSING",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -286,7 +286,7 @@
    "code": "CHANNEL_CATEGORY_MISSING",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -295,7 +295,7 @@
    "code": "CHANNEL_DESCRIPTION_MISSING",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -304,7 +304,7 @@
    "code": "CHANNEL_EXPLICIT_MISSING",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -313,7 +313,7 @@
    "code": "CHANNEL_LANGUAGE_MISSING",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -322,7 +322,7 @@
    "code": "CHANNEL_NOT_REQUESTED",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -331,7 +331,7 @@
    "code": "CHANNEL_TITLE_MISSING",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -340,7 +340,7 @@
    "code": "CI-R10_ACTION_NOT_SHA_PINNED",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -349,7 +349,7 @@
    "code": "CI-R10_PLACEHOLDER_PIN",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -358,7 +358,7 @@
    "code": "CI-R11_CHECKOUT_PERSISTS_CREDENTIALS",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -367,7 +367,7 @@
    "code": "CI-R12_ARTIFACT_DIGEST_NOT_ENFORCED",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -376,7 +376,7 @@
    "code": "CI-R12_CROSS_REPO_ARTIFACT",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -385,7 +385,7 @@
    "code": "CI-R13_EXPRESSION_IN_RUN",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -394,7 +394,7 @@
    "code": "CI-R1_FORBIDDEN_TRIGGER",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -403,7 +403,7 @@
    "code": "CI-R2_DEPLOY_NOT_MANUAL_ONLY",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -412,7 +412,7 @@
    "code": "CI-R2_DEPLOY_WITHOUT_PLAN_DIGEST",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -421,7 +421,7 @@
    "code": "CI-R3_TOP_LEVEL_PERMISSIONS_MISSING",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -430,7 +430,7 @@
    "code": "CI-R3_TOP_LEVEL_PERMISSIONS_NOT_READ_ONLY",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -439,7 +439,7 @@
    "code": "CI-R3_WRITE_ALL",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -448,7 +448,7 @@
    "code": "CI-R3_WRITE_PERMISSION_IN_NON_DEPLOY",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -457,7 +457,7 @@
    "code": "CI-R4_CONCURRENCY_MISSING",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -466,7 +466,7 @@
    "code": "CI-R5_SECRET_IN_NON_DEPLOY_WORKFLOW",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -475,7 +475,7 @@
    "code": "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -484,7 +484,7 @@
    "code": "CI-R7_DEPLOY_COMMAND_IN_NON_DEPLOY_WORKFLOW",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -493,7 +493,7 @@
    "code": "CI-R7_IMPORT_IN_CI",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -502,7 +502,7 @@
    "code": "CI-R8_RUNNER_NOT_STANDARD_HOSTED",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -511,7 +511,7 @@
    "code": "CI-R9_TIMEOUT_MISSING_OR_LARGE",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -520,7 +520,7 @@
    "code": "CI_YAML_INVALID",
    "family": "ci-lint",
    "source": "E",
-   "module": "bllt_publish.ops.ci_lint",
+   "module": "feltwillow_publish.ops.ci_lint",
    "status": "implemented",
    "meaning": "Workflow rules CI-R1..CI-R13 (codes keep E's hyphenated CI-Rn prefix).",
    "also_used_by": []
@@ -529,106 +529,106 @@
    "code": "CJ_BOM",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_DEPTH",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_DUPLICATE_KEY",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_FLOAT",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_INT_RANGE",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_INVALID_UTF8",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_KEY_NOT_ASCII",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_LONE_SURROGATE",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_NOT_NFC",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_SYNTAX",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "CJ_UNASSIGNED_CODEPOINT",
    "family": "canonical-domain",
    "source": "B",
-   "module": "bllt_publish.contracts.cj1; tools/js/cj1.mjs",
+   "module": "feltwillow_publish.contracts.cj1; tools/js/cj1.mjs",
    "status": "implemented",
-   "meaning": "Input outside the canonical-json-v1 safe domain (bllt-canonical-json-v1).",
+   "meaning": "Input outside the canonical-json-v1 safe domain (feltwillow-canonical-json-v1).",
    "also_used_by": []
   },
   {
    "code": "COLLECTION_MASTER_REFERENCE_MISSING",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -637,7 +637,7 @@
    "code": "COLLECTION_ORDER_INVALID",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -655,7 +655,7 @@
    "code": "CONFLICT_INCONSISTENT",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -664,7 +664,7 @@
    "code": "CONTENT_LENGTH_MISMATCH",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
    "also_used_by": []
@@ -673,7 +673,7 @@
    "code": "CONTENT_TYPE_MISMATCH",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
    "also_used_by": []
@@ -736,7 +736,7 @@
    "code": "CONTRACT_VERSION_PIN_MISMATCH",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -745,7 +745,7 @@
    "code": "CONTRACT_VERSION_UNSUPPORTED",
    "family": "negotiation-structure",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "Record kind/version negotiation, path pre-pass and JSON Schema validation.",
    "also_used_by": []
@@ -754,7 +754,7 @@
    "code": "COST_EVIDENCE_MISSING",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -763,7 +763,7 @@
    "code": "COST_EVIDENCE_STALE",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -772,7 +772,7 @@
    "code": "DERIVATION_CYCLE",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -781,7 +781,7 @@
    "code": "DERIVATIVE_WITHOUT_PARENT",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -790,7 +790,7 @@
    "code": "DIGEST_SOURCE_INCONSISTENT",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -817,7 +817,7 @@
    "code": "DRAFT_WITH_FREEZE_PROVENANCE",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -826,7 +826,7 @@
    "code": "DUPLICATE_ACTION",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -845,7 +845,7 @@
    "code": "DUPLICATE_APPROVAL_CHECK",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -854,7 +854,7 @@
    "code": "DUPLICATE_ASSET_ID",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -863,7 +863,7 @@
    "code": "DUPLICATE_CATALOG_OR_EDITION",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -872,7 +872,7 @@
    "code": "DUPLICATE_COLLECTION_ASSET",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -881,7 +881,7 @@
    "code": "DUPLICATE_COLLECTION_EPISODE",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -890,7 +890,7 @@
    "code": "DUPLICATE_DELIVERY_URL",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -899,7 +899,7 @@
    "code": "DUPLICATE_ENCLOSURE_URL",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -917,7 +917,7 @@
    "code": "DUPLICATE_GUID",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -926,7 +926,7 @@
    "code": "DUPLICATE_HANDOFF_PIN",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -935,7 +935,7 @@
    "code": "DUPLICATE_LOCK_PATH",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -944,7 +944,7 @@
    "code": "DUPLICATE_PACKAGE_PATH",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -953,7 +953,7 @@
    "code": "DUPLICATE_PROVIDER_MAPPING",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -972,7 +972,7 @@
    "code": "DUPLICATE_PUBLIC_PATH",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -981,7 +981,7 @@
    "code": "DUPLICATE_RECORD_ID",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -990,7 +990,7 @@
    "code": "DUPLICATE_RELEASE_PIN",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -999,7 +999,7 @@
    "code": "DUPLICATE_REMOVAL",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1008,7 +1008,7 @@
    "code": "DUPLICATE_RIGHTS_COMPONENT",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1017,7 +1017,7 @@
    "code": "DUPLICATE_SERVICE",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": [
@@ -1028,7 +1028,7 @@
    "code": "DUPLICATE_SITE_EDITION",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1037,7 +1037,7 @@
    "code": "DUPLICATE_SOURCE_ID",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1055,7 +1055,7 @@
    "code": "EMPTY_PRODUCTION_PLAN",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1064,7 +1064,7 @@
    "code": "ENCLOSURE_CHANGED_SINCE_RECORD",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1073,7 +1073,7 @@
    "code": "ENCLOSURE_LENGTH_CHANGED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1082,7 +1082,7 @@
    "code": "ENCLOSURE_LENGTH_INVALID",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1091,7 +1091,7 @@
    "code": "ENCLOSURE_NOT_HTTPS",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1100,7 +1100,7 @@
    "code": "ENCLOSURE_TYPE_MISSING",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1109,7 +1109,7 @@
    "code": "ENCLOSURE_URL_CHANGED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1118,7 +1118,7 @@
    "code": "EPISODE_CHANGE_STATE_MISMATCH",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1127,7 +1127,7 @@
    "code": "EPISODE_IDENTITY_CHANGED",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1136,7 +1136,7 @@
    "code": "EPISODE_MISSING_FROM_FEED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1145,7 +1145,7 @@
    "code": "EPISODE_RELEASE_MISMATCH",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1154,7 +1154,7 @@
    "code": "EPISODE_SUPERSEDES_INCONSISTENT",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1181,7 +1181,7 @@
    "code": "EXAMPLE_RECORD",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": [
@@ -1192,7 +1192,7 @@
    "code": "EXPECTED_DIGEST_REQUIRED",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1201,7 +1201,7 @@
    "code": "EXPORTER_DIRTY",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1210,7 +1210,7 @@
    "code": "FEED_AUTHORITY_NOT_SELECTED",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1219,7 +1219,7 @@
    "code": "FEED_BLOCKED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1228,7 +1228,7 @@
    "code": "FEED_DTD_FORBIDDEN",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1237,7 +1237,7 @@
    "code": "FEED_EMAIL_ABSENT",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1246,7 +1246,7 @@
    "code": "FEED_EMAIL_REMOVED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1255,7 +1255,7 @@
    "code": "FEED_ENCODING_UNSUPPORTED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1264,7 +1264,7 @@
    "code": "FEED_INVALID_UTF8",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1273,7 +1273,7 @@
    "code": "FEED_MODULE_NOT_ENABLED",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1282,7 +1282,7 @@
    "code": "FEED_NOT_RSS",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1291,7 +1291,7 @@
    "code": "FEED_TOO_LARGE",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1300,7 +1300,7 @@
    "code": "FEED_XML_MALFORMED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1309,7 +1309,7 @@
    "code": "FIRST_PUBLISHED_AT_DRIFT",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1318,7 +1318,7 @@
    "code": "FROZEN_WITHOUT_HANDOFF",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -1327,7 +1327,7 @@
    "code": "FROZEN_WITHOUT_TOOLING_PROVENANCE",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -1336,7 +1336,7 @@
    "code": "GHOST_INPUT_WITHOUT_GHOST_ACTION",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -1381,16 +1381,25 @@
    "code": "GUID_SOURCE_AUTHORITY_MISMATCH",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
+   "also_used_by": []
+  },
+  {
+   "code": "HANDOFF_AUDIO_NOT_LOSSLESS",
+   "family": "handoff-measurement",
+   "source": "lead (L-29, owner OD-24)",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
+   "status": "implemented",
+   "meaning": "Per-asset measurement provenance; lossless audio only; video measured with ffprobe.",
    "also_used_by": []
   },
   {
    "code": "HANDOFF_FORK",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1399,7 +1408,7 @@
    "code": "HANDOFF_ID_MISMATCH",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1408,7 +1417,7 @@
    "code": "HANDOFF_INDEX_EMAIL",
    "family": "handoff-index-scan",
    "source": "E (IC-E4)",
-   "module": "bllt_publish.ops.handoff_index_scan",
+   "module": "feltwillow_publish.ops.handoff_index_scan",
    "status": "implemented",
    "meaning": "Untrusted-CI scan of publishing/handoffs/**.",
    "also_used_by": []
@@ -1417,7 +1426,7 @@
    "code": "HANDOFF_INDEX_FORBIDDEN_FILE",
    "family": "handoff-index-scan",
    "source": "E (IC-E4)",
-   "module": "bllt_publish.ops.handoff_index_scan",
+   "module": "feltwillow_publish.ops.handoff_index_scan",
    "status": "implemented",
    "meaning": "Untrusted-CI scan of publishing/handoffs/**.",
    "also_used_by": []
@@ -1426,7 +1435,7 @@
    "code": "HANDOFF_INDEX_MACHINE_PATH",
    "family": "handoff-index-scan",
    "source": "E (IC-E4)",
-   "module": "bllt_publish.ops.handoff_index_scan",
+   "module": "feltwillow_publish.ops.handoff_index_scan",
    "status": "implemented",
    "meaning": "Untrusted-CI scan of publishing/handoffs/**.",
    "also_used_by": []
@@ -1435,7 +1444,7 @@
    "code": "HANDOFF_INDEX_PRIVATE_FIELD",
    "family": "handoff-index-scan",
    "source": "E (IC-E4)",
-   "module": "bllt_publish.ops.handoff_index_scan",
+   "module": "feltwillow_publish.ops.handoff_index_scan",
    "status": "implemented",
    "meaning": "Untrusted-CI scan of publishing/handoffs/**.",
    "also_used_by": []
@@ -1444,7 +1453,7 @@
    "code": "HANDOFF_INDEX_SECRET",
    "family": "handoff-index-scan",
    "source": "E (IC-E4)",
-   "module": "bllt_publish.ops.handoff_index_scan",
+   "module": "feltwillow_publish.ops.handoff_index_scan",
    "status": "implemented",
    "meaning": "Untrusted-CI scan of publishing/handoffs/**.",
    "also_used_by": []
@@ -1453,7 +1462,7 @@
    "code": "HANDOFF_RECORD_MISSING",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1462,7 +1471,7 @@
    "code": "HANDOFF_REVISION_CONFLICT",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1471,7 +1480,7 @@
    "code": "HASH_MISMATCH",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1480,7 +1489,7 @@
    "code": "IMPORT_IO_ERROR",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1489,7 +1498,7 @@
    "code": "IMPORT_LOCKED",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1498,7 +1507,7 @@
    "code": "IMPORT_STATE_CORRUPT",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1507,7 +1516,7 @@
    "code": "INCOMPLETE_RIGHTS_CLEARANCE",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1516,7 +1525,7 @@
    "code": "INVALID_POSITIVE_APPROVAL",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -1525,7 +1534,7 @@
    "code": "ITEM_ADDED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1534,7 +1543,7 @@
    "code": "ITEM_COUNT_MISMATCH",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1543,7 +1552,7 @@
    "code": "ITEM_REMOVED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1552,7 +1561,7 @@
    "code": "ITEM_WITHOUT_ENCLOSURE",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1561,7 +1570,7 @@
    "code": "ITEM_WITHOUT_GUID",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1570,7 +1579,7 @@
    "code": "ITEM_WITHOUT_PUBDATE",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1588,7 +1597,7 @@
    "code": "LEAK_SCAN_REPORT_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -1597,7 +1606,7 @@
    "code": "LISTED_WITHOUT_URL",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1606,7 +1615,7 @@
    "code": "LOCK_MISSING_EMITTED_SCHEMA",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -1615,7 +1624,7 @@
    "code": "MANUAL_PENDING_WITH_OUTCOME",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -1634,9 +1643,27 @@
    "code": "MEASUREMENT_MISMATCH",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
+   "also_used_by": []
+  },
+  {
+   "code": "MEASUREMENT_PROVENANCE_MISSING",
+   "family": "handoff-measurement",
+   "source": "lead (L-29, owner OD-24)",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
+   "status": "implemented",
+   "meaning": "Per-asset measurement provenance; lossless audio only; video measured with ffprobe.",
+   "also_used_by": []
+  },
+  {
+   "code": "MEASUREMENT_TOOL_UNAVAILABLE",
+   "family": "production-exporter-l29",
+   "source": "lead (L-29) for G3's exporter",
+   "module": "production/export_handoff.py (to be added by G3)",
+   "status": "planned",
+   "meaning": "Video selected but ffprobe not available: the exporter refuses video (owner OD-24).",
    "also_used_by": []
   },
   {
@@ -1652,7 +1679,7 @@
    "code": "MEDIA_TYPE_MISMATCH",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1661,7 +1688,7 @@
    "code": "MEDIA_TYPE_ROLE_MISMATCH",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1670,7 +1697,7 @@
    "code": "MIGRATION_GUID_NOT_RETAINED",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1679,7 +1706,7 @@
    "code": "MISSING_ASSET",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -1688,7 +1715,7 @@
    "code": "MISSING_BYTES",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -1697,7 +1724,7 @@
    "code": "MISSING_IMAGE_DIMENSIONS",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -1706,7 +1733,7 @@
    "code": "MISSING_MEASUREMENT",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1715,7 +1742,7 @@
    "code": "MISSING_MEDIA_DURATION",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -1724,7 +1751,7 @@
    "code": "MISSING_ORIGIN",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1733,7 +1760,7 @@
    "code": "MODULE_NOT_ENABLED",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1751,7 +1778,7 @@
    "code": "MULTIPLE_FEED_AUTHORITIES",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1760,7 +1787,7 @@
    "code": "MULTIPLE_WEBSITES",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1769,7 +1796,7 @@
    "code": "NATIVE_AUDIO_REFERENCE_MISSING",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1778,7 +1805,7 @@
    "code": "NEW_FEED_URL_ANNOUNCED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1815,7 +1842,7 @@
    "code": "NOT_A_RELEASE",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -1833,7 +1860,7 @@
    "code": "NO_COMPONENTS",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1842,7 +1869,7 @@
    "code": "OBSERVATION_ID_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -1861,7 +1888,7 @@
    "code": "ORIGIN_COMMIT_INCONSISTENT",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1870,7 +1897,7 @@
    "code": "ORIGIN_INCOMPLETE",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -1897,7 +1924,7 @@
    "code": "OWNER_INFRA_COST_DECLARED",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -1915,7 +1942,7 @@
    "code": "PACKAGE_PATH_MISMATCH",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1924,7 +1951,7 @@
    "code": "PACKAGE_PATH_MISSING",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1933,7 +1960,7 @@
    "code": "PARENT_HASH_MISMATCH",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -1951,7 +1978,7 @@
    "code": "PERMALINK_FLAG_CHANGED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1960,7 +1987,7 @@
    "code": "PERMALINK_FLAG_DRIFT",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -1969,7 +1996,7 @@
    "code": "PLACEHOLDER_URL_IN_REAL_RECORD",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -1978,7 +2005,7 @@
    "code": "PLAN_EXPIRY_ORDER",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -1987,7 +2014,7 @@
    "code": "PODCAST_COVER_DIMENSIONS",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -1996,7 +2023,7 @@
    "code": "PODCAST_ID_MISSING",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -2005,7 +2032,7 @@
    "code": "PRIMARY_MODULE_SPEC_ONLY",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -2014,7 +2041,7 @@
    "code": "PRIMARY_NOT_SELECTED",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -2032,7 +2059,7 @@
    "code": "PRODUCTION_WRITE_SWITCH_CONFLICT",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -2041,7 +2068,7 @@
    "code": "PROFILE_MISMATCH",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -2050,7 +2077,7 @@
    "code": "PROJECT_INVALID",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -2059,7 +2086,7 @@
    "code": "PUBDATE_CHANGED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -2068,7 +2095,7 @@
    "code": "PUBDATE_RAW_UTC_MISMATCH",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -2077,7 +2104,7 @@
    "code": "PUBDATE_UNPARSEABLE",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -2086,7 +2113,7 @@
    "code": "PUBLIC_CONTACT_ACK_WITHOUT_EMAIL",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -2095,7 +2122,7 @@
    "code": "PUBLIC_CONTACT_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -2104,7 +2131,7 @@
    "code": "PUBLIC_DENYLIST_TERM",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2113,7 +2140,7 @@
    "code": "PUBLIC_EMAIL_NOT_ALLOWLISTED",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2122,7 +2149,7 @@
    "code": "PUBLIC_EXECUTABLE_CONTENT",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2131,7 +2158,7 @@
    "code": "PUBLIC_EXECUTABLE_MODE",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2140,7 +2167,7 @@
    "code": "PUBLIC_FILE_TOO_LARGE_TO_SCAN",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2149,7 +2176,7 @@
    "code": "PUBLIC_FORBIDDEN_FILE",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -2168,7 +2195,7 @@
    "code": "PUBLIC_JSON_INVALID",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2187,7 +2214,7 @@
    "code": "PUBLIC_LINK_FORBIDDEN",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2196,7 +2223,7 @@
    "code": "PUBLIC_MACHINE_PATH",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2205,7 +2232,7 @@
    "code": "PUBLIC_MEDIA_METADATA",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2214,7 +2241,7 @@
    "code": "PUBLIC_NONASCII_PATH",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2223,7 +2250,7 @@
    "code": "PUBLIC_PLACEHOLDER",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2242,7 +2269,7 @@
    "code": "PUBLIC_PRIVATE_ADDRESS",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2251,7 +2278,7 @@
    "code": "PUBLIC_PRIVATE_FIELD",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2260,7 +2287,7 @@
    "code": "PUBLIC_PRODUCTION_PATH",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2269,7 +2296,7 @@
    "code": "PUBLIC_SECRET_PATTERN",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2278,7 +2305,7 @@
    "code": "PUBLIC_SIGNED_URL",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2287,7 +2314,7 @@
    "code": "PUBLIC_SPECIAL_FILE",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2296,7 +2323,7 @@
    "code": "PUBLIC_TEXT_NOT_UTF8",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2305,7 +2332,7 @@
    "code": "PUBLIC_URL_CREDENTIALS",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2314,7 +2341,7 @@
    "code": "PUBLIC_URL_HOST_NOT_ALLOWED",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2323,7 +2350,7 @@
    "code": "PUBLIC_URL_NOT_HTTPS",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2332,7 +2359,7 @@
    "code": "PUBLIC_URL_UNPARSEABLE",
    "family": "leak-scan",
    "source": "E",
-   "module": "bllt_publish.ops.leak_scan",
+   "module": "feltwillow_publish.ops.leak_scan",
    "status": "implemented",
    "meaning": "Content-level scan of the exact upload directory (heuristic; clean = no listed pattern matched).",
    "also_used_by": []
@@ -2341,7 +2368,7 @@
    "code": "PUBLISHED_EPISODE_INCOMPLETE",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -2350,7 +2377,7 @@
    "code": "PUBLISHING_HOLDS_PRODUCTION_CAPABILITY",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -2359,7 +2386,7 @@
    "code": "PURPOSE_REVISION_MISMATCH",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -2368,7 +2395,7 @@
    "code": "RANGE_BODY_LENGTH_MISMATCH",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
    "also_used_by": []
@@ -2377,7 +2404,7 @@
    "code": "RANGE_NOT_SUPPORTED",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
    "also_used_by": []
@@ -2386,16 +2413,61 @@
    "code": "RANGE_TOTAL_MISMATCH",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
+   "also_used_by": []
+  },
+  {
+   "code": "READING_EDITION_ID_MISMATCH",
+   "family": "reading-edition",
+   "source": "lead (L-28, owner OD-14)",
+   "module": "feltwillow_publish.contracts.validate",
+   "status": "implemented",
+   "meaning": "Reading text is authored in publishing as reading-edition.v1; releases with a website channel pin one.",
+   "also_used_by": []
+  },
+  {
+   "code": "READING_EDITION_MISMATCH",
+   "family": "reading-edition",
+   "source": "lead (L-28, owner OD-14)",
+   "module": "feltwillow_publish.contracts.validate",
+   "status": "implemented",
+   "meaning": "Reading text is authored in publishing as reading-edition.v1; releases with a website channel pin one.",
+   "also_used_by": []
+  },
+  {
+   "code": "READING_EDITION_MISSING",
+   "family": "reading-edition",
+   "source": "lead (L-28, owner OD-14)",
+   "module": "feltwillow_publish.contracts.validate",
+   "status": "implemented",
+   "meaning": "Reading text is authored in publishing as reading-edition.v1; releases with a website channel pin one.",
+   "also_used_by": []
+  },
+  {
+   "code": "READING_EDITION_WITHOUT_TEXT",
+   "family": "reading-edition",
+   "source": "lead (L-28, owner OD-14)",
+   "module": "feltwillow_publish.contracts.validate",
+   "status": "implemented",
+   "meaning": "Reading text is authored in publishing as reading-edition.v1; releases with a website channel pin one.",
+   "also_used_by": []
+  },
+  {
+   "code": "READING_SOURCE_OTHER_EDITION",
+   "family": "reading-edition",
+   "source": "lead (L-28, owner OD-14)",
+   "module": "feltwillow_publish.contracts.validate",
+   "status": "implemented",
+   "meaning": "Reading text is authored in publishing as reading-edition.v1; releases with a website channel pin one.",
    "also_used_by": []
   },
   {
    "code": "REAL_LOOKING_URL_IN_EXAMPLE",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -2404,7 +2476,7 @@
    "code": "REASON_REQUIRED",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -2413,7 +2485,7 @@
    "code": "RECEIPT_DIGEST_SOURCE_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -2422,7 +2494,7 @@
    "code": "RECEIPT_EVIDENCE_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -2431,7 +2503,7 @@
    "code": "RECEIPT_OUTCOME_INCONSISTENT",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -2440,7 +2512,7 @@
    "code": "REDIRECT_TO_UNAPPROVED_HOST",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
    "also_used_by": []
@@ -2449,7 +2521,7 @@
    "code": "REFERENCED_MEDIA_NOT_SUPPORTED",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -2467,7 +2539,7 @@
    "code": "RELEASE_ID_MISMATCH",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -2476,7 +2548,7 @@
    "code": "RELEASE_NOT_FROZEN",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -2485,7 +2557,7 @@
    "code": "REMOTE_REFERENCE_FORBIDDEN",
    "family": "negotiation-structure",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "Record kind/version negotiation, path pre-pass and JSON Schema validation.",
    "also_used_by": []
@@ -2503,7 +2575,7 @@
    "code": "REVOCATION_TARGET_MISSING",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -2512,7 +2584,7 @@
    "code": "REVOCATION_TARGET_UNEXPECTED",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -2521,7 +2593,7 @@
    "code": "REVOCATION_WITH_ASSETS",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -2530,7 +2602,7 @@
    "code": "RIGHTS_NOT_CLEARED",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -2539,7 +2611,7 @@
    "code": "RIGHTS_RECORD_HASH_MISSING",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -2548,7 +2620,7 @@
    "code": "RIGHTS_REVIEW_EVIDENCE_MISSING",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -2557,7 +2629,7 @@
    "code": "RI_FILE_DIGEST_MISMATCH",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2566,7 +2638,7 @@
    "code": "RI_FILE_NOT_IN_PAYLOAD",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2575,7 +2647,7 @@
    "code": "RI_MEDIA_TYPE_MISMATCH",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2584,7 +2656,7 @@
    "code": "RI_MISSING_FILE",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2593,7 +2665,7 @@
    "code": "RI_NOT_WEB_BUNDLE",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2602,7 +2674,7 @@
    "code": "RI_PAYLOAD_MANIFEST_DISAGREE",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2611,7 +2683,7 @@
    "code": "RI_PAYLOAD_MEDIA_NOT_LISTED",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2620,7 +2692,7 @@
    "code": "RI_PAYLOAD_MISSING",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2629,7 +2701,7 @@
    "code": "RI_PAYLOAD_NOT_CANONICAL",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2638,7 +2710,7 @@
    "code": "RI_PAYLOAD_PARSE",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2647,7 +2719,7 @@
    "code": "RI_PUBLIC_RECORD_DIGEST_MISMATCH",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2656,7 +2728,7 @@
    "code": "RI_RELEASES_MISMATCH",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2665,7 +2737,7 @@
    "code": "RI_RENDERER_MUST_BE_NULL",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2674,7 +2746,7 @@
    "code": "RI_SITE_SET_MISMATCH",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2683,7 +2755,7 @@
    "code": "RI_TREE_SPECIAL_FILE",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2692,7 +2764,7 @@
    "code": "RI_TREE_SYMLINK",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2701,7 +2773,7 @@
    "code": "RI_UNLISTED_FILE",
    "family": "web-render-input",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Render-input bundle vs manifest and bytes; RI_<code> also wraps any validator code of the manifest.",
    "also_used_by": []
@@ -2710,7 +2782,7 @@
    "code": "SA_404_MISSING",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2719,7 +2791,7 @@
    "code": "SA_AUTOPLAY",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2728,7 +2800,7 @@
    "code": "SA_EAGER_IFRAME",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2737,7 +2809,7 @@
    "code": "SA_FILE_DIGEST_MISMATCH",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2746,7 +2818,7 @@
    "code": "SA_HTML_LANG_MISMATCH",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2755,7 +2827,7 @@
    "code": "SA_ILLUSTRATION_ORDER",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2764,7 +2836,7 @@
    "code": "SA_IMG_WITHOUT_ALT",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2773,7 +2845,7 @@
    "code": "SA_INPUTS_DIFFER_FROM_RENDER_INPUT",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2782,7 +2854,7 @@
    "code": "SA_INPUT_MEDIA_NOT_SHIPPED",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2791,7 +2863,7 @@
    "code": "SA_LANDMARK_MISSING",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2800,7 +2872,7 @@
    "code": "SA_LOCAL_PATH_OR_SECRET_PATTERN",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2809,7 +2881,7 @@
    "code": "SA_MANIFEST_TREE_DIFFER",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2818,7 +2890,7 @@
    "code": "SA_MEDIA_NOT_FROM_INPUT",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2827,7 +2899,7 @@
    "code": "SA_REMOTE_SCRIPT",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2836,7 +2908,7 @@
    "code": "SA_RENDERER_REQUIRED",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2845,7 +2917,7 @@
    "code": "SA_ROUTE_MISSING",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2854,7 +2926,7 @@
    "code": "SA_TREE_SPECIAL_FILE",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2863,7 +2935,7 @@
    "code": "SA_TREE_SYMLINK",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2872,7 +2944,7 @@
    "code": "SA_UNEXPECTED_FILE",
    "family": "web-site-artifact",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "Renderer output tree vs its input (tested on a synthetic tree only); SA_<code> wraps validator codes.",
    "also_used_by": []
@@ -2900,7 +2972,7 @@
    "code": "SCHEMA_VIOLATION",
    "family": "negotiation-structure",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "Record kind/version negotiation, path pre-pass and JSON Schema validation.",
    "also_used_by": []
@@ -2909,7 +2981,7 @@
    "code": "SC_LANGUAGE_DROPPED",
    "family": "web-completeness",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "A later site-set keeps earlier stories.",
    "also_used_by": []
@@ -2918,7 +2990,7 @@
    "code": "SC_PATH_CHANGED_WITHOUT_REDIRECT",
    "family": "web-completeness",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "A later site-set keeps earlier stories.",
    "also_used_by": []
@@ -2927,7 +2999,7 @@
    "code": "SC_REDIRECT_DROPPED",
    "family": "web-completeness",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "A later site-set keeps earlier stories.",
    "also_used_by": []
@@ -2936,7 +3008,7 @@
    "code": "SC_STORY_DROPPED",
    "family": "web-completeness",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "A later site-set keeps earlier stories.",
    "also_used_by": []
@@ -2954,7 +3026,7 @@
    "code": "SELECTED_SOURCE_DIRTY",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -2999,7 +3071,7 @@
    "code": "SELECTION_MISSING_CONTRADICTION",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3017,7 +3089,7 @@
    "code": "SELECTION_SLOT_INVALID",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3026,7 +3098,7 @@
    "code": "SERVICE_INVENTORY_INVALID",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3035,7 +3107,7 @@
    "code": "SERVICE_INVENTORY_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3044,7 +3116,7 @@
    "code": "SERVICE_STATE_INVALID",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3072,7 +3144,7 @@
    "code": "SITE_SET_EMPTY",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3081,7 +3153,7 @@
    "code": "SIZE_MISMATCH",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -3117,7 +3189,7 @@
    "code": "SOURCE_COMMIT_MISMATCH",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3126,7 +3198,7 @@
    "code": "SOURCE_HASH_MISSING",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -3135,7 +3207,7 @@
    "code": "SPOTIFY_EPISODE_REFERENCE_MISSING",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -3144,7 +3216,7 @@
    "code": "SPOTIFY_GUID_BEFORE_OBSERVATION",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -3153,7 +3225,7 @@
    "code": "STAGE_SUBJECT_MISMATCH",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -3162,25 +3234,25 @@
    "code": "STATE_ROOT_UNSAFE",
    "family": "storage-roots",
    "source": "lead (IC-A4, IC-E1)",
-   "module": "bllt_publish.ops.state_roots",
+   "module": "feltwillow_publish.ops.state_roots",
    "status": "implemented",
-   "meaning": "BLLT_HANDOFF_INBOX / BLLT_MASTER_ROOT / BLLT_PUBLISH_STATE_ROOT missing, or relative / inside Git / inside OneDrive / on LUMI shared storage.",
+   "meaning": "FELTWILLOW_HANDOFF_INBOX / FELTWILLOW_MASTER_ROOT / FELTWILLOW_PUBLISH_STATE_ROOT missing, or relative / inside Git / inside OneDrive / on LUMI shared storage.",
    "also_used_by": []
   },
   {
    "code": "STATE_ROOT_UNSET",
    "family": "storage-roots",
    "source": "lead (IC-A4, IC-E1)",
-   "module": "bllt_publish.ops.state_roots",
+   "module": "feltwillow_publish.ops.state_roots",
    "status": "implemented",
-   "meaning": "BLLT_HANDOFF_INBOX / BLLT_MASTER_ROOT / BLLT_PUBLISH_STATE_ROOT missing, or relative / inside Git / inside OneDrive / on LUMI shared storage.",
+   "meaning": "FELTWILLOW_HANDOFF_INBOX / FELTWILLOW_MASTER_ROOT / FELTWILLOW_PUBLISH_STATE_ROOT missing, or relative / inside Git / inside OneDrive / on LUMI shared storage.",
    "also_used_by": []
   },
   {
    "code": "STORY_NOT_ALLOCATED",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -3189,7 +3261,7 @@
    "code": "STRICT_ZERO_REPORT_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3198,7 +3270,7 @@
    "code": "SUBMITTED_SHA256_REQUIRED",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3207,7 +3279,7 @@
    "code": "SUPERSEDES_INCONSISTENT",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -3216,7 +3288,7 @@
    "code": "SUPERSEDES_NOT_EARLIER",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3225,7 +3297,7 @@
    "code": "SUPERSEDES_OTHER_EDITION",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3234,7 +3306,7 @@
    "code": "SUPERSEDES_REQUIRED",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3243,7 +3315,7 @@
    "code": "SUPERSEDES_UNEXPECTED",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3252,7 +3324,7 @@
    "code": "SUPERSEDES_UNKNOWN",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -3261,7 +3333,7 @@
    "code": "SUPERSEDES_UNKNOWN_RECORD",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -3270,7 +3342,7 @@
    "code": "SUSPECTED_GUID_REWRITE",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -3297,7 +3369,7 @@
    "code": "TIMESTAMP_ORDER",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3306,7 +3378,7 @@
    "code": "TITLE_CHANGED",
    "family": "podcast-feed",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "Safe feed parsing (refusals), observation problems, change events and reconcile findings.",
    "also_used_by": []
@@ -3315,7 +3387,7 @@
    "code": "TOO_MANY_REDIRECTS",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
    "also_used_by": []
@@ -3324,7 +3396,7 @@
    "code": "UNAPPROVED_ASSET",
    "family": "declarative-readiness",
    "source": "v2 checker (ported)",
-   "module": "bllt_publish.contracts.validate.readiness_errors",
+   "module": "feltwillow_publish.contracts.validate.readiness_errors",
    "status": "implemented",
    "meaning": "Declaration-only readiness of a release.v2 for one channel; an empty result is NOT permission to publish.",
    "also_used_by": []
@@ -3333,7 +3405,7 @@
    "code": "UNEXPECTED_FILE",
    "family": "import-protocol",
    "source": "B (H2 storage layout: lead)",
-   "module": "bllt_publish.imports.importer",
+   "module": "feltwillow_publish.imports.importer",
    "status": "implemented",
    "meaning": "Reference import of a handoff tar; any code here means nothing was promoted.",
    "also_used_by": []
@@ -3342,7 +3414,7 @@
    "code": "UNKNOWN_ASSET",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3351,7 +3423,7 @@
    "code": "UNKNOWN_CAPABILITY_OR_PROVIDER",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3360,7 +3432,7 @@
    "code": "UNKNOWN_PARENT_ASSET",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3369,7 +3441,7 @@
    "code": "UNKNOWN_RECORD_KIND",
    "family": "negotiation-structure",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "Record kind/version negotiation, path pre-pass and JSON Schema validation.",
    "also_used_by": []
@@ -3387,7 +3459,7 @@
    "code": "UNLISTED_HANDOFF",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -3396,7 +3468,7 @@
    "code": "UNREACHABLE",
    "family": "podcast-probe",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast.probe_media",
+   "module": "feltwillow_publish.podcast.podcast.probe_media",
    "status": "implemented",
    "meaning": "HEAD + byte-range probe findings (tests use a local 127.0.0.1 server only).",
    "also_used_by": []
@@ -3405,7 +3477,7 @@
    "code": "UNREFERENCED_ASSET",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3414,7 +3486,7 @@
    "code": "UNSAFE_PATH",
    "family": "negotiation-structure",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "Record kind/version negotiation, path pre-pass and JSON Schema validation.",
    "also_used_by": []
@@ -3423,7 +3495,7 @@
    "code": "UNSAFE_REMOVAL_PATH",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -3432,7 +3504,7 @@
    "code": "UNSAFE_URL",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -3441,7 +3513,7 @@
    "code": "UNSUPPORTED_OPERATION",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -3450,7 +3522,7 @@
    "code": "URL_KIND_CONFLICT",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -3459,7 +3531,7 @@
    "code": "URL_KIND_DESTINATION_MISMATCH",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -3468,7 +3540,7 @@
    "code": "URL_KIND_ENTITY_MISMATCH",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
    "also_used_by": []
@@ -3477,16 +3549,25 @@
    "code": "URL_KIND_REQUIRED",
    "family": "podcast-records",
    "source": "D",
-   "module": "bllt_publish.podcast.podcast",
+   "module": "feltwillow_publish.podcast.podcast",
    "status": "implemented",
    "meaning": "episode-publication.v2 / provider-registry.v2 / feed-observation.v1 semantics and identity succession.",
+   "also_used_by": []
+  },
+  {
+   "code": "VIDEO_MEASUREMENT_REQUIRES_FFPROBE",
+   "family": "handoff-measurement",
+   "source": "lead (L-29, owner OD-24)",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
+   "status": "implemented",
+   "meaning": "Per-asset measurement provenance; lossless audio only; video measured with ffprobe.",
    "also_used_by": []
   },
   {
    "code": "WB_AGE_RANGE",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3495,7 +3576,7 @@
    "code": "WB_CANONICAL_DOMAIN",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3504,7 +3585,7 @@
    "code": "WB_DEFAULT_LANGUAGE_UNKNOWN",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3513,7 +3594,7 @@
    "code": "WB_DIVERGENCE_INCONSISTENT",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3522,7 +3603,7 @@
    "code": "WB_DURATION_MISMATCH",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3531,7 +3612,7 @@
    "code": "WB_DURATION_REQUIRED",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3549,7 +3630,7 @@
    "code": "WB_IMAGE_DIMENSIONS_MISSING",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3558,7 +3639,7 @@
    "code": "WB_LANGUAGE_DUPLICATE",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3567,7 +3648,7 @@
    "code": "WB_LANGUAGE_PATH_MISMATCH",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3576,7 +3657,7 @@
    "code": "WB_MEDIA_PATH_NOT_CONTENT_ADDRESSED",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3585,7 +3666,7 @@
    "code": "WB_MEDIA_SOURCE_MISMATCH",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3594,7 +3675,7 @@
    "code": "WB_MEDIA_UNRESOLVED",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3603,7 +3684,7 @@
    "code": "WB_MEDIA_UNUSED",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3612,7 +3693,7 @@
    "code": "WB_PAGE_LANGUAGE_UNKNOWN",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3621,7 +3702,7 @@
    "code": "WB_PAGE_PATH_LANGUAGE_MISMATCH",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3630,7 +3711,7 @@
    "code": "WB_REDIRECT_DUPLICATE",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3639,7 +3720,7 @@
    "code": "WB_REDIRECT_SHADOWS_ROUTE",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3648,7 +3729,7 @@
    "code": "WB_REDIRECT_TARGET_MISSING",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3657,7 +3738,7 @@
    "code": "WB_RELEASE_MISMATCH",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3666,7 +3747,7 @@
    "code": "WB_ROUTE_DUPLICATE",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3675,7 +3756,7 @@
    "code": "WB_SCHEMA",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3684,7 +3765,7 @@
    "code": "WB_STORY_LANGUAGE_DUPLICATE",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3693,7 +3774,7 @@
    "code": "WB_STORY_LANGUAGE_UNKNOWN",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3702,7 +3783,7 @@
    "code": "WB_STORY_PATH_LANGUAGE_MISMATCH",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3711,7 +3792,7 @@
    "code": "WB_TIMESTAMP_ORDER",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3720,7 +3801,7 @@
    "code": "WB_TRANSCRIPT_REQUIRED",
    "family": "web-payload",
    "source": "C",
-   "module": "bllt_publish.web.contract",
+   "module": "feltwillow_publish.web.contract",
    "status": "implemented",
    "meaning": "web-bundle.v2 payload rules.",
    "also_used_by": []
@@ -3729,7 +3810,7 @@
    "code": "WEBSITE_PLAN_TOUCHES_PODCAST",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3738,7 +3819,7 @@
    "code": "WEB_BUNDLE_WITHOUT_SITE_SET",
    "family": "release-approval-receipt-manifest-lock",
    "source": "B",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "release.v2, approval.v2, import-receipt.v1, public-bundle-manifest.v1, contract-lock.v1 rules.",
    "also_used_by": []
@@ -3756,7 +3837,7 @@
    "code": "WEB_PLAN_WITHOUT_SITE_SET",
    "family": "h2-records",
    "source": "lead (DECISIONS_H2 s.3)",
-   "module": "bllt_publish.contracts.validate",
+   "module": "feltwillow_publish.contracts.validate",
    "status": "implemented",
    "meaning": "publish-plan.v2, publish-receipt.v2, media-delivery.v2, site-set.v2, project.v2, service-inventory.v1, approval scope rights_review.podcast_audio and handoff-selection.v1 rules.",
    "also_used_by": []
@@ -3765,7 +3846,7 @@
    "code": "WORKTREE_STATE_INCONSISTENT",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3774,7 +3855,7 @@
    "code": "WRONG_ASSET_ROLE",
    "family": "handoff-semantics",
    "source": "B",
-   "module": "bllt_publish.contracts.validate.sem_handoff",
+   "module": "feltwillow_publish.contracts.validate.sem_handoff",
    "status": "implemented",
    "meaning": "production-handoff.v1 cross-field rules.",
    "also_used_by": []
@@ -3783,7 +3864,7 @@
    "code": "WRONG_EMBED_HOST",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": []
@@ -3855,7 +3936,7 @@
    "code": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
    "family": "v2-semantics-ported",
    "source": "v2 checker (ported to H2 by G1 after Agent F's B1)",
-   "module": "bllt_publish.contracts.validate (+ podcast/web semantics)",
+   "module": "feltwillow_publish.contracts.validate (+ podcast/web semantics)",
    "status": "implemented",
    "meaning": "v2 validate_blueprint.py semantic rules, kept with their v2 codes and adapted to H2 fields (see DEPRECATED_V2_RULES.md for adapted and retired rules).",
    "also_used_by": [
@@ -3866,7 +3947,7 @@
    "code": "ZERO_PROFILE_HARD_LIMIT_NOT_PROVEN",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3875,7 +3956,7 @@
    "code": "ZERO_PROFILE_HOST_UNDECLARED",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3884,7 +3965,7 @@
    "code": "ZERO_PROFILE_MULTIPLE_HOSTS",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3893,7 +3974,7 @@
    "code": "ZERO_PROFILE_ORIGIN_NOT_PROVIDER_SUBDOMAIN",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3902,7 +3983,7 @@
    "code": "ZERO_PROFILE_OVERAGE_ENABLED",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []
@@ -3911,7 +3992,7 @@
    "code": "ZERO_PROFILE_PODCAST_HOST_UNDECLARED",
    "family": "strict-zero",
    "source": "E",
-   "module": "bllt_publish.ops.strict_zero",
+   "module": "feltwillow_publish.ops.strict_zero",
    "status": "implemented",
    "meaning": "Fail-closed declaration check of project + service-inventory (OWNER_INFRA_COST_DECLARED is informational).",
    "also_used_by": []

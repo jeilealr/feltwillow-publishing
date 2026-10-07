@@ -9,6 +9,6 @@
       "value": "handoffs/lion-and-mouse/en/lion-and-mouse.en.h0001.abababababababababababababababababababababababababababababababab.tar"
     }
   ],
-  "description": "Archive layout moved to BLLT_MASTER_ROOT/handoffs/<sha256>.tar (s.2).",
+  "description": "Archive layout moved to FELTWILLOW_MASTER_ROOT/handoffs/<sha256>.tar (s.2).",
   "rule": "H2 (DECISIONS_H2)"
 }

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/0/measurement/tool",
+      "value": "imagemagick"
+    }
+  ],
+  "description": "Measurement tools: feltwillow-stdlib or ffprobe.",
+  "rule": "L-29 (measurement provenance, lossless audio)"
+}

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/episode-publication.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/episode-publication.v1.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -14,7 +14,7 @@
       "type": "boolean"
     },
     "show_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
     },
     "episode_id": {
       "type": "string",
@@ -25,7 +25,7 @@
       "minLength": 1
     },
     "release_sha256": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/sha256"
     },
     "authority": {
       "enum": [
@@ -56,7 +56,7 @@
       "additionalProperties": false,
       "properties": {
         "url": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/https"
         },
         "length_bytes": {
           "type": "integer",
@@ -73,7 +73,7 @@
           "exclusiveMinimum": 0
         },
         "submitted_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/sha256"
         },
         "observed_sha256": {
           "anyOf": [

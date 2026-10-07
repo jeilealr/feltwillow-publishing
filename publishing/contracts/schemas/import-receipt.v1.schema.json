@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/import-receipt.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/import-receipt.v1.json",
   "title": "Import receipt v1",
-  "description": "Durable, append-only observation of one import attempt, stored in BLLT_PUBLISH_STATE_ROOT/receipts/. The archived tar lives at BLLT_MASTER_ROOT/handoffs/<archive sha256>.tar. Never an approval. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "description": "Durable, append-only observation of one import attempt, stored in FELTWILLOW_PUBLISH_STATE_ROOT/receipts/. The archived tar lives at FELTWILLOW_MASTER_ROOT/handoffs/<archive sha256>.tar. Never an approval. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -16,7 +16,7 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "receipt_id": {
       "type": "string",
@@ -32,7 +32,7 @@
     "errors": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/error_code"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/error_code"
       },
       "uniqueItems": true,
       "maxItems": 200
@@ -40,7 +40,7 @@
     "handoff_id": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
         },
         {
           "type": "null"
@@ -52,10 +52,10 @@
       "additionalProperties": false,
       "properties": {
         "sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         "bytes": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
         }
       },
       "required": [
@@ -66,7 +66,7 @@
     "expected_archive_sha256": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         {
           "type": "null"
@@ -82,7 +82,7 @@
     "record_sha256": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         {
           "type": "null"
@@ -92,7 +92,7 @@
     "payload_sha256": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         {
           "type": "null"
@@ -114,7 +114,7 @@
     "supersedes": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_ref"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_ref"
         },
         {
           "type": "null"
@@ -146,7 +146,7 @@
         {
           "type": "string",
           "pattern": "^handoffs/[a-f0-9]{64}\\.tar$",
-          "description": "Relative to BLLT_MASTER_ROOT (DECISIONS_H2 s.2)."
+          "description": "Relative to FELTWILLOW_MASTER_ROOT (DECISIONS_H2 s.2)."
         },
         {
           "type": "null"
@@ -157,13 +157,13 @@
       "type": "boolean"
     },
     "staged_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "finished_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "operator": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/person"
     },
     "importer": {
       "type": "object",
@@ -175,12 +175,12 @@
           "maxLength": 128
         },
         "tool_version": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/semver"
         },
         "publishing_commit": {
           "anyOf": [
             {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/git_commit"
             },
             {
               "type": "null"

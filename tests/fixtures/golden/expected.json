@@ -1,5 +1,5 @@
 {
-  "algorithm": "bllt-canonical-json-v1",
+  "algorithm": "feltwillow-canonical-json-v1",
   "profile": "H1 safe domain",
   "generated_by": "tools/make_golden.py",
   "cases": [

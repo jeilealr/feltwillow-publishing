@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Podcast reference code (Agent D; integrated into bllt_publish.podcast for contract revision H2).
+"""Podcast reference code (Agent D; integrated into feltwillow_publish.podcast for contract revision H2).
 
 PROPOSED CONTRACT. Implemented and tested offline only; no provider is called.
 
 Offline helpers for the podcast runbooks:
   * validate()           schema + semantic checks for episode-publication.v2, provider-registry.v2,
-                          feed-observation.v1 (schema checks via bllt_publish.contracts.validate)
+                          feed-observation.v1 (schema checks via feltwillow_publish.contracts.validate)
   * observe_feed()       safe, read-only parse of a downloaded RSS document -> feed-observation record
   * diff_observations()  classify feed changes between two observations (identity-breaking vs expected)
   * check_succession()   episode identity must survive record revisions
@@ -280,7 +280,7 @@ def observe_feed(data: bytes, *, show_id, feed_url, fetched_at, observation_id, 
         problems.add("CHANNEL_ARTWORK_MISSING")
     return {
         "kind": "feed-observation", "schema_version": 1, "example": example,
-        "canonicalization": "bllt-canonical-json-v1", "observation_id": observation_id, "show_id": show_id,
+        "canonicalization": "feltwillow-canonical-json-v1", "observation_id": observation_id, "show_id": show_id,
         "feed_url": feed_url, "fetched_at": fetched_at, "fetch": fetch,
         "feed_sha256": hashlib.sha256(data).hexdigest(), "feed_bytes": len(data),
         "channel": {
@@ -446,7 +446,7 @@ def probe_media(url, *, expected_bytes, expected_type, allowed_redirect_hosts=()
     def call(method, extra=None):
         nonlocal current
         for _ in range(max_redirects + 1):
-            req = urllib.request.Request(current, method=method, headers={"User-Agent": "bllt-probe/0.1", **(extra or {})})
+            req = urllib.request.Request(current, method=method, headers={"User-Agent": "feltwillow-probe/0.1", **(extra or {})})
             try:
                 resp = opener.open(req, timeout=timeout)
                 return resp
@@ -498,7 +498,7 @@ def probe_media(url, *, expected_bytes, expected_type, allowed_redirect_hosts=()
 
 
 if __name__ == "__main__":
-    # CLI: observe a local feed file (no network). Usage: python -m bllt_publish.podcast.podcast observe FEED.xml SHOW_ID FEED_URL FETCHED_AT
+    # CLI: observe a local feed file (no network). Usage: python -m feltwillow_publish.podcast.podcast observe FEED.xml SHOW_ID FEED_URL FETCHED_AT
     if len(sys.argv) == 6 and sys.argv[1] == "observe":
         data = Path(sys.argv[2]).read_bytes()
         stamp = sys.argv[5].replace("-", "").replace(":", "")

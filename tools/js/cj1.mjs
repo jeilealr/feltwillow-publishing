@@ -1,4 +1,4 @@
-// BLLT canonical-json-v1, H1 safe-domain profile: independent JavaScript implementation.
+// Feltwillow canonical-json-v1, H1 safe-domain profile: independent JavaScript implementation.
 // handoff-contract draft H1, PROPOSED CONTRACT. Node.js >= 18, standard library only, offline.
 //
 // Usage: node tools/cj1.mjs golden/expected.json  -> prints a JSON report, exit 1 on any mismatch.

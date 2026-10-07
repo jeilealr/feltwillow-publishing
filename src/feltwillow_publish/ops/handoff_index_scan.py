@@ -3,7 +3,7 @@
 Runs in the untrusted CI tier (no secrets, no network). The index may hold only sanitized import facts
 (handoff_id, digests, contract version, receipt id); never tar files and never private handoff fields.
 
-    python -m bllt_publish.ops.handoff_index_scan <publishing/handoffs> [--report out.json]
+    python -m feltwillow_publish.ops.handoff_index_scan <publishing/handoffs> [--report out.json]
 Exit codes: 0 clean, 1 findings, 2 usage/IO error. Standard library only; never prints a matched secret.
 """
 from __future__ import annotations

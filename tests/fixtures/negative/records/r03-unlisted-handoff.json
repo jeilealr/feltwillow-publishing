@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/assets/1/origin/handoff_id",
+      "path": "/assets/0/origin/handoff_id",
       "value": "lion-and-mouse.en.h0009"
     }
   ],

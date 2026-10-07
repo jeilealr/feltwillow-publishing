@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Strict-zero configuration check (Agent E; integrated as bllt_publish.ops.strict_zero, H2).
+"""Strict-zero configuration check (Agent E; integrated as feltwillow_publish.ops.strict_zero, H2).
 
-    python -m bllt_publish.ops.strict_zero --project <project.json> --services <service-inventory.json>
+    python -m feltwillow_publish.ops.strict_zero --project <project.json> --services <service-inventory.json>
         [--today YYYY-MM-DD] [--max-evidence-age-days 180] [--report out.json]
 
 Validates a publishing `project` record (v2 project.v1 field set) together with a PROPOSED

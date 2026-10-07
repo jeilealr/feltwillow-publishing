@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/story-allocation.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/story-allocation.v1.json",
   "title": "Story ID allocation v1",
   "description": "Publishing-side assignment of a stable story ID, issued before the first handoff. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,10 +16,10 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "story_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
     },
     "status": {
       "enum": [
@@ -28,10 +28,10 @@
       ]
     },
     "allocated_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "allocated_by": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/person"
     },
     "working_title": {
       "type": "string",
@@ -51,7 +51,7 @@
     "planned_languages": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/language"
       },
       "minItems": 1,
       "uniqueItems": true

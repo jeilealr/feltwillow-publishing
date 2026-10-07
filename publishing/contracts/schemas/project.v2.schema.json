@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/project.v2.json",
+  "$id": "https://feltwillow.example.invalid/schemas/project.v2.json",
   "title": "Project v2",
   "description": "Sole active configuration (IC-A8, IC-D6, IC-E3): no source_branch (branch policy is documentation); ai_disclosure; public contact e-mail with explicit acknowledgement; pinned service-inventory reference. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,10 +16,10 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "project_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
     },
     "profile_option": {
       "enum": [
@@ -44,7 +44,7 @@
         "origin": {
           "anyOf": [
             {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/https_url"
             },
             {
               "type": "null"
@@ -183,7 +183,7 @@
     "public_contact_email": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/email"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/email"
         },
         {
           "type": "null"
@@ -201,10 +201,10 @@
           "additionalProperties": false,
           "properties": {
             "path": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/relpath"
             },
             "sha256": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
             }
           },
           "required": [

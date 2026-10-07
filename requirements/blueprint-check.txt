@@ -1,4 +1,4 @@
-# Offline contract checks (bllt_publish.check). Direct dependencies, exact pins (v2 requirements-blueprint.txt).
+# Offline contract checks (feltwillow_publish.check). Direct dependencies, exact pins (v2 requirements-blueprint.txt).
 # A hash-checked lock (pip --require-hashes) is a later work package (Agent E, CI-R10); not generated here.
 PyYAML==6.0.3
 jsonschema==4.26.0

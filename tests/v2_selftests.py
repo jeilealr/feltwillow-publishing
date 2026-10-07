@@ -7,9 +7,9 @@ import copy
 
 import yaml
 
-from bllt_publish.contracts import cj1
-from bllt_publish.contracts import validate as V
-from bllt_publish.contracts.yaml_strict import load_yaml
+from feltwillow_publish.contracts import cj1
+from feltwillow_publish.contracts import validate as V
+from feltwillow_publish.contracts.yaml_strict import load_yaml
 from support import ROOT, case
 
 

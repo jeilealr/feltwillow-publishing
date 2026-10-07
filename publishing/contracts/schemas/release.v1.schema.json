@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/release.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/release.v1.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -18,10 +18,10 @@
       "minLength": 1
     },
     "story_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
     },
     "language": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/language"
     },
     "revision": {
       "type": "integer",
@@ -36,7 +36,7 @@
     "sources": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/source"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/source"
       }
     },
     "content": {
@@ -48,7 +48,7 @@
           "minLength": 1
         },
         "slug": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
         },
         "summary": {
           "type": "string",
@@ -69,7 +69,7 @@
         "blocks": {
           "type": "array",
           "items": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/block"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/block"
           }
         }
       },
@@ -86,7 +86,7 @@
     "assets": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/asset"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/asset"
       }
     },
     "channels": {
@@ -110,7 +110,7 @@
             "audio_asset": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -120,7 +120,7 @@
             "cover_asset": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -169,7 +169,7 @@
             "show_id": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -197,7 +197,7 @@
             "audio_asset": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -207,7 +207,7 @@
             "artwork_asset": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -217,7 +217,7 @@
             "chapters_asset": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -249,7 +249,7 @@
             "video_asset": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -259,7 +259,7 @@
             "thumbnail_asset": {
               "anyOf": [
                 {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
                 },
                 {
                   "type": "null"
@@ -296,7 +296,7 @@
           ]
         },
         "record_path": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/path"
         },
         "record_sha256": {
           "anyOf": [

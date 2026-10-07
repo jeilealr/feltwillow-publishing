@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/1/bytes",
+      "path": "/payload/assets/0/bytes",
       "value": 9007199254740993
     }
   ],

@@ -33,13 +33,13 @@ SUPPORTED = {
     "public-bundle-manifest": {1}, "contract-lock": {1}, "story-allocation": {1},
     "web-bundle": {2}, "episode-publication": {2}, "provider-registry": {2}, "feed-observation": {1},
     "publish-plan": {2}, "publish-receipt": {2}, "media-delivery": {2}, "site-set": {2}, "project": {2},
-    "service-inventory": {1}, "handoff-selection": {1},
+    "service-inventory": {1}, "handoff-selection": {1}, "reading-edition": {1},
     # carried forward unchanged from the v2 package
     "catalog": {1}, "collection": {1}, "rights-review": {1}, "show": {1}, "story": {1},
 }
 
 ROLE_MEDIA = {
-    "reading-text": {"application/vnd.bllt.reading-blocks+json"}, "spoken-transcript": {"text/plain"},
+    "reading-text": {"application/vnd.feltwillow.reading-blocks+json"}, "spoken-transcript": {"text/plain"},
     "audio-master": {"audio/wav", "audio/flac"}, "audio-delivery": {"audio/mpeg", "audio/mp4"},
     "illustration": {"image/png", "image/jpeg", "image/webp"}, "cover-art": {"image/png", "image/jpeg"},
     "video-master": {"video/mp4", "video/quicktime"}, "video-delivery": {"video/mp4"},
@@ -54,9 +54,8 @@ REQUIRED_MEASURES = {
     "video-delivery": ("duration_ms", "width_px", "height_px", "frame_rate"),
 }
 COMPONENT_ROLES = {
-    ("reading", "text_asset"): {"reading-text"}, ("reading", "illustration_assets"): {"illustration"},
-    ("reading", "cover_asset"): {"cover-art"},
-    ("audio", "master_asset"): {"audio-master"}, ("audio", "delivery_asset"): {"audio-delivery"},
+    ("images", "illustration_assets"): {"illustration"}, ("images", "cover_asset"): {"cover-art"},  # L-28
+    ("audio", "master_asset"): {"audio-master"},
     ("audio", "transcript_asset"): {"spoken-transcript"},
     ("video", "master_asset"): {"video-master"}, ("video", "captions_asset"): {"captions"},
     ("video", "thumbnail_asset"): {"thumbnail"},
@@ -207,6 +206,14 @@ def sem_handoff(d) -> list[str]:
         aid = a["asset_id"]
         if a["media_type"] not in ROLE_MEDIA[a["role"]]:
             e.append(f"MEDIA_TYPE_ROLE_MISMATCH: {aid}")
+        # L-29: lossless audio only; measured media carry tool provenance; video measured by ffprobe
+        if a["media_type"] in ("audio/mpeg", "audio/mp4"):
+            e.append(f"HANDOFF_AUDIO_NOT_LOSSLESS: {aid}")
+        if a["media_type"].split("/")[0] in ("image", "audio", "video") and a["measurement"] is None:
+            e.append(f"MEASUREMENT_PROVENANCE_MISSING: {aid}")
+        if (a["media_type"].startswith("video/") and a["measurement"] is not None
+                and a["measurement"]["tool"] != "ffprobe"):
+            e.append(f"VIDEO_MEASUREMENT_REQUIRES_FFPROBE: {aid}")
         for m in REQUIRED_MEASURES.get(a["role"], ()):
             if a["measured"][m] is None:
                 e.append(f"MISSING_MEASUREMENT: {aid}.{m}")
@@ -316,7 +323,13 @@ def sem_release(d) -> list[str]:
             e.append("MISSING_IMAGE_DIMENSIONS")
         if a["role"] in ("audio-master", "podcast-audio", "video-master") and not a["duration_ms"]:
             e.append("MISSING_MEDIA_DURATION")
-    for field, roles in (("reading_text_asset", ("reading-text",)), ("spoken_transcript_asset", ("transcript",))):
+    # L-28: the reading text is a publishing-authored reading-edition record, pinned per release
+    ed = c["reading_edition"]
+    if ed is not None and not ed["edition_id"].startswith(f"{d['story_id']}.{d['language']}.e"):
+        e.append("READING_EDITION_MISMATCH")
+    if d["channels"]["website"]["requested"] and ed is None:
+        e.append("READING_EDITION_MISSING")
+    for field, roles in (("spoken_transcript_asset", ("transcript",)),):
         aid = c[field]
         if aid is not None and (aid not in assets or assets[aid]["role"] not in roles):
             e.append("UNKNOWN_ASSET: content." + field)
@@ -642,6 +655,8 @@ def readiness_errors(release, channel) -> list[str]:
         errors.append("SOURCE_HASH_MISSING")  # v2 sources[] are pinned handoffs in H2
     if not release["channels"][channel]["requested"]:
         errors.append("CHANNEL_NOT_REQUESTED")
+    if channel == "website" and release["content"]["reading_edition"] is None:
+        errors.append("READING_EDITION_MISSING")
     required = {"website": ["cover_asset"], "podcast": ["audio_asset", "artwork_asset"],
                 "youtube": ["video_asset", "thumbnail_asset"]}[channel]
     assets = {x["asset_id"]: x for x in release["assets"]}
@@ -661,13 +676,40 @@ def readiness_errors(release, channel) -> list[str]:
     return errors
 
 
+def sem_reading_edition(d) -> list[str]:
+    """reading-edition.v1 (L-28)."""
+    e = []
+    if d["edition_id"] != f"{d['story_id']}.{d['language']}.e{d['revision']:04d}":
+        e.append("READING_EDITION_ID_MISMATCH")
+    if (d["revision"] == 1) != (d["supersedes"] is None):
+        e.append("SUPERSEDES_INCONSISTENT")
+    if d["source_script"]["handoff_id"].rsplit(".h", 1)[0] != f"{d['story_id']}.{d['language']}":
+        e.append("READING_SOURCE_OTHER_EDITION")
+    ills = {}
+    for i in d["illustrations"]:
+        if i["asset_id"] in ills:
+            e.append("DUPLICATE_ASSET_ID: " + i["asset_id"])
+        ills[i["asset_id"]] = i
+    used = set()
+    for b in d["blocks"]:
+        if b["type"] == "image":
+            used.add(b["asset_id"])
+            if b["asset_id"] not in ills:
+                e.append("UNKNOWN_ASSET: block " + b["asset_id"])
+    if set(ills) - used:
+        e.append("UNREFERENCED_ASSET: " + ",".join(sorted(set(ills) - used)))
+    if not any(b["type"] in ("paragraph", "quote") for b in d["blocks"]):
+        e.append("READING_EDITION_WITHOUT_TEXT")
+    return e
+
+
 def sem_service_inventory(d) -> list[str]:
     keys = [(s["capability"], s["provider"]) for s in d["services"]]
     return ["DUPLICATE_SERVICE"] if len(keys) != len(set(keys)) else []
 
 
-SELECTION_SLOTS = {"reading": {"text_asset", "illustration_assets", "cover_asset"},
-                   "audio": {"master_asset", "delivery_asset", "transcript_asset"},
+SELECTION_SLOTS = {"images": {"illustration_assets", "cover_asset"},
+                   "audio": {"master_asset", "transcript_asset"},
                    "video": {"master_asset", "captions_asset", "thumbnail_asset"}}
 
 
@@ -730,6 +772,7 @@ SEMANTIC = {"production-handoff": sem_handoff, "release": sem_release, "approval
             "service-inventory": sem_service_inventory,
             "catalog": sem_catalog_or_story, "story": sem_catalog_or_story, "rights-review": sem_rights_review,
             "collection": sem_collection, "handoff-selection": sem_selection, "web-bundle": _sem_web,
+            "reading-edition": sem_reading_edition,
             "episode-publication": _sem_podcast, "provider-registry": _sem_podcast,
             "feed-observation": _sem_podcast}
 

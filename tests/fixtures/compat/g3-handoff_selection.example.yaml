@@ -4,16 +4,13 @@
 # and runs production/export_handoff.py (docs/publishing-handoff.md). Every file is named explicitly;
 # the exporter never globs and never picks a "latest" revision.
 #
-# What exists today (working tree 2026-10-06/07, HEAD b880c23) and what this example does with it:
-#   * the v5 keyframes listed below are tracked and clean       -> selected as example illustrations
-#     (they are video keyframes, not owner-chosen reading illustrations)
-#   * stories/lion_and_mouse_v5/runtime_inputs.json is tracked and clean -> recorded as a source file
-#   * stories/lion_and_mouse_v5/dialogue_coverage.json exists but is UNTRACKED (cleanup 2026-10-06)
-#     -> listed on purpose: the exporter refuses it (SELECTED_SOURCE_DIRTY) until the owner commits it
-#   * docs/licensing.md is MODIFIED in the working tree -> EVIDENCE_REF_DIRTY until committed
-#   * there is NO reading text, NO final audio mix, NO final video and NO cover yet
-#     -> declared under missing_masters; the reading component has text_asset: null, so the exporter
-#        stops with COMPONENT_INCOMPLETE. Nothing is invented to make it pass.
+# State used (production HEAD a8c305b, working tree clean, 2026-10-07):
+#   * the v5 script, line list and runtime inputs are tracked     -> recorded as source files
+#     (publishing writes the reading edition from them; reading text is NOT part of a handoff, L-28)
+#   * the v5 keyframes below are tracked                          -> images component (video keyframes
+#     used as example illustrations, not owner-chosen ones)
+#   * there is NO final audio mix, NO final video and NO cover    -> declared under missing_masters;
+#     audio and video stay null. Nothing is invented.
 kind: handoff-selection
 schema_version: 1
 example: true                      # true -> handoff.example true -> a real import refuses it
@@ -28,76 +25,75 @@ production_slugs: [lion_and_mouse_v5]
 
 editorial_selection:               # approval stage 0 (production selection); NOT publication approval
   selected_by: EXAMPLE-OWNER
-  selected_at: "2026-10-06T17:00:00Z"   # quote it: unquoted YAML timestamps are refused
+  selected_at: "2026-10-07T00:00:00Z"   # must not be later than the export time; quote it: unquoted YAML timestamps are refused
   statement: "EXAMPLE ONLY: no owner selection of final Lion-and-Mouse assets has been made."
   evidence: []
 
 source_files:                      # provenance only; publishing never reads these paths
+  - source_id: script-v5
+    purpose: script
+    path: stories/lion_and_mouse_v5/SCRIPT_REVIEW.md
+  - source_id: dialogue-v5
+    purpose: dialogue
+    path: stories/lion_and_mouse_v5/dialogue_coverage.json
   - source_id: runtime-inputs-v5
     purpose: runtime
     path: stories/lion_and_mouse_v5/runtime_inputs.json
-  - source_id: dialogue-v5
-    purpose: dialogue
-    path: stories/lion_and_mouse_v5/dialogue_coverage.json      # untracked today: refused until committed
 
 assets:
   # store: production-git (tracked file, shipped as the committed bytes)
-  #        production-work (BLLT_WORK, e.g. narration; LUMI scratch is deleted around 2027-03-30)
-  #        owner-master-store (BLLT_MASTER_ROOT: final mixes, DaVinci exports)
+  #        production-work (FELTWILLOW_WORK; LUMI scratch is deleted around 2027-03-30)
+  #        owner-master-store (FELTWILLOW_MASTER_ROOT: final WAV/FLAC mixes, DaVinci video exports)
+  # Audio masters: WAV or FLAC only (MP3/M4A are refused). Video (MP4/MOV) is measured with ffprobe.
   - asset_id: illus-s01-explores-start
     role: illustration
     media_type: image/png
     store: production-git
     path: character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_start_r01.png
-    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
   - asset_id: illus-s01-explores-end
     role: illustration
     media_type: image/png
     store: production-git
     path: character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_end_r01.png
-    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
   - asset_id: illus-s01-acorn-start
     role: illustration
     media_type: image/png
     store: production-git
     path: character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_start_r01.png
-    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
   - asset_id: illus-s01-acorn-end
     role: illustration
     media_type: image/png
     store: production-git
     path: character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_end_r01.png
-    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    selection_note: "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
 
 components:
-  reading:
-    text_asset: null               # MISSING (see missing_masters): no reading edition exists yet
+  images:
     illustration_assets: [illus-s01-explores-start, illus-s01-explores-end, illus-s01-acorn-start, illus-s01-acorn-end]
-    cover_asset: null
+    cover_asset: null              # MISSING (see missing_masters)
   audio: null                      # MISSING: narration exists only as per-scene WAVs in work/; no final mix
   video: null                      # MISSING: clips rendered, takes not selected, no assembled master
 
 missing_masters:                   # informational; the exporter checks it does not contradict components
-  - component: reading
-    slot: text_asset
-    status: not-yet-created
-    note: "Reading edition (reading-blocks JSON) not written; the owner's script is SCRIPT_REVIEW.md."
   - component: audio
     slot: master_asset
     status: not-yet-created
-    note: "Final mix (DaVinci export, WAV/FLAC) does not exist; it will come from BLLT_MASTER_ROOT."
+    note: "Final mix (DaVinci export, WAV/FLAC) does not exist; it will come from FELTWILLOW_MASTER_ROOT."
   - component: video
     slot: master_asset
     status: not-yet-created
     note: "No assembled video; takes are still being selected (RENDER_REVIEW.md)."
-  - component: reading
+  - component: images
     slot: cover_asset
     status: not-yet-created
     note: "No cover art."
 
 rights_evidence:
   - component: images
-    evidence: {repo_path: docs/licensing.md}   # hashed from the commit; modified today -> refused until committed
+    evidence: {repo_path: docs/licensing.md}   # hashed from the commit
     note: "EXAMPLE ONLY: the register lists image-tool terms still to verify; not a clearance."
 
 generation_provenance:

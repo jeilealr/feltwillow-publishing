@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/provider-registry.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/provider-registry.v1.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -34,7 +34,7 @@
             "minLength": 1
           },
           "external_url": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/https"
           },
           "feed_guid": {
             "anyOf": [

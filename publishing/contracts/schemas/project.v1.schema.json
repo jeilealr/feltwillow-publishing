@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/project.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/project.v1.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -14,7 +14,7 @@
       "type": "boolean"
     },
     "project_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
     },
     "source_branch": {
       "type": "string",

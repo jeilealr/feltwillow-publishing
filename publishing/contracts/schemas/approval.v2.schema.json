@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/approval.v2.json",
+  "$id": "https://feltwillow.example.invalid/schemas/approval.v2.json",
   "title": "Approval v2",
   "description": "Decision bound to one subject digest, one stage and one scope. H2 adds scope rights_review.podcast_audio (IC-D7): an approved podcast-audio rights review must carry the checks gemini-terms-answer and mix-music-and-effects (not_applicable allowed with evidence). Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,10 +16,10 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "approval_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
     },
     "stage": {
       "enum": [
@@ -42,7 +42,7 @@
       "maxLength": 128
     },
     "subject_sha256": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
     },
     "scope": {
       "enum": [
@@ -64,7 +64,7 @@
     "revokes": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/approval_ref"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/approval_ref"
         },
         {
           "type": "null"
@@ -74,16 +74,16 @@
     "depends_on": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/approval_ref"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/approval_ref"
       },
       "uniqueItems": true,
       "maxItems": 200
     },
     "reviewed_by": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/person"
     },
     "reviewed_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "reason": {
       "anyOf": [

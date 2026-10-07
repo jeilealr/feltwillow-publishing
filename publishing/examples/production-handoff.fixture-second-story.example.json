@@ -2,9 +2,9 @@
   "kind": "production-handoff",
   "schema_version": 1,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "contract_package": {
-    "name": "bllt-contracts",
+    "name": "feltwillow-contracts",
     "version": "0.2.0-h2",
     "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
   },
@@ -14,7 +14,7 @@
     "exporter": {
       "tool": "production/export_handoff.py (PROPOSED)",
       "tool_version": "0.1.0",
-      "repository": "jeilealr/big_lessons_little_tales",
+      "repository": "jeilealr/feltwillow-production",
       "commit": "1111111111111111111111111111111111111111",
       "tool_dirty": false
     },
@@ -31,14 +31,14 @@
       "payload_sha256": "5c1e338e036c82646d6d6e9c5fbbf4f632b08c86d1ab09a4f92a7012e2881838"
     },
     "reason": "EXAMPLE ONLY: narrator mispronunciation in scene 3 re-recorded; reading text unchanged.",
-    "story_allocation_sha256": "c14c573339a8e4add36b3b0054f4f986353a31bf2e26b41c5a97c267b3a794eb",
+    "story_allocation_sha256": "51c2d23f7b78ff01660a9355940d213d63bb0c19e6ab38fb0ea3cc748ab631e3",
     "production_slugs": [
       "fixture_second_story_v1"
     ],
     "source_repositories": [
       {
         "repo_role": "production",
-        "repository": "jeilealr/big_lessons_little_tales",
+        "repository": "jeilealr/feltwillow-production",
         "branch": "working-cloud-branch",
         "commit": "1111111111111111111111111111111111111111",
         "worktree": {
@@ -60,36 +60,6 @@
     ],
     "assets": [
       {
-        "asset_id": "reading-text-en",
-        "role": "reading-text",
-        "media_type": "application/vnd.bllt.reading-blocks+json",
-        "bytes": 1000,
-        "sha256": "3fd9a4d5673b91995a6c0d32864eec65d3443c3c7880ebe3ef789687edb9461d",
-        "transport": "embedded",
-        "package_path": "files/reading-text-en/reading-text.json",
-        "measured": {
-          "width_px": null,
-          "height_px": null,
-          "duration_ms": null,
-          "sample_rate_hz": null,
-          "channels": null,
-          "frame_rate": null
-        },
-        "derived_from": [
-          {
-            "sha256": "5c2c8d411f6acde68563facfeeeb508a922efbb92adcd07e8f71d121c02dbd45",
-            "asset_id": null,
-            "relation": "text-adaptation"
-          }
-        ],
-        "origin": {
-          "store": "owner-master-store",
-          "ref": "EXAMPLE-ONLY/reading-text.json",
-          "commit": null
-        },
-        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
-      },
-      {
         "asset_id": "transcript-en",
         "role": "spoken-transcript",
         "media_type": "text/plain",
@@ -105,6 +75,7 @@
           "channels": null,
           "frame_rate": null
         },
+        "measurement": null,
         "derived_from": [],
         "origin": {
           "store": "owner-master-store",
@@ -129,6 +100,10 @@
           "channels": 2,
           "frame_rate": null
         },
+        "measurement": {
+          "tool": "feltwillow-stdlib",
+          "version": "EXAMPLE 0.1.0 (Python 3.12)"
+        },
         "derived_from": [
           {
             "sha256": "1d30dab38cc31ec192b6ada63e5d7c0d214c9da22e185dad0770f2a85162180e",
@@ -139,36 +114,6 @@
         "origin": {
           "store": "owner-master-store",
           "ref": "EXAMPLE-ONLY/master.wav",
-          "commit": null
-        },
-        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
-      },
-      {
-        "asset_id": "audio-delivery-en",
-        "role": "audio-delivery",
-        "media_type": "audio/mpeg",
-        "bytes": 1000,
-        "sha256": "bef24bbe19ffc7947dc553645ac0ecd322e3cb3e0766cb2ceb233cdfe2722018",
-        "transport": "embedded",
-        "package_path": "files/audio-delivery-en/episode.mp3",
-        "measured": {
-          "width_px": null,
-          "height_px": null,
-          "duration_ms": 412526,
-          "sample_rate_hz": 44100,
-          "channels": 2,
-          "frame_rate": null
-        },
-        "derived_from": [
-          {
-            "sha256": "0effe883fe0aae1bc74438b256d9f7a930796795062fa385b2220a4da3bfcc32",
-            "asset_id": "audio-master-en",
-            "relation": "transcode"
-          }
-        ],
-        "origin": {
-          "store": "owner-master-store",
-          "ref": "EXAMPLE-ONLY/episode.mp3",
           "commit": null
         },
         "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
@@ -188,6 +133,10 @@
           "sample_rate_hz": null,
           "channels": null,
           "frame_rate": null
+        },
+        "measurement": {
+          "tool": "feltwillow-stdlib",
+          "version": "EXAMPLE 0.1.0 (Python 3.12)"
         },
         "derived_from": [],
         "origin": {
@@ -213,6 +162,10 @@
           "channels": null,
           "frame_rate": null
         },
+        "measurement": {
+          "tool": "feltwillow-stdlib",
+          "version": "EXAMPLE 0.1.0 (Python 3.12)"
+        },
         "derived_from": [],
         "origin": {
           "store": "owner-master-store",
@@ -223,8 +176,7 @@
       }
     ],
     "components": {
-      "reading": {
-        "text_asset": "reading-text-en",
+      "images": {
         "illustration_assets": [
           "illus-01"
         ],
@@ -232,7 +184,6 @@
       },
       "audio": {
         "master_asset": "audio-master-en",
-        "delivery_asset": "audio-delivery-en",
         "transcript_asset": "transcript-en"
       },
       "video": null

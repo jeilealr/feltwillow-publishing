@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/components/reading",
+      "path": "/payload/components/images",
       "value": null
     }
   ],

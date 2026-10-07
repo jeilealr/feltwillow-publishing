@@ -1,4 +1,4 @@
-"""Shared helpers for the scaffold test suites (run by `python -m bllt_publish.check`)."""
+"""Shared helpers for the scaffold test suites (run by `python -m feltwillow_publish.check`)."""
 from __future__ import annotations
 
 import copy

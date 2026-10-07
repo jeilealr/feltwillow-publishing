@@ -5,7 +5,7 @@
   "mutations": [
     {
       "op": "add_hardlink",
-      "name": "files/reading-text-en/hl",
+      "name": "files/illus-s01-explores-start/hl",
       "target": "handoff.json"
     }
   ],

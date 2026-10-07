@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/rights-review.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/rights-review.v1.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -14,10 +14,10 @@
       "type": "boolean"
     },
     "story_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
     },
     "language": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/language"
     },
     "status": {
       "enum": [

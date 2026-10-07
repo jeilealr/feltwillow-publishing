@@ -1,6 +1,6 @@
 # JavaScript canonicalization parity (cj1.mjs)
 
-`cj1.mjs` is Agent B's independent JavaScript implementation of **bllt-canonical-json-v1** within the safe
+`cj1.mjs` is Agent B's independent JavaScript implementation of **feltwillow-canonical-json-v1** within the safe
 domain (own strict parser, duplicate-key rejection, NFC/unassigned/surrogate checks, keys sorted by UTF-16
 code units). Standard library only; offline. Copied unchanged from `work/agent-B/tools/cj1.mjs`.
 
@@ -14,7 +14,7 @@ node tools/js/cj1.mjs --digest publishing/examples/*.json          # record + pa
 The runner does both and compares the digests with Python:
 
 ```sh
-PYTHONPATH=src python -m bllt_publish.check --all --node "$(command -v node)" --report results/check_results.json
+PYTHONPATH=src python -m feltwillow_publish.check --all --node "$(command -v node)" --report results/check_results.json
 ```
 
 ## Node version (OPEN / PROOF REQUIRED)

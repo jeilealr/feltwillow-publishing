@@ -1,6 +1,6 @@
 {
   "fixture": "import-scenario",
-  "description": "Crash after archival copy: one accepted receipt, one archive file in BLLT_MASTER_ROOT/handoffs/.",
+  "description": "Crash after archival copy: one accepted receipt, one archive file in FELTWILLOW_MASTER_ROOT/handoffs/.",
   "steps": [
     {
       "mutations": [],

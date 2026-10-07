@@ -6,7 +6,7 @@ DECISIONS_H2). The generated *.schema.json files are the contract artifacts; thi
 consistent. v2 `*.v1.schema.json` files sit next to them as byte copies of the v2 package (carried forward
 unchanged; superseded kinds stay resolvable for `$ref` and for explicit migration).
 
-Local `$id`s under https://bllt.example.invalid/ (never resolved over a network). Offline, stdlib only.
+Local `$id`s under https://feltwillow.example.invalid/ (never resolved over a network). Offline, stdlib only.
 Usage: python tools/build_schemas.py
 """
 from __future__ import annotations
@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "publishing" / "contracts" / "schemas"
-BASE = "https://bllt.example.invalid/schemas/"
+BASE = "https://feltwillow.example.invalid/schemas/"
 D2020 = "https://json-schema.org/draft/2020-12/schema"
 C = BASE + "common.v2.json#/$defs/"
 C1 = BASE + "common.v1.json#/$defs/"
@@ -68,9 +68,11 @@ def record(name, version, title, props: dict, description):
             "description": description + " " + REVISION, **obj(head)}
 
 
-ROLE_ENUM = ["reading-text", "spoken-transcript", "audio-master", "audio-delivery", "illustration",
+# L-28: no reading-text in handoffs (reading editions are authored in publishing);
+# L-29: no lossy audio-delivery in handoffs (publishing derives delivery MP3s from the WAV/FLAC master).
+ROLE_ENUM = ["spoken-transcript", "audio-master", "illustration",
              "cover-art", "video-master", "video-delivery", "thumbnail", "captions", "chapters"]
-MEDIA_ENUM = ["application/vnd.bllt.reading-blocks+json", "text/plain", "audio/wav", "audio/flac",
+MEDIA_ENUM = ["application/vnd.feltwillow.reading-blocks+json", "text/plain", "audio/wav", "audio/flac",
               "audio/mpeg", "audio/mp4", "image/png", "image/jpeg", "image/webp", "video/mp4",
               "video/quicktime", "text/vtt", "application/json"]
 RIGHTS_COMPONENTS = ["underlying-story", "adaptation", "translation", "voices", "images", "music",
@@ -80,7 +82,7 @@ HTTPS_PATTERN = r"^https://[A-Za-z0-9.-]+(?::[0-9]{1,5})?(?:/[^\s\"'<>\\]*)?$"
 # ------------------------------------------------------------------------------------------ common.v2
 COMMON = {
     "$schema": D2020, "$id": BASE + "common.v2.json",
-    "title": "BLLT shared definitions v2 (H2)",
+    "title": "Feltwillow shared definitions v2 (H2)",
     "description": "Shared definitions for contract revision H2. common.v1 stays unchanged for v1 records. "
                    "H2 adds https_url, episode_id, observation_id (IC-D10), canonicalization, module_id, "
                    "handoff_package_digest, email, date and dirty_path (L-21). " + REVISION,
@@ -115,7 +117,7 @@ COMMON = {
         "error_code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]*$"},
         "semver": {"type": "string",
                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"},
-        "canonicalization": {"const": "bllt-canonical-json-v1",
+        "canonicalization": {"const": "feltwillow-canonical-json-v1",
                              "description": "v2 canonical-json-v1 bytes within the H1 safe domain (normative)."},
         "module_id": {"enum": ["astro", "ghost", "plain_static"],
                       "description": "IC-C3: one spelling in every record; folders web/astro, web/ghost-theme, web/plain-static."},
@@ -129,11 +131,17 @@ COMMON = {
             "sha256": nullable(ref("sha256")),
         }),
         "contract_package": obj({
-            "name": {"const": "bllt-contracts"},
+            "name": {"const": "feltwillow-contracts"},
             "version": ref("semver"),
             "archive_sha256": ref("sha256"),
         }),
         "handoff_ref": obj({"handoff_id": ref("handoff_id"), "payload_sha256": ref("sha256")}),
+        "reading_edition_id": {"type": "string",
+                               "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.(?:en|de|es|fr|ru|uk)\\.e[0-9]{4}$"},
+        "reading_edition_pin": obj({"edition_id": {"$ref": "#/$defs/reading_edition_id"}, "edition_sha256": {"$ref": "#/$defs/sha256"}}),
+        "measurement": obj({"tool": {"enum": ["feltwillow-stdlib", "ffprobe"]},
+                            "version": {"type": "string", "minLength": 1, "maxLength": 64}},
+                           description="L-29: tool that measured the asset bytes and its version."),
         "handoff_package_digest": obj({"handoff_id": ref("handoff_id"), "payload_sha256": ref("sha256"),
                                        "archive_sha256": ref("sha256")}),
         "release_pin": obj({"release_id": ref("release_id"), "release_sha256": ref("sha256")}),
@@ -155,6 +163,7 @@ HANDOFF_ASSET = obj({
     "bytes": ref("positive_count"), "sha256": ref("sha256"),
     "transport": {"enum": ["embedded", "referenced"]},
     "package_path": nullable(ref("package_path")), "measured": MEASURED,
+    "measurement": nullable(ref("measurement")),
     "derived_from": arr(obj({
         "sha256": ref("sha256"), "asset_id": nullable(ref("id")),
         "relation": {"enum": ["export", "mixdown", "transcode", "resize", "crop", "loudness-normalize",
@@ -183,7 +192,7 @@ HANDOFF = record("production-handoff", 1, "Production handoff v1", {
         "created_at": ref("utc_timestamp"), "operator": ref("person"),
         "exporter": obj({
             "tool": {"type": "string", "minLength": 1, "maxLength": 128}, "tool_version": ref("semver"),
-            "repository": {"const": "jeilealr/big_lessons_little_tales"}, "commit": ref("git_commit"),
+            "repository": {"const": "jeilealr/feltwillow-production"}, "commit": ref("git_commit"),
             "tool_dirty": {"type": "boolean"},
         }),
         "transport": {"const": "self-contained-tar"},
@@ -198,7 +207,7 @@ HANDOFF = record("production-handoff", 1, "Production handoff v1", {
                                 minItems=1, uniqueItems=True),
         "source_repositories": arr(obj({
             "repo_role": {"const": "production"},
-            "repository": {"const": "jeilealr/big_lessons_little_tales"},
+            "repository": {"const": "jeilealr/feltwillow-production"},
             "branch": {"type": "string", "minLength": 1, "maxLength": 128}, "commit": ref("git_commit"),
             "worktree": obj({"state": {"enum": ["clean", "dirty"]},
                              "dirty_paths": arr(ref("dirty_path"), uniqueItems=True, maxItems=10000)}),
@@ -206,11 +215,10 @@ HANDOFF = record("production-handoff", 1, "Production handoff v1", {
         "source_files": arr(SOURCE_FILE, maxItems=1000),
         "assets": arr(HANDOFF_ASSET, maxItems=5000),
         "components": obj({
-            "reading": nullable(obj({"text_asset": ref("id"),
-                                     "illustration_assets": arr(ref("id"), uniqueItems=True, maxItems=500),
-                                     "cover_asset": nullable(ref("id"))})),
-            "audio": nullable(obj({"master_asset": ref("id"), "delivery_asset": nullable(ref("id")),
-                                   "transcript_asset": nullable(ref("id"))})),
+            # L-28: `images` replaces the reading component (illustrations and cover only; no reading text)
+            "images": nullable(obj({"illustration_assets": arr(ref("id"), uniqueItems=True, maxItems=500),
+                                    "cover_asset": nullable(ref("id"))})),
+            "audio": nullable(obj({"master_asset": ref("id"), "transcript_asset": nullable(ref("id"))})),
             "video": nullable(obj({"master_asset": ref("id"), "captions_asset": nullable(ref("id")),
                                    "thumbnail_asset": nullable(ref("id"))})),
         }),
@@ -232,7 +240,7 @@ HANDOFF = record("production-handoff", 1, "Production handoff v1", {
 RELEASE_ASSET = obj({
     "asset_id": ref("id"),
     "role": {"enum": ["image", "podcast-cover", "audio-master", "podcast-audio", "video-master",
-                      "transcript", "chapters", "reading-text", "captions"]},
+                      "transcript", "chapters", "captions"]},
     "origin": obj({"kind": {"enum": ["handoff", "publishing-derivative"]},
                    "handoff_id": nullable(ref("handoff_id")), "handoff_asset_id": nullable(ref("id"))}),
     "sha256": ref("sha256"), "bytes": ref("positive_count"), "media_type": ref("media_type"),
@@ -252,7 +260,8 @@ RELEASE = record("release", 2, "Publishing release v2", {
         "title": text(200), "slug": ref("id"), "summary": text(1000),
         "age_min": {"type": "integer", "minimum": 0, "maximum": 18},
         "age_max": {"type": "integer", "minimum": 0, "maximum": 18},
-        "moral": text(500), "reading_text_asset": nullable(ref("id")),
+        "moral": text(500),
+        "reading_edition": nullable(ref("reading_edition_pin")),  # L-28: authored in publishing
         "spoken_transcript_asset": nullable(ref("id")),
         "reading_divergence": {"enum": ["identical", "intentional-adaptation", "not-applicable"]},
         "blocks": arr(ref("block", C1)),
@@ -301,14 +310,14 @@ IMPORT_RECEIPT = record("import-receipt", 1, "Import receipt v1", {
     "consumer_supports": arr({"type": "integer", "minimum": 1}, minItems=1, uniqueItems=True),
     "duplicate_of": nullable({"type": "string", "pattern": "^imp-[0-9]{8}T[0-9]{6}Z-[a-f0-9]{8}$"}),
     "archival_locator": nullable({"type": "string", "pattern": "^handoffs/[a-f0-9]{64}\\.tar$",
-                                  "description": "Relative to BLLT_MASTER_ROOT (DECISIONS_H2 s.2)."}),
+                                  "description": "Relative to FELTWILLOW_MASTER_ROOT (DECISIONS_H2 s.2)."}),
     "promoted": {"type": "boolean"},
     "staged_at": ref("utc_timestamp"), "finished_at": ref("utc_timestamp"), "operator": ref("person"),
     "importer": obj({"tool": {"type": "string", "minLength": 1, "maxLength": 128}, "tool_version": ref("semver"),
                      "publishing_commit": nullable(ref("git_commit"))}),
     "authorizes_publication": {"const": False},
-}, "Durable, append-only observation of one import attempt, stored in BLLT_PUBLISH_STATE_ROOT/receipts/. "
-   "The archived tar lives at BLLT_MASTER_ROOT/handoffs/<archive sha256>.tar. Never an approval.")
+}, "Durable, append-only observation of one import attempt, stored in FELTWILLOW_PUBLISH_STATE_ROOT/receipts/. "
+   "The archived tar lives at FELTWILLOW_MASTER_ROOT/handoffs/<archive sha256>.tar. Never an approval.")
 
 PUBLIC_MANIFEST = record("public-bundle-manifest", 1, "Public output bundle manifest v1", {
     "bundle_id": ref("id"),
@@ -336,8 +345,8 @@ PUBLIC_MANIFEST = record("public-bundle-manifest", 1, "Public output bundle mani
 
 CONTRACT_LOCK = record("contract-lock", 1, "Contract lock v1", {
     "package": obj({
-        "name": {"const": "bllt-contracts"}, "version": ref("semver"), "archive_sha256": ref("sha256"),
-        "source_repository": {"const": "jeilealr/bllt-publishing"},
+        "name": {"const": "feltwillow-contracts"}, "version": ref("semver"), "archive_sha256": ref("sha256"),
+        "source_repository": {"const": "jeilealr/feltwillow-publishing"},
         "source_commit": nullable(ref("git_commit")), "released_at": ref("utc_timestamp"),
     }),
     "files": arr(obj({"path": ref("relpath"), "sha256": ref("sha256")}), minItems=1),
@@ -350,6 +359,26 @@ ALLOCATION = record("story-allocation", 1, "Story ID allocation v1", {
     "production_slugs": arr({"type": "string", "pattern": "^[a-z0-9_]+$", "maxLength": 64}, minItems=1, uniqueItems=True),
     "planned_languages": arr(ref("language"), minItems=1, uniqueItems=True),
 }, "Publishing-side assignment of a stable story ID, issued before the first handoff.")
+
+# ------------------------------------------------------------------------------------------ L-28: reading-edition.v1
+READING_EDITION = record("reading-edition", 1, "Reading edition v1", {
+    "edition_id": ref("reading_edition_id"), "story_id": ref("id"), "language": ref("language"),
+    "revision": {"type": "integer", "minimum": 1, "maximum": 9999},
+    "lifecycle": {"enum": ["draft", "frozen"]},
+    "supersedes": nullable(ref("reading_edition_pin")),
+    "title": text(200),
+    "source_script": obj({"handoff_id": ref("handoff_id"), "handoff_payload_sha256": ref("sha256"),
+                          "source_id": ref("id"), "sha256": ref("sha256")},
+                         description="The handoff script / line-list source file this edition was written from."),
+    "illustrations": arr(obj({"asset_id": ref("id"), "handoff_id": ref("handoff_id"),
+                              "handoff_asset_id": ref("id"), "sha256": ref("sha256")}), maxItems=500),
+    "blocks": arr(ref("block", C1), minItems=1, maxItems=2000),
+    "provenance": obj({"authored_in": {"const": "publishing"}, "authored_by": ref("person"),
+                       "authored_at": ref("utc_timestamp"), "tools": arr(text(128), maxItems=20),
+                       "note": nullable(text(1000))}),
+}, "Reading text of one story-language, authored in the publishing repository (L-28). Ordered blocks: "
+   "text (paragraph/heading/quote) and illustrations (image block: handoff asset ref + alt text). Pins the "
+   "handoff script/line-list digest it was written from. Approvals are separate records.")
 
 # ------------------------------------------------------------------------------------------ L-23: handoff-selection.v1
 SEL_EVIDENCE = {"oneOf": [obj({"repo_path": ref("relpath")}), ref("private_ref")]}
@@ -383,12 +412,12 @@ HANDOFF_SELECTION = {
             "selection_note": nullable(text(500)),
         }, required=["asset_id", "role", "media_type", "store", "path"]), maxItems=5000)),
         "components": obj({
-            "reading": nullable(obj({"text_asset": SLOT_IDS(), "illustration_assets": arr(ref("id"), uniqueItems=True, maxItems=500),
-                                     "cover_asset": SLOT_IDS()})),
-            "audio": nullable(obj({"master_asset": SLOT_IDS(), "delivery_asset": SLOT_IDS(), "transcript_asset": SLOT_IDS()})),
+            "images": nullable(obj({"illustration_assets": arr(ref("id"), uniqueItems=True, maxItems=500),
+                                    "cover_asset": SLOT_IDS()})),
+            "audio": nullable(obj({"master_asset": SLOT_IDS(), "transcript_asset": SLOT_IDS()})),
             "video": nullable(obj({"master_asset": SLOT_IDS(), "captions_asset": SLOT_IDS(), "thumbnail_asset": SLOT_IDS()})),
         }),
-        "missing_masters": nullable(arr(obj({"component": {"enum": ["reading", "audio", "video"]},
+        "missing_masters": nullable(arr(obj({"component": {"enum": ["images", "audio", "video"]},
                                              "slot": {"type": "string", "pattern": "^[a-z_]+$", "maxLength": 64},
                                              "status": ref("id"), "note": text(1000)}), maxItems=50)),
         "rights_evidence": nullable(arr(obj({"component": ref("rights_component"), "evidence": SEL_EVIDENCE,
@@ -541,7 +570,7 @@ FEED_OBS = record("feed-observation", 1, "Feed observation v1", {
     "items": {"type": "array", "maxItems": 10000, "items": FEED_ITEM},
     "problems": {"type": "array", "uniqueItems": True, "maxItems": 500, "items": ref("error_code")},
 }, "Read-only observation of one RSS feed document (Agent D, IC-D3). Stores only the presence, never the "
-   "value, of itunes:email. Raw feed bytes stay in BLLT_PUBLISH_STATE_ROOT, addressed by sha256.")
+   "value, of itunes:email. Raw feed bytes stay in FELTWILLOW_PUBLISH_STATE_ROOT, addressed by sha256.")
 
 # ------------------------------------------------------------------------------------------ lead (H2 new versions)
 PINS = {
@@ -647,7 +676,7 @@ SERVICE_INVENTORY = record("service-inventory", 1, "Service inventory v1", {
         "evidence": obj({"checked_at": ref("date"), "source": text(500)}),
     }, required=["capability", "provider", "plan", "state"]), maxItems=200),
 }, "Declared external services and their cost class (Agent E, IC-E3); checked fail-closed by "
-   "bllt_publish.ops.strict_zero. A pass checks declarations, not provider dashboards.")
+   "feltwillow_publish.ops.strict_zero. A pass checks declarations, not provider dashboards.")
 
 H2 = {
     "common.v2.schema.json": COMMON,
@@ -661,6 +690,7 @@ H2 = {
     "site-set.v2.schema.json": SITE_SET, "project.v2.schema.json": PROJECT,
     "service-inventory.v1.schema.json": SERVICE_INVENTORY,
     "handoff-selection.v1.schema.json": HANDOFF_SELECTION,
+    "reading-edition.v1.schema.json": READING_EDITION,
 }
 # v2 package kinds carried forward unchanged (still current in H2) vs superseded by an H2 version.
 V1_CURRENT = ["catalog", "collection", "rights-review", "show", "story"]
@@ -679,7 +709,7 @@ def main():
         kind = schema["properties"]["kind"]["const"]
         current[kind] = "schemas/" + name
     rt = {"schema_version": 2, "contract_revision": "H2 (PROPOSED CONTRACT)",
-          "canonicalization": "bllt-canonical-json-v1",
+          "canonicalization": "feltwillow-canonical-json-v1",
           "current": dict(sorted(current.items())),
           "shared": ["schemas/common.v1.schema.json", "schemas/common.v2.schema.json"],
           "superseded_v1": {k: {"schema": f"schemas/{k}.v1.schema.json", "successor_version": v}

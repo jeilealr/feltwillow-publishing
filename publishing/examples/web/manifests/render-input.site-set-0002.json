@@ -2,7 +2,7 @@
   "kind": "public-bundle-manifest",
   "schema_version": 1,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "bundle_id": "example-web-input-site-set-0002",
   "bundle_type": "web",
   "manifest_visibility": "internal",
@@ -14,17 +14,17 @@
       },
       {
         "release_id": "lion-and-mouse.en.r0001",
-        "release_sha256": "eae72ddb991a79d7bfd8b0368c6483cdf9736cccd213131157cccfd88fd3083f"
+        "release_sha256": "e6e18a2dc62a735c64170913844147cbb2db18f39440132e0f15281bd922ac12"
       }
     ],
     "site_set": {
       "site_set_id": "example-site-set-0002",
       "sha256": "b0244a899ebed151ada502b95cc73e5a6c069436bb6d7b64eb5fb14ac28129b5"
     },
-    "public_record_sha256": "1cf901cce31401306cbb5b68ce233823be06393d24bc1ed7df7db5a3620df415",
+    "public_record_sha256": "44b3390dc69f7507a0c6fd45baf3fcad117dedbd86d584e2235b83a10a69c3ef",
     "renderer": null,
     "contract_package": {
-      "name": "bllt-contracts",
+      "name": "feltwillow-contracts",
       "version": "0.2.0-h2",
       "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
     }
@@ -32,8 +32,8 @@
   "files": [
     {
       "path": "data/web-bundle.json",
-      "sha256": "1cf901cce31401306cbb5b68ce233823be06393d24bc1ed7df7db5a3620df415",
-      "bytes": 3767,
+      "sha256": "44b3390dc69f7507a0c6fd45baf3fcad117dedbd86d584e2235b83a10a69c3ef",
+      "bytes": 3758,
       "media_type": "application/json",
       "source": null
     },

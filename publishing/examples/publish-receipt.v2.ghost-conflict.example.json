@@ -2,7 +2,7 @@
   "kind": "publish-receipt",
   "schema_version": 2,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "plan_id": "example-plan-ghost-0001",
   "plan_sha256": "dbe551ced4ee9886526bfbc3e82dbe9433e54a63b27924b7c9cbde32d76b5187",
   "action_id": "update-story-post",

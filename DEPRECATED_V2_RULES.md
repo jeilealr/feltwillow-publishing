@@ -68,3 +68,12 @@ re-runs v2's 35 self-test mutations on the H2 successor kinds (all 35 pass).
   collection carries media (backlog; audiobook/book scopes are deferred, DECISIONS_H2 s.7).
 - `show.v1` still has `owner_email`; the public contact address now lives in `project.v2`
   (`public_contact_email`). A `show.v2` should drop it when shows are implemented.
+
+## Removed by owner decisions L-28 / L-29 (2026-10-07; H2 unreleased, amended in place)
+
+| Removed | Replacement | Fixtures |
+|---|---|---|
+| handoff component `reading` (`text_asset`, illustrations, cover) and role `reading-text` | component `images` (illustrations, cover); reading text = publishing `reading-edition.v1` | hr01, hr02, hr03 |
+| release `content.reading_text_asset` and release asset role `reading-text` | `content.reading_edition` pin; `READING_EDITION_MISSING` when the website channel is requested | re01, re02 |
+| handoff role `audio-delivery` and `audio.delivery_asset` (MP3/M4A) | WAV/FLAC master only; publishing derives delivery MP3s; `HANDOFF_AUDIO_NOT_LOSSLESS` | ms04, ms05 |
+| measurement without provenance | `measurement: {tool: feltwillow-stdlib or ffprobe, version}`; `MEASUREMENT_PROVENANCE_MISSING`; video needs ffprobe (`VIDEO_MEASUREMENT_REQUIRES_FFPROBE`) | ms01, ms02, ms03 (positive), ms06 |

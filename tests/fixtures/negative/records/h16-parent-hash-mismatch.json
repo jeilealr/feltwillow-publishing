@@ -5,8 +5,14 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/3/derived_from/0/sha256",
-      "value": "abababababababababababababababababababababababababababababababab"
+      "path": "/payload/assets/0/derived_from",
+      "value": [
+        {
+          "sha256": "abababababababababababababababababababababababababababababababab",
+          "asset_id": "audio-master-en",
+          "relation": "caption-timing"
+        }
+      ]
     }
   ],
   "description": "Parent digest matches the parent asset.",

@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/1/package_path",
+      "path": "/payload/assets/0/package_path",
       "value": "files/illus-s01-acorn-start/x.png"
     }
   ],

@@ -1,10 +1,10 @@
 {
- "tool": "bllt_publish.check",
+ "tool": "feltwillow_publish.check",
  "contract_revision": "H2 (PROPOSED CONTRACT)",
  "summary": {
-  "schemas_check_schema": "35/35",
-  "positive_examples": "36/36",
-  "negative_records": "135/135",
+  "schemas_check_schema": "36/36",
+  "positive_examples": "37/37",
+  "negative_records": "153/153",
   "golden_python": "24/24",
   "negative_raw": "1/1",
   "v2_semantics_ported": "35/35",
@@ -28,8 +28,8 @@
   "js_parity": "2/2"
  },
  "totals": {
-  "cases": 535,
-  "passed": 535
+  "cases": 555,
+  "passed": 555
  },
  "success": true,
  "js_parity_run": true,
@@ -135,6 +135,10 @@
    },
    {
     "case": "publish-receipt.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "reading-edition.v1.schema.json",
     "pass": true
    },
    {
@@ -287,6 +291,12 @@
    },
    {
     "case": "publishing/examples/publish-receipt.v2.manual-pending.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/reading-edition.v1.lion-and-mouse.example.json",
     "pass": true,
     "expect": "valid",
     "got": []
@@ -852,6 +862,33 @@
     "rule": "H1 (Agent B)"
    },
    {
+    "case": "hr01-reading-text-asset-in-handoff",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "hr02-reading-component-in-handoff",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "hr03-selection-reading-component",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
     "case": "hs01-missing-master-bad-slot",
     "pass": true,
     "expect": "SELECTION_SLOT_INVALID",
@@ -986,6 +1023,59 @@
      "DUPLICATE_DELIVERY_URL"
     ],
     "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "ms01-measurement-provenance-missing",
+    "pass": true,
+    "expect": "MEASUREMENT_PROVENANCE_MISSING",
+    "got": [
+     "MEASUREMENT_PROVENANCE_MISSING"
+    ],
+    "rule": "L-29 (measurement provenance, lossless audio)"
+   },
+   {
+    "case": "ms02-video-not-measured-by-ffprobe",
+    "pass": true,
+    "expect": "VIDEO_MEASUREMENT_REQUIRES_FFPROBE",
+    "got": [
+     "VIDEO_MEASUREMENT_REQUIRES_FFPROBE"
+    ],
+    "rule": "L-29 (measurement provenance, lossless audio)"
+   },
+   {
+    "case": "ms03-video-ffprobe-accepted",
+    "pass": true,
+    "expect": "VALID",
+    "got": [],
+    "rule": "L-29 (measurement provenance, lossless audio)"
+   },
+   {
+    "case": "ms04-mp3-audio-in-handoff",
+    "pass": true,
+    "expect": "HANDOFF_AUDIO_NOT_LOSSLESS",
+    "got": [
+     "HANDOFF_AUDIO_NOT_LOSSLESS",
+     "MEDIA_TYPE_ROLE_MISMATCH"
+    ],
+    "rule": "L-29 (measurement provenance, lossless audio)"
+   },
+   {
+    "case": "ms05-audio-delivery-role",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "L-29 (measurement provenance, lossless audio)"
+   },
+   {
+    "case": "ms06-unknown-measurement-tool",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "L-29 (measurement provenance, lossless audio)"
    },
    {
     "case": "p01-public-env-file",
@@ -1246,7 +1336,8 @@
     "pass": true,
     "expect": "FROZEN_WITHOUT_HANDOFF",
     "got": [
-     "FROZEN_WITHOUT_HANDOFF"
+     "FROZEN_WITHOUT_HANDOFF",
+     "READING_EDITION_MISSING"
     ],
     "rule": "H1 (Agent B)"
    },
@@ -1357,6 +1448,87 @@
      "RECEIPT_DIGEST_SOURCE_REQUIRED"
     ],
     "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "re01-website-release-without-reading-edition",
+    "pass": true,
+    "expect": "READING_EDITION_MISSING",
+    "got": [
+     "READING_EDITION_MISSING"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re02-reading-edition-other-language",
+    "pass": true,
+    "expect": "READING_EDITION_MISMATCH",
+    "got": [
+     "READING_EDITION_MISMATCH"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re03-edition-id-mismatch",
+    "pass": true,
+    "expect": "READING_EDITION_ID_MISMATCH",
+    "got": [
+     "READING_EDITION_ID_MISMATCH"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re04-edition-unknown-illustration",
+    "pass": true,
+    "expect": "UNKNOWN_ASSET",
+    "got": [
+     "UNKNOWN_ASSET"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re05-edition-without-text",
+    "pass": true,
+    "expect": "READING_EDITION_WITHOUT_TEXT",
+    "got": [
+     "READING_EDITION_WITHOUT_TEXT"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re06-edition-authored-in-production",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re07-edition-source-other-story",
+    "pass": true,
+    "expect": "READING_SOURCE_OTHER_EDITION",
+    "got": [
+     "READING_SOURCE_OTHER_EDITION"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re08-edition-unreferenced-illustration",
+    "pass": true,
+    "expect": "UNREFERENCED_ASSET",
+    "got": [
+     "UNREFERENCED_ASSET"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
+   },
+   {
+    "case": "re09-edition-missing-alt",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "L-28 (reading text authored in publishing)"
    },
    {
     "case": "s01-allocation-bad-id",
@@ -2000,16 +2172,16 @@
     "case": "G3 example CONTRACT.lock validated as contract-lock.v1 (H2)",
     "pass": true,
     "got": [],
-    "note": "G3's lock regenerated for H2 (0.2.0-h2, with canonicalization), refreshed by the lead 2026-10-07"
+    "note": "read-only copy of G3's lock in tests/fixtures/compat/"
    },
    {
     "case": "G3 lock pins vs the H2 schema files shipped here",
     "pass": true,
     "got": {
-     "pinned": 35,
+     "pinned": 36,
      "digest_differs": []
     },
-    "note": "G3's lock pins exactly the H2 schema files shipped here"
+    "note": "digest_differs lists schema files changed here since G3 generated its lock (G3 must regenerate)"
    }
   ],
   "negative_imports": [
@@ -2464,7 +2636,7 @@
     "got": {
      "outcome": "accepted",
      "errors": [],
-     "archival_locator": "handoffs/39bd4814abf8527f2366c155e28bc19204171f10e836ae9be4367782973bc81f.tar",
+     "archival_locator": "handoffs/f1293440a0e305587baf8dbef169a3abe9cf5078b665407a41e0332433c2233f.tar",
      "archive_bytes": 30720
     }
    }
@@ -3431,7 +3603,7 @@
       "accept_ranges": "bytes",
       "range_status": 206,
       "redirect_chain": [],
-      "final_url": "http://127.0.0.1:35091/ok.mp3"
+      "final_url": "http://127.0.0.1:39155/ok.mp3"
      }
     }
    },
@@ -3449,7 +3621,7 @@
       "accept_ranges": null,
       "range_status": 200,
       "redirect_chain": [],
-      "final_url": "http://127.0.0.1:35091/norange.mp3"
+      "final_url": "http://127.0.0.1:39155/norange.mp3"
      }
     }
    },
@@ -3467,7 +3639,7 @@
       "accept_ranges": null,
       "range_status": 206,
       "redirect_chain": [],
-      "final_url": "http://127.0.0.1:35091/wrongtype.mp3"
+      "final_url": "http://127.0.0.1:39155/wrongtype.mp3"
      }
     }
    },
@@ -3480,7 +3652,7 @@
      ],
      "facts": {
       "redirect_chain": [],
-      "final_url": "http://127.0.0.1:35091/redir.mp3"
+      "final_url": "http://127.0.0.1:39155/redir.mp3"
      }
     }
    },
@@ -4358,11 +4530,11 @@
   ],
   "error_catalogue": [
    {
-    "case": "249 distinct codes observed in suite results are catalogued",
+    "case": "257 distinct codes observed in suite results are catalogued",
     "pass": true,
     "got": [],
-    "observed": 249,
-    "catalogued": 433
+    "observed": 257,
+    "catalogued": 442
    },
    {
     "case": "no deprecated code is emitted any more",
@@ -4380,7 +4552,7 @@
     }
    },
    {
-    "case": "record digests Python == JavaScript for 26 example records",
+    "case": "record digests Python == JavaScript for 27 example records",
     "pass": true,
     "got": []
    }

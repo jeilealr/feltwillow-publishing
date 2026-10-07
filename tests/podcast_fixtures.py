@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Podcast fixture definitions (from Agent D's make_fixtures_d.py; contract revision H2).
 
-Every URL uses a reserved .invalid host and every record is example: true. Nothing here is a real BLLT show,
+Every URL uses a reserved .invalid host and every record is example: true. Nothing here is a real Feltwillow show,
 feed, GUID or URL. Used by tools/build_examples.py (writes the files) and tests/test_podcast.py (helpers).
 H2 change: n05 now expects CJ_FLOAT (the unified validator checks the canonical domain before the schema).
 """
@@ -78,7 +78,7 @@ SHA_C = "c" * 64
 def ep(**over):
     base = {
         "kind": "episode-publication", "schema_version": 2, "example": True,
-        "canonicalization": "bllt-canonical-json-v1", "show_id": "example-show-en",
+        "canonicalization": "feltwillow-canonical-json-v1", "show_id": "example-show-en",
         "episode_id": "lion-and-mouse.en", "record_revision": 1, "supersedes": None, "change": "prepared",
         "release_id": "lion-and-mouse.en.r0001", "release_sha256": SHA_A, "authority": "spotify",
         "state": "prepared", "episode_type": "full", "guid": None, "guid_is_permalink": None,
@@ -104,7 +104,7 @@ PUBLISHED = dict(
 
 def registry(records):
     return {"kind": "provider-registry", "schema_version": 2, "example": True,
-            "canonicalization": "bllt-canonical-json-v1", "records": records}
+            "canonicalization": "feltwillow-canonical-json-v1", "records": records}
 
 
 def reg(rid, dest, etype, eid, kind, url, status="listed", sup=None):

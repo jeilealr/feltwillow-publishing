@@ -1,7 +1,7 @@
-# bllt-publishing (scaffold, contract revision H2)
+# feltwillow-publishing (scaffold, contract revision H2)
 
 **Status: PROPOSED CONTRACT. Nothing is released, committed or enabled.** This folder is a scaffold for the
-private repository `jeilealr/bllt-publishing` (branch `main`; the owner does all git). It is delivered
+private repository `jeilealr/feltwillow-publishing` (branch `main`; the owner does all git). It is delivered
 inside the Blueprint v3 review package and has **not** been written into the real clone.
 
 This is the one canonical home of the H2 contracts and code: Agent B's handoff contract (draft H1), Agents
@@ -9,7 +9,7 @@ C/D/E's schemas and tools, and the lead's DECISIONS_H2.
 
 ## Two repositories, one boundary
 
-- Production (`jeilealr/big_lessons_little_tales`) makes stories and exports a **handoff package** (a tar;
+- Production (`jeilealr/feltwillow-production`) makes stories and exports a **handoff package** (a tar;
   `production/export_handoff.py`, proposed in the production change set) against a pinned contract
   (`production/contracts/CONTRACT.lock`).
 - Publishing (this repository) owns the contracts, imports handoffs, freezes releases, builds public
@@ -22,7 +22,7 @@ One command, offline (plus a local 127.0.0.1 server for the podcast probe tests)
 
 ```sh
 python -m venv .venv && .venv/bin/pip install -r requirements/blueprint-check.txt
-PYTHONPATH=src .venv/bin/python -m bllt_publish.check --all --report results/check_results.json
+PYTHONPATH=src .venv/bin/python -m feltwillow_publish.check --all --report results/check_results.json
 # optional JavaScript canonicalization parity:  --node "$(command -v node)"   (see tools/js/README.md)
 ```
 
@@ -34,7 +34,7 @@ PYTHONPATH=src python tools/build_examples.py     # publishing/examples/ and tes
 python tools/build_error_codes.py                 # publishing/contracts/error-codes.json
 ```
 
-**Planned, not executable:** the `bllt-publish` CLI (`validate`, `import-handoff`, `freeze`, `prepare`,
+**Planned, not executable:** the `feltwillow-publish` CLI (`validate`, `import-handoff`, `freeze`, `prepare`,
 `preview`, `plan`, `apply`, `reconcile`, `status`, `rollback`). No console script is installed.
 
 ## Module states
@@ -44,11 +44,11 @@ to act on real state (requires an owner `configuration` approval). **Nothing is 
 
 | Module | Path | State | Notes |
 |---|---|---|---|
-| contracts (cj1 canonicalization, validation) | `src/bllt_publish/contracts/` | implemented | 19 H2 schemas + 16 v2 schemas carried forward |
-| imports (reference importer) | `src/bllt_publish/imports/` | implemented | tested on synthetic packages only; agents never run a real import |
-| web contract checks | `src/bllt_publish/web/` | implemented | payload, render-input, completeness, synthetic site artifact |
-| podcast tools | `src/bllt_publish/podcast/` | implemented | validator, safe feed parser, diff, reconcile, probe; independent-RSS builder is an INACTIVE reference |
-| ops: leak_scan, strict_zero, ci_lint, handoff_index_scan, state_roots | `src/bllt_publish/ops/` | implemented | declaration checks; no provider dashboard observed |
+| contracts (cj1 canonicalization, validation) | `src/feltwillow_publish/contracts/` | implemented | 20 H2 schemas + 16 v2 schemas carried forward |
+| imports (reference importer) | `src/feltwillow_publish/imports/` | implemented | tested on synthetic packages only; agents never run a real import |
+| web contract checks | `src/feltwillow_publish/web/` | implemented | payload, render-input, completeness, synthetic site artifact |
+| podcast tools | `src/feltwillow_publish/podcast/` | implemented | validator, safe feed parser, diff, reconcile, probe; independent-RSS builder is an INACTIVE reference |
+| ops: leak_scan, strict_zero, ci_lint, handoff_index_scan, state_roots | `src/feltwillow_publish/ops/` | implemented | declaration checks; no provider dashboard observed |
 | website: plain-static, astro, ghost-theme, shared | `web/` | spec_only | READMEs only |
 | hosting: cloudflare-pages, netlify, ghost | `infra/` | spec_only | no accounts, tokens or DNS |
 | releases/freeze, bundles, plans/apply, adapters, CLI | — | spec_only | not in this scaffold |
@@ -60,9 +60,9 @@ to act on real state (requires an owner `configuration` approval). **Nothing is 
 README.md  CLAUDE.md  VALIDATION.md  DEPRECATED_V2_RULES.md  pyproject.toml  .gitignore  requirements/blueprint-check.txt
 publishing/contracts/schemas/        all H2 schemas (*.v2/new) + v2 *.v1 schemas (byte copies)
 publishing/contracts/record-types.json   current version per kind; superseded v1 kinds
-publishing/contracts/error-codes.json    merged catalogue (433 codes in 24 families, incl. planned and deprecated)
+publishing/contracts/error-codes.json    merged catalogue (442 codes in 27 families, incl. planned and deprecated)
 publishing/examples/                 positive examples (example: true) incl. web/render-input bundles
-src/bllt_publish/{contracts,imports,web,podcast,ops}/  code;  src/bllt_publish/check.py  runner
+src/feltwillow_publish/{contracts,imports,web,podcast,ops}/  code;  src/feltwillow_publish/check.py  runner
 tests/test_*.py  tests/support.py  tests/podcast_fixtures.py
 tests/fixtures/  negative/{records,imports}, scenarios, golden, packages (synthetic PNGs), podcast,
                  feeds, ops, handoff-index, workflows, compat (G3's selection example and CONTRACT.lock)
@@ -73,9 +73,9 @@ tools/build_*.py  tools/js/cj1.mjs (+README)   web/  infra/   results/check_resu
 
 | Variable | Holds | Refused (`STATE_ROOT_UNSET` / `STATE_ROOT_UNSAFE`) when |
 |---|---|---|
-| `BLLT_HANDOFF_INBOX` | incoming handoff tars before import | unset (for import), relative, inside Git, inside OneDrive, on LUMI storage |
-| `BLLT_MASTER_ROOT` | immutable archived tars `handoffs/<sha256>.tar`, masters, final mixes, DaVinci archives | same |
-| `BLLT_PUBLISH_STATE_ROOT` | import receipts, plans/receipts, locks, feed observations, private evidence | same |
+| `FELTWILLOW_HANDOFF_INBOX` | incoming handoff tars before import | unset (for import), relative, inside Git, inside OneDrive, on LUMI storage |
+| `FELTWILLOW_MASTER_ROOT` | immutable archived tars `handoffs/<sha256>.tar`, masters, final mixes, DaVinci archives | same |
+| `FELTWILLOW_PUBLISH_STATE_ROOT` | import receipts, plans/receipts, locks, feed observations, private evidence | same |
 
 Owner storage (2026-10-07): Mac working copy outside OneDrive; copies to **Microsoft 365 Personal OneDrive
 (1 TB plan, 187 GB used)** and a **1 TB external drive**, never deleting at the destination. OneDrive is a
@@ -98,4 +98,12 @@ infrastructure (declared, not counted as a service fee).
   use.** A per-language disclosure field would be a future `project` schema version (not added, to keep the H2
   schemas stable for G3's CONTRACT.lock).
 - Launch languages **en first, then es and de** (`story-allocation` `planned_languages`; web examples are en only).
+- **L-28 (OD-14): the reading-edition text is authored in publishing.** Production hands over the script / line
+  list (source files) and media only; the handoff has an `images` component instead of `reading`. Publishing writes
+  `reading-edition.v1` records (example: `publishing/examples/reading-edition.v1.lion-and-mouse.example.json`, EXAMPLE
+  ONLY) and each release with a website channel pins one (`READING_EDITION_MISSING` otherwise).
+- **L-29 (OD-24): audio masters are WAV/FLAC** (MP3/M4A refused in handoffs: `HANDOFF_AUDIO_NOT_LOSSLESS`;
+  publishing derives delivery MP3s); every measured asset records `measurement: {tool, version}`
+  (`feltwillow-stdlib` or `ffprobe`); video must be measured by ffprobe. The exporter refuses video without ffprobe
+  (`MEASUREMENT_TOOL_UNAVAILABLE`, catalogued as planned until G3 implements it).
 - Not decided, therefore absent: website module and host, ffprobe for MP3/MP4 measurement (L-24).

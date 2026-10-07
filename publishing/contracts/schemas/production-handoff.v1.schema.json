@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/production-handoff.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/production-handoff.v1.json",
   "title": "Production handoff v1",
   "description": "Private, self-contained selection of final content from the production repository. Importable without production code. Never a publication approval. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,20 +16,20 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "contract_package": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/contract_package"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/contract_package"
     },
     "envelope": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "created_at": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
         },
         "operator": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/person"
         },
         "exporter": {
           "type": "object",
@@ -41,13 +41,13 @@
               "maxLength": 128
             },
             "tool_version": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/semver"
             },
             "repository": {
-              "const": "jeilealr/big_lessons_little_tales"
+              "const": "jeilealr/feltwillow-production"
             },
             "commit": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/git_commit"
             },
             "tool_dirty": {
               "type": "boolean"
@@ -78,13 +78,13 @@
       "additionalProperties": false,
       "properties": {
         "handoff_id": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
         },
         "story_id": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
         },
         "language": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/language"
         },
         "handoff_revision": {
           "type": "integer",
@@ -101,7 +101,7 @@
         "supersedes": {
           "anyOf": [
             {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_ref"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_ref"
             },
             {
               "type": "null"
@@ -121,7 +121,7 @@
           ]
         },
         "story_allocation_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         "production_slugs": {
           "type": "array",
@@ -143,7 +143,7 @@
                 "const": "production"
               },
               "repository": {
-                "const": "jeilealr/big_lessons_little_tales"
+                "const": "jeilealr/feltwillow-production"
               },
               "branch": {
                 "type": "string",
@@ -151,7 +151,7 @@
                 "maxLength": 128
               },
               "commit": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/git_commit"
               },
               "worktree": {
                 "type": "object",
@@ -166,7 +166,7 @@
                   "dirty_paths": {
                     "type": "array",
                     "items": {
-                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/dirty_path"
+                      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/dirty_path"
                     },
                     "uniqueItems": true,
                     "maxItems": 10000
@@ -196,7 +196,7 @@
             "additionalProperties": false,
             "properties": {
               "source_id": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
               },
               "purpose": {
                 "enum": [
@@ -217,16 +217,16 @@
                 "const": "production"
               },
               "path": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/relpath"
               },
               "commit": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/git_commit"
               },
               "sha256": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
               },
               "bytes": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
               }
             },
             "required": [
@@ -248,19 +248,19 @@
             "additionalProperties": false,
             "properties": {
               "asset_id": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
               },
               "role": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/role"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/role"
               },
               "media_type": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/media_type"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/media_type"
               },
               "bytes": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
               },
               "sha256": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
               },
               "transport": {
                 "enum": [
@@ -271,7 +271,7 @@
               "package_path": {
                 "anyOf": [
                   {
-                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/package_path"
+                    "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/package_path"
                   },
                   {
                     "type": "null"
@@ -285,7 +285,7 @@
                   "width_px": {
                     "anyOf": [
                       {
-                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
                       },
                       {
                         "type": "null"
@@ -295,7 +295,7 @@
                   "height_px": {
                     "anyOf": [
                       {
-                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
                       },
                       {
                         "type": "null"
@@ -305,7 +305,7 @@
                   "duration_ms": {
                     "anyOf": [
                       {
-                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
                       },
                       {
                         "type": "null"
@@ -315,7 +315,7 @@
                   "sample_rate_hz": {
                     "anyOf": [
                       {
-                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
                       },
                       {
                         "type": "null"
@@ -337,7 +337,7 @@
                   "frame_rate": {
                     "anyOf": [
                       {
-                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/frame_rate"
+                        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/frame_rate"
                       },
                       {
                         "type": "null"
@@ -355,6 +355,16 @@
                 ],
                 "description": "Measured by the exporter from the bytes. Integers only."
               },
+              "measurement": {
+                "anyOf": [
+                  {
+                    "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/measurement"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
               "derived_from": {
                 "type": "array",
                 "items": {
@@ -362,12 +372,12 @@
                   "additionalProperties": false,
                   "properties": {
                     "sha256": {
-                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
                     },
                     "asset_id": {
                       "anyOf": [
                         {
-                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                         },
                         {
                           "type": "null"
@@ -415,7 +425,7 @@
                   "commit": {
                     "anyOf": [
                       {
-                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+                        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/git_commit"
                       },
                       {
                         "type": "null"
@@ -451,6 +461,7 @@
               "transport",
               "package_path",
               "measured",
+              "measurement",
               "derived_from",
               "origin",
               "selection_note"
@@ -462,19 +473,16 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "reading": {
+            "images": {
               "anyOf": [
                 {
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "text_asset": {
-                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
-                    },
                     "illustration_assets": {
                       "type": "array",
                       "items": {
-                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                       },
                       "uniqueItems": true,
                       "maxItems": 500
@@ -482,7 +490,7 @@
                     "cover_asset": {
                       "anyOf": [
                         {
-                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                         },
                         {
                           "type": "null"
@@ -491,7 +499,6 @@
                     }
                   },
                   "required": [
-                    "text_asset",
                     "illustration_assets",
                     "cover_asset"
                   ]
@@ -508,22 +515,12 @@
                   "additionalProperties": false,
                   "properties": {
                     "master_asset": {
-                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
-                    },
-                    "delivery_asset": {
-                      "anyOf": [
-                        {
-                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
+                      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                     },
                     "transcript_asset": {
                       "anyOf": [
                         {
-                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                         },
                         {
                           "type": "null"
@@ -533,7 +530,6 @@
                   },
                   "required": [
                     "master_asset",
-                    "delivery_asset",
                     "transcript_asset"
                   ]
                 },
@@ -549,12 +545,12 @@
                   "additionalProperties": false,
                   "properties": {
                     "master_asset": {
-                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                     },
                     "captions_asset": {
                       "anyOf": [
                         {
-                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                         },
                         {
                           "type": "null"
@@ -564,7 +560,7 @@
                     "thumbnail_asset": {
                       "anyOf": [
                         {
-                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
                         },
                         {
                           "type": "null"
@@ -585,7 +581,7 @@
             }
           },
           "required": [
-            "reading",
+            "images",
             "audio",
             "video"
           ]
@@ -595,10 +591,10 @@
           "additionalProperties": false,
           "properties": {
             "selected_by": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/person"
             },
             "selected_at": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
             },
             "statement": {
               "type": "string",
@@ -608,7 +604,7 @@
             "evidence": {
               "type": "array",
               "items": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/private_ref"
               },
               "maxItems": 100
             }
@@ -628,10 +624,10 @@
             "additionalProperties": false,
             "properties": {
               "component": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/rights_component"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/rights_component"
               },
               "evidence": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/private_ref"
               },
               "note": {
                 "anyOf": [
@@ -661,7 +657,7 @@
             "additionalProperties": false,
             "properties": {
               "asset_id": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
               },
               "tools": {
                 "type": "array",
@@ -676,7 +672,7 @@
               "evidence": {
                 "anyOf": [
                   {
-                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+                    "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/private_ref"
                   },
                   {
                     "type": "null"

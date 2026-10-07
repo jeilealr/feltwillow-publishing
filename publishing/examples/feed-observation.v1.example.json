@@ -2,7 +2,7 @@
   "kind": "feed-observation",
   "schema_version": 1,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "observation_id": "obs-20261006T190000Z-00000000",
   "show_id": "example-show-en",
   "feed_url": "https://feeds.example.invalid/x.xml",

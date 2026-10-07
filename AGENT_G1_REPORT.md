@@ -2,7 +2,7 @@
 
 ## Agent G1 report: publishing scaffold integrator (contract revision H2)
 
-I built the scaffold at `package/publishing-scaffold/`; the folder was empty when I resumed after the session limit, so everything here is new. In a clean-checkout run (no production checkout, empty environment, HOME unset) all **446 of 446** counted cases pass, including JavaScript parity with an unpinned Node. Nothing was committed, imported, uploaded or enabled, and nothing was written to the real `bllt-publishing` clone (still empty). Production HEAD is still `b880c23`.
+I built the scaffold at `package/publishing-scaffold/`; the folder was empty when I resumed after the session limit, so everything here is new. In a clean-checkout run (no production checkout, empty environment, HOME unset) all **446 of 446** counted cases pass, including JavaScript parity with an unpinned Node. Nothing was committed, imported, uploaded or enabled, and nothing was written to the real `feltwillow-publishing` clone (still empty). Production HEAD is still `b880c23`.
 
 ### 1. Evidence
 - **Sources read:** `COMMON.md`, `DECISIONS_H2.md` (including the new §8, L-20..L-24), `OWNER_DECISIONS.md`, `LEAD_NOTES.md`, `STAGE0_INVENTORY.md`, the REPORT.md of agents A–E, and all tools, schemas, examples and fixtures of B, C, D and E.
@@ -26,12 +26,12 @@ I built the scaffold at `package/publishing-scaffold/`; the folder was empty whe
   - `project.v2`: `podcast_authority: spotify`; `public_contact_email: jei.leal.r@gmail.com` with `public_contact_acknowledged: false`; `ai_disclosure: null` because no wording is approved yet.
   - `story-allocation`: `planned_languages: [en, es, de]`; web examples are en only.
   - `service-inventory.v1`: Microsoft 365 Personal OneDrive (1 TB plan, 187 GB used) and a 1 TB external drive, declared as owner infrastructure; Spotify for Creators as `planned`.
-- **Code (`src/bllt_publish/`):**
+- **Code (`src/feltwillow_publish/`):**
   - `contracts`: `cj1` and one unified `validate` with B's semantics, D's semantics, a hook to C's web rules, and the new H2 rules.
   - `imports/importer.py`: B's importer with the H2 storage layout, plus `import_from_environment` (the three root checks and `ARCHIVE_OUTSIDE_INBOX`).
   - `web/contract.py` (C), `podcast/podcast.py` (D).
   - `ops/`: E's `leak_scan`, `strict_zero` and `ci_lint`, plus new `state_roots.py` and `handoff_index_scan.py` (IC-E4).
-  - `check.py`: the single runner, `python -m bllt_publish.check --all --report <file> [--node <path>]`.
+  - `check.py`: the single runner, `python -m feltwillow_publish.check --all --report <file> [--node <path>]`.
 - **Tests:**
   - Suites: `tests/test_{contracts,imports,web,podcast,ops}.py`, plus `support.py` and `podcast_fixtures.py`.
   - `tests/fixtures/`: 105 negative record fixtures (57 new for H2), 25 negative imports, 6 scenarios, golden cases, synthetic packages with a `SOURCES.json` digest record, podcast fixtures, feeds, ops, handoff-index and workflows.
@@ -45,8 +45,8 @@ I built the scaffold at `package/publishing-scaffold/`; the folder was empty whe
 - Approval scope `rights_review.podcast_audio`: an approved review must carry the checks `gemini-terms-answer` and `mix-music-and-effects`.
 - New versions `publish-plan.v2` (with the rule that a website plan may not touch podcast records, IC-D12), `publish-receipt.v2`, `media-delivery.v2`, `site-set.v2`, `project.v2`, `service-inventory.v1`.
 - E's wider public file-name pattern replaces B's.
-- `STATE_ROOT_UNSET`/`STATE_ROOT_UNSAFE` checks for the three roots; archives at `BLLT_MASTER_ROOT/handoffs/<sha256>.tar`.
-- Canonicalization constant `bllt-canonical-json-v1` everywhere (L-20).
+- `STATE_ROOT_UNSET`/`STATE_ROOT_UNSAFE` checks for the three roots; archives at `FELTWILLOW_MASTER_ROOT/handoffs/<sha256>.tar`.
+- Canonicalization constant `feltwillow-canonical-json-v1` everywhere (L-20).
 - Source purpose `selection` and the `handoff-selection.v1` schema; G3's example YAML validates against it (L-23).
 
 **Choices I made that the lead should confirm:**
@@ -68,7 +68,7 @@ I built the scaffold at `package/publishing-scaffold/`; the folder was empty whe
 ### 4. Interface-change requests to the lead
 - **IC-G1-1 (G3):** regenerate `CONTRACT.lock` from the H2 schemas with the `canonicalization` constant and version `0.2.0-h2`, and emit `canonicalization` in its handoff records.
 - **IC-G1-2 (G3):** use `STATE_ROOT_UNSET`/`STATE_ROOT_UNSAFE` instead of `MASTER_ROOT_UNSET`, and record the selection file with source purpose `selection` instead of `other`.
-- **IC-G1-3 (G2):** the docs should name the constant `bllt-canonical-json-v1`. Docs should also cover the `publish-receipt.v2` status spelling `manual_pending`, the new error codes (`error-codes.json` is the source), and the archive locator `handoffs/<sha256>.tar`.
+- **IC-G1-3 (G2):** the docs should name the constant `feltwillow-canonical-json-v1`. Docs should also cover the `publish-receipt.v2` status spelling `manual_pending`, the new error codes (`error-codes.json` is the source), and the archive locator `handoffs/<sha256>.tar`.
 - **IC-G1-4 (lead):** confirm the choices listed in §2.
 
 ### 5. Tests executed
@@ -77,7 +77,7 @@ Python is `/scratch/project_465002727/jelealro/tmp/venv-blueprint` (3.12.9). Nod
 | Command | Result |
 |---|---|
 | `build_schemas.py`, `build_examples.py`, `build_error_codes.py` in the clean copy `/scratch/project_465002727/jelealro/tmp/g1_clean/` | regenerated output is byte-identical to the package (`diff -r` clean) |
-| `env -i HOME=/nonexistent PYTHONPATH=src python -m bllt_publish.check --all --node … --report …` | **446/446, exit 0** |
+| `env -i HOME=/nonexistent PYTHONPATH=src python -m feltwillow_publish.check --all --node … --report …` | **446/446, exit 0** |
 
 The 446 cases break down as:
 - **Contracts:** schemas 35/35, positive examples 29/29, negative records 105/105, Python golden cases 24/24.
@@ -127,7 +127,7 @@ I did not change the schema, so G3's lock pins against the H2 schemas stay valid
 
 **Verification**
 - I regenerated everything with the build tools in a fresh copy at `/scratch/project_465002727/jelealro/tmp/g1_clean/`, run with an empty environment and `HOME=/nonexistent`. The regenerated output is byte-identical to the package.
-- `python -m bllt_publish.check --all --node <VS Code Node v24.21.0, unpinned>` passed 446 of 446 and exited 0, including the 2 JavaScript parity cases.
+- `python -m feltwillow_publish.check --all --node <VS Code Node v24.21.0, unpinned>` passed 446 of 446 and exited 0, including the 2 JavaScript parity cases.
 
 I did not edit or re-read G3's files. The uncounted `info_g3_compat` result still compares against my older copy of G3's lock, taken before its L-26 regeneration, so it will keep showing the old mismatches until that copy is refreshed.
 
@@ -287,3 +287,76 @@ Files are in `package/publishing-scaffold/`:
 - `DEPRECATED_V2_RULES.md`
 - `results/check_results.json`
 - `publishing/contracts/error-codes.json`
+
+## Follow-up (L-28, L-29), 2026-10-07
+
+L-28 and L-29 are applied in place in `package/publishing-scaffold/`. The full clean-checkout run (`env -i`, `HOME=/nonexistent`, unpinned Node v24.21.0 for JS parity) passes **555 of 555**, exit 0, and regeneration is byte-identical.
+
+**G3 must regenerate CONTRACT.lock.** Four schema files changed and one is new (new sha256 in parentheses):
+- `common.v2.schema.json` (de10f4d5…)
+- `production-handoff.v1.schema.json` (fffdfb3b…)
+- `release.v2.schema.json` (dccdd616…)
+- `handoff-selection.v1.schema.json` (19eb05c0…)
+- `reading-edition.v1.schema.json`, new (036eb408…)
+
+G3's current lock still validates as a contract-lock record, but those 4 pinned digests now differ and the new schema is not pinned. The uncounted `info_g3_compat` result shows this.
+
+**Not yet done on G3's side:**
+- G3's selection example still has the old `reading` component. My example builder adapts it (`l28_selection` in `tools/build_examples.py`) until G3 updates its file and exporter.
+- `MEASUREMENT_TOOL_UNAVAILABLE` is in the catalogue as `planned`, because G3's exporter does not emit it yet.
+
+**L-28: reading text is now authored in publishing**
+- **Handoff:** the `reading` component is replaced by `images` (illustrations and cover only). The roles `reading-text` and `audio-delivery` are gone, and so are `audio.delivery_asset` and the release asset role `reading-text`. The script and line list stay as source files.
+- **New `reading-edition.v1` record:** edition id `<story>.<lang>.e<revision>`, revision and supersedes, title, ordered blocks (text, image block with alt text), and illustrations that point to handoff assets with their digests. It pins the handoff script/line-list file it was written from, and provenance is fixed to "publishing".
+- **Example:** a Lion-and-Mouse reading edition, EXAMPLE ONLY.
+- **Release:** `content.reading_text_asset` is replaced by a `content.reading_edition` pin. A release with the website channel requested must pin one (`READING_EDITION_MISSING`), and the website readiness check requires it too. Release `content.blocks` are kept unchanged.
+- **Selection schema:** components are now images/audio/video.
+
+**L-29: measurement provenance and lossless audio**
+- Each handoff asset carries `measurement: {tool: feltwillow-stdlib | ffprobe, version}`. Image, audio and video assets without it are refused.
+- MP3/M4A are refused in handoffs.
+- Video must be measured by ffprobe.
+- The handoff examples and the synthetic import package now carry measurement provenance (EXAMPLE values).
+
+**New codes:**
+- Reading edition: `READING_EDITION_MISSING`, `READING_EDITION_MISMATCH`, `READING_EDITION_ID_MISMATCH`, `READING_EDITION_WITHOUT_TEXT`, `READING_SOURCE_OTHER_EDITION`.
+- Measurement: `MEASUREMENT_PROVENANCE_MISSING`, `VIDEO_MEASUREMENT_REQUIRES_FFPROBE`, `HANDOFF_AUDIO_NOT_LOSSLESS`, and `MEASUREMENT_TOOL_UNAVAILABLE` (planned, exporter).
+- Catalogue total: 442 codes in 27 families.
+
+**New fixture ids** (in `tests/fixtures/negative/records/`):
+
+| Fixture | Expected result |
+|---|---|
+| hr01 reading-text asset in handoff | `SCHEMA_VIOLATION` |
+| hr02 reading component in handoff | `SCHEMA_VIOLATION` |
+| hr03 reading component in selection | `SCHEMA_VIOLATION` |
+| re01 website release without reading edition | `READING_EDITION_MISSING` |
+| re02 reading edition of another language | `READING_EDITION_MISMATCH` |
+| re03 edition id does not match revision | `READING_EDITION_ID_MISMATCH` |
+| re04 image block with unknown illustration | `UNKNOWN_ASSET` |
+| re05 edition with no text | `READING_EDITION_WITHOUT_TEXT` |
+| re06 edition authored in production | `SCHEMA_VIOLATION` |
+| re07 source script from another story | `READING_SOURCE_OTHER_EDITION` |
+| re08 listed illustration not used | `UNREFERENCED_ASSET` |
+| re09 image block without alt text | `SCHEMA_VIOLATION` |
+| ms01 measurement provenance missing | `MEASUREMENT_PROVENANCE_MISSING` |
+| ms02 video measured with feltwillow-stdlib | `VIDEO_MEASUREMENT_REQUIRES_FFPROBE` |
+| ms03 video measured with ffprobe | valid (positive patch case) |
+| ms04 MP3 audio in handoff | `HANDOFF_AUDIO_NOT_LOSSLESS` |
+| ms05 audio-delivery role | `SCHEMA_VIOLATION` |
+| ms06 unknown measurement tool | `SCHEMA_VIOLATION` |
+
+**Existing fixtures adapted (same codes, new targets):**
+- Agent B's Lion fixtures now index the two illustration assets and use the `images` component.
+- Second-story fixtures: h14, h16 and h17 now target the transcript and master, since the reading text and MP3 assets are gone.
+- r01 and r03 were updated for the reading-edition pin.
+- Import fixtures m03–m06, m11, m12, m15, m16, m17 and m21 now use the illustration folder.
+- m13 lowers its member limit to 2, because the synthetic package has 3 members now.
+
+**Counts:**
+- Schemas 36/36, positive examples 37/37, negative records 153/153, raw 1/1, v2 semantics ported 35/35, golden 24/24.
+- Imports 27/27, scenarios 9/9, positive import 1/1, import roots 8/8.
+- Web 51/51, podcast 60/60, leak scan 44/44, strict zero 28/28, CI lint 24/24, state roots 10/10, handoff-index scan 3/3.
+- Error catalogue 2/2 (257 observed codes), JS parity 2/2 (27 record digests).
+
+**Docs updated:** `README.md`, `CLAUDE.md` (reading edition authored in publishing; agents draft only), `publishing/contracts/README.md`, `DEPRECATED_V2_RULES.md` (new section on what L-28/L-29 removed), `VALIDATION.md`, and `results/check_results.json`.

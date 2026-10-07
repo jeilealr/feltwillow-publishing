@@ -21,7 +21,7 @@ from ..contracts import validate as contracts
 
 PAYLOAD_PATH = "data/web-bundle.json"
 MAGIC = {"image/png": b"\x89PNG\r\n\x1a\n", "image/jpeg": b"\xff\xd8\xff", "image/webp": b"RIFF"}
-LEAK_RE = re.compile(rb"(/scratch/|/users/|/home/|file://|[A-Za-z]:\\\\|BLLT_[A-Z_]+=|\.env\b)")
+LEAK_RE = re.compile(rb"(/scratch/|/users/|/home/|file://|[A-Za-z]:\\\\|FELTWILLOW_[A-Z_]+=|\.env\b)")
 ARTIFACT_ALLOWED_TOP = {"index.html", "404.html", "sitemap.xml", "robots.txt", "_redirects", "_headers",
                         "favicon.ico", "favicon.svg"}
 ARTIFACT_ALLOWED_DIRS = ("assets/", "media/")

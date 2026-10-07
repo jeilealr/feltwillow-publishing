@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "add",
-      "path": "/components/reading/illustration_assets/-",
+      "path": "/components/images/illustration_assets/-",
       "value": "illus-missing"
     }
   ],

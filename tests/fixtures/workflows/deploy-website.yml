@@ -28,9 +28,9 @@ jobs:
       - name: verify plan, approval, artifact digests and leakage scan (fails closed)
         env:
           PLAN_SHA256: ${{ inputs.plan_sha256 }}
-        run: python -m bllt_publish apply --plan-sha256 "$PLAN_SHA256" --target website --verify-only
+        run: python -m feltwillow_publish apply --plan-sha256 "$PLAN_SHA256" --target website --verify-only
       - name: upload exactly the verified artifact
         env:
           PLAN_SHA256: ${{ inputs.plan_sha256 }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.BLLT_PAGES_DEPLOY_TOKEN }}
-        run: python -m bllt_publish apply --plan-sha256 "$PLAN_SHA256" --target website
+          CLOUDFLARE_API_TOKEN: ${{ secrets.FELTWILLOW_PAGES_DEPLOY_TOKEN }}
+        run: python -m feltwillow_publish apply --plan-sha256 "$PLAN_SHA256" --target website

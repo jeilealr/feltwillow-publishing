@@ -14,8 +14,8 @@ import os
 import tarfile
 from pathlib import Path
 
-from bllt_publish.contracts import cj1
-from bllt_publish.imports import importer as I
+from feltwillow_publish.contracts import cj1
+from feltwillow_publish.imports import importer as I
 from support import FIX, apply_patch, case, load_fixture
 
 PKG = FIX / "packages" / "lion-h0001-synthetic"
@@ -203,7 +203,7 @@ def run(ctx):
     digest = hashlib.sha256(arc_path.read_bytes()).hexdigest()
 
     def env_case(name, env, expect, root_check=None, receipt_expected=None):
-        state = Path(env["BLLT_PUBLISH_STATE_ROOT"]) if env.get("BLLT_PUBLISH_STATE_ROOT", "").startswith("/") else None
+        state = Path(env["FELTWILLOW_PUBLISH_STATE_ROOT"]) if env.get("FELTWILLOW_PUBLISH_STATE_ROOT", "").startswith("/") else None
         before = len(list((state / "receipts").glob("*.json"))) if state and (state / "receipts").exists() else 0
         try:
             r = I.import_from_environment(arc_path, operator="TEST-OPERATOR", allocations=allocations_default(),
@@ -215,14 +215,14 @@ def run(ctx):
         after = len(list((state / "receipts").glob("*.json"))) if state and (state / "receipts").exists() else 0
         ok = expect in got and (receipt_expected is None or (after - before == 1) == receipt_expected)
         res["import_roots"].append(case(name, ok, expect=expect, got=got, receipt_written=after - before))
-    good = {"BLLT_HANDOFF_INBOX": str(arc_path.parent), "BLLT_MASTER_ROOT": str(tmp / "env-master"),
-            "BLLT_PUBLISH_STATE_ROOT": str(tmp / "env-state")}
+    good = {"FELTWILLOW_HANDOFF_INBOX": str(arc_path.parent), "FELTWILLOW_MASTER_ROOT": str(tmp / "env-master"),
+            "FELTWILLOW_PUBLISH_STATE_ROOT": str(tmp / "env-state")}
     env_case("inbox unset (state root usable: rejection receipt written)",
-             {k: v for k, v in good.items() if k != "BLLT_HANDOFF_INBOX"}, "STATE_ROOT_UNSET", lax, True)
-    env_case("master root unset", {k: v for k, v in good.items() if k != "BLLT_MASTER_ROOT"}, "STATE_ROOT_UNSET", lax)
+             {k: v for k, v in good.items() if k != "FELTWILLOW_HANDOFF_INBOX"}, "STATE_ROOT_UNSET", lax, True)
+    env_case("master root unset", {k: v for k, v in good.items() if k != "FELTWILLOW_MASTER_ROOT"}, "STATE_ROOT_UNSET", lax)
     env_case("state root on LUMI scratch (default rules)", good, "STATE_ROOT_UNSAFE")
-    env_case("state root relative", {**good, "BLLT_PUBLISH_STATE_ROOT": "state"}, "STATE_ROOT_UNSAFE", lax)
-    env_case("archive outside inbox (receipt written)", {**good, "BLLT_HANDOFF_INBOX": str(tmp / "other-inbox")},
+    env_case("state root relative", {**good, "FELTWILLOW_PUBLISH_STATE_ROOT": "state"}, "STATE_ROOT_UNSAFE", lax)
+    env_case("archive outside inbox (receipt written)", {**good, "FELTWILLOW_HANDOFF_INBOX": str(tmp / "other-inbox")},
              "ARCHIVE_OUTSIDE_INBOX", lax, True)
     env_case("safe roots accept", good, "accepted", lax, True)
     # M1 test-only switch: no digest accepted only as an example:true receipt (never a real acceptance)

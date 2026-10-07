@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNREFERENCED_ASSET",
+  "base": "publishing/examples/reading-edition.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/blocks",
+      "value": [
+        {
+          "type": "paragraph",
+          "text": "x"
+        }
+      ]
+    }
+  ],
+  "description": "Listed illustrations are used.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

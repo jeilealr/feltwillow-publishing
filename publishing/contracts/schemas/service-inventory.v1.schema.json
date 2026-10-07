@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/service-inventory.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/service-inventory.v1.json",
   "title": "Service inventory v1",
-  "description": "Declared external services and their cost class (Agent E, IC-E3); checked fail-closed by bllt_publish.ops.strict_zero. A pass checks declarations, not provider dashboards. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "description": "Declared external services and their cost class (Agent E, IC-E3); checked fail-closed by feltwillow_publish.ops.strict_zero. A pass checks declarations, not provider dashboards. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -16,7 +16,7 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "profile": {
       "enum": [
@@ -94,7 +94,7 @@
             "additionalProperties": false,
             "properties": {
               "checked_at": {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/date"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/date"
               },
               "source": {
                 "type": "string",

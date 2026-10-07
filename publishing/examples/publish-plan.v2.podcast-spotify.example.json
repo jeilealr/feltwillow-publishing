@@ -2,33 +2,33 @@
   "kind": "publish-plan",
   "schema_version": 2,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "plan_id": "example-plan-podcast-0001",
   "created_at": "2026-10-07T10:00:00Z",
   "expires_at": "2026-10-08T10:00:00Z",
   "environment": "production",
   "destination": "podcast",
-  "publishing_commit": "8071a4cf89169930efa588dd872bcbcd132476e7",
+  "publishing_commit": "29aeb86c7a42914ec7a0824633592d668bdc9039",
   "contract_version": "0.2.0-h2",
   "contract_package": {
-    "name": "bllt-contracts",
+    "name": "feltwillow-contracts",
     "version": "0.2.0-h2",
     "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
   },
   "handoff_package_digests": [
     {
       "handoff_id": "lion-and-mouse.en.h0001",
-      "payload_sha256": "65dade1f2ed91a80c65d9092ffd373b6b3a45254970bd68cb793f4eb5bce8b8c",
+      "payload_sha256": "5cd530c3a34386b741fe950510ed7d88f3d76a1502a34bf4627263f86a9371de",
       "archive_sha256": "d7cc2a353c1f55a8da572d89a24b352dd3ff0b25bea32a91d1b9e54e8858bffa"
     }
   ],
-  "project_sha256": "458f947ea2d92f3e2c901054b58a6c2fa253b62e775d205a36f41f9fdcebb9c7",
+  "project_sha256": "da604668d4b25b91bfb3ae3ac604fd2853e11ec09895a6c2d8c7412882fc5784",
   "site_set": null,
   "registry_sha256": "40b700ed208f838adc0d010c2a3e5d9441a355690912324cf65cc9f05a35a207",
   "releases": [
     {
       "release_id": "lion-and-mouse.en.r0001",
-      "release_sha256": "eae72ddb991a79d7bfd8b0368c6483cdf9736cccd213131157cccfd88fd3083f"
+      "release_sha256": "e6e18a2dc62a735c64170913844147cbb2db18f39440132e0f15281bd922ac12"
     }
   ],
   "check_reports": {
@@ -62,7 +62,7 @@
     {
       "record_kind": "episode-publication",
       "path": "publishing/episodes/example-show-en/lion-and-mouse.en.json",
-      "sha256": "536fe17b4a33e3dabb7d2dbde249e3c0120672fd4e9a5bcd0ef3ed3406b44dac"
+      "sha256": "1e7df61ff48802041313a38e0af8fff87bd6f04d0425dfe72950e8bbeafba201"
     }
   ]
 }

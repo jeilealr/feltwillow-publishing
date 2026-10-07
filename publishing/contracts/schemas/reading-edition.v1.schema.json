@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://feltwillow.example.invalid/schemas/reading-edition.v1.json",
+  "title": "Reading edition v1",
+  "description": "Reading text of one story-language, authored in the publishing repository (L-28). Ordered blocks: text (paragraph/heading/quote) and illustrations (image block: handoff asset ref + alt text). Pins the handoff script/line-list digest it was written from. Approvals are separate records. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "reading-edition"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "edition_id": {
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/reading_edition_id"
+    },
+    "story_id": {
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "language": {
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/language"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9999
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/reading_edition_pin"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "source_script": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "handoff_id": {
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+        },
+        "handoff_payload_sha256": {
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
+        },
+        "source_id": {
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
+        },
+        "sha256": {
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
+        }
+      },
+      "required": [
+        "handoff_id",
+        "handoff_payload_sha256",
+        "source_id",
+        "sha256"
+      ],
+      "description": "The handoff script / line-list source file this edition was written from."
+    },
+    "illustrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "asset_id": {
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
+          },
+          "handoff_id": {
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+          },
+          "handoff_asset_id": {
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
+          },
+          "sha256": {
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "asset_id",
+          "handoff_id",
+          "handoff_asset_id",
+          "sha256"
+        ]
+      },
+      "maxItems": 500
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/block"
+      },
+      "minItems": 1,
+      "maxItems": 2000
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "authored_in": {
+          "const": "publishing"
+        },
+        "authored_by": {
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/person"
+        },
+        "authored_at": {
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "maxItems": 20
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authored_in",
+        "authored_by",
+        "authored_at",
+        "tools",
+        "note"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "edition_id",
+    "story_id",
+    "language",
+    "revision",
+    "lifecycle",
+    "supersedes",
+    "title",
+    "source_script",
+    "illustrations",
+    "blocks",
+    "provenance"
+  ]
+}

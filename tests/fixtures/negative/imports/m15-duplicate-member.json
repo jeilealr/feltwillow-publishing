@@ -5,7 +5,7 @@
   "mutations": [
     {
       "op": "duplicate_member",
-      "name": "files/reading-text-en/reading-text.json"
+      "name": "files/illus-s01-explores-start/s01_explores_start_r01.png"
     }
   ],
   "options": {},

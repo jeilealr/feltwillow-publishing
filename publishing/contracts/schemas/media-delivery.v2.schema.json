@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/media-delivery.v2.json",
+  "$id": "https://feltwillow.example.invalid/schemas/media-delivery.v2.json",
   "title": "Media delivery v2",
   "description": "Observed delivery of a media file by a provider (IC-B2: integer duration_ms replaces float seconds). Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,7 +16,7 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "records": {
       "type": "array",
@@ -25,18 +25,18 @@
         "additionalProperties": false,
         "properties": {
           "asset_sha256": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
           },
           "provider": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
           },
           "url": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/https_url"
           },
           "observed_sha256": {
             "anyOf": [
               {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
               },
               {
                 "type": "null"
@@ -44,12 +44,12 @@
             ]
           },
           "observed_bytes": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
           },
           "duration_ms": {
             "anyOf": [
               {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
               },
               {
                 "type": "null"
@@ -57,7 +57,7 @@
             ]
           },
           "observed_at": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
           },
           "access": {
             "enum": [

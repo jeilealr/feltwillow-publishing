@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/components/reading",
+      "value": null
+    }
+  ],
+  "description": "handoff-selection.v1 has images/audio/video only.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

@@ -1,0 +1,56 @@
+{
+  "kind": "reading-edition",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "feltwillow-canonical-json-v1",
+  "edition_id": "lion-and-mouse.en.e0001",
+  "story_id": "lion-and-mouse",
+  "language": "en",
+  "revision": 1,
+  "lifecycle": "draft",
+  "supersedes": null,
+  "title": "The Lion and the Mouse",
+  "source_script": {
+    "handoff_id": "lion-and-mouse.en.h0001",
+    "handoff_payload_sha256": "5cd530c3a34386b741fe950510ed7d88f3d76a1502a34bf4627263f86a9371de",
+    "source_id": "dialogue-v4",
+    "sha256": "595e4b9669ef88f458c4feb59bfb364d64f54366450bb0b8d0a02e1a524737f8"
+  },
+  "illustrations": [
+    {
+      "asset_id": "illus-s01-explores-start",
+      "handoff_id": "lion-and-mouse.en.h0001",
+      "handoff_asset_id": "illus-s01-explores-start",
+      "sha256": "2bf719f4756214ce7a804c4c9ad85587edaf54c43cd73a5f9e2f6c6ae36a3872"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "EXAMPLE ONLY: part one"
+    },
+    {
+      "type": "paragraph",
+      "text": "EXAMPLE ONLY: the reading edition is written in publishing from the handoff's line list."
+    },
+    {
+      "type": "image",
+      "asset_id": "illus-s01-explores-start",
+      "alt": "EXAMPLE ONLY: alt text to be written and reviewed.",
+      "caption": null
+    },
+    {
+      "type": "quote",
+      "speaker": "EXAMPLE Mouse",
+      "text": "EXAMPLE ONLY: a line of dialogue."
+    }
+  ],
+  "provenance": {
+    "authored_in": "publishing",
+    "authored_by": "EXAMPLE-EDITOR",
+    "authored_at": "2026-10-07T12:00:00Z",
+    "tools": [],
+    "note": "EXAMPLE ONLY: no reading edition has been written yet (owner decision L-28)."
+  }
+}

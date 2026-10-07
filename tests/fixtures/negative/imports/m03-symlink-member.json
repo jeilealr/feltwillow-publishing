@@ -5,7 +5,7 @@
   "mutations": [
     {
       "op": "add_symlink",
-      "name": "files/reading-text-en/link",
+      "name": "files/illus-s01-explores-start/link",
       "target": "/etc/passwd"
     }
   ],

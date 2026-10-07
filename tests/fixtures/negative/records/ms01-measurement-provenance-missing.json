@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "MEASUREMENT_PROVENANCE_MISSING",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/0/measurement",
+      "value": null
+    }
+  ],
+  "description": "Measured media record their tool and version.",
+  "rule": "L-29 (measurement provenance, lossless audio)"
+}

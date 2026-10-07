@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/provider-registry.v2.json",
+  "$id": "https://feltwillow.example.invalid/schemas/provider-registry.v2.json",
   "title": "Provider registry v2",
   "description": "Sanitized public provider mappings with a required url_kind per URL (Agent D, IC-D2). Values are observed, never constructed. No e-mail addresses, owner account IDs, tokens or verification codes. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,7 +16,7 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "records": {
       "type": "array",
@@ -79,7 +79,7 @@
           "external_url": {
             "anyOf": [
               {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/https_url"
               },
               {
                 "type": "null"
@@ -110,7 +110,7 @@
             ]
           },
           "observed_at": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
           },
           "receipt_id": {
             "anyOf": [

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/common.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/common.v1.json",
   "$defs": {
     "id": {
       "type": "string",
@@ -113,7 +113,7 @@
               "const": "image"
             },
             "asset_id": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
             },
             "alt": {
               "type": "string",
@@ -145,7 +145,7 @@
       "additionalProperties": false,
       "properties": {
         "asset_id": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
         },
         "role": {
           "enum": [
@@ -165,10 +165,10 @@
           ]
         },
         "path": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/path"
         },
         "sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/sha256"
         },
         "bytes": {
           "type": "integer",
@@ -258,7 +258,7 @@
           ]
         },
         "path": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/path"
         },
         "commit": {
           "type": "string",
@@ -292,10 +292,10 @@
           "minLength": 1
         },
         "path": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/path"
         },
         "sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/sha256"
         }
       },
       "required": [

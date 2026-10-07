@@ -26,7 +26,7 @@
     {
       "op": "replace",
       "path": "/website/origin",
-      "value": "https://bllt.example.invalid"
+      "value": "https://feltwillow.example.invalid"
     }
   ],
   "description": "F-V01 (v2 I06).",

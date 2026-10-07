@@ -2,7 +2,7 @@
   "kind": "project",
   "schema_version": 2,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "project_id": "big-lessons-little-tales",
   "profile_option": "undecided",
   "website": {
@@ -33,6 +33,6 @@
   "public_contact_acknowledged": true,
   "service_inventory": {
     "path": "publishing/service-inventory.json",
-    "sha256": "1ad08ed073fc07c5e3eccb21eb9e9a54e4c5500415a2405979fe1b43e6af156e"
+    "sha256": "acb914d1461ddcfd099f92923845bb971da5725321124373b73cdfb6c607e654"
   }
 }

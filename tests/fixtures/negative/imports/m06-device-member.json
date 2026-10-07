@@ -5,7 +5,7 @@
   "mutations": [
     {
       "op": "add_special",
-      "name": "files/reading-text-en/dev",
+      "name": "files/illus-s01-explores-start/dev",
       "type": "chr"
     }
   ],

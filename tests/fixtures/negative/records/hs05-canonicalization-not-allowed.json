@@ -6,7 +6,7 @@
     {
       "op": "add",
       "path": "/canonicalization",
-      "value": "bllt-canonical-json-v1"
+      "value": "feltwillow-canonical-json-v1"
     }
   ],
   "description": "L-23: YAML selection is pinned by blob digest, not canonical JSON.",

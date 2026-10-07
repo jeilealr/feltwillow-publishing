@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "READING_SOURCE_OTHER_EDITION",
+  "base": "publishing/examples/reading-edition.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/source_script/handoff_id",
+      "value": "fixture-second-story.en.h0001"
+    }
+  ],
+  "description": "The pinned script belongs to the same story-language.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

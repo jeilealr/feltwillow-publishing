@@ -6,7 +6,7 @@
     "kind": "episode-publication",
     "schema_version": 2,
     "example": true,
-    "canonicalization": "bllt-canonical-json-v1",
+    "canonicalization": "feltwillow-canonical-json-v1",
     "show_id": "example-show-en",
     "episode_id": "lion-and-mouse.en",
     "record_revision": 2,

@@ -2,9 +2,9 @@
   "kind": "production-handoff",
   "schema_version": 1,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "contract_package": {
-    "name": "bllt-contracts",
+    "name": "feltwillow-contracts",
     "version": "0.2.0-h2",
     "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
   },
@@ -14,7 +14,7 @@
     "exporter": {
       "tool": "production/export_handoff.py (PROPOSED)",
       "tool_version": "0.1.0",
-      "repository": "jeilealr/big_lessons_little_tales",
+      "repository": "jeilealr/feltwillow-production",
       "commit": "b880c230c6de419c809e879c422972c4122c9917",
       "tool_dirty": false
     },
@@ -28,14 +28,14 @@
     "purpose": "initial",
     "supersedes": null,
     "reason": null,
-    "story_allocation_sha256": "33820dfa1af84026fd44a9b61968ee64a6518b490f8c02c2f95691be698eb967",
+    "story_allocation_sha256": "6a9df1170abd8346d763e298d64ce2ab03b4e583a5d9e3bff519443daace14a8",
     "production_slugs": [
       "lion_and_mouse_v5"
     ],
     "source_repositories": [
       {
         "repo_role": "production",
-        "repository": "jeilealr/big_lessons_little_tales",
+        "repository": "jeilealr/feltwillow-production",
         "branch": "working-cloud-branch",
         "commit": "b880c230c6de419c809e879c422972c4122c9917",
         "worktree": {
@@ -82,30 +82,6 @@
     ],
     "assets": [
       {
-        "asset_id": "reading-text-en",
-        "role": "reading-text",
-        "media_type": "application/vnd.bllt.reading-blocks+json",
-        "bytes": 394,
-        "sha256": "6d14393fa42813242fd5206c16d83fb94882f168838046e02ab9cfe72aa3ac8d",
-        "transport": "embedded",
-        "package_path": "files/reading-text-en/reading-text.json",
-        "measured": {
-          "width_px": null,
-          "height_px": null,
-          "duration_ms": null,
-          "sample_rate_hz": null,
-          "channels": null,
-          "frame_rate": null
-        },
-        "derived_from": [],
-        "origin": {
-          "store": "owner-master-store",
-          "ref": "EXAMPLE-ONLY/reading-text.example.json",
-          "commit": null
-        },
-        "selection_note": "EXAMPLE ONLY: synthetic stand-in; the approved reading edition has not been supplied."
-      },
-      {
         "asset_id": "illus-s01-explores-start",
         "role": "illustration",
         "media_type": "image/png",
@@ -120,6 +96,10 @@
           "sample_rate_hz": null,
           "channels": null,
           "frame_rate": null
+        },
+        "measurement": {
+          "tool": "feltwillow-stdlib",
+          "version": "EXAMPLE 0.1.0 (Python 3.12)"
         },
         "derived_from": [],
         "origin": {
@@ -145,6 +125,10 @@
           "channels": null,
           "frame_rate": null
         },
+        "measurement": {
+          "tool": "feltwillow-stdlib",
+          "version": "EXAMPLE 0.1.0 (Python 3.12)"
+        },
         "derived_from": [],
         "origin": {
           "store": "owner-master-store",
@@ -155,8 +139,7 @@
       }
     ],
     "components": {
-      "reading": {
-        "text_asset": "reading-text-en",
+      "images": {
         "illustration_assets": [
           "illus-s01-explores-start",
           "illus-s01-acorn-start"

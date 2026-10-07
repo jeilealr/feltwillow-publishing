@@ -1,16 +1,16 @@
 """Reference import protocol for production handoff packages (contract revision H2).
 
-PROPOSED CONTRACT. Reference implementation (Agent B's h1_import.py) moved into bllt_publish.imports and
-changed for DECISIONS_H2 s.2: archives go to BLLT_MASTER_ROOT, operational state to BLLT_PUBLISH_STATE_ROOT.
+PROPOSED CONTRACT. Reference implementation (Agent B's h1_import.py) moved into feltwillow_publish.imports and
+changed for DECISIONS_H2 s.2: archives go to FELTWILLOW_MASTER_ROOT, operational state to FELTWILLOW_PUBLISH_STATE_ROOT.
 Status: implemented and tested offline only. Agents never run an import against real state (L-09); the
 owner/operator does. No network access of any kind; package content is treated as data only.
 
 Layout (both roots owner-controlled, outside Git, outside OneDrive sync, not on LUMI scratch; checked by
-bllt_publish.ops.state_roots before a real import):
-  $BLLT_PUBLISH_STATE_ROOT/import.lock                 single-importer lock (O_EXCL)
-  $BLLT_PUBLISH_STATE_ROOT/staging/<random>/           disposable extraction area
-  $BLLT_PUBLISH_STATE_ROOT/receipts/<receipt_id>.json  append-only receipts (the commit point)
-  $BLLT_MASTER_ROOT/handoffs/<archive_sha256>.tar      immutable archived package (0444)
+feltwillow_publish.ops.state_roots before a real import):
+  $FELTWILLOW_PUBLISH_STATE_ROOT/import.lock                 single-importer lock (O_EXCL)
+  $FELTWILLOW_PUBLISH_STATE_ROOT/staging/<random>/           disposable extraction area
+  $FELTWILLOW_PUBLISH_STATE_ROOT/receipts/<receipt_id>.json  append-only receipts (the commit point)
+  $FELTWILLOW_MASTER_ROOT/handoffs/<archive_sha256>.tar      immutable archived package (0444)
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ from ..contracts import cj1
 from ..contracts import validate as h1_contracts
 
 CONSUMER_SUPPORTS = sorted(h1_contracts.SUPPORTED["production-handoff"])
-TOOL = {"tool": "bllt_publish.imports.importer (reference)", "tool_version": "0.2.0-h2", "publishing_commit": None}
+TOOL = {"tool": "feltwillow_publish.imports.importer (reference)", "tool_version": "0.2.0-h2", "publishing_commit": None}
 DEFAULT_LIMITS = {
     "max_archive_bytes": 64 * 2**30,
     "max_members": 10000,
@@ -84,7 +84,7 @@ def sniff_ok(media_type: str, data_head: bytes, full_path: Path) -> bool:
         return h[:3] == b"ID3" or (len(h) > 1 and h[0] == 0xFF and (h[1] & 0xE0) == 0xE0)
     if media_type in ("audio/mp4", "video/mp4", "video/quicktime"):
         return h[4:8] in (b"ftyp", b"moov", b"wide", b"mdat")
-    if media_type in ("text/plain", "text/vtt", "application/json", "application/vnd.bllt.reading-blocks+json"):
+    if media_type in ("text/plain", "text/vtt", "application/json", "application/vnd.feltwillow.reading-blocks+json"):
         data = full_path.read_bytes()
         try:
             text = data.decode("utf-8")
@@ -388,7 +388,7 @@ def _import_locked(archive, state_root, master_root, receipt, limits, allocation
             if any(r["supersedes"] == p["supersedes"] for r in accepted):
                 raise ImportReject(["HANDOFF_FORK"])
         # Immutable archival copy (content-addressed; an identical earlier copy is reused).
-        rel = f"handoffs/{sha}.tar"  # relative to BLLT_MASTER_ROOT (DECISIONS_H2 s.2)
+        rel = f"handoffs/{sha}.tar"  # relative to FELTWILLOW_MASTER_ROOT (DECISIONS_H2 s.2)
         dest = master_root / rel
         if dest.exists():
             if _sha_file(dest)[0] != sha:
@@ -429,22 +429,22 @@ def _persist(state_root: Path, receipt: dict):
 
 def import_from_environment(archive: Path, *, operator: str, allocations: dict, env=None,
                             root_check: dict | None = None, **kw) -> dict:
-    """Operator entry point (planned CLI `bllt-publish import`): resolve and check the three roots first.
+    """Operator entry point (planned CLI `feltwillow-publish import`): resolve and check the three roots first.
 
     Refuses with ImportReject(["STATE_ROOT_UNSET"|"STATE_ROOT_UNSAFE", ...]) before touching anything, and
-    with ARCHIVE_OUTSIDE_INBOX when the package is not inside BLLT_HANDOFF_INBOX. Never run by agents (L-09).
+    with ARCHIVE_OUTSIDE_INBOX when the package is not inside FELTWILLOW_HANDOFF_INBOX. Never run by agents (L-09).
     """
     from ..ops import state_roots
     roots, errors = state_roots.check_all(env, **(root_check or {}))
     codes = sorted({e.split(":")[0] for e in errors})
     real = Path(os.path.realpath(archive))
-    if not errors and roots["BLLT_HANDOFF_INBOX"] not in real.parents:
+    if not errors and roots["FELTWILLOW_HANDOFF_INBOX"] not in real.parents:
         codes = ["ARCHIVE_OUTSIDE_INBOX"]
     if codes:
-        state = roots.get("BLLT_PUBLISH_STATE_ROOT")
+        state = roots.get("FELTWILLOW_PUBLISH_STATE_ROOT")
         if state is not None:  # the state root itself is usable: the refusal leaves a receipt (m2)
             state.mkdir(parents=True, exist_ok=True)
             reject_without_import(state, codes, real, _new_receipt(operator, kw.get("expected_archive_sha256")))
         raise ImportReject(codes)
-    return import_archive(real, roots["BLLT_PUBLISH_STATE_ROOT"], roots["BLLT_MASTER_ROOT"],
+    return import_archive(real, roots["FELTWILLOW_PUBLISH_STATE_ROOT"], roots["FELTWILLOW_MASTER_ROOT"],
                           operator=operator, allocations=allocations, **kw)

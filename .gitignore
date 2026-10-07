@@ -16,6 +16,6 @@ web/*/dist/
 state/
 inbox/
 masters/
-# Handoff archives live in BLLT_MASTER_ROOT, never here
+# Handoff archives live in FELTWILLOW_MASTER_ROOT, never here
 *.tar
 !tests/fixtures/**/*.tar

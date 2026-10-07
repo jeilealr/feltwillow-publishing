@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/1/media_type",
+      "path": "/payload/assets/0/media_type",
       "value": "audio/wav"
     }
   ],

@@ -1,12 +1,12 @@
 kind: show
 schema_version: 1
 example: true
-show_id: bllt-en
+show_id: feltwillow-en
 language: en
-title: Big Lessons, Little Tales
+title: Feltwillow
 description: 'EXAMPLE ONLY: an English-language story show; branding and description
   await approval.'
-author: Big Lessons, Little Tales
+author: Feltwillow
 show_type: episodic
 category: Kids & Family
 subcategory: Stories for Kids

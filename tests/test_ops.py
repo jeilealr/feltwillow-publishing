@@ -14,8 +14,8 @@ import struct
 import zlib
 from pathlib import Path
 
-from bllt_publish.contracts import validate as V
-from bllt_publish.ops import ci_lint, handoff_index_scan, leak_scan, state_roots, strict_zero
+from feltwillow_publish.contracts import validate as V
+from feltwillow_publish.ops import ci_lint, handoff_index_scan, leak_scan, state_roots, strict_zero
 from support import EXAMPLES, FIX, case as mkcase
 
 OPS = FIX / "ops"
@@ -97,7 +97,7 @@ def leak_cases(tmp: Path) -> list[dict]:
     case("L03-private-key", "PUBLIC_SECRET_PATTERN", html("-----BEGIN OPENSSH PRIVATE KEY-----"))
     case("L04-machine-path", "PUBLIC_MACHINE_PATH",
          html("<img src=\"/scratch/project_465002727/jelealro/x.png\" alt=\"\">"))
-    case("L05-mac-path", "PUBLIC_MACHINE_PATH", html("<!-- /Users/owner/BLLT/masters/a.wav -->"))
+    case("L05-mac-path", "PUBLIC_MACHINE_PATH", html("<!-- /Users/owner/Feltwillow/masters/a.wav -->"))
     case("L06-production-path", "PUBLIC_PRODUCTION_PATH",
          html("<p>character/characters/lion_and_mouse_v5/interactions/keyframes/s01.png</p>"))
     case("L07-private-field-json", "PUBLIC_PRIVATE_FIELD",
@@ -197,11 +197,11 @@ def ci_cases(tmp: Path) -> list[dict]:
     case("C10-no-concurrency", "CI-R4_CONCURRENCY_MISSING",
          offline.replace("concurrency:\n  group: offline-checks-${{ github.ref }}\n  cancel-in-progress: true\n", ""))
     case("C11-secret-in-check", "CI-R5_SECRET_IN_NON_DEPLOY_WORKFLOW",
-         offline + "        env:\n          T: ${{ secrets.BLLT_PAGES_DEPLOY_TOKEN }}\n")
+         offline + "        env:\n          T: ${{ secrets.FELTWILLOW_PAGES_DEPLOY_TOKEN }}\n")
     case("C12-gemini-key", "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING", offline + "# GEMINI_API_KEY\n")
     case("C13-production-checkout", "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING",
-         offline + "      - run: git clone git@github.com:jeilealr/big_lessons_little_tales.git\n")
-    case("C14-import-in-ci", "CI-R7_IMPORT_IN_CI", offline + "      - run: python -m bllt_publish import x.tar\n")
+         offline + "      - run: git clone git@github.com:jeilealr/feltwillow-production.git\n")
+    case("C14-import-in-ci", "CI-R7_IMPORT_IN_CI", offline + "      - run: python -m feltwillow_publish import x.tar\n")
     case("C15-apply-in-check", "CI-R7_DEPLOY_COMMAND_IN_NON_DEPLOY_WORKFLOW",
          offline + "      - run: npx wrangler pages deploy dist\n")
     case("C16-self-hosted", "CI-R8_RUNNER_NOT_STANDARD_HOSTED", offline.replace("ubuntu-24.04", "self-hosted"))
@@ -212,7 +212,7 @@ def ci_cases(tmp: Path) -> list[dict]:
          offline.replace("persist-credentials: false", "persist-credentials: true"))
     case("C20-cross-repo-artifact", "CI-R12_CROSS_REPO_ARTIFACT",
          offline + "      - uses: actions/download-artifact@0000000000000000000000000000000000000000\n"
-                   "        with:\n          repository: jeilealr/big_lessons_little_tales\n"
+                   "        with:\n          repository: jeilealr/feltwillow-production\n"
                    "          digest-mismatch: error\n")
     case("C21-artifact-digest-not-enforced", "CI-R12_ARTIFACT_DIGEST_NOT_ENFORCED",
          offline + "      - uses: actions/download-artifact@0000000000000000000000000000000000000000\n")
@@ -259,7 +259,7 @@ def zero_cases() -> list[dict]:
     case("Z04-independent-rss", "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
          pmut=lambda p: p.update(podcast_authority="independent"))
     case("Z05-custom-domain-origin", "ZERO_PROFILE_ORIGIN_NOT_PROVIDER_SUBDOMAIN",
-         pmut=lambda p: p["website"].update(origin="https://bllt-example.com"))
+         pmut=lambda p: p["website"].update(origin="https://feltwillow-example.com"))
     case("Z06-serverless-functions", "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
          imut=svc(capability="website-serverless-functions", provider="cloudflare-workers", plan="free"))
     case("Z07-object-storage", "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
@@ -310,7 +310,7 @@ def roots_cases(tmp: Path) -> list[dict]:
     (gitrepo / ".git").mkdir(parents=True)
     od = tmp / "Library" / "CloudStorage" / "OneDrive-Personal"
     od.mkdir(parents=True)
-    plain = tmp / "owner-disk" / "BLLT-master"
+    plain = tmp / "owner-disk" / "Feltwillow-master"
     plain.mkdir(parents=True)
     lax = {"lumi_prefixes": ()}
 
@@ -321,17 +321,17 @@ def roots_cases(tmp: Path) -> list[dict]:
         except state_roots.StateRootError as exc:
             got = exc.code
         out.append(mkcase(name, got == expect, expect=expect, got=got))
-    c("unset", {}, "BLLT_MASTER_ROOT", "STATE_ROOT_UNSET")
-    c("empty", {"BLLT_MASTER_ROOT": ""}, "BLLT_MASTER_ROOT", "STATE_ROOT_UNSET")
-    c("relative", {"BLLT_MASTER_ROOT": "masters"}, "BLLT_MASTER_ROOT", "STATE_ROOT_UNSAFE")
-    c("inside a git work tree", {"BLLT_PUBLISH_STATE_ROOT": str(gitrepo / "state")}, "BLLT_PUBLISH_STATE_ROOT", "STATE_ROOT_UNSAFE", **lax)
-    c("inside a OneDrive folder (name)", {"BLLT_MASTER_ROOT": str(od / "BLLT")}, "BLLT_MASTER_ROOT", "STATE_ROOT_UNSAFE", **lax)
-    c("inside configured OneDrive dir", {"BLLT_MASTER_ROOT": str(plain), "BLLT_ONEDRIVE_DIR": str(plain.parent)},
-      "BLLT_MASTER_ROOT", "STATE_ROOT_UNSAFE", **lax)
-    c("on LUMI scratch", {"BLLT_HANDOFF_INBOX": "/scratch/project_465002727/inbox"}, "BLLT_HANDOFF_INBOX", "STATE_ROOT_UNSAFE")
-    c("on LUMI project storage", {"BLLT_MASTER_ROOT": "/projappl/project_465002727/m"}, "BLLT_MASTER_ROOT", "STATE_ROOT_UNSAFE")
-    c("plain owner disk accepted", {"BLLT_MASTER_ROOT": str(plain)}, "BLLT_MASTER_ROOT", "ok", **lax)
-    c("macOS-style path accepted", {"BLLT_MASTER_ROOT": "/Users/owner/BLLT-master"}, "BLLT_MASTER_ROOT", "ok")
+    c("unset", {}, "FELTWILLOW_MASTER_ROOT", "STATE_ROOT_UNSET")
+    c("empty", {"FELTWILLOW_MASTER_ROOT": ""}, "FELTWILLOW_MASTER_ROOT", "STATE_ROOT_UNSET")
+    c("relative", {"FELTWILLOW_MASTER_ROOT": "masters"}, "FELTWILLOW_MASTER_ROOT", "STATE_ROOT_UNSAFE")
+    c("inside a git work tree", {"FELTWILLOW_PUBLISH_STATE_ROOT": str(gitrepo / "state")}, "FELTWILLOW_PUBLISH_STATE_ROOT", "STATE_ROOT_UNSAFE", **lax)
+    c("inside a OneDrive folder (name)", {"FELTWILLOW_MASTER_ROOT": str(od / "Feltwillow")}, "FELTWILLOW_MASTER_ROOT", "STATE_ROOT_UNSAFE", **lax)
+    c("inside configured OneDrive dir", {"FELTWILLOW_MASTER_ROOT": str(plain), "FELTWILLOW_ONEDRIVE_DIR": str(plain.parent)},
+      "FELTWILLOW_MASTER_ROOT", "STATE_ROOT_UNSAFE", **lax)
+    c("on LUMI scratch", {"FELTWILLOW_HANDOFF_INBOX": "/scratch/project_465002727/inbox"}, "FELTWILLOW_HANDOFF_INBOX", "STATE_ROOT_UNSAFE")
+    c("on LUMI project storage", {"FELTWILLOW_MASTER_ROOT": "/projappl/project_465002727/m"}, "FELTWILLOW_MASTER_ROOT", "STATE_ROOT_UNSAFE")
+    c("plain owner disk accepted", {"FELTWILLOW_MASTER_ROOT": str(plain)}, "FELTWILLOW_MASTER_ROOT", "ok", **lax)
+    c("macOS-style path accepted", {"FELTWILLOW_MASTER_ROOT": "/Users/owner/Feltwillow-master"}, "FELTWILLOW_MASTER_ROOT", "ok")
     return out
 
 

@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/1/measured/width_px",
+      "path": "/payload/assets/0/measured/width_px",
       "value": null
     }
   ],

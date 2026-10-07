@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/publish-receipt.v2.json",
+  "$id": "https://feltwillow.example.invalid/schemas/publish-receipt.v2.json",
   "title": "Publish receipt v2",
   "description": "Append-only record of one plan action (IC-B4, IC-C4, IC-D5). Written as manual_pending before the owner acts; conflict records the Ghost remote-edit stop; evidence is a private reference, never free text. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,16 +16,16 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "plan_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
     },
     "plan_sha256": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
     },
     "action_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
     },
     "operation": {
       "enum": [
@@ -52,7 +52,7 @@
       ]
     },
     "observed_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "external_id": {
       "anyOf": [
@@ -69,7 +69,7 @@
     "external_url": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/https_url"
         },
         {
           "type": "null"
@@ -79,7 +79,7 @@
     "observation_id": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/observation_id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/observation_id"
         },
         {
           "type": "null"
@@ -89,7 +89,7 @@
     "submitted_sha256": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         {
           "type": "null"
@@ -99,7 +99,7 @@
     "evidence": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/private_ref"
         },
         {
           "type": "null"
@@ -113,7 +113,7 @@
           "additionalProperties": false,
           "properties": {
             "code": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/error_code"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/error_code"
             },
             "detail": {
               "type": "string",

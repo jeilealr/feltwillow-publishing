@@ -31,8 +31,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "tests"))
-from bllt_publish.contracts import cj1  # noqa: E402
-from bllt_publish.podcast import podcast as P  # noqa: E402
+from feltwillow_publish.contracts import cj1  # noqa: E402
+from feltwillow_publish.podcast import podcast as P  # noqa: E402
 import podcast_fixtures as PF  # noqa: E402
 
 EX = ROOT / "publishing" / "examples"
@@ -69,8 +69,8 @@ AI_DISCLOSURE_NOTE = {  # owner decision 2026-10-07; ES/DE need a native-speaker
     "show_description": "All voices in this podcast are AI-generated.",
     "episode_description_last_line": "The voices in this episode are AI-generated.",
 }
-CONTRACT_PKG = {"name": "bllt-contracts", "version": "0.2.0-h2", "archive_sha256": synth("contract package 0.2.0-h2")}
-PUBLISHING_COMMIT = synth("bllt-publishing commit")[:40]
+CONTRACT_PKG = {"name": "feltwillow-contracts", "version": "0.2.0-h2", "archive_sha256": synth("contract package 0.2.0-h2")}
+PUBLISHING_COMMIT = synth("feltwillow-publishing commit")[:40]
 NO_MEASURE = {"width_px": None, "height_px": None, "duration_ms": None, "sample_rate_hz": None,
               "channels": None, "frame_rate": None}
 
@@ -97,10 +97,9 @@ LICENSING_MD_SHA = "95178ac1f052c4dccadcacf0af2aaa3cbc74b42fac7806e390abfe1a03a8
 DIRTY_AT_STAGE0 = ["CLAUDE.md", "production/export_runtime.py", "stories/lion_and_mouse_v5/story.yaml",
                    "stories/ugly_duckling_v1/prompt_manifest.json", "stories/ugly_duckling_v1/runtime_inputs.json",
                    "stories/ugly_duckling_v1/story.yaml"]
-READING_TEXT = (b'{"kind":"reading-blocks","example":true,"note":"EXAMPLE ONLY: synthetic stand-in. The owner-approved '
-                b'Lion-and-Mouse reading edition has not been supplied.","blocks":[{"type":"paragraph","text":"EXAMPLE '
-                b'ONLY: the approved reading edition replaces this paragraph."},{"type":"image","asset_id":"illus-s01-'
-                b'explores-start","alt":"EXAMPLE ONLY: alt text to be written and reviewed.","caption":null}]}')
+# L-29: measurement provenance per asset (tool + version). Values here are EXAMPLE ONLY.
+STDLIB = {"tool": "feltwillow-stdlib", "version": "EXAMPLE 0.1.0 (Python 3.12)"}
+FFPROBE = {"tool": "ffprobe", "version": "EXAMPLE 7.1"}
 
 
 def asset_from_keyframe(kf, synthetic=False):
@@ -117,12 +116,12 @@ def asset_from_keyframe(kf, synthetic=False):
                 "NOT an owner-selected reading illustration.")
     return {"asset_id": aid, "role": "illustration", "media_type": "image/png", "bytes": size, "sha256": sha,
             "transport": "embedded", "package_path": f"files/{aid}/{name}",
-            "measured": {**NO_MEASURE, "width_px": w, "height_px": h}, "derived_from": [],
+            "measured": {**NO_MEASURE, "width_px": w, "height_px": h}, "measurement": dict(STDLIB), "derived_from": [],
             "origin": origin, "selection_note": note}
 
 
 def record_head(kind, version):
-    return {"kind": kind, "schema_version": version, "example": True, "canonicalization": "bllt-canonical-json-v1"}
+    return {"kind": kind, "schema_version": version, "example": True, "canonicalization": "feltwillow-canonical-json-v1"}
 
 
 def build_b_examples():
@@ -135,19 +134,13 @@ def build_b_examples():
                         "allocated_at": "2026-10-06T00:00:00Z", "allocated_by": "EXAMPLE-OWNER",
                         "working_title": "EXAMPLE ONLY: synthetic second story",
                         "production_slugs": ["fixture_second_story_v1"], "planned_languages": ["en"]}
-    reading = {"asset_id": "reading-text-en", "role": "reading-text",
-               "media_type": "application/vnd.bllt.reading-blocks+json", "bytes": len(READING_TEXT),
-               "sha256": hashlib.sha256(READING_TEXT).hexdigest(), "transport": "embedded",
-               "package_path": "files/reading-text-en/reading-text.json", "measured": dict(NO_MEASURE),
-               "derived_from": [], "origin": {"store": "owner-master-store", "ref": "EXAMPLE-ONLY/reading-text.example.json", "commit": None},
-               "selection_note": "EXAMPLE ONLY: synthetic stand-in; the approved reading edition has not been supplied."}
 
     def lion_handoff(synthetic):
         return {
             **record_head("production-handoff", 1), "contract_package": CONTRACT_PKG,
             "envelope": {"created_at": "2026-10-06T18:00:00Z", "operator": "EXAMPLE-OPERATOR",
                          "exporter": {"tool": "production/export_handoff.py (PROPOSED)", "tool_version": "0.1.0",
-                                      "repository": "jeilealr/big_lessons_little_tales", "commit": COMMIT,
+                                      "repository": "jeilealr/feltwillow-production", "commit": COMMIT,
                                       "tool_dirty": False},
                          "transport": "self-contained-tar"},
             "payload": {
@@ -155,13 +148,13 @@ def build_b_examples():
                 "handoff_revision": 1, "purpose": "initial", "supersedes": None, "reason": None,
                 "story_allocation_sha256": cj1.digest(out["alloc_lion"]),
                 "production_slugs": ["lion_and_mouse_v5"],
-                "source_repositories": [{"repo_role": "production", "repository": "jeilealr/big_lessons_little_tales",
+                "source_repositories": [{"repo_role": "production", "repository": "jeilealr/feltwillow-production",
                                          "branch": "working-cloud-branch", "commit": COMMIT,
                                          "worktree": {"state": "dirty", "dirty_paths": DIRTY_AT_STAGE0}}],
                 "source_files": copy.deepcopy(SOURCE_FILES),
-                "assets": [copy.deepcopy(reading)] + [asset_from_keyframe(k, synthetic) for k in KEYFRAMES],
-                "components": {"reading": {"text_asset": "reading-text-en",
-                                           "illustration_assets": [k[0] for k in KEYFRAMES], "cover_asset": None},
+                "assets": [asset_from_keyframe(k, synthetic) for k in KEYFRAMES],
+                # L-28: no reading text from production; images only (reading edition is authored in publishing)
+                "components": {"images": {"illustration_assets": [k[0] for k in KEYFRAMES], "cover_asset": None},
                                "audio": None, "video": None},
                 "editorial_selection": {"selected_by": "EXAMPLE-OWNER", "selected_at": "2026-10-06T17:00:00Z",
                                         "statement": "EXAMPLE ONLY: no owner selection of final Lion-and-Mouse assets has been made.",
@@ -177,7 +170,9 @@ def build_b_examples():
     def synth_asset(asset_id, role, mt, name, measured, derived=()):
         return {"asset_id": asset_id, "role": role, "media_type": mt, "bytes": 1000, "sha256": synth(asset_id),
                 "transport": "embedded", "package_path": f"files/{asset_id}/{name}",
-                "measured": {**NO_MEASURE, **measured}, "derived_from": list(derived),
+                "measured": {**NO_MEASURE, **measured},
+                "measurement": dict(STDLIB) if mt.split("/")[0] in ("image", "audio", "video") else None,
+                "derived_from": list(derived),
                 "origin": {"store": "owner-master-store", "ref": "EXAMPLE-ONLY/" + name, "commit": None},
                 "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."}
     fix_commit = "1" * 40
@@ -185,7 +180,7 @@ def build_b_examples():
         **record_head("production-handoff", 1), "contract_package": CONTRACT_PKG,
         "envelope": {"created_at": "2026-10-08T09:30:00Z", "operator": "EXAMPLE-OPERATOR",
                      "exporter": {"tool": "production/export_handoff.py (PROPOSED)", "tool_version": "0.1.0",
-                                  "repository": "jeilealr/big_lessons_little_tales", "commit": fix_commit, "tool_dirty": False},
+                                  "repository": "jeilealr/feltwillow-production", "commit": fix_commit, "tool_dirty": False},
                      "transport": "self-contained-tar"},
         "payload": {
             "handoff_id": "fixture-second-story.en.h0002", "story_id": "fixture-second-story", "language": "en",
@@ -193,28 +188,22 @@ def build_b_examples():
             "supersedes": {"handoff_id": "fixture-second-story.en.h0001", "payload_sha256": synth("fixture h0001 payload")},
             "reason": "EXAMPLE ONLY: narrator mispronunciation in scene 3 re-recorded; reading text unchanged.",
             "story_allocation_sha256": cj1.digest(out["alloc_fix"]), "production_slugs": ["fixture_second_story_v1"],
-            "source_repositories": [{"repo_role": "production", "repository": "jeilealr/big_lessons_little_tales",
+            "source_repositories": [{"repo_role": "production", "repository": "jeilealr/feltwillow-production",
                                      "branch": "working-cloud-branch", "commit": fix_commit,
                                      "worktree": {"state": "clean", "dirty_paths": []}}],
             "source_files": [{"source_id": "script-en", "purpose": "script", "repo_role": "production",
                               "path": "stories/fixture_second_story_v1/dialogue_coverage.json", "commit": fix_commit,
                               "sha256": synth("fixture script"), "bytes": 5000}],
             "assets": [
-                synth_asset("reading-text-en", "reading-text", "application/vnd.bllt.reading-blocks+json", "reading-text.json", {},
-                            derived=[{"sha256": synth("fixture script"), "asset_id": None, "relation": "text-adaptation"}]),
                 synth_asset("transcript-en", "spoken-transcript", "text/plain", "transcript.txt", {}),
                 synth_asset("audio-master-en", "audio-master", "audio/wav", "master.wav",
                             {"duration_ms": 412500, "sample_rate_hz": 48000, "channels": 2},
                             derived=[{"sha256": synth("davinci lossless export"), "asset_id": None, "relation": "export"}]),
-                synth_asset("audio-delivery-en", "audio-delivery", "audio/mpeg", "episode.mp3",
-                            {"duration_ms": 412526, "sample_rate_hz": 44100, "channels": 2},
-                            derived=[{"sha256": synth("audio-master-en"), "asset_id": "audio-master-en", "relation": "transcode"}]),
                 synth_asset("illus-01", "illustration", "image/png", "illus-01.png", {"width_px": 1920, "height_px": 1080}),
                 synth_asset("cover-en", "cover-art", "image/png", "cover.png", {"width_px": 3000, "height_px": 3000}),
             ],
-            "components": {"reading": {"text_asset": "reading-text-en", "illustration_assets": ["illus-01"], "cover_asset": "cover-en"},
-                           "audio": {"master_asset": "audio-master-en", "delivery_asset": "audio-delivery-en",
-                                     "transcript_asset": "transcript-en"}, "video": None},
+            "components": {"images": {"illustration_assets": ["illus-01"], "cover_asset": "cover-en"},
+                           "audio": {"master_asset": "audio-master-en", "transcript_asset": "transcript-en"}, "video": None},
             "editorial_selection": {"selected_by": "EXAMPLE-OWNER", "selected_at": "2026-10-08T09:00:00Z",
                                     "statement": "EXAMPLE ONLY: owner selected the corrected final mix; video not part of this handoff.",
                                     "evidence": [{"ref": "EXAMPLE-ONLY/selection-notes.md", "sha256": None}]},
@@ -228,7 +217,22 @@ def build_b_examples():
     archive_sha = synth("lion h0001 archive (not built for real)")
     out["lion_pin"] = {"handoff_id": "lion-and-mouse.en.h0001", "payload_sha256": cj1.digest(lion["payload"]),
                        "archive_sha256": archive_sha}
-    kf1 = lion["payload"]["assets"][1]
+    kf1 = lion["payload"]["assets"][0]
+    # L-28: the reading text is authored in publishing as a reading-edition record (EXAMPLE ONLY)
+    out["reading_edition"] = {
+        **record_head("reading-edition", 1), "edition_id": "lion-and-mouse.en.e0001", "story_id": "lion-and-mouse",
+        "language": "en", "revision": 1, "lifecycle": "draft", "supersedes": None, "title": "The Lion and the Mouse",
+        "source_script": {"handoff_id": "lion-and-mouse.en.h0001", "handoff_payload_sha256": out["lion_pin"]["payload_sha256"],
+                          "source_id": SOURCE_FILES[0]["source_id"], "sha256": SOURCE_FILES[0]["sha256"]},
+        "illustrations": [{"asset_id": "illus-s01-explores-start", "handoff_id": "lion-and-mouse.en.h0001",
+                           "handoff_asset_id": "illus-s01-explores-start", "sha256": kf1["sha256"]}],
+        "blocks": [{"type": "heading", "level": 2, "text": "EXAMPLE ONLY: part one"},
+                   {"type": "paragraph", "text": "EXAMPLE ONLY: the reading edition is written in publishing from the handoff's line list."},
+                   {"type": "image", "asset_id": "illus-s01-explores-start", "alt": "EXAMPLE ONLY: alt text to be written and reviewed.", "caption": None},
+                   {"type": "quote", "speaker": "EXAMPLE Mouse", "text": "EXAMPLE ONLY: a line of dialogue."}],
+        "provenance": {"authored_in": "publishing", "authored_by": "EXAMPLE-EDITOR", "authored_at": "2026-10-07T12:00:00Z",
+                       "tools": [], "note": "EXAMPLE ONLY: no reading edition has been written yet (owner decision L-28)."},
+    }
     out["release"] = {
         **record_head("release", 2),
         "release_id": "lion-and-mouse.en.r0001", "story_id": "lion-and-mouse", "language": "en", "revision": 1,
@@ -236,23 +240,19 @@ def build_b_examples():
         "content": {"title": "The Lion and the Mouse", "slug": "the-lion-and-the-mouse",
                     "summary": "EXAMPLE ONLY: replace with the owner-approved public description.",
                     "age_min": 3, "age_max": 7, "moral": "EXAMPLE ONLY: replace with the approved moral.",
-                    "reading_text_asset": "reading-text-en", "spoken_transcript_asset": None,
+                    "reading_edition": {"edition_id": "lion-and-mouse.en.e0001", "edition_sha256": cj1.digest(out["reading_edition"])},
+                    "spoken_transcript_asset": None,
                     "reading_divergence": "not-applicable",
                     "blocks": [{"type": "paragraph", "text": "EXAMPLE ONLY: the approved reading edition has not been supplied."},
                                {"type": "image", "asset_id": "illus-s01-explores-start", "alt": "EXAMPLE ONLY: alt text pending review.", "caption": None}]},
         "assets": [
-            {"asset_id": "reading-text-en", "role": "reading-text",
-             "origin": {"kind": "handoff", "handoff_id": "lion-and-mouse.en.h0001", "handoff_asset_id": "reading-text-en"},
-             "sha256": hashlib.sha256(READING_TEXT).hexdigest(), "bytes": len(READING_TEXT),
-             "media_type": "application/vnd.bllt.reading-blocks+json",
-             "width": None, "height": None, "duration_ms": None, "selection": "pending", "derived_from_sha256": None},
             {"asset_id": "illus-s01-explores-start", "role": "image",
              "origin": {"kind": "handoff", "handoff_id": "lion-and-mouse.en.h0001", "handoff_asset_id": "illus-s01-explores-start"},
              "sha256": kf1["sha256"], "bytes": kf1["bytes"], "media_type": "image/png", "width": 1920, "height": 1080,
              "duration_ms": None, "selection": "pending", "derived_from_sha256": None}],
         "channels": {"website": {"requested": True, "player": "none", "audio_asset": None, "cover_asset": None,
                                  "podcast_episode_id": None, "youtube_edition_id": None},
-                     "podcast": {"requested": True, "show_id": "bllt-en", "episode_id": "lion-and-mouse.en",
+                     "podcast": {"requested": True, "show_id": "feltwillow-en", "episode_id": "lion-and-mouse.en",
                                  "episode_type": "full", "audio_asset": None, "artwork_asset": None,
                                  "chapters_asset": None, "explicit": False},
                      "youtube": {"requested": False, "video_asset": None, "thumbnail_asset": None, "made_for_kids": True}},
@@ -285,7 +285,7 @@ def build_b_examples():
         "schema_version_seen": 1, "supersedes": None, "consumer_supports": [1], "duplicate_of": None,
         "archival_locator": f"handoffs/{archive_sha}.tar", "promoted": True,
         "staged_at": "2026-10-06T18:05:00Z", "finished_at": "2026-10-06T18:05:09Z", "operator": "EXAMPLE-OPERATOR",
-        "importer": {"tool": "bllt_publish.imports.importer (reference)", "tool_version": "0.2.0-h2", "publishing_commit": None},
+        "importer": {"tool": "feltwillow_publish.imports.importer (reference)", "tool_version": "0.2.0-h2", "publishing_commit": None},
         "authorizes_publication": False}
     return out
 
@@ -343,7 +343,7 @@ def build_web(b):
                            | {s["cover"]["asset_id"] for s in stories if s["cover"]})
         payload = {**record_head("web-bundle", 2),
                    "site_set": {"site_set_id": site_set_id, "sha256": synth("site-set " + site_set_id)},
-                   "origin": None, "brand": {"name": "Big Lessons, Little Tales"}, "default_language": "en",
+                   "origin": None, "brand": {"name": "Feltwillow"}, "default_language": "en",
                    "trailing_slash": "always",
                    # owner launch order: en first; es and de follow in later site-sets
                    "languages": [{"language": "en", "label": "English", "path": "/en/"}],
@@ -384,7 +384,7 @@ def build_h2(b, manifests):
              "evidence": {"checked_at": "2026-10-06", "source": "Owner decision 2026-10-07: Spotify is the first podcast host; free plan per Agent D's register (D-00)."}},
             {"capability": "source-hosting", "provider": "github", "plan": "free", "state": "enabled",
              "billing": {"payment_method_on_file": None},
-             "evidence": {"checked_at": "2026-10-06", "source": "jeilealr/bllt-publishing exists (private, owner decision); plan not observed by agents."}},
+             "evidence": {"checked_at": "2026-10-06", "source": "jeilealr/feltwillow-publishing exists (private, owner decision); plan not observed by agents."}},
             {"capability": "backup-cloud-storage", "provider": "onedrive", "plan": "microsoft-365-personal", "state": "enabled",
              "billing": {"auto_recharge": None},
              "evidence": {"checked_at": "2026-10-07", "source": "Owner statement 2026-10-07: Microsoft 365 Personal, 1 TB plan, 187 GB used."}},
@@ -516,7 +516,6 @@ V1_ASSET = {"asset_id": "coll-master", "role": "audio-master", "store": "masters
             "duration_seconds": None, "selection": "pending", "derived_from_sha256": None}
 ITEM = {"episode_id": "lion-and-mouse.en", "release_id": "lion-and-mouse.en.r0001", "release_sha256": "ab" * 32, "order": 1}
 PNG1 = "files/illus-s01-explores-start/s01_explores_start_r01.png"
-TXT = "files/reading-text-en/reading-text.json"
 PASS_CHECK = {"name": "x", "result": "pass", "evidence": "EXAMPLE ONLY"}
 
 B_RECORD_CASES = {
@@ -525,32 +524,32 @@ B_RECORD_CASES = {
     "h03-handoff-id-mismatch": rec("HANDOFF_ID_MISMATCH", H_LION, [rep("/payload/handoff_id", "lion-and-mouse.en.h0002")], "handoff_id = <story>.<lang>.h<revision>."),
     "h04-correction-without-supersedes": rec("SUPERSEDES_REQUIRED", H_FIX, [rep("/payload/supersedes", None)], "Revision > 1 names what it supersedes."),
     "h05-initial-with-supersedes": rec("SUPERSEDES_UNEXPECTED", H_LION, [rep("/payload/supersedes", {"handoff_id": "lion-and-mouse.en.h0001", "payload_sha256": SHA_X})], "A first handoff supersedes nothing."),
-    "h06-duplicate-asset-id": rec("DUPLICATE_ASSET_ID", H_LION, [rep("/payload/assets/2/asset_id", "illus-s01-explores-start"), rep("/payload/assets/2/package_path", "files/illus-s01-explores-start/s01_acorn_start_r01.png")], "Asset IDs are unique."),
-    "h07-component-unknown-asset": rec("UNKNOWN_ASSET", H_LION, [add("/payload/components/reading/illustration_assets/-", "illus-missing")], "Components reference declared assets only."),
-    "h08-component-wrong-role": rec("WRONG_ASSET_ROLE", H_LION, [rep("/payload/components/reading/cover_asset", "illus-s01-acorn-start"), rep("/payload/components/reading/illustration_assets", ["illus-s01-explores-start"])], "An illustration is not cover art."),
-    "h09-media-type-role-mismatch": rec("MEDIA_TYPE_ROLE_MISMATCH", H_LION, [rep("/payload/assets/1/media_type", "audio/wav")], "An illustration is an image."),
-    "h10-missing-image-measurement": rec("MISSING_MEASUREMENT", H_LION, [rep("/payload/assets/1/measured/width_px", None)], "Images need measured dimensions."),
-    "h11-package-path-mismatch": rec("PACKAGE_PATH_MISMATCH", H_LION, [rep("/payload/assets/1/package_path", "files/illus-s01-acorn-start/x.png")], "Package folder = asset_id."),
+    "h06-duplicate-asset-id": rec("DUPLICATE_ASSET_ID", H_LION, [rep("/payload/assets/1/asset_id", "illus-s01-explores-start"), rep("/payload/assets/1/package_path", "files/illus-s01-explores-start/s01_acorn_start_r01.png")], "Asset IDs are unique."),
+    "h07-component-unknown-asset": rec("UNKNOWN_ASSET", H_LION, [add("/payload/components/images/illustration_assets/-", "illus-missing")], "Components reference declared assets only."),
+    "h08-component-wrong-role": rec("WRONG_ASSET_ROLE", H_LION, [rep("/payload/components/images/cover_asset", "illus-s01-acorn-start"), rep("/payload/components/images/illustration_assets", ["illus-s01-explores-start"])], "An illustration is not cover art."),
+    "h09-media-type-role-mismatch": rec("MEDIA_TYPE_ROLE_MISMATCH", H_LION, [rep("/payload/assets/0/media_type", "audio/wav")], "An illustration is an image."),
+    "h10-missing-image-measurement": rec("MISSING_MEASUREMENT", H_LION, [rep("/payload/assets/0/measured/width_px", None)], "Images need measured dimensions."),
+    "h11-package-path-mismatch": rec("PACKAGE_PATH_MISMATCH", H_LION, [rep("/payload/assets/0/package_path", "files/illus-s01-acorn-start/x.png")], "Package folder = asset_id."),
     "h12-source-path-traversal": rec("UNSAFE_PATH", H_LION, [rep("/payload/source_files/0/path", "../secrets/key.txt")], "No traversal in provenance paths."),
     "h13-selected-source-dirty": rec("SELECTED_SOURCE_DIRTY", H_LION, [rep("/payload/source_files/2/path", "stories/lion_and_mouse_v5/story.yaml")], "A dirty selected source is rejected."),
-    "h14-float-duration": rec("CJ_FLOAT", H_FIX, [rep("/payload/assets/2/measured/duration_ms", 412500.0)], "No floats in the canonical domain."),
+    "h14-float-duration": rec("CJ_FLOAT", H_FIX, [rep("/payload/assets/1/measured/duration_ms", 412500.0)], "No floats in the canonical domain."),
     "h15-publication-approval-smuggled": rec("SCHEMA_VIOLATION", H_LION, [add("/payload/publication_approved", True)], "A handoff carries no publication approval."),
-    "h16-parent-hash-mismatch": rec("PARENT_HASH_MISMATCH", H_FIX, [rep("/payload/assets/3/derived_from/0/sha256", SHA_X)], "Parent digest matches the parent asset."),
-    "h17-derivation-self-cycle": rec("DERIVATION_CYCLE", H_FIX, [rep("/payload/assets/2/derived_from", [{"sha256": "8f" + "0" * 62, "asset_id": "audio-delivery-en", "relation": "other"}]), rep("/payload/assets/3/sha256", "8f" + "0" * 62)], "Master derived from its own derivative."),
-    "h18-referenced-media": rec("REFERENCED_MEDIA_NOT_SUPPORTED", H_LION, [rep("/payload/assets/1/transport", "referenced"), rep("/payload/assets/1/package_path", None)], "Only embedded media."),
-    "h19-no-components": rec("NO_COMPONENTS", H_LION, [rep("/payload/components/reading", None)], "At least one component."),
+    "h16-parent-hash-mismatch": rec("PARENT_HASH_MISMATCH", H_FIX, [rep("/payload/assets/0/derived_from", [{"sha256": SHA_X, "asset_id": "audio-master-en", "relation": "caption-timing"}])], "Parent digest matches the parent asset."),
+    "h17-derivation-self-cycle": rec("DERIVATION_CYCLE", H_FIX, [rep("/payload/assets/0/derived_from", [{"sha256": synth("audio-master-en"), "asset_id": "audio-master-en", "relation": "other"}]), rep("/payload/assets/1/derived_from", [{"sha256": synth("transcript-en"), "asset_id": "transcript-en", "relation": "other"}])], "Master and transcript derived from each other."),
+    "h18-referenced-media": rec("REFERENCED_MEDIA_NOT_SUPPORTED", H_LION, [rep("/payload/assets/0/transport", "referenced"), rep("/payload/assets/0/package_path", None)], "Only embedded media."),
+    "h19-no-components": rec("NO_COMPONENTS", H_LION, [rep("/payload/components/images", None)], "At least one component."),
     "h20-revocation-with-assets": rec("REVOCATION_WITH_ASSETS", H_FIX, [rep("/payload/purpose", "revocation")], "A revocation carries no assets."),
     "h21-created-before-selected": rec("TIMESTAMP_ORDER", H_LION, [rep("/envelope/created_at", "2026-10-06T16:00:00Z")], "Export cannot precede selection."),
     "h22-nfd-text": rec("CJ_NOT_NFC", H_LION, [rep("/payload/editorial_selection/statement", "Café selection")], "Strings are NFC."),
     "h23-url-as-private-ref": rec("REMOTE_REFERENCE_FORBIDDEN", H_LION, [rep("/payload/rights_evidence/0/evidence/ref", "https://drive.example.invalid/contract.pdf")], "Private refs are never URLs."),
     "h24-local-time": rec("SCHEMA_VIOLATION", H_LION, [rep("/envelope/created_at", "2026-10-06T21:00:00+03:00")], "UTC with Z."),
     "h25-exporter-dirty": rec("EXPORTER_DIRTY", H_LION, [rep("/envelope/exporter/tool_dirty", True)], "Exporter runs from committed code."),
-    "h26-unreferenced-asset": rec("UNREFERENCED_ASSET", H_LION, [rep("/payload/components/reading/illustration_assets", ["illus-s01-explores-start"])], "No stray assets."),
-    "h27-large-integer": rec("CJ_INT_RANGE", H_LION, [rep("/payload/assets/1/bytes", 9007199254740993)], "Integers within +-(2^53-1)."),
+    "h26-unreferenced-asset": rec("UNREFERENCED_ASSET", H_LION, [rep("/payload/components/images/illustration_assets", ["illus-s01-explores-start"])], "No stray assets."),
+    "h27-large-integer": rec("CJ_INT_RANGE", H_LION, [rep("/payload/assets/0/bytes", 9007199254740993)], "Integers within +-(2^53-1)."),
     "h28-correction-without-reason": rec("REASON_REQUIRED", H_FIX, [rep("/payload/reason", None)], "Corrections state a reason."),
-    "r01-frozen-without-handoff": rec("FROZEN_WITHOUT_HANDOFF", REL, [rep("/lifecycle", "frozen"), rep("/handoffs", []), rep("/assets", []), rep("/content/reading_text_asset", None), rep("/content/blocks", [{"type": "paragraph", "text": "x"}]), rep("/frozen_with", {"publishing_commit": "2" * 40, "tool_version": "0.1.0", "contract_package": {"name": "bllt-contracts", "version": "0.1.0", "archive_sha256": SHA_X}})], "Frozen release cites its handoffs."),
+    "r01-frozen-without-handoff": rec("FROZEN_WITHOUT_HANDOFF", REL, [rep("/lifecycle", "frozen"), rep("/handoffs", []), rep("/assets", []), rep("/content/reading_edition", None), rep("/content/blocks", [{"type": "paragraph", "text": "x"}]), rep("/frozen_with", {"publishing_commit": "2" * 40, "tool_version": "0.1.0", "contract_package": {"name": "feltwillow-contracts", "version": "0.1.0", "archive_sha256": SHA_X}})], "Frozen release cites its handoffs."),
     "r02-release-id-mismatch": rec("RELEASE_ID_MISMATCH", REL, [rep("/release_id", "lion-and-mouse.en.r0002")], "release_id agrees with revision."),
-    "r03-unlisted-handoff": rec("UNLISTED_HANDOFF", REL, [rep("/assets/1/origin/handoff_id", "lion-and-mouse.en.h0009")], "Origins resolve through pinned handoffs."),
+    "r03-unlisted-handoff": rec("UNLISTED_HANDOFF", REL, [rep("/assets/0/origin/handoff_id", "lion-and-mouse.en.h0009")], "Origins resolve through pinned handoffs."),
     "r04-v1-schema-version": rec("CONTRACT_VERSION_UNSUPPORTED", REL, [rep("/schema_version", 1)], "v1 releases are migrated explicitly."),
     "r05-float-age": rec("CJ_FLOAT", REL, [rep("/content/age_min", 3.0)], "No floats."),
     "a01-approved-with-failed-check": rec("INVALID_POSITIVE_APPROVAL", APP, [rep("/decision", "approved"), add("/depends_on/-", {"approval_id": "ed-1", "approval_sha256": SHA_X})], "A failed check cannot be approved."),
@@ -583,7 +582,7 @@ H2_RECORD_CASES = {
     "p05-public-import-receipt-name": rec("PUBLIC_FORBIDDEN_FILE", MAN, [add("/files/-", {"path": "data/import-receipt.x.json", "sha256": SHA_X, "bytes": 10, "media_type": "application/json", "source": None})], "E's wider name rule (IC-E5): B's rule missed this.", H2),
     "p06-public-release-record-name": rec("PUBLIC_FORBIDDEN_FILE", MAN, [add("/files/-", {"path": "data/release.v2.lion.json", "sha256": SHA_X, "bytes": 10, "media_type": "application/json", "source": None})], "E's wider name rule (IC-E5).", H2),
     "p07-public-source-map": rec("PUBLIC_FORBIDDEN_FILE", MAN, [add("/files/-", {"path": "assets/site.js.map", "sha256": SHA_X, "bytes": 10, "media_type": "application/json", "source": None})], "E's wider name rule (IC-E5).", H2),
-    "i04-old-archive-layout": rec("SCHEMA_VIOLATION", REC, [rep("/archival_locator", "handoffs/lion-and-mouse/en/lion-and-mouse.en.h0001." + SHA_X + ".tar")], "Archive layout moved to BLLT_MASTER_ROOT/handoffs/<sha256>.tar (s.2).", H2),
+    "i04-old-archive-layout": rec("SCHEMA_VIOLATION", REC, [rep("/archival_locator", "handoffs/lion-and-mouse/en/lion-and-mouse.en.h0001." + SHA_X + ".tar")], "Archive layout moved to FELTWILLOW_MASTER_ROOT/handoffs/<sha256>.tar (s.2).", H2),
     "pl01-website-plan-touches-podcast": rec("WEBSITE_PLAN_TOUCHES_PODCAST", PLAN_W, [add("/auxiliary_inputs/-", {"record_kind": "episode-publication", "path": "publishing/episodes/x.json", "sha256": SHA_X})], "IC-D12: a website plan may not change podcast records.", H2),
     "pl02-deploy-without-leak-scan": rec("LEAK_SCAN_REPORT_REQUIRED", PLAN_W, [rep("/check_reports/leak_scan", None)], "IC-E2: plan pins a clean leak_scan report.", H2),
     "pl03-production-without-strict-zero": rec("STRICT_ZERO_REPORT_REQUIRED", PLAN_W, [rep("/environment", "production")], "IC-E2: production plans pin a strict_zero report.", H2),
@@ -623,17 +622,49 @@ H2_RECORD_CASES = {
     "dp02-dirty-path-empty-segment": rec("UNSAFE_PATH", H_LION, [add("/payload/source_repositories/0/worktree/dirty_paths/-", "a//b")], "L-21: empty segments forbidden.", H2),
     "sp01-selection-source-purpose-accepted": rec("VALID", H_LION, [rep("/payload/source_files/0/purpose", "selection")], "L-23: source purpose selection (positive patch case).", H2),
     "hs01-missing-master-bad-slot": rec("SELECTION_SLOT_INVALID", SEL, [rep("/missing_masters/0/slot", "cover")], "L-23: missing_masters names a real slot.", H2),
-    "hs02-filled-and-declared-missing": rec("SELECTION_MISSING_CONTRADICTION", SEL, [rep("/components/reading/cover_asset", "illus-s01-acorn-end")], "L-23: a slot cannot be filled and declared missing.", H2),
+    "hs02-filled-and-declared-missing": rec("SELECTION_MISSING_CONTRADICTION", SEL, [rep("/components/images/cover_asset", "illus-s01-acorn-end")], "L-23: a slot cannot be filled and declared missing.", H2),
     "hs03-glob-path": rec("SCHEMA_VIOLATION", SEL, [rep("/assets/0/path", "character/characters/lion_and_mouse_v5/interactions/keyframes/*.png")], "L-23: no globs, name every file.", H2),
     "hs04-revision-purpose-mismatch": rec("PURPOSE_REVISION_MISMATCH", SEL, [rep("/handoff_revision", 2)], "L-23: revision 1 <=> initial <=> supersedes null.", H2),
-    "hs05-canonicalization-not-allowed": rec("SCHEMA_VIOLATION", SEL, [add("/canonicalization", "bllt-canonical-json-v1")], "L-23: YAML selection is pinned by blob digest, not canonical JSON.", H2),
-    "hs06-unknown-component-asset": rec("UNKNOWN_ASSET", SEL, [add("/components/reading/illustration_assets/-", "illus-missing")], "L-23: components reference selected assets.", H2),
+    "hs05-canonicalization-not-allowed": rec("SCHEMA_VIOLATION", SEL, [add("/canonicalization", "feltwillow-canonical-json-v1")], "L-23: YAML selection is pinned by blob digest, not canonical JSON.", H2),
+    "hs06-unknown-component-asset": rec("UNKNOWN_ASSET", SEL, [add("/components/images/illustration_assets/-", "illus-missing")], "L-23: components reference selected assets.", H2),
     "si02-bad-state": rec("SCHEMA_VIOLATION", SI, [rep("/services/0/state", "trial")], "state is disabled/planned/enabled.", H2),
+}
+
+RE = E + "reading-edition.v1.lion-and-mouse.example.json"
+L28 = "L-28 (reading text authored in publishing)"
+L29 = "L-29 (measurement provenance, lossless audio)"
+VIDEO_ASSET = {"asset_id": "video-master-en", "role": "video-master", "media_type": "video/mp4", "bytes": 1000,
+               "sha256": "ef" * 32, "transport": "embedded", "package_path": "files/video-master-en/master.mp4",
+               "measured": {"width_px": 1920, "height_px": 1080, "duration_ms": 412500, "sample_rate_hz": None,
+                            "channels": None, "frame_rate": {"numerator": 30, "denominator": 1}},
+               "measurement": {"tool": "feltwillow-stdlib", "version": "x"}, "derived_from": [],
+               "origin": {"store": "owner-master-store", "ref": "EXAMPLE-ONLY/master.mp4", "commit": None},
+               "selection_note": "EXAMPLE ONLY."}
+VIDEO_COMP = {"master_asset": "video-master-en", "captions_asset": None, "thumbnail_asset": None}
+L28_L29_CASES = {
+    "hr01-reading-text-asset-in-handoff": rec("SCHEMA_VIOLATION", H_LION, [add("/payload/assets/-", {**VIDEO_ASSET, "asset_id": "reading-text-en", "role": "reading-text", "media_type": "application/vnd.feltwillow.reading-blocks+json", "package_path": "files/reading-text-en/reading-text.json", "measurement": None})], "Production hands over no reading text.", L28),
+    "hr02-reading-component-in-handoff": rec("SCHEMA_VIOLATION", H_LION, [add("/payload/components/reading", {"text_asset": "x", "illustration_assets": [], "cover_asset": None})], "The reading component no longer exists in handoffs.", L28),
+    "hr03-selection-reading-component": rec("SCHEMA_VIOLATION", SEL, [add("/components/reading", None)], "handoff-selection.v1 has images/audio/video only.", L28),
+    "re01-website-release-without-reading-edition": rec("READING_EDITION_MISSING", REL, [rep("/content/reading_edition", None)], "A release with a website channel pins its reading edition.", L28),
+    "re02-reading-edition-other-language": rec("READING_EDITION_MISMATCH", REL, [rep("/content/reading_edition/edition_id", "lion-and-mouse.de.e0001")], "The edition is for the release's story and language.", L28),
+    "re03-edition-id-mismatch": rec("READING_EDITION_ID_MISMATCH", RE, [rep("/edition_id", "lion-and-mouse.en.e0002")], "edition_id = <story>.<lang>.e<revision>.", L28),
+    "re04-edition-unknown-illustration": rec("UNKNOWN_ASSET", RE, [add("/blocks/-", {"type": "image", "asset_id": "illus-absent", "alt": "x", "caption": None})], "Image blocks use listed handoff illustrations.", L28),
+    "re05-edition-without-text": rec("READING_EDITION_WITHOUT_TEXT", RE, [rep("/blocks", [{"type": "image", "asset_id": "illus-s01-explores-start", "alt": "x", "caption": None}])], "A reading edition has text.", L28),
+    "re06-edition-authored-in-production": rec("SCHEMA_VIOLATION", RE, [rep("/provenance/authored_in", "production")], "Provenance is publishing.", L28),
+    "re07-edition-source-other-story": rec("READING_SOURCE_OTHER_EDITION", RE, [rep("/source_script/handoff_id", "fixture-second-story.en.h0001")], "The pinned script belongs to the same story-language.", L28),
+    "re08-edition-unreferenced-illustration": rec("UNREFERENCED_ASSET", RE, [rep("/blocks", [{"type": "paragraph", "text": "x"}])], "Listed illustrations are used.", L28),
+    "re09-edition-missing-alt": rec("SCHEMA_VIOLATION", RE, [rep("/blocks/2/alt", "")], "Image blocks carry alt text.", L28),
+    "ms01-measurement-provenance-missing": rec("MEASUREMENT_PROVENANCE_MISSING", H_LION, [rep("/payload/assets/0/measurement", None)], "Measured media record their tool and version.", L29),
+    "ms02-video-not-measured-by-ffprobe": rec("VIDEO_MEASUREMENT_REQUIRES_FFPROBE", H_LION, [add("/payload/assets/-", VIDEO_ASSET), rep("/payload/components/video", VIDEO_COMP)], "Video is measured with ffprobe.", L29),
+    "ms03-video-ffprobe-accepted": rec("VALID", H_LION, [add("/payload/assets/-", {**VIDEO_ASSET, "measurement": {"tool": "ffprobe", "version": "EXAMPLE 7.1"}}), rep("/payload/components/video", VIDEO_COMP)], "Positive patch case: ffprobe-measured video.", L29),
+    "ms04-mp3-audio-in-handoff": rec("HANDOFF_AUDIO_NOT_LOSSLESS", H_FIX, [rep("/payload/assets/1/media_type", "audio/mpeg")], "Audio masters are WAV/FLAC; MP3/M4A are not handoff inputs.", L29),
+    "ms05-audio-delivery-role": rec("SCHEMA_VIOLATION", H_FIX, [rep("/payload/assets/1/role", "audio-delivery")], "No audio-delivery role in handoffs.", L29),
+    "ms06-unknown-measurement-tool": rec("SCHEMA_VIOLATION", H_LION, [rep("/payload/assets/0/measurement/tool", "imagemagick")], "Measurement tools: feltwillow-stdlib or ffprobe.", L29),
 }
 
 V2_PORT_CASES = {
     # Agent F adversarial cases F-V01..F-V09 (F-V08 is a raw-bytes case in negative/raw/)
-    "fv01-three-websites-enabled": rec("MULTIPLE_WEBSITES", PJ, [rep("/modules/astro", "enabled"), rep("/modules/ghost", "enabled"), rep("/modules/plain_static", "enabled"), rep("/website/primary", "astro"), rep("/website/origin", "https://bllt.example.invalid")], "F-V01 (v2 I06).", V2),
+    "fv01-three-websites-enabled": rec("MULTIPLE_WEBSITES", PJ, [rep("/modules/astro", "enabled"), rep("/modules/ghost", "enabled"), rep("/modules/plain_static", "enabled"), rep("/website/primary", "astro"), rep("/website/origin", "https://feltwillow.example.invalid")], "F-V01 (v2 I06).", V2),
     "fv02-two-feed-authorities": rec("MULTIPLE_FEED_AUTHORITIES", PJ, [rep("/modules/spotify_hosted", "enabled"), rep("/modules/independent_rss", "enabled")], "F-V02 (v2 I07).", V2),
     "fv03-enabled-feed-not-authority": rec("FEED_MODULE_NOT_ENABLED", PJ, [rep("/modules/independent_rss", "enabled")], "F-V03: authority spotify, only independent_rss enabled (adapted rule).", V2),
     "fv04-production-without-remote-writes": rec("PRODUCTION_WRITE_SWITCH_CONFLICT", PJ, [rep("/safety/production_enabled", True)], "F-V04.", V2),
@@ -643,7 +674,7 @@ V2_PORT_CASES = {
     "fv09-registry-two-listed-show-pages": rec("DUPLICATE_PROVIDER_MAPPING", E + "provider-registry.v2.example.json", [add("/records/-", {"record_id": "reg-sp-show-2", "destination": "spotify", "entity_type": "show", "entity_id": "example-show-en", "url_kind": "show-page", "external_url": "https://open.example.invalid/show/x2", "external_id": None, "status": "listed", "observed_at": "2026-10-06T19:00:00Z", "receipt_id": None, "supersedes_record_id": None, "note": "EXAMPLE ONLY"})], "F-V09 / m3: one active listed row per (entity_type, entity_id, destination, url_kind).", V2),
     # remaining ported v2 rules, one fixture each
     "v2p01-primary-not-selected": rec("PRIMARY_NOT_SELECTED", PJ, [rep("/modules/plain_static", "enabled")], "Enabled website without website.primary.", V2),
-    "v2p02-primary-module-not-enabled": rec("MODULE_NOT_ENABLED", PJ, [rep("/modules/astro", "implemented"), rep("/website/primary", "astro"), rep("/website/origin", "https://bllt.example.invalid")], "Primary must be enabled (v2: spec-only module cannot be selected).", V2),
+    "v2p02-primary-module-not-enabled": rec("MODULE_NOT_ENABLED", PJ, [rep("/modules/astro", "implemented"), rep("/website/primary", "astro"), rep("/website/origin", "https://feltwillow.example.invalid")], "Primary must be enabled (v2: spec-only module cannot be selected).", V2),
     "v2p03-missing-origin": rec("MISSING_ORIGIN", PJ, [rep("/modules/plain_static", "enabled"), rep("/website/primary", "plain_static")], "Primary site needs an origin.", V2),
     "v2p04-feed-authority-not-selected": rec("FEED_AUTHORITY_NOT_SELECTED", PJ, [rep("/podcast_authority", "undecided"), rep("/modules/spotify_hosted", "enabled")], "Enabled feed module without an authority.", V2),
     "v2p05-zero-cost-commerce": rec("ZERO_PROFILE_FORBIDDEN_CAPABILITY", PJ, [rep("/profile_option", "zero_cost"), rep("/commerce", "enabled")], "Zero-cost profile refuses commerce.", V2),
@@ -673,25 +704,25 @@ RAW_CASES = {
 IMPORT_CASES = {
     "m01-traversal-member": imp("ARCHIVE_UNSAFE_PATH", [{"op": "add_file", "name": "../evil.txt", "data": "x"}], "Member escaping the staging root."),
     "m02-absolute-member": imp("ARCHIVE_UNSAFE_PATH", [{"op": "add_file", "name": "/tmp/evil.txt", "data": "x"}], "Absolute member name."),
-    "m03-symlink-member": imp("ARCHIVE_LINK_FORBIDDEN", [{"op": "add_symlink", "name": "files/reading-text-en/link", "target": "/etc/passwd"}], "Symlink member."),
-    "m04-hardlink-member": imp("ARCHIVE_LINK_FORBIDDEN", [{"op": "add_hardlink", "name": "files/reading-text-en/hl", "target": "handoff.json"}], "Hard link member."),
-    "m05-fifo-member": imp("ARCHIVE_SPECIAL_FILE", [{"op": "add_special", "name": "files/reading-text-en/pipe", "type": "fifo"}], "FIFO member."),
-    "m06-device-member": imp("ARCHIVE_SPECIAL_FILE", [{"op": "add_special", "name": "files/reading-text-en/dev", "type": "chr"}], "Character device member."),
+    "m03-symlink-member": imp("ARCHIVE_LINK_FORBIDDEN", [{"op": "add_symlink", "name": "files/illus-s01-explores-start/link", "target": "/etc/passwd"}], "Symlink member."),
+    "m04-hardlink-member": imp("ARCHIVE_LINK_FORBIDDEN", [{"op": "add_hardlink", "name": "files/illus-s01-explores-start/hl", "target": "handoff.json"}], "Hard link member."),
+    "m05-fifo-member": imp("ARCHIVE_SPECIAL_FILE", [{"op": "add_special", "name": "files/illus-s01-explores-start/pipe", "type": "fifo"}], "FIFO member."),
+    "m06-device-member": imp("ARCHIVE_SPECIAL_FILE", [{"op": "add_special", "name": "files/illus-s01-explores-start/dev", "type": "chr"}], "Character device member."),
     "m07-gzip-archive": imp("ARCHIVE_FORMAT_UNSUPPORTED", [{"op": "compress", "with": "gzip"}], "Compressed archives refused."),
     "m08-not-a-tar": imp("ARCHIVE_MALFORMED", [{"op": "garbage", "bytes": 4096}], "Random bytes."),
     "m09-truncated-tar": imp("ARCHIVE_MALFORMED", [{"op": "truncate_mid_last_member"}], "Archive cut in the middle of a member (H2: offset computed, synthetic package is small)."),
     "m10-missing-bytes": imp("MISSING_BYTES", [{"op": "remove_file", "name": PNG1}], "Declared asset absent."),
-    "m11-extra-file": imp("UNEXPECTED_FILE", [{"op": "add_file", "name": "files/reading-text-en/notes.txt", "data": "extra"}], "Undeclared file."),
-    "m12-modified-bytes": imp("HASH_MISMATCH", [{"op": "replace_file", "name": TXT, "data": "{\"kind\":\"reading-blocks\",\"blocks\":[]}"}], "Bytes differ from digest."),
-    "m13-too-many-members": imp("ARCHIVE_TOO_MANY_MEMBERS", [], "Member count above limit.", {"limits": {"max_members": 3}}),
+    "m11-extra-file": imp("UNEXPECTED_FILE", [{"op": "add_file", "name": "files/illus-s01-explores-start/notes.txt", "data": "extra"}], "Undeclared file."),
+    "m12-modified-bytes": imp("HASH_MISMATCH", [{"op": "replace_file", "name": PNG1, "data": "\u0089PNG modified bytes"}], "Bytes differ from digest."),
+    "m13-too-many-members": imp("ARCHIVE_TOO_MANY_MEMBERS", [], "Member count above limit (synthetic package has 3 members since L-28).", {"limits": {"max_members": 2}}),
     "m14-expansion-limit": imp("ARCHIVE_SIZE_LIMIT", [], "Declared sizes above the configured total.", {"limits": {"max_total_bytes": 5000}}),
-    "m15-duplicate-member": imp("ARCHIVE_DUPLICATE_MEMBER", [{"op": "duplicate_member", "name": TXT}], "Same member twice."),
-    "m16-case-collision": imp("ARCHIVE_CASE_COLLISION", [{"op": "add_file", "name": "files/reading-text-en/Reading-Text.json", "data": "x"}], "Case-insensitive collision."),
-    "m17-script-disguised-as-png": imp("MEDIA_TYPE_MISMATCH", [{"op": "replace_asset_bytes", "asset_index": 1, "data": "#!/bin/sh\necho executed\n"}], "PNG whose bytes are a script."),
+    "m15-duplicate-member": imp("ARCHIVE_DUPLICATE_MEMBER", [{"op": "duplicate_member", "name": PNG1}], "Same member twice."),
+    "m16-case-collision": imp("ARCHIVE_CASE_COLLISION", [{"op": "add_file", "name": "files/illus-s01-explores-start/S01_Explores_Start_r01.png", "data": "x"}], "Case-insensitive collision."),
+    "m17-script-disguised-as-png": imp("MEDIA_TYPE_MISMATCH", [{"op": "replace_asset_bytes", "asset_index": 0, "data": "#!/bin/sh\necho executed\n"}], "PNG whose bytes are a script."),
     "m18-handoff-json-missing": imp("HANDOFF_RECORD_MISSING", [{"op": "remove_file", "name": "handoff.json"}], "No handoff record."),
     "m19-out-of-band-digest-mismatch": imp("ARCHIVE_DIGEST_MISMATCH", [], "Operator digest differs.", {"expected_archive_sha256": SHA_X}),
     "m20-unsupported-version-in-package": imp("CONTRACT_VERSION_UNSUPPORTED", [{"op": "patch_handoff", "patch": [rep("/schema_version", 2)]}], "Producer newer than consumer."),
-    "m21-measurement-mismatch": imp("MEASUREMENT_MISMATCH", [{"op": "patch_handoff", "patch": [rep("/payload/assets/1/measured/width_px", 1280)]}], "Width differs from PNG header."),
+    "m21-measurement-mismatch": imp("MEASUREMENT_MISMATCH", [{"op": "patch_handoff", "patch": [rep("/payload/assets/0/measured/width_px", 1280)]}], "Width differs from PNG header."),
     "m22-example-into-production-state": imp("EXAMPLE_RECORD", [], "example:true cannot enter real state.", {"allow_example": False}),
     "m23-story-not-allocated": imp("STORY_NOT_ALLOCATED", [], "Story without allocation.", {"allocations": {}}),
     "m24-duplicate-json-key": imp("CJ_DUPLICATE_KEY", [{"op": "raw_handoff_suffix_dup"}], "Repeated key."),
@@ -713,11 +744,11 @@ SCENARIOS = {
                                   "steps": [{"mutations": [], "expect_outcome": "accepted"},
                                             {"mutations": [{"op": "make_correction", "revision": 2, "parent_payload": "@step0"}], "expect_outcome": "accepted"},
                                             {"mutations": [{"op": "make_correction", "revision": 3, "parent_payload": "@step0"}], "expect_outcome": "rejected", "expect": "HANDOFF_FORK"}]},
-    "sc05-interrupted-then-retry": {"fixture": "import-scenario", "description": "Crash after archival copy: one accepted receipt, one archive file in BLLT_MASTER_ROOT/handoffs/.",
+    "sc05-interrupted-then-retry": {"fixture": "import-scenario", "description": "Crash after archival copy: one accepted receipt, one archive file in FELTWILLOW_MASTER_ROOT/handoffs/.",
                                     "steps": [{"mutations": [], "crash_after": "archive", "expect_outcome": "crash"}, {"mutations": [], "expect_outcome": "accepted"},
                                               {"mutations": [], "expect_outcome": "duplicate-identical"}],
                                     "expect_final": {"accepted_receipts": 1, "archive_files": 1}},
-    "sc07-archive-store-corrupt": {"fixture": "import-scenario", "description": "M2: different bytes already sit at BLLT_MASTER_ROOT/handoffs/<sha256>.tar; the import is refused and nothing is overwritten.",
+    "sc07-archive-store-corrupt": {"fixture": "import-scenario", "description": "M2: different bytes already sit at FELTWILLOW_MASTER_ROOT/handoffs/<sha256>.tar; the import is refused and nothing is overwritten.",
                                    "steps": [{"mutations": [], "options": {"preseed_corrupt_archive": True}, "expect_outcome": "rejected", "expect": "ARCHIVE_STORE_CORRUPT"}],
                                    "expect_final": {"accepted_receipts": 0, "archive_files": 1}},
     "sc08-corrupt-prior-receipt": {"fixture": "import-scenario", "description": "F-I04 / m2: an unreadable earlier receipt stops the import with IMPORT_STATE_CORRUPT and a new receipt.",
@@ -732,6 +763,27 @@ SCENARIOS = {
 }
 
 
+def l28_selection(sel):
+    """Adapt G3's selection example to L-28 if G3 has not done so yet: the reading component becomes `images`
+    (illustrations + cover, no text_asset); a missing reading text is no longer a production master."""
+    comps = sel["components"]
+    if "reading" in comps:
+        r = comps.pop("reading")
+        comps = {"images": None if r is None else {"illustration_assets": r["illustration_assets"], "cover_asset": r["cover_asset"]},
+                 **comps}
+        sel["components"] = comps
+    mm = []
+    for m in sel.get("missing_masters") or []:
+        if m["component"] == "reading" and m["slot"] == "text_asset":
+            continue
+        mm.append({**m, "component": "images"} if m["component"] == "reading" else m)
+    sel["missing_masters"] = mm
+    for c in ("audio",):
+        if comps.get(c) and "delivery_asset" in comps[c]:
+            comps[c].pop("delivery_asset")
+    return sel
+
+
 def main():
     for old in (FX / "v2-carried").glob("*.json"):
         old.unlink()
@@ -741,8 +793,8 @@ def main():
     for old in EX.glob("*.json"):
         old.unlink()
     b = build_b_examples()
-    write(EX / "package-src" / "reading-text.example.json", json.loads(READING_TEXT), check=False)
-    (EX / "package-src" / "reading-text.example.json").write_bytes(READING_TEXT)
+    shutil.rmtree(EX / "package-src", ignore_errors=True)  # L-28: no reading-text package source any more
+    write(EX / "reading-edition.v1.lion-and-mouse.example.json", b["reading_edition"])
     write(EX / "story-allocation.lion-and-mouse.example.json", b["alloc_lion"])
     write(EX / "story-allocation.fixture-second-story.example.json", b["alloc_fix"])
     write(EX / "production-handoff.lion-and-mouse.example.json", b["lion"])
@@ -769,8 +821,8 @@ def main():
     for k, n in names.items():
         write(EX / n, h2[k])
     # handoff-selection.v1 (L-23): G3's example YAML, vendored unchanged in tests/fixtures/compat/
-    from bllt_publish.contracts.yaml_strict import load_yaml
-    sel = load_yaml((FX / "compat" / "g3-handoff_selection.example.yaml").read_text(encoding="utf-8"))
+    from feltwillow_publish.contracts.yaml_strict import load_yaml
+    sel = l28_selection(load_yaml((FX / "compat" / "g3-handoff_selection.example.yaml").read_text(encoding="utf-8")))
     write(EX / "handoff-selection.v1.lion-and-mouse.example.json", sel)
     # podcast examples (Agent D)
     write(EX / "episode-publication.v2.spotify-prepared.example.json", PF.ep())
@@ -783,19 +835,19 @@ def main():
     # contract lock over the H2 schemas actually shipped
     schema_dir = ROOT / "publishing" / "contracts" / "schemas"
     lock = {**record_head("contract-lock", 1),
-            "package": {"name": "bllt-contracts", "version": CONTRACT_PKG["version"], "archive_sha256": CONTRACT_PKG["archive_sha256"],
-                        "source_repository": "jeilealr/bllt-publishing", "source_commit": None, "released_at": "2026-10-07T00:00:00Z"},
+            "package": {"name": "feltwillow-contracts", "version": CONTRACT_PKG["version"], "archive_sha256": CONTRACT_PKG["archive_sha256"],
+                        "source_repository": "jeilealr/feltwillow-publishing", "source_commit": None, "released_at": "2026-10-07T00:00:00Z"},
             "files": [{"path": f"schemas/{p.name}", "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
                       for p in sorted(schema_dir.glob("*.schema.json"))],
             "producer_emits": {"production-handoff": 1}}
     write(EX / "contract-lock.example.json", lock)
     # ---- fixtures
     # v2 kinds carried forward: vendored v2 examples (tests/fixtures/v2-carried/source/, SOURCES.sha256) as JSON
-    from bllt_publish.contracts.yaml_strict import load_yaml
+    from feltwillow_publish.contracts.yaml_strict import load_yaml
     for k in ("catalog", "story", "show", "collection", "rights-review"):
         src = FX / "v2-carried" / "source" / f"{k}.example.yaml"
         write(FX / "v2-carried" / f"{k}.example.json", load_yaml(src.read_text(encoding="utf-8")))
-    for name, case in {**B_RECORD_CASES, **H2_RECORD_CASES, **V2_PORT_CASES}.items():
+    for name, case in {**B_RECORD_CASES, **H2_RECORD_CASES, **V2_PORT_CASES, **L28_L29_CASES}.items():
         write(FX / "negative" / "records" / f"{name}.json", case, check=False)
     for name, case in RAW_CASES.items():
         write(FX / "negative" / "raw" / f"{name}.json", case, check=False)
@@ -805,8 +857,7 @@ def main():
         write(FX / "scenarios" / f"{name}.json", case, check=False)
     pkg = FX / "packages" / "lion-h0001-synthetic"
     write(pkg / "handoff.json", b["lion_synthetic"])
-    (pkg / "files" / "reading-text-en").mkdir(parents=True)
-    (pkg / "files" / "reading-text-en" / "reading-text.json").write_bytes(READING_TEXT)
+    pkg.mkdir(parents=True, exist_ok=True)
     sources = []
     for k in KEYFRAMES:
         a = asset_from_keyframe(k, synthetic=True)
@@ -844,7 +895,7 @@ def main():
         {"capability": "newsletter", "provider": "none", "plan": "none", "state": "disabled"}]}
     write(FX / "ops" / "service-inventory.strict-zero.example.json", inv)
     proj = {**h2["project"], "profile_option": "zero_cost",
-            "website": {"primary": "plain_static", "origin": "https://bllt-example.pages.dev", "locale_prefixes": True},
+            "website": {"primary": "plain_static", "origin": "https://feltwillow-example.pages.dev", "locale_prefixes": True},
             "modules": {"astro": "spec_only", "ghost": "spec_only", "plain_static": "enabled", "spotify_hosted": "enabled",
                         "independent_rss": "spec_only", "youtube": "spec_only"},
             "ai_disclosure": {"text": AI_SHOW_TEXT, "spoken": True},
@@ -852,7 +903,7 @@ def main():
             "service_inventory": {"path": "tests/fixtures/ops/service-inventory.strict-zero.example.json", "sha256": cj1.digest(inv)}}
     write(FX / "ops" / "project.zero_cost.example.json", proj)
     write(FX / "ops" / "scan-policy.example.json", {
-        "allowed_url_hosts": ["open.spotify.com", "creators.spotify.com", "www.youtube-nocookie.com", "www.youtube.com", "bllt-example.pages.dev"],
+        "allowed_url_hosts": ["open.spotify.com", "creators.spotify.com", "www.youtube-nocookie.com", "www.youtube.com", "feltwillow-example.pages.dev"],
         "allowed_emails": ["jei.leal.r@gmail.com"], "deny_terms": [], "allow_placeholders": False, "test_mode": True,
         "allowed_id3_frames": ["TIT2", "TPE1", "TALB", "TRCK", "TDRC", "TCON", "APIC", "TLEN", "TCOP"]}, check=False)
     lion_index = {"handoff_id": "lion-and-mouse.en.h0001", "story_id": "lion-and-mouse", "language": "en",
@@ -864,8 +915,8 @@ def main():
            "operator": "EXAMPLE-OPERATOR"}, check=False)
     (FX / "handoff-index" / "leaky" / "lion-and-mouse" / "en" / "lion-and-mouse.en.h0001.tar").write_bytes(b"\0" * 512)
     print("examples:", len(list(EX.glob("*.json"))), "+ web bundles; record negatives:",
-          len(B_RECORD_CASES) + len(H2_RECORD_CASES) + len(V2_PORT_CASES),
-          f"({len(H2_RECORD_CASES)} H2, {len(V2_PORT_CASES)} v2-port/F); raw: {len(RAW_CASES)}; imports:", len(IMPORT_CASES),
+          len(B_RECORD_CASES) + len(H2_RECORD_CASES) + len(V2_PORT_CASES) + len(L28_L29_CASES),
+          f"({len(H2_RECORD_CASES)} H2, {len(V2_PORT_CASES)} v2-port/F, {len(L28_L29_CASES)} L-28/L-29); raw: {len(RAW_CASES)}; imports:", len(IMPORT_CASES),
           "scenarios:", len(SCENARIOS), "podcast negatives:", len(PF.NEGATIVE) + len(PF.SUCCESSION))
 
 

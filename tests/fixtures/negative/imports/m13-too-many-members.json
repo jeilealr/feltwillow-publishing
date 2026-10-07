@@ -5,8 +5,8 @@
   "mutations": [],
   "options": {
     "limits": {
-      "max_members": 3
+      "max_members": 2
     }
   },
-  "description": "Member count above limit."
+  "description": "Member count above limit (synthetic package has 3 members since L-28)."
 }

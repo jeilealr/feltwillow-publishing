@@ -1,7 +1,7 @@
-"""BLLT canonical-json-v1, constrained profile (handoff-contract draft H1).
+"""Feltwillow canonical-json-v1, constrained profile (handoff-contract draft H1).
 
 PROPOSED CONTRACT. The serializer is byte-for-byte the v2 `canonical_bytes`
-(bllt_blueprint_v2/tools/validate_blueprint.py): json.dumps(sort_keys=True,
+(the v2 blueprint's tools/validate_blueprint.py): json.dumps(sort_keys=True,
 separators=(",", ":"), ensure_ascii=False, allow_nan=False) encoded as UTF-8.
 H1 adds an explicit *value domain* (the "safe domain") that every producer and
 consumer enforces before hashing. Inside that domain the bytes are identical
@@ -31,7 +31,7 @@ import json
 import re
 import unicodedata
 
-ALGORITHM_ID = "bllt-canonical-json-v1"
+ALGORITHM_ID = "feltwillow-canonical-json-v1"
 MAX_SAFE_INT = 2**53 - 1
 MAX_DEPTH = 64
 _KEY_RE = re.compile(r"^[\x20-\x7e]*$")

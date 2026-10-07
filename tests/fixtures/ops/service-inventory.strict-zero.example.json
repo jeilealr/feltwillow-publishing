@@ -2,7 +2,7 @@
   "kind": "service-inventory",
   "schema_version": 1,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "profile": "strict-zero",
   "services": [
     {

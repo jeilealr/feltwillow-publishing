@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/role",
+      "value": "audio-delivery"
+    }
+  ],
+  "description": "No audio-delivery role in handoffs.",
+  "rule": "L-29 (measurement provenance, lossless audio)"
+}

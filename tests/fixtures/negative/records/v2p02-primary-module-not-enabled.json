@@ -16,7 +16,7 @@
     {
       "op": "replace",
       "path": "/website/origin",
-      "value": "https://bllt.example.invalid"
+      "value": "https://feltwillow.example.invalid"
     }
   ],
   "description": "Primary must be enabled (v2: spec-only module cannot be selected).",

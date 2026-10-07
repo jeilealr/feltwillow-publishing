@@ -4,17 +4,18 @@
   byte-identical. `record-types.json` says which version of each kind is current; superseded v1 kinds stay for
   `$ref` resolution and explicit migration and are rejected by the validator (`CONTRACT_VERSION_UNSUPPORTED`).
 - `error-codes.json`: merged catalogue (B, C, D, E, lead, and G3's exporter codes for reference).
-- Canonicalization: `bllt-canonical-json-v1` (v2 bytes within the H1 safe domain; L-20). Every H2 record kind
+- Canonicalization: `feltwillow-canonical-json-v1` (v2 bytes within the H1 safe domain; L-20). Every H2 record kind
   carries the constant except `handoff-selection.v1` (YAML, pinned by Git blob digest).
 
 | Kind | Version | Origin | Change vs v2 package |
 |---|---|---|---|
-| common | v2 | B + lead | + https_url, episode_id, observation_id, canonicalization, module_id, handoff_package_digest, release_pin, email, date, dirty_path (L-21) |
-| production-handoff | v1 (new) | B | dirty paths use `dirty_path`; source purpose `selection` (L-23) |
-| handoff-selection | v1 (new) | G3 / L-23 | production-authored selection file, publishing-released |
-| release | v2 | B | handoffs pinned; content-addressed origins; integer duration_ms |
+| common | v2 | B + lead | + https_url, episode_id, observation_id, canonicalization, module_id, handoff_package_digest, release_pin, email, date, dirty_path (L-21), reading_edition_id/pin, measurement (L-28/L-29); handoff roles without reading-text and audio-delivery |
+| production-handoff | v1 (new) | B | dirty paths use `dirty_path`; source purpose `selection` (L-23); component `images` replaces `reading` (no reading text, L-28); per-asset `measurement` {tool, version}; lossless audio only; video measured by ffprobe (L-29) |
+| reading-edition | v1 (new) | lead / L-28 | reading text authored in publishing: ordered blocks, illustration refs to handoff assets, alt text, pinned source script digest |
+| handoff-selection | v1 (new) | G3 / L-23 | production-authored selection file, publishing-released; components images/audio/video (L-28) |
+| release | v2 | B + L-28 | handoffs pinned; content-addressed origins; integer duration_ms; `content.reading_edition` pin (required when the website channel is requested) |
 | approval | v2 | B + IC-D7 | stages, depends_on, revocation; scope `rights_review.podcast_audio` |
-| import-receipt | v1 (new) | B + s.2 | archival_locator `handoffs/<sha256>.tar` relative to BLLT_MASTER_ROOT |
+| import-receipt | v1 (new) | B + s.2 | archival_locator `handoffs/<sha256>.tar` relative to FELTWILLOW_MASTER_ROOT |
 | public-bundle-manifest | v1 (new) | B + IC-C2/C3 | renderer null = render-input; renderer ids astro/ghost/plain_static |
 | contract-lock, story-allocation | v1 (new) | B | — |
 | web-bundle | v2 | C | IC-C1 |

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "READING_EDITION_MISMATCH",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/content/reading_edition/edition_id",
+      "value": "lion-and-mouse.de.e0001"
+    }
+  ],
+  "description": "The edition is for the release's story and language.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

@@ -2,7 +2,7 @@
   "kind": "provider-registry",
   "schema_version": 2,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "records": [
     {
       "record_id": "reg-sp-show",

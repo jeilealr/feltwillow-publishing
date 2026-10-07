@@ -6,8 +6,8 @@ import json
 
 from jsonschema import Draft202012Validator
 
-from bllt_publish.contracts import cj1
-from bllt_publish.contracts import validate as V
+from feltwillow_publish.contracts import cj1
+from feltwillow_publish.contracts import validate as V
 from support import EXAMPLES, FIX, ROOT, apply_patch, case, load_fixture
 from v2_selftests import run_v2_selftests
 
@@ -65,8 +65,8 @@ def run(ctx):
     differ = [f["path"] for f in lock["files"] if ours.get(f["path"]) != f["sha256"]]
     res["info_g3_compat"] = [
         case("G3 example CONTRACT.lock validated as contract-lock.v1 (H2)", True, got=V.codes(V.validate(lock)),
-             note="G3's lock regenerated for H2 (0.2.0-h2, with canonicalization), refreshed by the lead 2026-10-07"),
+             note="read-only copy of G3's lock in tests/fixtures/compat/"),
         case("G3 lock pins vs the H2 schema files shipped here", True, got={"pinned": len(lock["files"]), "digest_differs": differ},
-             note="G3's lock pins exactly the H2 schema files shipped here"),
+             note="digest_differs lists schema files changed here since G3 generated its lock (G3 must regenerate)"),
     ]
     return res

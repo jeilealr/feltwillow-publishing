@@ -5,12 +5,12 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/1/transport",
+      "path": "/payload/assets/0/transport",
       "value": "referenced"
     },
     {
       "op": "replace",
-      "path": "/payload/assets/1/package_path",
+      "path": "/payload/assets/0/package_path",
       "value": null
     }
   ],

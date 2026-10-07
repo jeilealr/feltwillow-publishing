@@ -1,9 +1,9 @@
 """Storage-root safety checks (DECISIONS_H2 s.2, IC-A4, IC-E1). PROPOSED CONTRACT; implemented, offline.
 
 Three environment roots, each refused when unsafe:
-  BLLT_HANDOFF_INBOX       incoming handoff tars before import (transient; required for `import`)
-  BLLT_MASTER_ROOT         immutable archived handoff tars (handoffs/<sha256>.tar), masters, final mixes
-  BLLT_PUBLISH_STATE_ROOT  import receipts, publish plans/receipts, locks, feed observations, private evidence
+  FELTWILLOW_HANDOFF_INBOX       incoming handoff tars before import (transient; required for `import`)
+  FELTWILLOW_MASTER_ROOT         immutable archived handoff tars (handoffs/<sha256>.tar), masters, final mixes
+  FELTWILLOW_PUBLISH_STATE_ROOT  import receipts, publish plans/receipts, locks, feed observations, private evidence
 
 Codes: STATE_ROOT_UNSET (variable missing/empty) and STATE_ROOT_UNSAFE (relative path; inside a Git work
 tree; inside the configured OneDrive sync folder; on LUMI scratch/project storage).
@@ -14,10 +14,10 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-ROOT_VARS = ("BLLT_HANDOFF_INBOX", "BLLT_MASTER_ROOT", "BLLT_PUBLISH_STATE_ROOT")
+ROOT_VARS = ("FELTWILLOW_HANDOFF_INBOX", "FELTWILLOW_MASTER_ROOT", "FELTWILLOW_PUBLISH_STATE_ROOT")
 # LUMI shared file systems (scratch is purged; project/flash are not owner-controlled durable storage).
 LUMI_PREFIXES = ("/scratch/", "/pfs/lustre", "/project/", "/projappl/", "/flash/", "/appl/lumi")
-ONEDRIVE_VAR = "BLLT_ONEDRIVE_DIR"  # optional explicit OneDrive sync folder; name-based detection also applies
+ONEDRIVE_VAR = "FELTWILLOW_ONEDRIVE_DIR"  # optional explicit OneDrive sync folder; name-based detection also applies
 
 
 class StateRootError(Exception):

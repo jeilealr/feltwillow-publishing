@@ -5,7 +5,7 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/2/measured/duration_ms",
+      "path": "/payload/assets/1/measured/duration_ms",
       "value": 412500.0
     }
   ],

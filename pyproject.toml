@@ -1,17 +1,17 @@
-# bllt-publishing scaffold (contract revision H2, PROPOSED). Nothing here is released or enabled.
+# feltwillow-publishing scaffold (contract revision H2, PROPOSED). Nothing here is released or enabled.
 [build-system]
 requires = ["setuptools>=69"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "bllt-publish"
+name = "feltwillow-publish"
 version = "0.2.0.dev0"
-description = "BLLT publishing contracts, reference importer and offline checks (scaffold; spec_only modules stay inert)"
+description = "Feltwillow publishing contracts, reference importer and offline checks (scaffold; spec_only modules stay inert)"
 requires-python = ">=3.12"
 # Only these two direct dependencies; exact pins live in requirements/blueprint-check.txt.
 dependencies = ["PyYAML", "jsonschema"]
-# No console script yet: the planned `bllt-publish` CLI (validate, import-handoff, freeze, plan, apply, ...)
-# is not implemented. The only executable entry point is `python -m bllt_publish.check`.
+# No console script yet: the planned `feltwillow-publish` CLI (validate, import-handoff, freeze, plan, apply, ...)
+# is not implemented. The only executable entry point is `python -m feltwillow_publish.check`.
 
 [tool.setuptools.packages.find]
 where = ["src"]

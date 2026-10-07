@@ -5,8 +5,8 @@
   "mutations": [
     {
       "op": "replace_file",
-      "name": "files/reading-text-en/reading-text.json",
-      "data": "{\"kind\":\"reading-blocks\",\"blocks\":[]}"
+      "name": "files/illus-s01-explores-start/s01_explores_start_r01.png",
+      "data": "PNG modified bytes"
     }
   ],
   "options": {},

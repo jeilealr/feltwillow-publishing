@@ -5,21 +5,27 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/2/derived_from",
+      "path": "/payload/assets/0/derived_from",
       "value": [
         {
-          "sha256": "8f00000000000000000000000000000000000000000000000000000000000000",
-          "asset_id": "audio-delivery-en",
+          "sha256": "0effe883fe0aae1bc74438b256d9f7a930796795062fa385b2220a4da3bfcc32",
+          "asset_id": "audio-master-en",
           "relation": "other"
         }
       ]
     },
     {
       "op": "replace",
-      "path": "/payload/assets/3/sha256",
-      "value": "8f00000000000000000000000000000000000000000000000000000000000000"
+      "path": "/payload/assets/1/derived_from",
+      "value": [
+        {
+          "sha256": "c2a58e61fe70d813766dd9438078e095d25d461a0a77c256b8294824436f7cd2",
+          "asset_id": "transcript-en",
+          "relation": "other"
+        }
+      ]
     }
   ],
-  "description": "Master derived from its own derivative.",
+  "description": "Master and transcript derived from each other.",
   "rule": "H1 (Agent B)"
 }

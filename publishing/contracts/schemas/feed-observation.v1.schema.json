@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/feed-observation.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/feed-observation.v1.json",
   "title": "Feed observation v1",
-  "description": "Read-only observation of one RSS feed document (Agent D, IC-D3). Stores only the presence, never the value, of itunes:email. Raw feed bytes stay in BLLT_PUBLISH_STATE_ROOT, addressed by sha256. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "description": "Read-only observation of one RSS feed document (Agent D, IC-D3). Stores only the presence, never the value, of itunes:email. Raw feed bytes stay in FELTWILLOW_PUBLISH_STATE_ROOT, addressed by sha256. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -16,19 +16,19 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "observation_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/observation_id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/observation_id"
     },
     "show_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
     },
     "feed_url": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/https_url"
     },
     "fetched_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "fetch": {
       "anyOf": [
@@ -37,7 +37,7 @@
           "additionalProperties": false,
           "properties": {
             "final_url": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/https_url"
             },
             "http_status": {
               "type": "integer",
@@ -57,7 +57,7 @@
                     "maximum": 399
                   },
                   "location": {
-                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+                    "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/https_url"
                   }
                 },
                 "required": [
@@ -79,10 +79,10 @@
       ]
     },
     "feed_sha256": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
     },
     "feed_bytes": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
     },
     "channel": {
       "type": "object",
@@ -136,7 +136,7 @@
           ]
         },
         "item_count": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/safe_count"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/safe_count"
         }
       },
       "required": [
@@ -197,7 +197,7 @@
           "pubdate_utc": {
             "anyOf": [
               {
-                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+                "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
               },
               {
                 "type": "null"
@@ -289,7 +289,7 @@
       "uniqueItems": true,
       "maxItems": 500,
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/error_code"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/error_code"
       }
     }
   },

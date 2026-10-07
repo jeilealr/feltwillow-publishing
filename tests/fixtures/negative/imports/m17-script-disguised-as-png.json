@@ -5,7 +5,7 @@
   "mutations": [
     {
       "op": "replace_asset_bytes",
-      "asset_index": 1,
+      "asset_index": 0,
       "data": "#!/bin/sh\necho executed\n"
     }
   ],

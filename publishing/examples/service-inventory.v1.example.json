@@ -2,7 +2,7 @@
   "kind": "service-inventory",
   "schema_version": 1,
   "example": true,
-  "canonicalization": "bllt-canonical-json-v1",
+  "canonicalization": "feltwillow-canonical-json-v1",
   "profile": "standard",
   "services": [
     {
@@ -28,7 +28,7 @@
       },
       "evidence": {
         "checked_at": "2026-10-06",
-        "source": "jeilealr/bllt-publishing exists (private, owner decision); plan not observed by agents."
+        "source": "jeilealr/feltwillow-publishing exists (private, owner decision); plan not observed by agents."
       }
     },
     {

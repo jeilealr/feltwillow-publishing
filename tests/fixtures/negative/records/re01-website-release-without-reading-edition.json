@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "READING_EDITION_MISSING",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/content/reading_edition",
+      "value": null
+    }
+  ],
+  "description": "A release with a website channel pins its reading edition.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

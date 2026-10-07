@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNKNOWN_ASSET",
+  "base": "publishing/examples/reading-edition.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/blocks/-",
+      "value": {
+        "type": "image",
+        "asset_id": "illus-absent",
+        "alt": "x",
+        "caption": null
+      }
+    }
+  ],
+  "description": "Image blocks use listed handoff illustrations.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

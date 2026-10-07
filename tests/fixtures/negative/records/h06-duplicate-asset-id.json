@@ -5,12 +5,12 @@
   "patch": [
     {
       "op": "replace",
-      "path": "/payload/assets/2/asset_id",
+      "path": "/payload/assets/1/asset_id",
       "value": "illus-s01-explores-start"
     },
     {
       "op": "replace",
-      "path": "/payload/assets/2/package_path",
+      "path": "/payload/assets/1/package_path",
       "value": "files/illus-s01-explores-start/s01_acorn_start_r01.png"
     }
   ],

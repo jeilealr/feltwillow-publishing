@@ -64,8 +64,7 @@
     }
   ],
   "components": {
-    "reading": {
-      "text_asset": null,
+    "images": {
       "illustration_assets": [
         "illus-s01-explores-start",
         "illus-s01-explores-end",
@@ -79,16 +78,10 @@
   },
   "missing_masters": [
     {
-      "component": "reading",
-      "slot": "text_asset",
-      "status": "not-yet-created",
-      "note": "Reading edition (reading-blocks JSON) not written; the owner's script is SCRIPT_REVIEW.md."
-    },
-    {
       "component": "audio",
       "slot": "master_asset",
       "status": "not-yet-created",
-      "note": "Final mix (DaVinci export, WAV/FLAC) does not exist; it will come from BLLT_MASTER_ROOT."
+      "note": "Final mix (DaVinci export, WAV/FLAC) does not exist; it will come from FELTWILLOW_MASTER_ROOT."
     },
     {
       "component": "video",
@@ -97,7 +90,7 @@
       "note": "No assembled video; takes are still being selected (RENDER_REVIEW.md)."
     },
     {
-      "component": "reading",
+      "component": "images",
       "slot": "cover_asset",
       "status": "not-yet-created",
       "note": "No cover art."

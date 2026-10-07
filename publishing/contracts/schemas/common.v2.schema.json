@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/common.v2.json",
-  "title": "BLLT shared definitions v2 (H2)",
+  "$id": "https://feltwillow.example.invalid/schemas/common.v2.json",
+  "title": "Feltwillow shared definitions v2 (H2)",
   "description": "Shared definitions for contract revision H2. common.v1 stays unchanged for v1 records. H2 adds https_url, episode_id, observation_id (IC-D10), canonicalization, module_id, handoff_package_digest, email, date and dirty_path (L-21). Contract revision H2 (PROPOSED CONTRACT; not released).",
   "$defs": {
     "id": {
@@ -108,7 +108,7 @@
       "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
     },
     "canonicalization": {
-      "const": "bllt-canonical-json-v1",
+      "const": "feltwillow-canonical-json-v1",
       "description": "v2 canonical-json-v1 bytes within the H1 safe domain (normative)."
     },
     "module_id": {
@@ -121,10 +121,8 @@
     },
     "role": {
       "enum": [
-        "reading-text",
         "spoken-transcript",
         "audio-master",
-        "audio-delivery",
         "illustration",
         "cover-art",
         "video-master",
@@ -136,7 +134,7 @@
     },
     "media_type": {
       "enum": [
-        "application/vnd.bllt.reading-blocks+json",
+        "application/vnd.feltwillow.reading-blocks+json",
         "text/plain",
         "audio/wav",
         "audio/flac",
@@ -177,7 +175,7 @@
         "sha256": {
           "anyOf": [
             {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
             },
             {
               "type": "null"
@@ -195,13 +193,13 @@
       "additionalProperties": false,
       "properties": {
         "name": {
-          "const": "bllt-contracts"
+          "const": "feltwillow-contracts"
         },
         "version": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/semver"
         },
         "archive_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         }
       },
       "required": [
@@ -215,10 +213,10 @@
       "additionalProperties": false,
       "properties": {
         "handoff_id": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
         },
         "payload_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         }
       },
       "required": [
@@ -226,18 +224,60 @@
         "payload_sha256"
       ]
     },
+    "reading_edition_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.(?:en|de|es|fr|ru|uk)\\.e[0-9]{4}$"
+    },
+    "reading_edition_pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "edition_id": {
+          "$ref": "#/$defs/reading_edition_id"
+        },
+        "edition_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "edition_id",
+        "edition_sha256"
+      ]
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tool": {
+          "enum": [
+            "feltwillow-stdlib",
+            "ffprobe"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      },
+      "required": [
+        "tool",
+        "version"
+      ],
+      "description": "L-29: tool that measured the asset bytes and its version."
+    },
     "handoff_package_digest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "handoff_id": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
         },
         "payload_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         },
         "archive_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         }
       },
       "required": [
@@ -251,10 +291,10 @@
       "additionalProperties": false,
       "properties": {
         "release_id": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/release_id"
         },
         "release_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         }
       },
       "required": [
@@ -267,10 +307,10 @@
       "additionalProperties": false,
       "properties": {
         "approval_id": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
         },
         "approval_sha256": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
         }
       },
       "required": [
@@ -283,10 +323,10 @@
       "additionalProperties": false,
       "properties": {
         "numerator": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
         },
         "denominator": {
-          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
         }
       },
       "required": [

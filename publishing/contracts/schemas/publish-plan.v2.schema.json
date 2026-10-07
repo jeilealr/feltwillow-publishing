@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/publish-plan.v2.json",
+  "$id": "https://feltwillow.example.invalid/schemas/publish-plan.v2.json",
   "title": "Publish plan v2",
   "description": "Pinned, expiring plan (IC-A2, IC-B5, IC-C4, IC-D4, IC-E2): replaces v1's single source_commit with publishing_commit + contract pins + handoff package digests; explicit destination; manual operations; Ghost deployment artifacts as auxiliary inputs. Contract revision H2 (PROPOSED CONTRACT; not released).",
   "type": "object",
@@ -16,16 +16,16 @@
       "type": "boolean"
     },
     "canonicalization": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
     },
     "plan_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
     },
     "created_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "expires_at": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
     },
     "environment": {
       "enum": [
@@ -42,23 +42,23 @@
       ]
     },
     "publishing_commit": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/git_commit"
     },
     "contract_version": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/semver"
     },
     "contract_package": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/contract_package"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/contract_package"
     },
     "handoff_package_digests": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_package_digest"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/handoff_package_digest"
       },
       "maxItems": 500
     },
     "project_sha256": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
     },
     "site_set": {
       "anyOf": [
@@ -67,10 +67,10 @@
           "additionalProperties": false,
           "properties": {
             "site_set_id": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
             },
             "sha256": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
             }
           },
           "required": [
@@ -84,12 +84,12 @@
       ]
     },
     "registry_sha256": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
     },
     "releases": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_pin"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/release_pin"
       },
       "maxItems": 2000
     },
@@ -104,10 +104,10 @@
               "additionalProperties": false,
               "properties": {
                 "report_sha256": {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
                 },
                 "bundle_manifest_sha256": {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
                 },
                 "clean": {
                   "const": true
@@ -131,7 +131,7 @@
               "additionalProperties": false,
               "properties": {
                 "report_sha256": {
-                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                  "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
                 },
                 "pass": {
                   "const": true
@@ -161,7 +161,7 @@
         "additionalProperties": false,
         "properties": {
           "action_id": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/id"
           },
           "target": {
             "enum": [
@@ -202,10 +202,10 @@
                 "additionalProperties": false,
                 "properties": {
                   "sha256": {
-                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                    "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
                   },
                   "bytes": {
-                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                    "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/positive_count"
                   }
                 },
                 "required": [
@@ -257,10 +257,10 @@
             ]
           },
           "path": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/relpath"
           },
           "sha256": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v2.json#/$defs/sha256"
           }
         },
         "required": [

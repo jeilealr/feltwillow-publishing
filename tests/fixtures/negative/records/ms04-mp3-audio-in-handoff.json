@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "HANDOFF_AUDIO_NOT_LOSSLESS",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/media_type",
+      "value": "audio/mpeg"
+    }
+  ],
+  "description": "Audio masters are WAV/FLAC; MP3/M4A are not handoff inputs.",
+  "rule": "L-29 (measurement provenance, lossless audio)"
+}

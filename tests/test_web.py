@@ -11,7 +11,7 @@ import json
 import os
 import shutil
 
-from bllt_publish.web.contract import (PAYLOAD_PATH, check_completeness, check_payload, check_render_input,
+from feltwillow_publish.web.contract import (PAYLOAD_PATH, check_completeness, check_payload, check_render_input,
                                        check_site_artifact, route_file, routes_of)
 from support import EXAMPLES
 

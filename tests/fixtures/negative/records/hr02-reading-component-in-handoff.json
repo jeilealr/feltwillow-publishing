@@ -1,0 +1,18 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/payload/components/reading",
+      "value": {
+        "text_asset": "x",
+        "illustration_assets": [],
+        "cover_asset": null
+      }
+    }
+  ],
+  "description": "The reading component no longer exists in handoffs.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

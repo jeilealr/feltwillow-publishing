@@ -9,7 +9,7 @@ import json
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-from bllt_publish.podcast import podcast as D
+from feltwillow_publish.podcast import podcast as D
 import podcast_fixtures as PF
 from support import EXAMPLES, FIX
 

@@ -1,0 +1,21 @@
+{
+  "fixture": "negative-record",
+  "expect": "READING_EDITION_WITHOUT_TEXT",
+  "base": "publishing/examples/reading-edition.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/blocks",
+      "value": [
+        {
+          "type": "image",
+          "asset_id": "illus-s01-explores-start",
+          "alt": "x",
+          "caption": null
+        }
+      ]
+    }
+  ],
+  "description": "A reading edition has text.",
+  "rule": "L-28 (reading text authored in publishing)"
+}

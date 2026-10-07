@@ -20,7 +20,7 @@
     },
     {
       "op": "replace",
-      "path": "/content/reading_text_asset",
+      "path": "/content/reading_edition",
       "value": null
     },
     {
@@ -40,7 +40,7 @@
         "publishing_commit": "2222222222222222222222222222222222222222",
         "tool_version": "0.1.0",
         "contract_package": {
-          "name": "bllt-contracts",
+          "name": "feltwillow-contracts",
           "version": "0.1.0",
           "archive_sha256": "abababababababababababababababababababababababababababababababab"
         }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/collection.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/collection.v1.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -14,10 +14,10 @@
       "type": "boolean"
     },
     "collection_id": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
     },
     "language": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/language"
     },
     "title": {
       "type": "string",
@@ -44,7 +44,7 @@
             "minLength": 1
           },
           "release_sha256": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/sha256"
           },
           "order": {
             "type": "integer",
@@ -62,7 +62,7 @@
     "master_asset_id": {
       "anyOf": [
         {
-          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+          "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
         },
         {
           "type": "null"
@@ -79,7 +79,7 @@
     "assets": {
       "type": "array",
       "items": {
-        "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/asset"
+        "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/asset"
       }
     }
   },

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bllt.example.invalid/schemas/web-bundle.v1.json",
+  "$id": "https://feltwillow.example.invalid/schemas/web-bundle.v1.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -18,7 +18,7 @@
       "minLength": 1
     },
     "origin": {
-      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/https"
     },
     "brand": {
       "type": "string",
@@ -31,10 +31,10 @@
         "additionalProperties": false,
         "properties": {
           "story_id": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/id"
           },
           "language": {
-            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+            "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/language"
           },
           "title": {
             "type": "string",
@@ -74,7 +74,7 @@
           "blocks": {
             "type": "array",
             "items": {
-              "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/block"
+              "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/block"
             }
           },
           "images": {
@@ -86,7 +86,7 @@
                 "url": {
                   "anyOf": [
                     {
-                      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+                      "$ref": "https://feltwillow.example.invalid/schemas/common.v1.json#/$defs/https"
                     },
                     {
                       "type": "string",
