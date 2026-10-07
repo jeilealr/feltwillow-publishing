@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/web-bundle.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "web-bundle"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "site_set_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "origin": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+    },
+    "brand": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "story_id": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+          },
+          "language": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^/[a-z]{2}/stories/[a-z0-9-]+/$"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "moral": {
+            "type": "string",
+            "minLength": 1
+          },
+          "age_min": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "age_max": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/block"
+            }
+          },
+          "images": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "url": {
+                  "anyOf": [
+                    {
+                      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^/media/[a-f0-9]{64}\\.(?:jpg|png|webp|avif|mp3|m4a|wav|ogg)$"
+                    }
+                  ]
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "alt": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "url",
+                "width",
+                "height",
+                "alt"
+              ]
+            }
+          },
+          "player": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "none",
+                  "spotify_embed",
+                  "native_audio"
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^https://",
+                    "format": "uri"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "url"
+            ]
+          },
+          "youtube_video_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^https://",
+                "format": "uri"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "story_id",
+          "language",
+          "title",
+          "path",
+          "summary",
+          "moral",
+          "age_min",
+          "age_max",
+          "published_at",
+          "blocks",
+          "images",
+          "player",
+          "youtube_video_url"
+        ]
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "site_set_id",
+    "origin",
+    "brand",
+    "stories"
+  ]
+}

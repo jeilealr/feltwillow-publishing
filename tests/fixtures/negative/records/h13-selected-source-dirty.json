@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SELECTED_SOURCE_DIRTY",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/source_files/2/path",
+      "value": "stories/lion_and_mouse_v5/story.yaml"
+    }
+  ],
+  "description": "A dirty selected source is rejected.",
+  "rule": "H1 (Agent B)"
+}

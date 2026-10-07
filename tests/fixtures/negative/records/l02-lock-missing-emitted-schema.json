@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "LOCK_MISSING_EMITTED_SCHEMA",
+  "base": "publishing/examples/contract-lock.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/producer_emits/production-handoff",
+      "value": 2
+    }
+  ],
+  "description": "Emitted version must be pinned.",
+  "rule": "H1 (Agent B)"
+}

@@ -1,0 +1,36 @@
+# PROPOSED, DEFERRED (Agent E). Only after the owner moves deployment off the local machine (E-02 section 5,
+# stage T2). Manual trigger only; the operator supplies the approved plan digest; the job re-verifies the
+# plan and the stage-3 approval from the checked-out records before uploading the exact prebuilt artifact.
+# On a private repo under GitHub Free/Pro/Team, required reviewers are NOT available (E-G1): the approval
+# gate is the digest-bound approval record plus the owner being the only person who can dispatch.
+# Do not enable while any collaborator has access (collaborators on a personal repo always have write, E-G6).
+name: deploy-website
+on:
+  workflow_dispatch:
+    inputs:
+      plan_sha256:
+        description: canonical sha256 of the approved publish-plan
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: deploy-website
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@0000000000000000000000000000000000000000
+        with:
+          persist-credentials: false
+      - name: verify plan, approval, artifact digests and leakage scan (fails closed)
+        env:
+          PLAN_SHA256: ${{ inputs.plan_sha256 }}
+        run: python -m bllt_publish apply --plan-sha256 "$PLAN_SHA256" --target website --verify-only
+      - name: upload exactly the verified artifact
+        env:
+          PLAN_SHA256: ${{ inputs.plan_sha256 }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.BLLT_PAGES_DEPLOY_TOKEN }}
+        run: python -m bllt_publish apply --plan-sha256 "$PLAN_SHA256" --target website

@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/show.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "show"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "show_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+    },
+    "language": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "show_type": {
+      "enum": [
+        "episodic",
+        "serial"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subcategory": {
+      "type": "string",
+      "minLength": 1
+    },
+    "explicit": {
+      "type": "boolean"
+    },
+    "owner_email": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "email"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hosting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "enum": [
+            "undecided",
+            "spotify",
+            "independent"
+          ]
+        },
+        "rss_url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^https://",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "website_url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^https://",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authority",
+        "rss_url",
+        "website_url"
+      ]
+    },
+    "artwork": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^https://",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "width": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "height": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "url",
+        "width",
+        "height"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "show_id",
+    "language",
+    "title",
+    "description",
+    "author",
+    "show_type",
+    "category",
+    "subcategory",
+    "explicit",
+    "owner_email",
+    "hosting",
+    "artwork"
+  ]
+}

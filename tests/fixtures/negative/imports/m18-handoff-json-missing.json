@@ -1,0 +1,13 @@
+{
+  "fixture": "negative-import",
+  "expect": "HANDOFF_RECORD_MISSING",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "remove_file",
+      "name": "handoff.json"
+    }
+  ],
+  "options": {},
+  "description": "No handoff record."
+}

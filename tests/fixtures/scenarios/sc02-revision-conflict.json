@@ -1,0 +1,26 @@
+{
+  "fixture": "import-scenario",
+  "description": "Same handoff_id, different payload.",
+  "steps": [
+    {
+      "mutations": [],
+      "expect_outcome": "accepted"
+    },
+    {
+      "mutations": [
+        {
+          "op": "patch_handoff",
+          "patch": [
+            {
+              "op": "replace",
+              "path": "/payload/editorial_selection/statement",
+              "value": "EXAMPLE ONLY: changed selection."
+            }
+          ]
+        }
+      ],
+      "expect_outcome": "rejected",
+      "expect": "HANDOFF_REVISION_CONFLICT"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "ARTIFACT_REQUIRED",
+  "base": "publishing/examples/publish-plan.v2.website-preview.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/actions/0/artifact",
+      "value": null
+    }
+  ],
+  "description": "Uploads name a content-addressed artifact (IC-D4).",
+  "rule": "H2 (DECISIONS_H2)"
+}

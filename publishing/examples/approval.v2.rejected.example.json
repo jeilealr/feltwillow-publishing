@@ -1,0 +1,25 @@
+{
+  "kind": "approval",
+  "schema_version": 2,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "approval_id": "example-approval-0001",
+  "stage": "channel-readiness",
+  "subject_type": "release",
+  "subject_id": "lion-and-mouse.en.r0001",
+  "subject_sha256": "eae72ddb991a79d7bfd8b0368c6483cdf9736cccd213131157cccfd88fd3083f",
+  "scope": "podcast",
+  "decision": "rejected",
+  "revokes": null,
+  "depends_on": [],
+  "reviewed_by": "EXAMPLE-REVIEWER",
+  "reviewed_at": "2026-10-06T19:00:00Z",
+  "reason": "EXAMPLE ONLY: release is a draft without audio.",
+  "checks": [
+    {
+      "name": "final-audio",
+      "result": "fail",
+      "evidence": "EXAMPLE ONLY: no selected audio master in handoff h0001."
+    }
+  ]
+}

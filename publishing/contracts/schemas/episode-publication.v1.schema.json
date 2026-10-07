@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/episode-publication.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "episode-publication"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "show_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+    },
+    "authority": {
+      "enum": [
+        "spotify",
+        "independent"
+      ]
+    },
+    "state": {
+      "enum": [
+        "prepared",
+        "published",
+        "withdrawn"
+      ]
+    },
+    "guid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "guid_is_permalink": {
+      "type": "boolean"
+    },
+    "first_published_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+        },
+        "length_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "media_type": {
+          "enum": [
+            "audio/mpeg",
+            "audio/mp4"
+          ]
+        },
+        "duration_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "submitted_sha256": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+        },
+        "observed_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "url",
+        "length_bytes",
+        "media_type",
+        "duration_seconds",
+        "submitted_sha256",
+        "observed_sha256"
+      ]
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "show_id",
+    "episode_id",
+    "release_id",
+    "release_sha256",
+    "authority",
+    "state",
+    "guid",
+    "guid_is_permalink",
+    "first_published_at",
+    "audio",
+    "observed_at"
+  ]
+}

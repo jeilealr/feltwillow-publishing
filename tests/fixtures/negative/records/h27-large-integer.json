@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CJ_INT_RANGE",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/bytes",
+      "value": 9007199254740993
+    }
+  ],
+  "description": "Integers within +-(2^53-1).",
+  "rule": "H1 (Agent B)"
+}

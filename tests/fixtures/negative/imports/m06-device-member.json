@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-import",
+  "expect": "ARCHIVE_SPECIAL_FILE",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "add_special",
+      "name": "files/reading-text-en/dev",
+      "type": "chr"
+    }
+  ],
+  "options": {},
+  "description": "Character device member."
+}

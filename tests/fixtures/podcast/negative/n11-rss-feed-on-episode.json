@@ -1,0 +1,27 @@
+{
+  "expected": [
+    "URL_KIND_ENTITY_MISMATCH"
+  ],
+  "record": {
+    "kind": "provider-registry",
+    "schema_version": 2,
+    "example": true,
+    "canonicalization": "bllt-canonical-json-v1",
+    "records": [
+      {
+        "record_id": "reg-a",
+        "destination": "spotify",
+        "entity_type": "episode",
+        "entity_id": "e",
+        "url_kind": "rss-feed",
+        "external_url": "https://feeds.example.invalid/x.xml",
+        "external_id": null,
+        "status": "listed",
+        "observed_at": "2026-10-06T19:00:00Z",
+        "receipt_id": null,
+        "supersedes_record_id": null,
+        "note": "EXAMPLE ONLY"
+      }
+    ]
+  }
+}

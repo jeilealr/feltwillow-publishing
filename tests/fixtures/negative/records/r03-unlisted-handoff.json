@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNLISTED_HANDOFF",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/assets/1/origin/handoff_id",
+      "value": "lion-and-mouse.en.h0009"
+    }
+  ],
+  "description": "Origins resolve through pinned handoffs.",
+  "rule": "H1 (Agent B)"
+}

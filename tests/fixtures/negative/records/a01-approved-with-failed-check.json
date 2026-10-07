@@ -1,0 +1,22 @@
+{
+  "fixture": "negative-record",
+  "expect": "INVALID_POSITIVE_APPROVAL",
+  "base": "publishing/examples/approval.v2.rejected.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/decision",
+      "value": "approved"
+    },
+    {
+      "op": "add",
+      "path": "/depends_on/-",
+      "value": {
+        "approval_id": "ed-1",
+        "approval_sha256": "abababababababababababababababababababababababababababababababab"
+      }
+    }
+  ],
+  "description": "A failed check cannot be approved.",
+  "rule": "H1 (Agent B)"
+}

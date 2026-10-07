@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/publish-plan.v2.website-preview.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/newsletter_send",
+      "value": true
+    }
+  ],
+  "description": "Plans never send newsletters (v2 rule kept).",
+  "rule": "H2 (DECISIONS_H2)"
+}

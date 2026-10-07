@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "SUPERSEDES_UNEXPECTED",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/supersedes",
+      "value": {
+        "handoff_id": "lion-and-mouse.en.h0001",
+        "payload_sha256": "abababababababababababababababababababababababababababababababab"
+      }
+    }
+  ],
+  "description": "A first handoff supersedes nothing.",
+  "rule": "H1 (Agent B)"
+}

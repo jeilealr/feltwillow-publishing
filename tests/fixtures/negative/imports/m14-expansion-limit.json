@@ -1,0 +1,12 @@
+{
+  "fixture": "negative-import",
+  "expect": "ARCHIVE_SIZE_LIMIT",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [],
+  "options": {
+    "limits": {
+      "max_total_bytes": 5000
+    }
+  },
+  "description": "Declared sizes above the configured total."
+}

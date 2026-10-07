@@ -1,0 +1,298 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/publish-plan.v2.json",
+  "title": "Publish plan v2",
+  "description": "Pinned, expiring plan (IC-A2, IC-B5, IC-C4, IC-D4, IC-E2): replaces v1's single source_commit with publishing_commit + contract pins + handoff package digests; explicit destination; manual operations; Ghost deployment artifacts as auxiliary inputs. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "publish-plan"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "plan_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "created_at": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+    },
+    "expires_at": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+    },
+    "environment": {
+      "enum": [
+        "preview",
+        "production"
+      ]
+    },
+    "destination": {
+      "enum": [
+        "website",
+        "podcast",
+        "directory",
+        "youtube"
+      ]
+    },
+    "publishing_commit": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+    },
+    "contract_version": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+    },
+    "contract_package": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/contract_package"
+    },
+    "handoff_package_digests": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_package_digest"
+      },
+      "maxItems": 500
+    },
+    "project_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+    },
+    "site_set": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "site_set_id": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+            },
+            "sha256": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+            }
+          },
+          "required": [
+            "site_set_id",
+            "sha256"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "registry_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+    },
+    "releases": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_pin"
+      },
+      "maxItems": 2000
+    },
+    "check_reports": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "leak_scan": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "report_sha256": {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                },
+                "bundle_manifest_sha256": {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                },
+                "clean": {
+                  "const": true
+                }
+              },
+              "required": [
+                "report_sha256",
+                "bundle_manifest_sha256",
+                "clean"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "strict_zero": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "report_sha256": {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                },
+                "pass": {
+                  "const": true
+                }
+              },
+              "required": [
+                "report_sha256",
+                "pass"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "leak_scan",
+        "strict_zero"
+      ],
+      "description": "IC-E2: digests of clean leak_scan and strict_zero reports; apply re-runs leak_scan on the exact upload directory."
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "action_id": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+          },
+          "target": {
+            "enum": [
+              "static-site",
+              "ghost",
+              "spotify",
+              "independent-rss",
+              "apple",
+              "amazon",
+              "pocket_casts",
+              "youtube"
+            ]
+          },
+          "operation": {
+            "enum": [
+              "create-draft",
+              "update-draft",
+              "publish",
+              "manual-upload",
+              "manual-submit",
+              "deploy",
+              "withdraw",
+              "manual_audio_replace",
+              "manual_metadata_edit",
+              "observe_feed",
+              "manual_redirect"
+            ]
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "artifact": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "sha256": {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                  },
+                  "bytes": {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                  }
+                },
+                "required": [
+                  "sha256",
+                  "bytes"
+                ],
+                "description": "Content-addressed artifact (IC-D4); located by digest in the build or state store."
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "action_id",
+          "target",
+          "operation",
+          "subject_id",
+          "artifact"
+        ]
+      },
+      "maxItems": 1000
+    },
+    "newsletter_send": {
+      "const": false
+    },
+    "auxiliary_inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_kind": {
+            "enum": [
+              "show",
+              "episode-publication",
+              "media-delivery",
+              "rights-review",
+              "feed-observation",
+              "provider-registry",
+              "service-inventory",
+              "web-bundle",
+              "public-bundle-manifest",
+              "ghost-theme",
+              "ghost-routes",
+              "ghost-redirects",
+              "ghost-post-payload"
+            ]
+          },
+          "path": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+          },
+          "sha256": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "record_kind",
+          "path",
+          "sha256"
+        ]
+      },
+      "maxItems": 1000
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "plan_id",
+    "created_at",
+    "expires_at",
+    "environment",
+    "destination",
+    "publishing_commit",
+    "contract_version",
+    "contract_package",
+    "handoff_package_digests",
+    "project_sha256",
+    "site_set",
+    "registry_sha256",
+    "releases",
+    "check_reports",
+    "actions",
+    "newsletter_send",
+    "auxiliary_inputs"
+  ]
+}

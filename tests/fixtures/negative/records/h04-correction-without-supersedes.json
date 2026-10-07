@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SUPERSEDES_REQUIRED",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/supersedes",
+      "value": null
+    }
+  ],
+  "description": "Revision > 1 names what it supersedes.",
+  "rule": "H1 (Agent B)"
+}

@@ -1,0 +1,21 @@
+{
+  "fixture": "negative-record",
+  "expect": "COLLECTION_ORDER_INVALID",
+  "base": "tests/fixtures/v2-carried/collection.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/items",
+      "value": [
+        {
+          "episode_id": "lion-and-mouse.en",
+          "release_id": "lion-and-mouse.en.r0001",
+          "release_sha256": "abababababababababababababababababababababababababababababababab",
+          "order": 2
+        }
+      ]
+    }
+  ],
+  "description": "Order is 1..n.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

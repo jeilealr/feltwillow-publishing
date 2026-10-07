@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/surprise",
+      "value": true
+    }
+  ],
+  "description": "Unknown fields are errors.",
+  "rule": "H1 (Agent B)"
+}

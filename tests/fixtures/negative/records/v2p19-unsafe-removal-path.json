@@ -1,0 +1,16 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNSAFE_REMOVAL_PATH",
+  "base": "publishing/examples/site-set.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/remove_paths",
+      "value": [
+        "/en/stories/../x/"
+      ]
+    }
+  ],
+  "description": "No traversal in removals.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

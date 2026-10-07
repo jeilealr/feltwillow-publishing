@@ -1,0 +1,19 @@
+{
+  "kind": "media-delivery",
+  "schema_version": 2,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "records": [
+    {
+      "asset_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "provider": "spotify",
+      "url": "https://media.example.invalid/ep1-a.mp3",
+      "observed_sha256": null,
+      "observed_bytes": 6600000,
+      "duration_ms": 412500,
+      "observed_at": "2026-10-06T19:00:00Z",
+      "access": "public",
+      "review": "pending"
+    }
+  ]
+}

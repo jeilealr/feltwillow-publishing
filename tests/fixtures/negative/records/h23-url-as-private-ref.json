@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "REMOTE_REFERENCE_FORBIDDEN",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/rights_evidence/0/evidence/ref",
+      "value": "https://drive.example.invalid/contract.pdf"
+    }
+  ],
+  "description": "Private refs are never URLs.",
+  "rule": "H1 (Agent B)"
+}

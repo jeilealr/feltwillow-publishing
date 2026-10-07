@@ -1,0 +1,71 @@
+{
+  "kind": "public-bundle-manifest",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "bundle_id": "example-web-input-site-set-0002",
+  "bundle_type": "web",
+  "manifest_visibility": "internal",
+  "inputs": {
+    "releases": [
+      {
+        "release_id": "fixture-second-story.en.r0001",
+        "release_sha256": "ad92d63226cdb130a442e9cb2a93c38a9008d1c34877141e609496e89ee63acf"
+      },
+      {
+        "release_id": "lion-and-mouse.en.r0001",
+        "release_sha256": "eae72ddb991a79d7bfd8b0368c6483cdf9736cccd213131157cccfd88fd3083f"
+      }
+    ],
+    "site_set": {
+      "site_set_id": "example-site-set-0002",
+      "sha256": "b0244a899ebed151ada502b95cc73e5a6c069436bb6d7b64eb5fb14ac28129b5"
+    },
+    "public_record_sha256": "1cf901cce31401306cbb5b68ce233823be06393d24bc1ed7df7db5a3620df415",
+    "renderer": null,
+    "contract_package": {
+      "name": "bllt-contracts",
+      "version": "0.2.0-h2",
+      "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
+    }
+  },
+  "files": [
+    {
+      "path": "data/web-bundle.json",
+      "sha256": "1cf901cce31401306cbb5b68ce233823be06393d24bc1ed7df7db5a3620df415",
+      "bytes": 3767,
+      "media_type": "application/json",
+      "source": null
+    },
+    {
+      "path": "media/31df5e30f608460ad0514e3850cb487a67ddb47a83317a03f6eacf7bd4a2211d.png",
+      "sha256": "31df5e30f608460ad0514e3850cb487a67ddb47a83317a03f6eacf7bd4a2211d",
+      "bytes": 77,
+      "media_type": "image/png",
+      "source": {
+        "release_id": "fixture-second-story.en.r0001",
+        "asset_id": "illus-fixture-01"
+      }
+    },
+    {
+      "path": "media/98c4fa30871386aab3c00aae45ab15847f0567ca3ccc21b37729a86f7af051c3.png",
+      "sha256": "98c4fa30871386aab3c00aae45ab15847f0567ca3ccc21b37729a86f7af051c3",
+      "bytes": 77,
+      "media_type": "image/png",
+      "source": {
+        "release_id": "lion-and-mouse.en.r0001",
+        "asset_id": "illus-s01-explores-start"
+      }
+    },
+    {
+      "path": "media/acb7367bf5a1f78f2efdd23c958bebc6f0450a29c3746feb37a9fa1a476be441.png",
+      "sha256": "acb7367bf5a1f78f2efdd23c958bebc6f0450a29c3746feb37a9fa1a476be441",
+      "bytes": 74,
+      "media_type": "image/png",
+      "source": {
+        "release_id": "lion-and-mouse.en.r0001",
+        "asset_id": "cover-lion-and-mouse"
+      }
+    }
+  ]
+}

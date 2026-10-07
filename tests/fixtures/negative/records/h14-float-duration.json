@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CJ_FLOAT",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/2/measured/duration_ms",
+      "value": 412500.0
+    }
+  ],
+  "description": "No floats in the canonical domain.",
+  "rule": "H1 (Agent B)"
+}

@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/profile_option",
+      "value": "zero_cost"
+    },
+    {
+      "op": "replace",
+      "path": "/commerce",
+      "value": "enabled"
+    }
+  ],
+  "description": "Zero-cost profile refuses commerce.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

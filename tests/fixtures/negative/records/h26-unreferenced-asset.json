@@ -1,0 +1,16 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNREFERENCED_ASSET",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/components/reading/illustration_assets",
+      "value": [
+        "illus-s01-explores-start"
+      ]
+    }
+  ],
+  "description": "No stray assets.",
+  "rule": "H1 (Agent B)"
+}

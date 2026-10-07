@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/approval.v2.podcast-audio-rights-review.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/scope",
+      "value": "rights_review.audiobook"
+    }
+  ],
+  "description": "Audiobook scopes deferred to backlog (s.7).",
+  "rule": "H2 (DECISIONS_H2)"
+}

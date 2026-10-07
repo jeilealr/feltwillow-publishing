@@ -1,0 +1,34 @@
+{
+  "fixture": "negative-record",
+  "expect": "MULTIPLE_WEBSITES",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/astro",
+      "value": "enabled"
+    },
+    {
+      "op": "replace",
+      "path": "/modules/ghost",
+      "value": "enabled"
+    },
+    {
+      "op": "replace",
+      "path": "/modules/plain_static",
+      "value": "enabled"
+    },
+    {
+      "op": "replace",
+      "path": "/website/primary",
+      "value": "astro"
+    },
+    {
+      "op": "replace",
+      "path": "/website/origin",
+      "value": "https://bllt.example.invalid"
+    }
+  ],
+  "description": "F-V01 (v2 I06).",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

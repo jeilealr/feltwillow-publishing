@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "PACKAGE_PATH_MISMATCH",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/package_path",
+      "value": "files/illus-s01-acorn-start/x.png"
+    }
+  ],
+  "description": "Package folder = asset_id.",
+  "rule": "H1 (Agent B)"
+}

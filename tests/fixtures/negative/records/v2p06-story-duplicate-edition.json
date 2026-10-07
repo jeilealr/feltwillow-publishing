@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_CATALOG_OR_EDITION",
+  "base": "tests/fixtures/v2-carried/story.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/editions/-",
+      "value": {
+        "language": "en",
+        "draft_path": "publishing/content/lion-and-mouse/en/draft2.yaml"
+      }
+    }
+  ],
+  "description": "One edition per language.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

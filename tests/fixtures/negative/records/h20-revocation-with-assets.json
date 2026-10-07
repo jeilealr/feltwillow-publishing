@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "REVOCATION_WITH_ASSETS",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/purpose",
+      "value": "revocation"
+    }
+  ],
+  "description": "A revocation carries no assets.",
+  "rule": "H1 (Agent B)"
+}

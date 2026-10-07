@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SELECTION_SLOT_INVALID",
+  "base": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/missing_masters/0/slot",
+      "value": "cover"
+    }
+  ],
+  "description": "L-23: missing_masters names a real slot.",
+  "rule": "H2 (DECISIONS_H2)"
+}

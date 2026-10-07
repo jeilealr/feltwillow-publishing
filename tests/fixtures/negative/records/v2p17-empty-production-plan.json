@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "EMPTY_PRODUCTION_PLAN",
+  "base": "publishing/examples/publish-plan.v2.podcast-spotify.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/actions",
+      "value": []
+    }
+  ],
+  "description": "A production plan does something.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

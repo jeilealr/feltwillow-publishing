@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "STAGE_SUBJECT_MISMATCH",
+  "base": "publishing/examples/approval.v2.rejected.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/stage",
+      "value": "deployment"
+    }
+  ],
+  "description": "Deployment binds a plan/site-set/project.",
+  "rule": "H1 (Agent B)"
+}

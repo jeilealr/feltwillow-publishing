@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/media-delivery.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "media-delivery"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "asset_sha256": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+          },
+          "provider": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+          },
+          "observed_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "observed_bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "access": {
+            "enum": [
+              "public",
+              "private"
+            ]
+          },
+          "review": {
+            "enum": [
+              "pending",
+              "pass",
+              "fail"
+            ]
+          }
+        },
+        "required": [
+          "asset_sha256",
+          "provider",
+          "url",
+          "observed_sha256",
+          "observed_bytes",
+          "observed_at",
+          "access",
+          "review"
+        ]
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "records"
+  ]
+}

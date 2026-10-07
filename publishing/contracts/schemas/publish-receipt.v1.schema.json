@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/publish-receipt.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "publish-receipt"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "plan_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "plan_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+    },
+    "action_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "result": {
+      "enum": [
+        "manual-pending",
+        "succeeded",
+        "failed",
+        "unknown"
+      ]
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "external_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "external_url": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^https://",
+          "format": "uri"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "plan_id",
+    "plan_sha256",
+    "action_id",
+    "result",
+    "observed_at",
+    "external_id",
+    "external_url",
+    "evidence"
+  ]
+}

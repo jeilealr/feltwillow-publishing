@@ -1,0 +1,15 @@
+{
+  "kind": "story",
+  "schema_version": 1,
+  "example": true,
+  "story_id": "lion-and-mouse",
+  "source_kind": "public_domain_adaptation",
+  "source_review": "pending",
+  "editorial_note": "Proposed first pilot, not approved for publication. Select and verify the exact source adaptation.",
+  "editions": [
+    {
+      "language": "en",
+      "draft_path": "publishing/content/lion-and-mouse/en/draft.yaml"
+    }
+  ]
+}

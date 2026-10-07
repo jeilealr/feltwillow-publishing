@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/provider-registry.v2.json",
+  "title": "Provider registry v2",
+  "description": "Sanitized public provider mappings with a required url_kind per URL (Agent D, IC-D2). Values are observed, never constructed. No e-mail addresses, owner account IDs, tokens or verification codes. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "provider-registry"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "records": {
+      "type": "array",
+      "maxItems": 5000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "pattern": "^reg-[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 96
+          },
+          "destination": {
+            "enum": [
+              "spotify",
+              "apple",
+              "amazon",
+              "pocket_casts",
+              "youtube",
+              "independent-rss",
+              "ghost",
+              "website"
+            ]
+          },
+          "entity_type": {
+            "enum": [
+              "show",
+              "episode",
+              "video",
+              "website-story",
+              "collection"
+            ]
+          },
+          "entity_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 96
+          },
+          "url_kind": {
+            "anyOf": [
+              {
+                "enum": [
+                  "show-page",
+                  "episode-page",
+                  "rss-feed",
+                  "enclosure",
+                  "embed",
+                  "creator-profile",
+                  "video-page",
+                  "playlist-page",
+                  "website-page"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "external_url": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "external_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "not_submitted",
+              "submitted",
+              "verification_needed",
+              "listed",
+              "blocked",
+              "superseded",
+              "withdrawn"
+            ]
+          },
+          "observed_at": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+          },
+          "receipt_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "supersedes_record_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^reg-[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "maxLength": 96
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "record_id",
+          "destination",
+          "entity_type",
+          "entity_id",
+          "url_kind",
+          "external_url",
+          "external_id",
+          "status",
+          "observed_at",
+          "receipt_id",
+          "supersedes_record_id",
+          "note"
+        ]
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "records"
+  ]
+}

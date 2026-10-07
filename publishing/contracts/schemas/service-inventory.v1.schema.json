@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/service-inventory.v1.json",
+  "title": "Service inventory v1",
+  "description": "Declared external services and their cost class (Agent E, IC-E3); checked fail-closed by bllt_publish.ops.strict_zero. A pass checks declarations, not provider dashboards. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "service-inventory"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "profile": {
+      "enum": [
+        "strict-zero",
+        "standard"
+      ]
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "capability": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "provider": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "plan": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "state": {
+            "enum": [
+              "disabled",
+              "planned",
+              "enabled"
+            ]
+          },
+          "billing": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "payment_method_on_file": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "auto_recharge": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "overage_allowed": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": []
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "checked_at": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/date"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              }
+            },
+            "required": [
+              "checked_at",
+              "source"
+            ]
+          }
+        },
+        "required": [
+          "capability",
+          "provider",
+          "plan",
+          "state"
+        ]
+      },
+      "maxItems": 200
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "profile",
+    "services"
+  ]
+}

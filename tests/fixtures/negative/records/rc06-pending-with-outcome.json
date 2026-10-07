@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "MANUAL_PENDING_WITH_OUTCOME",
+  "base": "publishing/examples/publish-receipt.v2.manual-pending.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/external_id",
+      "value": "x"
+    }
+  ],
+  "description": "manual_pending is written before the owner acts.",
+  "rule": "H2 (DECISIONS_H2)"
+}

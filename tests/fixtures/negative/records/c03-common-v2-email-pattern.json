@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/public_contact_email",
+      "value": "not-an-address"
+    }
+  ],
+  "description": "common.v2 email.",
+  "rule": "H2 (DECISIONS_H2)"
+}

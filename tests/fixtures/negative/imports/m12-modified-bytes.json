@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-import",
+  "expect": "HASH_MISMATCH",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "replace_file",
+      "name": "files/reading-text-en/reading-text.json",
+      "data": "{\"kind\":\"reading-blocks\",\"blocks\":[]}"
+    }
+  ],
+  "options": {},
+  "description": "Bytes differ from digest."
+}

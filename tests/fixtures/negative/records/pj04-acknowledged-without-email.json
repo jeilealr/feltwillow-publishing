@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "PUBLIC_CONTACT_ACK_WITHOUT_EMAIL",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/public_contact_email",
+      "value": null
+    },
+    {
+      "op": "replace",
+      "path": "/public_contact_acknowledged",
+      "value": true
+    }
+  ],
+  "description": "Acknowledgement needs an address.",
+  "rule": "H2 (DECISIONS_H2)"
+}

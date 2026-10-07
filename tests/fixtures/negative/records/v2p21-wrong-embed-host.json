@@ -1,0 +1,28 @@
+{
+  "fixture": "negative-record",
+  "expect": "WRONG_EMBED_HOST",
+  "base": "publishing/examples/web/render-input/site-set-0002/data/web-bundle.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/example",
+      "value": false
+    },
+    {
+      "op": "replace",
+      "path": "/stories/0/listening/player",
+      "value": {
+        "type": "spotify_embed",
+        "embed_url": "https://evil.example.invalid/embed",
+        "fallback_url": "https://open.spotify.com/show/x"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/stories/0/listening/duration_ms",
+      "value": 1000
+    }
+  ],
+  "description": "Spotify embeds come from open.spotify.com (real records).",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

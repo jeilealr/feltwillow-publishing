@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "RECEIPT_EVIDENCE_REQUIRED",
+  "base": "publishing/examples/publish-receipt.v2.manual-pending.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/result",
+      "value": "succeeded"
+    },
+    {
+      "op": "replace",
+      "path": "/submitted_sha256",
+      "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    }
+  ],
+  "description": "Success needs a private evidence reference (IC-D5).",
+  "rule": "H2 (DECISIONS_H2)"
+}

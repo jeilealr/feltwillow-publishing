@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-import",
+  "expect": "UNEXPECTED_FILE",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "add_file",
+      "name": "files/reading-text-en/notes.txt",
+      "data": "extra"
+    }
+  ],
+  "options": {},
+  "description": "Undeclared file."
+}

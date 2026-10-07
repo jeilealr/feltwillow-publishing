@@ -1,0 +1,24 @@
+{
+  "fixture": "negative-record",
+  "expect": "MODULE_NOT_ENABLED",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/astro",
+      "value": "implemented"
+    },
+    {
+      "op": "replace",
+      "path": "/website/primary",
+      "value": "astro"
+    },
+    {
+      "op": "replace",
+      "path": "/website/origin",
+      "value": "https://bllt.example.invalid"
+    }
+  ],
+  "description": "Primary must be enabled (v2: spec-only module cannot be selected).",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

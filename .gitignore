@@ -1,0 +1,21 @@
+# Build output and throw-away check trees
+build/
+*.egg-info/
+__pycache__/
+*.pyc
+.venv*/
+node_modules/
+.astro/
+web/*/dist/
+# Secrets and private state never enter Git
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+state/
+inbox/
+masters/
+# Handoff archives live in BLLT_MASTER_ROOT, never here
+*.tar
+!tests/fixtures/**/*.tar

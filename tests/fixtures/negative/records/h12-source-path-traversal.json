@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNSAFE_PATH",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/source_files/0/path",
+      "value": "../secrets/key.txt"
+    }
+  ],
+  "description": "No traversal in provenance paths.",
+  "rule": "H1 (Agent B)"
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "story-allocation",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "story_id": "fixture-second-story",
+  "status": "allocated",
+  "allocated_at": "2026-10-06T00:00:00Z",
+  "allocated_by": "EXAMPLE-OWNER",
+  "working_title": "EXAMPLE ONLY: synthetic second story",
+  "production_slugs": [
+    "fixture_second_story_v1"
+  ],
+  "planned_languages": [
+    "en"
+  ]
+}

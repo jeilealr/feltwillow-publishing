@@ -1,0 +1,36 @@
+{
+  "expected": [
+    "CJ_FLOAT"
+  ],
+  "record": {
+    "kind": "episode-publication",
+    "schema_version": 2,
+    "example": true,
+    "canonicalization": "bllt-canonical-json-v1",
+    "show_id": "example-show-en",
+    "episode_id": "lion-and-mouse.en",
+    "record_revision": 1,
+    "supersedes": null,
+    "change": "prepared",
+    "release_id": "lion-and-mouse.en.r0001",
+    "release_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "authority": "spotify",
+    "state": "prepared",
+    "episode_type": "full",
+    "guid": null,
+    "guid_is_permalink": null,
+    "guid_source": null,
+    "first_published_at": null,
+    "first_pubdate_raw": null,
+    "submitted_audio": {
+      "asset_id": "audio-delivery",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "bytes": 6600000,
+      "media_type": "audio/mpeg",
+      "duration_ms": 412.5
+    },
+    "observed_enclosure": null,
+    "evidence": null,
+    "observed_at": null
+  }
+}

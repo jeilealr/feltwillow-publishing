@@ -1,0 +1,95 @@
+{
+  "expected": [
+    "EPISODE_IDENTITY_CHANGED"
+  ],
+  "previous": {
+    "kind": "episode-publication",
+    "schema_version": 2,
+    "example": true,
+    "canonicalization": "bllt-canonical-json-v1",
+    "show_id": "example-show-en",
+    "episode_id": "lion-and-mouse.en",
+    "record_revision": 2,
+    "supersedes": {
+      "record_revision": 1,
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "change": "first-publication",
+    "release_id": "lion-and-mouse.en.r0001",
+    "release_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "authority": "spotify",
+    "state": "published",
+    "episode_type": "full",
+    "guid": "example-host-guid-0001",
+    "guid_is_permalink": false,
+    "guid_source": "observed-from-host-feed",
+    "first_published_at": "2026-10-06T18:00:00Z",
+    "first_pubdate_raw": "Tue, 06 Oct 2026 18:00:00 GMT",
+    "submitted_audio": {
+      "asset_id": "audio-delivery",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "bytes": 6600000,
+      "media_type": "audio/mpeg",
+      "duration_ms": 412500
+    },
+    "observed_enclosure": {
+      "url": "https://media.example.invalid/ep1-a.mp3",
+      "declared_length_bytes": 6600000,
+      "declared_type": "audio/mpeg",
+      "delivered_sha256": null,
+      "delivered_bytes": null,
+      "head_ok": null,
+      "range_ok": null
+    },
+    "evidence": {
+      "observation_id": "obs-20261006T190000Z-0a1b2c3d",
+      "observation_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "observed_at": "2026-10-06T19:00:00Z"
+  },
+  "new": {
+    "kind": "episode-publication",
+    "schema_version": 2,
+    "example": true,
+    "canonicalization": "bllt-canonical-json-v1",
+    "show_id": "example-show-en",
+    "episode_id": "lion-and-mouse.en",
+    "record_revision": 3,
+    "supersedes": {
+      "record_revision": 2,
+      "record_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "change": "audio-replacement",
+    "release_id": "lion-and-mouse.en.r0001",
+    "release_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "authority": "spotify",
+    "state": "published",
+    "episode_type": "full",
+    "guid": "example-host-guid-0001",
+    "guid_is_permalink": false,
+    "guid_source": "observed-from-host-feed",
+    "first_published_at": "2026-10-21T09:00:00Z",
+    "first_pubdate_raw": "Wed, 21 Oct 2026 09:00:00 GMT",
+    "submitted_audio": {
+      "asset_id": "audio-delivery",
+      "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "bytes": 6600000,
+      "media_type": "audio/mpeg",
+      "duration_ms": 412500
+    },
+    "observed_enclosure": {
+      "url": "https://media.example.invalid/ep1-a.mp3",
+      "declared_length_bytes": 6600000,
+      "declared_type": "audio/mpeg",
+      "delivered_sha256": null,
+      "delivered_bytes": null,
+      "head_ok": null,
+      "range_ok": null
+    },
+    "evidence": {
+      "observation_id": "obs-20261006T190000Z-0a1b2c3d",
+      "observation_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "observed_at": "2026-10-06T19:00:00Z"
+  }
+}

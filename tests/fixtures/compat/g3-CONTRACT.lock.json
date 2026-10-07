@@ -1,0 +1,159 @@
+{
+  "canonicalization": "bllt-canonical-json-v1",
+  "example": true,
+  "files": [
+    {
+      "path": "schemas/approval.v1.schema.json",
+      "sha256": "b6044d2d92c29b707be0f26932ea6319fd9d5ffbde261d1ccda26d7744559add"
+    },
+    {
+      "path": "schemas/approval.v2.schema.json",
+      "sha256": "e6571759a367405037a2d551282e0ef9b4c22d6dd4894966cfd030fe540d3c02"
+    },
+    {
+      "path": "schemas/catalog.v1.schema.json",
+      "sha256": "38a11bad513082ac13cc2d4f26bdf36fc32f4e12839fa9173910e609c14908a3"
+    },
+    {
+      "path": "schemas/collection.v1.schema.json",
+      "sha256": "fdf9fb2297e455e24d782307fca3343a03ad904d084b4d5cb34586dd6ae7e52b"
+    },
+    {
+      "path": "schemas/common.v1.schema.json",
+      "sha256": "809d4a7a842bc7b88e96fef027b447a114dbca5634aac9f256b8c8c5f0675038"
+    },
+    {
+      "path": "schemas/common.v2.schema.json",
+      "sha256": "991baab45a1ce65d9873955b6b2cb1f282351cde9fcf50e7e3e1132876d733eb"
+    },
+    {
+      "path": "schemas/contract-lock.v1.schema.json",
+      "sha256": "7d1308ccd67f8bcff6539788a84718c19d7213e309b4e66afd89ab2e36d9e3a4"
+    },
+    {
+      "path": "schemas/episode-publication.v1.schema.json",
+      "sha256": "c5cd27c35fea01f26485f75b6d75b0b9e27b8cd0ab9955346caf121d4846a1a7"
+    },
+    {
+      "path": "schemas/episode-publication.v2.schema.json",
+      "sha256": "1fdc4838103605f2a26a6bc0d140ce3f094e4085318733817efe13b92f2c06f7"
+    },
+    {
+      "path": "schemas/feed-observation.v1.schema.json",
+      "sha256": "6a6cf96f06ce68242e9132412266eb726752b9b355854015bd0670f339684cb2"
+    },
+    {
+      "path": "schemas/handoff-selection.v1.schema.json",
+      "sha256": "fed375e38365ddf19b8ee7da5a2da56abd52f016c7c81200077b8cc213f81e1d"
+    },
+    {
+      "path": "schemas/import-receipt.v1.schema.json",
+      "sha256": "5a57bce47af420aacf9fa90b959b9fae5985683d950c5c1e3e8bbd746a4bb089"
+    },
+    {
+      "path": "schemas/media-delivery.v1.schema.json",
+      "sha256": "0fa6b9b0751672e2c9e7adec08dde691b2bd005915541e65cc2257a9bce42e57"
+    },
+    {
+      "path": "schemas/media-delivery.v2.schema.json",
+      "sha256": "98428096f5ca13e5accde38561ac5716908e47ba1230d27eb6a3a7ee0266ffc0"
+    },
+    {
+      "path": "schemas/production-handoff.v1.schema.json",
+      "sha256": "592ddf7dcf69aa7aef9abae7d222e16636cac5f8192093b3f684cc0533f99bd0"
+    },
+    {
+      "path": "schemas/project.v1.schema.json",
+      "sha256": "125cb53db6b1719aca14fb147db8246222468730cf13b141b7cc888a46bf8292"
+    },
+    {
+      "path": "schemas/project.v2.schema.json",
+      "sha256": "ff18cf1bb842243048f2bfba13c1a0eb5e038a6b375d41ee7a37a786206a6269"
+    },
+    {
+      "path": "schemas/provider-registry.v1.schema.json",
+      "sha256": "066cb8cc67516656c1e8c2a9b47d41c096bbfe4d68119a853d0e682b8f3acb5f"
+    },
+    {
+      "path": "schemas/provider-registry.v2.schema.json",
+      "sha256": "5b99908df5ec9b60d245e7bad495dbc65bc54fd3f3fabb196ac2266a936f5979"
+    },
+    {
+      "path": "schemas/public-bundle-manifest.v1.schema.json",
+      "sha256": "a0c7b8e3331087dd333db7ea00ccf2cc304661d7110c6526fc1ae58231ef1a08"
+    },
+    {
+      "path": "schemas/publish-plan.v1.schema.json",
+      "sha256": "c8a069635c691be5d1bc5e0f1510fa2a7ac2f330a496bc05b27afaffafd521ca"
+    },
+    {
+      "path": "schemas/publish-plan.v2.schema.json",
+      "sha256": "e61ebffee8177621c67646de64f27a700cce7579a4fe1ff1c8afd69a4340b507"
+    },
+    {
+      "path": "schemas/publish-receipt.v1.schema.json",
+      "sha256": "44a9f0d0f2da46eafa01a7ccfcf3986962b1a6d7b3814c7de5708c6c8dd30662"
+    },
+    {
+      "path": "schemas/publish-receipt.v2.schema.json",
+      "sha256": "7f394d9eb64981da05169d2dbfdad158be4ab318ae53447ec8f0b8448ba943c6"
+    },
+    {
+      "path": "schemas/release.v1.schema.json",
+      "sha256": "16599c6b1a8801e6679251cf96a84f09123fa777418947872cdcf6baafc429fe"
+    },
+    {
+      "path": "schemas/release.v2.schema.json",
+      "sha256": "c1eaef48ddd24abab004b87ffe22c190e64e6a24363a72939ec7a7c93afa18b0"
+    },
+    {
+      "path": "schemas/rights-review.v1.schema.json",
+      "sha256": "723122f9dce485314fa112c76ac5158697dabdfbac9cbf95d883cf51ac49d947"
+    },
+    {
+      "path": "schemas/service-inventory.v1.schema.json",
+      "sha256": "588285ceb98399747f29f966221caca9a91fd79de6f12f1d8f46bbf235dcff8d"
+    },
+    {
+      "path": "schemas/show.v1.schema.json",
+      "sha256": "ee7f7a61e5fa4d844ea096bb2652298df625c41fc24d5b771151f6c1acda3817"
+    },
+    {
+      "path": "schemas/site-set.v1.schema.json",
+      "sha256": "55eaea41542f7114dc3c2682272ad53580a8a7ca7eda0185f758658e6c7968e1"
+    },
+    {
+      "path": "schemas/site-set.v2.schema.json",
+      "sha256": "a63a763ca665227a4439854366671830174013afb6960a035e6bbd98acc7e6a0"
+    },
+    {
+      "path": "schemas/story-allocation.v1.schema.json",
+      "sha256": "05fb500461c19523cf203c5616f326bffb7693616aa20db6fa44554e13152cd3"
+    },
+    {
+      "path": "schemas/story.v1.schema.json",
+      "sha256": "0a1199cf4eb47003b9c1a28ad4cffa6a215d01d1ab894fb79eb09f04e42f28ec"
+    },
+    {
+      "path": "schemas/web-bundle.v1.schema.json",
+      "sha256": "1c31364b20633e5e83abf2a59d627ead0b60453ffe4a2015db7f6cda060c062f"
+    },
+    {
+      "path": "schemas/web-bundle.v2.schema.json",
+      "sha256": "30fb18e2cee8edf22c23e8b8d997fdaa21fc938fb610d9a41e4fb0cec275acf3"
+    }
+  ],
+  "kind": "contract-lock",
+  "package": {
+    "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b",
+    "name": "bllt-contracts",
+    "released_at": "2026-10-07T00:00:00Z",
+    "source_commit": null,
+    "source_repository": "jeilealr/bllt-publishing",
+    "version": "0.2.0-h2"
+  },
+  "producer_emits": {
+    "production-handoff": 1
+  },
+  "schema_version": 1
+}

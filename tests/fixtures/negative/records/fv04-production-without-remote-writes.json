@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "PRODUCTION_WRITE_SWITCH_CONFLICT",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/safety/production_enabled",
+      "value": true
+    }
+  ],
+  "description": "F-V04.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

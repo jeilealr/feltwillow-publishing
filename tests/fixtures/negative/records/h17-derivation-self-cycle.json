@@ -1,0 +1,25 @@
+{
+  "fixture": "negative-record",
+  "expect": "DERIVATION_CYCLE",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/2/derived_from",
+      "value": [
+        {
+          "sha256": "8f00000000000000000000000000000000000000000000000000000000000000",
+          "asset_id": "audio-delivery-en",
+          "relation": "other"
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/payload/assets/3/sha256",
+      "value": "8f00000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "description": "Master derived from its own derivative.",
+  "rule": "H1 (Agent B)"
+}

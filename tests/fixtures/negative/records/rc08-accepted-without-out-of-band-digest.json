@@ -1,0 +1,24 @@
+{
+  "fixture": "negative-record",
+  "expect": "RECEIPT_DIGEST_SOURCE_REQUIRED",
+  "base": "publishing/examples/import-receipt.accepted.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/example",
+      "value": false
+    },
+    {
+      "op": "replace",
+      "path": "/expected_archive_sha256",
+      "value": null
+    },
+    {
+      "op": "replace",
+      "path": "/expected_digest_source",
+      "value": "not-provided"
+    }
+  ],
+  "description": "M1: an accepted real import needs an operator-supplied digest.",
+  "rule": "H2 (DECISIONS_H2)"
+}

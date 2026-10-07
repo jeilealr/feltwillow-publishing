@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "NATIVE_AUDIO_REFERENCE_MISSING",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/channels/website/player",
+      "value": "native_audio"
+    }
+  ],
+  "description": "F-V07.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

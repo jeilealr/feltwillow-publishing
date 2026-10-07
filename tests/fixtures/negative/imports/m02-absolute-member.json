@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-import",
+  "expect": "ARCHIVE_UNSAFE_PATH",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "add_file",
+      "name": "/tmp/evil.txt",
+      "data": "x"
+    }
+  ],
+  "options": {},
+  "description": "Absolute member name."
+}

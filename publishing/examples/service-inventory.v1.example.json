@@ -1,0 +1,65 @@
+{
+  "kind": "service-inventory",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "profile": "standard",
+  "services": [
+    {
+      "capability": "podcast-host",
+      "provider": "spotify-for-creators",
+      "plan": "free",
+      "state": "planned",
+      "billing": {
+        "auto_recharge": false
+      },
+      "evidence": {
+        "checked_at": "2026-10-06",
+        "source": "Owner decision 2026-10-07: Spotify is the first podcast host; free plan per Agent D's register (D-00)."
+      }
+    },
+    {
+      "capability": "source-hosting",
+      "provider": "github",
+      "plan": "free",
+      "state": "enabled",
+      "billing": {
+        "payment_method_on_file": null
+      },
+      "evidence": {
+        "checked_at": "2026-10-06",
+        "source": "jeilealr/bllt-publishing exists (private, owner decision); plan not observed by agents."
+      }
+    },
+    {
+      "capability": "backup-cloud-storage",
+      "provider": "onedrive",
+      "plan": "microsoft-365-personal",
+      "state": "enabled",
+      "billing": {
+        "auto_recharge": null
+      },
+      "evidence": {
+        "checked_at": "2026-10-07",
+        "source": "Owner statement 2026-10-07: Microsoft 365 Personal, 1 TB plan, 187 GB used."
+      }
+    },
+    {
+      "capability": "backup-local-disk",
+      "provider": "owner-external-hdd",
+      "plan": "owned-1tb",
+      "state": "enabled",
+      "billing": {},
+      "evidence": {
+        "checked_at": "2026-10-07",
+        "source": "Owner statement 2026-10-07: 1 TB external drive."
+      }
+    },
+    {
+      "capability": "website-static-host",
+      "provider": "cloudflare-pages",
+      "plan": "free",
+      "state": "disabled"
+    }
+  ]
+}

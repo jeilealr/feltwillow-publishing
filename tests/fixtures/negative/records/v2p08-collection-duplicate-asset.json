@@ -1,0 +1,43 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_COLLECTION_ASSET",
+  "base": "tests/fixtures/v2-carried/collection.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/assets",
+      "value": [
+        {
+          "asset_id": "coll-master",
+          "role": "audio-master",
+          "store": "masters",
+          "path": "masters/coll.wav",
+          "sha256": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+          "bytes": 1,
+          "media_type": "audio/wav",
+          "width": null,
+          "height": null,
+          "duration_seconds": null,
+          "selection": "pending",
+          "derived_from_sha256": null
+        },
+        {
+          "asset_id": "coll-master",
+          "role": "audio-master",
+          "store": "masters",
+          "path": "masters/coll.wav",
+          "sha256": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+          "bytes": 1,
+          "media_type": "audio/wav",
+          "width": null,
+          "height": null,
+          "duration_seconds": null,
+          "selection": "pending",
+          "derived_from_sha256": null
+        }
+      ]
+    }
+  ],
+  "description": "Collection asset ids unique.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

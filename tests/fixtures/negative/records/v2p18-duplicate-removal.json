@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/site-set.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/remove_paths",
+      "value": [
+        "/en/stories/old/",
+        "/en/stories/old/"
+      ]
+    }
+  ],
+  "description": "v2 DUPLICATE_REMOVAL: site-set.v2 enforces it in the schema (uniqueItems), so SCHEMA_VIOLATION fires first; the semantic check stays as defence in depth.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

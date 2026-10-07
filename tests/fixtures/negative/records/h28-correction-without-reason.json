@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "REASON_REQUIRED",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/reason",
+      "value": null
+    }
+  ],
+  "description": "Corrections state a reason.",
+  "rule": "H1 (Agent B)"
+}

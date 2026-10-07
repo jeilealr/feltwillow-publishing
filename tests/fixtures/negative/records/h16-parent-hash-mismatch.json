@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "PARENT_HASH_MISMATCH",
+  "base": "publishing/examples/production-handoff.fixture-second-story.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/3/derived_from/0/sha256",
+      "value": "abababababababababababababababababababababababababababababababab"
+    }
+  ],
+  "description": "Parent digest matches the parent asset.",
+  "rule": "H1 (Agent B)"
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/catalog.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "catalog"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "stories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "story_id": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+          },
+          "record_path": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+          }
+        },
+        "required": [
+          "story_id",
+          "record_path"
+        ]
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "stories"
+  ]
+}

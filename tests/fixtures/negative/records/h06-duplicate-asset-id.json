@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_ASSET_ID",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/2/asset_id",
+      "value": "illus-s01-explores-start"
+    },
+    {
+      "op": "replace",
+      "path": "/payload/assets/2/package_path",
+      "value": "files/illus-s01-explores-start/s01_acorn_start_r01.png"
+    }
+  ],
+  "description": "Asset IDs are unique.",
+  "rule": "H1 (Agent B)"
+}

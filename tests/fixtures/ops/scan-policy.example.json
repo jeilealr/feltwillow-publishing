@@ -1,0 +1,26 @@
+{
+  "allowed_url_hosts": [
+    "open.spotify.com",
+    "creators.spotify.com",
+    "www.youtube-nocookie.com",
+    "www.youtube.com",
+    "bllt-example.pages.dev"
+  ],
+  "allowed_emails": [
+    "jei.leal.r@gmail.com"
+  ],
+  "deny_terms": [],
+  "allow_placeholders": false,
+  "test_mode": true,
+  "allowed_id3_frames": [
+    "TIT2",
+    "TPE1",
+    "TALB",
+    "TRCK",
+    "TDRC",
+    "TCON",
+    "APIC",
+    "TLEN",
+    "TCOP"
+  ]
+}

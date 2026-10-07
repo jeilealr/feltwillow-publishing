@@ -1,0 +1,27 @@
+{
+  "fixture": "negative-record",
+  "expect": "PUBLIC_CONTACT_REQUIRED",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/spotify_hosted",
+      "value": "enabled"
+    },
+    {
+      "op": "replace",
+      "path": "/public_contact_acknowledged",
+      "value": false
+    },
+    {
+      "op": "replace",
+      "path": "/ai_disclosure",
+      "value": {
+        "text": "EXAMPLE ONLY: narrated with synthetic voices.",
+        "spoken": true
+      }
+    }
+  ],
+  "description": "Public contact must be acknowledged (IC-D6).",
+  "rule": "H2 (DECISIONS_H2)"
+}

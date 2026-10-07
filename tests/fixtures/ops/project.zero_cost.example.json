@@ -1,0 +1,38 @@
+{
+  "kind": "project",
+  "schema_version": 2,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "project_id": "big-lessons-little-tales",
+  "profile_option": "zero_cost",
+  "website": {
+    "primary": "plain_static",
+    "origin": "https://bllt-example.pages.dev",
+    "locale_prefixes": true
+  },
+  "modules": {
+    "astro": "spec_only",
+    "ghost": "spec_only",
+    "plain_static": "enabled",
+    "spotify_hosted": "enabled",
+    "independent_rss": "spec_only",
+    "youtube": "spec_only"
+  },
+  "podcast_authority": "spotify",
+  "safety": {
+    "production_enabled": false,
+    "allow_remote_writes": false
+  },
+  "newsletter": "disabled",
+  "commerce": "disabled",
+  "ai_disclosure": {
+    "text": "All voices in this podcast are AI-generated.",
+    "spoken": true
+  },
+  "public_contact_email": "jei.leal.r@gmail.com",
+  "public_contact_acknowledged": true,
+  "service_inventory": {
+    "path": "tests/fixtures/ops/service-inventory.strict-zero.example.json",
+    "sha256": "49cf8352f4ab3d13191fc7b68b5efde4c8277f3204ca0649f7a05ecbc409e5c1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "VALID",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/payload/source_repositories/0/worktree/dirty_paths/-",
+      "value": ".claude/settings.local.json"
+    }
+  ],
+  "description": "L-21: leading-dot dirty paths are recordable (positive patch case).",
+  "rule": "H2 (DECISIONS_H2)"
+}

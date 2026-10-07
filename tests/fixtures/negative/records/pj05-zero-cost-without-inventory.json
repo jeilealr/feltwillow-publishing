@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "SERVICE_INVENTORY_REQUIRED",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/profile_option",
+      "value": "zero_cost"
+    },
+    {
+      "op": "replace",
+      "path": "/service_inventory",
+      "value": null
+    }
+  ],
+  "description": "IC-E3.",
+  "rule": "H2 (DECISIONS_H2)"
+}

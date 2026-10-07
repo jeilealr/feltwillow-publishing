@@ -1,0 +1,20 @@
+{
+  "fixture": "negative-record",
+  "expect": "PUBLIC_FORBIDDEN_FILE",
+  "base": "publishing/examples/public-bundle-manifest.web.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/files/-",
+      "value": {
+        "path": "assets/.env.production",
+        "sha256": "abababababababababababababababababababababababababababababababab",
+        "bytes": 10,
+        "media_type": "text/plain",
+        "source": null
+      }
+    }
+  ],
+  "description": "No secrets files.",
+  "rule": "H1 (Agent B)"
+}

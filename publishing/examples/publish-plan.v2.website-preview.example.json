@@ -1,0 +1,65 @@
+{
+  "kind": "publish-plan",
+  "schema_version": 2,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "plan_id": "example-plan-web-0001",
+  "created_at": "2026-10-07T10:00:00Z",
+  "expires_at": "2026-10-07T11:00:00Z",
+  "environment": "preview",
+  "destination": "website",
+  "publishing_commit": "8071a4cf89169930efa588dd872bcbcd132476e7",
+  "contract_version": "0.2.0-h2",
+  "contract_package": {
+    "name": "bllt-contracts",
+    "version": "0.2.0-h2",
+    "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
+  },
+  "handoff_package_digests": [
+    {
+      "handoff_id": "lion-and-mouse.en.h0001",
+      "payload_sha256": "65dade1f2ed91a80c65d9092ffd373b6b3a45254970bd68cb793f4eb5bce8b8c",
+      "archive_sha256": "d7cc2a353c1f55a8da572d89a24b352dd3ff0b25bea32a91d1b9e54e8858bffa"
+    }
+  ],
+  "project_sha256": "458f947ea2d92f3e2c901054b58a6c2fa253b62e775d205a36f41f9fdcebb9c7",
+  "site_set": {
+    "site_set_id": "example-site-set-0001",
+    "sha256": "5c2d9c149a4c73f8ea7d5e6c6fe3b488b2dd7527642d4c1d48bbcfeed286c911"
+  },
+  "registry_sha256": "40b700ed208f838adc0d010c2a3e5d9441a355690912324cf65cc9f05a35a207",
+  "releases": [
+    {
+      "release_id": "lion-and-mouse.en.r0001",
+      "release_sha256": "eae72ddb991a79d7bfd8b0368c6483cdf9736cccd213131157cccfd88fd3083f"
+    }
+  ],
+  "check_reports": {
+    "leak_scan": {
+      "report_sha256": "9f67861eb00f64dc808e02a317fa3d5ffd9be24359eca64468263d4d02b5e6e9",
+      "bundle_manifest_sha256": "f94baf60183ab86e5d0ce0e98c80987e4fd9e9fb47a04366a67ffb529213c0a6",
+      "clean": true
+    },
+    "strict_zero": null
+  },
+  "actions": [
+    {
+      "action_id": "deploy-preview",
+      "target": "static-site",
+      "operation": "deploy",
+      "subject_id": "example-site-set-0001",
+      "artifact": {
+        "sha256": "b4b283fe27aaab2415913c40f604d076bc8735a67ae759bb2f0bb69ee0feea22",
+        "bytes": 40960
+      }
+    }
+  ],
+  "newsletter_send": false,
+  "auxiliary_inputs": [
+    {
+      "record_kind": "public-bundle-manifest",
+      "path": "build/bundles/example-web-input-site-set-0001.json",
+      "sha256": "f94baf60183ab86e5d0ce0e98c80987e4fd9e9fb47a04366a67ffb529213c0a6"
+    }
+  ]
+}

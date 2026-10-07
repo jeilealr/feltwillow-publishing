@@ -1,0 +1,725 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/production-handoff.v1.json",
+  "title": "Production handoff v1",
+  "description": "Private, self-contained selection of final content from the production repository. Importable without production code. Never a publication approval. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "production-handoff"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "contract_package": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/contract_package"
+    },
+    "envelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+        },
+        "operator": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+        },
+        "exporter": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tool": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "tool_version": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+            },
+            "repository": {
+              "const": "jeilealr/big_lessons_little_tales"
+            },
+            "commit": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+            },
+            "tool_dirty": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "tool",
+            "tool_version",
+            "repository",
+            "commit",
+            "tool_dirty"
+          ]
+        },
+        "transport": {
+          "const": "self-contained-tar"
+        }
+      },
+      "required": [
+        "created_at",
+        "operator",
+        "exporter",
+        "transport"
+      ],
+      "description": "Facts about this export run. Excluded from payload_sha256."
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "handoff_id": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+        },
+        "story_id": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+        },
+        "language": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+        },
+        "handoff_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9999
+        },
+        "purpose": {
+          "enum": [
+            "initial",
+            "correction",
+            "revocation"
+          ]
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "story_allocation_sha256": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+        },
+        "production_slugs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "maxLength": 64
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "source_repositories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "repo_role": {
+                "const": "production"
+              },
+              "repository": {
+                "const": "jeilealr/big_lessons_little_tales"
+              },
+              "branch": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "commit": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+              },
+              "worktree": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "state": {
+                    "enum": [
+                      "clean",
+                      "dirty"
+                    ]
+                  },
+                  "dirty_paths": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/dirty_path"
+                    },
+                    "uniqueItems": true,
+                    "maxItems": 10000
+                  }
+                },
+                "required": [
+                  "state",
+                  "dirty_paths"
+                ]
+              }
+            },
+            "required": [
+              "repo_role",
+              "repository",
+              "branch",
+              "commit",
+              "worktree"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "source_files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "source_id": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+              },
+              "purpose": {
+                "enum": [
+                  "script",
+                  "dialogue",
+                  "reading-adaptation",
+                  "transcript-source",
+                  "runtime",
+                  "prompt-manifest",
+                  "voices",
+                  "timing",
+                  "rights-index",
+                  "selection",
+                  "other"
+                ]
+              },
+              "repo_role": {
+                "const": "production"
+              },
+              "path": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+              },
+              "commit": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+              },
+              "sha256": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+              },
+              "bytes": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              }
+            },
+            "required": [
+              "source_id",
+              "purpose",
+              "repo_role",
+              "path",
+              "commit",
+              "sha256",
+              "bytes"
+            ]
+          },
+          "maxItems": 1000
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "asset_id": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+              },
+              "role": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/role"
+              },
+              "media_type": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/media_type"
+              },
+              "bytes": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              },
+              "sha256": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+              },
+              "transport": {
+                "enum": [
+                  "embedded",
+                  "referenced"
+                ]
+              },
+              "package_path": {
+                "anyOf": [
+                  {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/package_path"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "measured": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "width_px": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "height_px": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "duration_ms": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "sample_rate_hz": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "channels": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 64
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "frame_rate": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/frame_rate"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "width_px",
+                  "height_px",
+                  "duration_ms",
+                  "sample_rate_hz",
+                  "channels",
+                  "frame_rate"
+                ],
+                "description": "Measured by the exporter from the bytes. Integers only."
+              },
+              "derived_from": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "sha256": {
+                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                    },
+                    "asset_id": {
+                      "anyOf": [
+                        {
+                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "relation": {
+                      "enum": [
+                        "export",
+                        "mixdown",
+                        "transcode",
+                        "resize",
+                        "crop",
+                        "loudness-normalize",
+                        "caption-timing",
+                        "text-adaptation",
+                        "other"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "sha256",
+                    "asset_id",
+                    "relation"
+                  ]
+                },
+                "maxItems": 16
+              },
+              "origin": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "store": {
+                    "enum": [
+                      "production-git",
+                      "owner-master-store",
+                      "production-work"
+                    ]
+                  },
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  },
+                  "commit": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "store",
+                  "ref",
+                  "commit"
+                ]
+              },
+              "selection_note": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "asset_id",
+              "role",
+              "media_type",
+              "bytes",
+              "sha256",
+              "transport",
+              "package_path",
+              "measured",
+              "derived_from",
+              "origin",
+              "selection_note"
+            ]
+          },
+          "maxItems": 5000
+        },
+        "components": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reading": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "text_asset": {
+                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                    },
+                    "illustration_assets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                      },
+                      "uniqueItems": true,
+                      "maxItems": 500
+                    },
+                    "cover_asset": {
+                      "anyOf": [
+                        {
+                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "text_asset",
+                    "illustration_assets",
+                    "cover_asset"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "audio": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "master_asset": {
+                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                    },
+                    "delivery_asset": {
+                      "anyOf": [
+                        {
+                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "transcript_asset": {
+                      "anyOf": [
+                        {
+                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "master_asset",
+                    "delivery_asset",
+                    "transcript_asset"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "video": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "master_asset": {
+                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                    },
+                    "captions_asset": {
+                      "anyOf": [
+                        {
+                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "thumbnail_asset": {
+                      "anyOf": [
+                        {
+                          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "master_asset",
+                    "captions_asset",
+                    "thumbnail_asset"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "reading",
+            "audio",
+            "video"
+          ]
+        },
+        "editorial_selection": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "selected_by": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+            },
+            "selected_at": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+              },
+              "maxItems": 100
+            }
+          },
+          "required": [
+            "selected_by",
+            "selected_at",
+            "statement",
+            "evidence"
+          ],
+          "description": "Production-side selection (approval stage 0). NOT publication approval."
+        },
+        "rights_evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "component": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/rights_component"
+              },
+              "evidence": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+              },
+              "note": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "component",
+              "evidence",
+              "note"
+            ]
+          },
+          "maxItems": 200
+        },
+        "generation_provenance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "asset_id": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+              },
+              "tools": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "minItems": 1,
+                "maxItems": 20
+              },
+              "evidence": {
+                "anyOf": [
+                  {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "asset_id",
+              "tools",
+              "evidence"
+            ]
+          },
+          "maxItems": 5000
+        }
+      },
+      "required": [
+        "handoff_id",
+        "story_id",
+        "language",
+        "handoff_revision",
+        "purpose",
+        "supersedes",
+        "reason",
+        "story_allocation_sha256",
+        "production_slugs",
+        "source_repositories",
+        "source_files",
+        "assets",
+        "components",
+        "editorial_selection",
+        "rights_evidence",
+        "generation_provenance"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "contract_package",
+    "envelope",
+    "payload"
+  ]
+}

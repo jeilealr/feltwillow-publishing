@@ -1,0 +1,13 @@
+{
+  "fixture": "negative-import",
+  "expect": "ARCHIVE_MALFORMED",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "garbage",
+      "bytes": 4096
+    }
+  ],
+  "options": {},
+  "description": "Random bytes."
+}

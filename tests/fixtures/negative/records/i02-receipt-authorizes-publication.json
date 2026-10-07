@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/import-receipt.accepted.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/authorizes_publication",
+      "value": true
+    }
+  ],
+  "description": "A receipt is never an approval.",
+  "rule": "H1 (Agent B)"
+}

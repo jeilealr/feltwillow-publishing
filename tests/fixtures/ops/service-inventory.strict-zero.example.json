@@ -1,0 +1,93 @@
+{
+  "kind": "service-inventory",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "profile": "strict-zero",
+  "services": [
+    {
+      "capability": "website-static-host",
+      "provider": "cloudflare-pages",
+      "plan": "free",
+      "state": "enabled",
+      "billing": {
+        "payment_method_on_file": null,
+        "auto_recharge": false
+      },
+      "evidence": {
+        "checked_at": "2026-10-06",
+        "source": "https://developers.cloudflare.com/pages/functions/pricing/"
+      }
+    },
+    {
+      "capability": "podcast-host",
+      "provider": "spotify-for-creators",
+      "plan": "free",
+      "state": "enabled",
+      "billing": {
+        "auto_recharge": false
+      },
+      "evidence": {
+        "checked_at": "2026-10-06",
+        "source": "Agent D register D-00 (Spotify for Creators, free hosting)"
+      }
+    },
+    {
+      "capability": "source-hosting",
+      "provider": "github",
+      "plan": "free",
+      "state": "enabled",
+      "billing": {
+        "payment_method_on_file": false
+      },
+      "evidence": {
+        "checked_at": "2026-10-06",
+        "source": "https://docs.github.com/en/get-started/learning-about-github/githubs-plans"
+      }
+    },
+    {
+      "capability": "ci-hosted-runner",
+      "provider": "github-actions",
+      "plan": "standard",
+      "state": "planned",
+      "billing": {
+        "payment_method_on_file": false,
+        "overage_allowed": false
+      },
+      "evidence": {
+        "checked_at": "2026-10-06",
+        "source": "https://docs.github.com/en/billing/concepts/product-billing/github-actions"
+      }
+    },
+    {
+      "capability": "backup-cloud-storage",
+      "provider": "onedrive",
+      "plan": "microsoft-365-personal",
+      "state": "enabled",
+      "billing": {
+        "auto_recharge": null
+      },
+      "evidence": {
+        "checked_at": "2026-10-07",
+        "source": "Owner statement 2026-10-07: Microsoft 365 Personal, 1 TB plan, 187 GB used."
+      }
+    },
+    {
+      "capability": "backup-local-disk",
+      "provider": "owner-external-hdd",
+      "plan": "owned-1tb",
+      "state": "enabled",
+      "billing": {},
+      "evidence": {
+        "checked_at": "2026-10-07",
+        "source": "Owner statement 2026-10-07: 1 TB external drive."
+      }
+    },
+    {
+      "capability": "newsletter",
+      "provider": "none",
+      "plan": "none",
+      "state": "disabled"
+    }
+  ]
+}

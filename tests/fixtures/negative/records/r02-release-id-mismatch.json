@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "RELEASE_ID_MISMATCH",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/release_id",
+      "value": "lion-and-mouse.en.r0002"
+    }
+  ],
+  "description": "release_id agrees with revision.",
+  "rule": "H1 (Agent B)"
+}

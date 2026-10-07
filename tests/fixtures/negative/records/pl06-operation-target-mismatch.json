@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNSUPPORTED_OPERATION",
+  "base": "publishing/examples/publish-plan.v2.website-preview.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/actions/0/operation",
+      "value": "manual_audio_replace"
+    }
+  ],
+  "description": "Manual operations only on their targets (IC-D4).",
+  "rule": "H2 (DECISIONS_H2)"
+}

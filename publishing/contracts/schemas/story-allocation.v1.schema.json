@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/story-allocation.v1.json",
+  "title": "Story ID allocation v1",
+  "description": "Publishing-side assignment of a stable story ID, issued before the first handoff. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "story-allocation"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "story_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "status": {
+      "enum": [
+        "allocated",
+        "retired"
+      ]
+    },
+    "allocated_at": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+    },
+    "allocated_by": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+    },
+    "working_title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "production_slugs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "planned_languages": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "story_id",
+    "status",
+    "allocated_at",
+    "allocated_by",
+    "working_title",
+    "production_slugs",
+    "planned_languages"
+  ]
+}

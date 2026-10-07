@@ -1,0 +1,77 @@
+{
+  "schema_version": 2,
+  "contract_revision": "H2 (PROPOSED CONTRACT)",
+  "canonicalization": "bllt-canonical-json-v1",
+  "current": {
+    "approval": "schemas/approval.v2.schema.json",
+    "catalog": "schemas/catalog.v1.schema.json",
+    "collection": "schemas/collection.v1.schema.json",
+    "contract-lock": "schemas/contract-lock.v1.schema.json",
+    "episode-publication": "schemas/episode-publication.v2.schema.json",
+    "feed-observation": "schemas/feed-observation.v1.schema.json",
+    "handoff-selection": "schemas/handoff-selection.v1.schema.json",
+    "import-receipt": "schemas/import-receipt.v1.schema.json",
+    "media-delivery": "schemas/media-delivery.v2.schema.json",
+    "production-handoff": "schemas/production-handoff.v1.schema.json",
+    "project": "schemas/project.v2.schema.json",
+    "provider-registry": "schemas/provider-registry.v2.schema.json",
+    "public-bundle-manifest": "schemas/public-bundle-manifest.v1.schema.json",
+    "publish-plan": "schemas/publish-plan.v2.schema.json",
+    "publish-receipt": "schemas/publish-receipt.v2.schema.json",
+    "release": "schemas/release.v2.schema.json",
+    "rights-review": "schemas/rights-review.v1.schema.json",
+    "service-inventory": "schemas/service-inventory.v1.schema.json",
+    "show": "schemas/show.v1.schema.json",
+    "site-set": "schemas/site-set.v2.schema.json",
+    "story": "schemas/story.v1.schema.json",
+    "story-allocation": "schemas/story-allocation.v1.schema.json",
+    "web-bundle": "schemas/web-bundle.v2.schema.json"
+  },
+  "shared": [
+    "schemas/common.v1.schema.json",
+    "schemas/common.v2.schema.json"
+  ],
+  "superseded_v1": {
+    "approval": {
+      "schema": "schemas/approval.v1.schema.json",
+      "successor_version": 2
+    },
+    "episode-publication": {
+      "schema": "schemas/episode-publication.v1.schema.json",
+      "successor_version": 2
+    },
+    "media-delivery": {
+      "schema": "schemas/media-delivery.v1.schema.json",
+      "successor_version": 2
+    },
+    "project": {
+      "schema": "schemas/project.v1.schema.json",
+      "successor_version": 2
+    },
+    "provider-registry": {
+      "schema": "schemas/provider-registry.v1.schema.json",
+      "successor_version": 2
+    },
+    "publish-plan": {
+      "schema": "schemas/publish-plan.v1.schema.json",
+      "successor_version": 2
+    },
+    "publish-receipt": {
+      "schema": "schemas/publish-receipt.v1.schema.json",
+      "successor_version": 2
+    },
+    "release": {
+      "schema": "schemas/release.v1.schema.json",
+      "successor_version": 2
+    },
+    "site-set": {
+      "schema": "schemas/site-set.v1.schema.json",
+      "successor_version": 2
+    },
+    "web-bundle": {
+      "schema": "schemas/web-bundle.v1.schema.json",
+      "successor_version": 2
+    }
+  },
+  "note": "v1 schema files are byte copies of the v2 blueprint package. Superseded v1 kinds are kept for $ref resolution and explicit migration; the H2 validator rejects them with CONTRACT_VERSION_UNSUPPORTED."
+}

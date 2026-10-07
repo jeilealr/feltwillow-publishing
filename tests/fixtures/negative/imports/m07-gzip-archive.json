@@ -1,0 +1,13 @@
+{
+  "fixture": "negative-import",
+  "expect": "ARCHIVE_FORMAT_UNSUPPORTED",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "compress",
+      "with": "gzip"
+    }
+  ],
+  "options": {},
+  "description": "Compressed archives refused."
+}

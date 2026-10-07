@@ -1,0 +1,13 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "remove",
+      "path": "/canonicalization"
+    }
+  ],
+  "description": "Every H2 record carries the canonicalization constant (s.3).",
+  "rule": "H2 (DECISIONS_H2)"
+}

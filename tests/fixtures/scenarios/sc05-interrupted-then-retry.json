@@ -1,0 +1,23 @@
+{
+  "fixture": "import-scenario",
+  "description": "Crash after archival copy: one accepted receipt, one archive file in BLLT_MASTER_ROOT/handoffs/.",
+  "steps": [
+    {
+      "mutations": [],
+      "crash_after": "archive",
+      "expect_outcome": "crash"
+    },
+    {
+      "mutations": [],
+      "expect_outcome": "accepted"
+    },
+    {
+      "mutations": [],
+      "expect_outcome": "duplicate-identical"
+    }
+  ],
+  "expect_final": {
+    "accepted_receipts": 1,
+    "archive_files": 1
+  }
+}

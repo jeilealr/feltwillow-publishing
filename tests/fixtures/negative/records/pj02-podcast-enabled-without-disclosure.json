@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "AI_DISCLOSURE_REQUIRED",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/spotify_hosted",
+      "value": "enabled"
+    },
+    {
+      "op": "replace",
+      "path": "/ai_disclosure",
+      "value": null
+    }
+  ],
+  "description": "Apple guideline 1.11 disclosure (IC-D6).",
+  "rule": "H2 (DECISIONS_H2)"
+}

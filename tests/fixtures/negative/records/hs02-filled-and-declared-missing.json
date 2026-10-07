@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SELECTION_MISSING_CONTRADICTION",
+  "base": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/components/reading/cover_asset",
+      "value": "illus-s01-acorn-end"
+    }
+  ],
+  "description": "L-23: a slot cannot be filled and declared missing.",
+  "rule": "H2 (DECISIONS_H2)"
+}

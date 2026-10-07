@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "STAGE_SUBJECT_MISMATCH",
+  "base": "publishing/examples/approval.v2.podcast-audio-rights-review.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/stage",
+      "value": "channel-readiness"
+    }
+  ],
+  "description": "The scope belongs to the editorial-rights stage.",
+  "rule": "H2 (DECISIONS_H2)"
+}

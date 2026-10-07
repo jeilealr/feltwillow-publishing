@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/public-bundle-manifest.v1.json",
+  "title": "Public output bundle manifest v1",
+  "description": "Internal manifest of an allowlisted public projection. The listed files are public; this manifest is not. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "public-bundle-manifest"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "bundle_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "bundle_type": {
+      "enum": [
+        "web",
+        "podcast-package",
+        "youtube-package"
+      ]
+    },
+    "manifest_visibility": {
+      "const": "internal"
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "releases": {
+          "type": "array",
+          "items": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_pin"
+          },
+          "minItems": 1
+        },
+        "site_set": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "site_set_id": {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                },
+                "sha256": {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+                }
+              },
+              "required": [
+                "site_set_id",
+                "sha256"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "public_record_sha256": {
+          "anyOf": [
+            {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "renderer": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/module_id"
+                },
+                "version": {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+                }
+              },
+              "required": [
+                "name",
+                "version"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "null = render-input bundle (IC-C2); set = site artifact."
+        },
+        "contract_package": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/contract_package"
+        }
+      },
+      "required": [
+        "releases",
+        "site_set",
+        "public_record_sha256",
+        "renderer",
+        "contract_package"
+      ]
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "maxLength": 512,
+            "pattern": "^(?!/)(?!.*//)(?!(?:.*/)?\\.{1,2}(?:/|$))[A-Za-z0-9_-][A-Za-z0-9_./-]*$"
+          },
+          "sha256": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          },
+          "bytes": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+          },
+          "media_type": {
+            "enum": [
+              "text/html",
+              "text/css",
+              "application/javascript",
+              "application/json",
+              "application/xml",
+              "application/rss+xml",
+              "image/png",
+              "image/jpeg",
+              "image/webp",
+              "image/svg+xml",
+              "audio/mpeg",
+              "audio/mp4",
+              "video/mp4",
+              "text/vtt",
+              "text/plain",
+              "font/woff2"
+            ]
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "release_id": {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_id"
+                  },
+                  "asset_id": {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                  }
+                },
+                "required": [
+                  "release_id",
+                  "asset_id"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "bytes",
+          "media_type",
+          "source"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 100000
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "bundle_id",
+    "bundle_type",
+    "manifest_visibility",
+    "inputs",
+    "files"
+  ]
+}

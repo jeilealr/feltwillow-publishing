@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "WRONG_ASSET_ROLE",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/channels/podcast/artwork_asset",
+      "value": "illus-s01-explores-start"
+    }
+  ],
+  "description": "Podcast artwork must be a podcast-cover asset.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

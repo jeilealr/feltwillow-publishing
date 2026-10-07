@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "STRICT_ZERO_REPORT_REQUIRED",
+  "base": "publishing/examples/publish-plan.v2.website-preview.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/environment",
+      "value": "production"
+    }
+  ],
+  "description": "IC-E2: production plans pin a strict_zero report.",
+  "rule": "H2 (DECISIONS_H2)"
+}

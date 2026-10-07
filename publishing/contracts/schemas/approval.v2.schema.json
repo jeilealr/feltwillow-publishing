@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/approval.v2.json",
+  "title": "Approval v2",
+  "description": "Decision bound to one subject digest, one stage and one scope. H2 adds scope rights_review.podcast_audio (IC-D7): an approved podcast-audio rights review must carry the checks gemini-terms-answer and mix-music-and-effects (not_applicable allowed with evidence). Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "approval"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "approval_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "stage": {
+      "enum": [
+        "editorial-rights",
+        "channel-readiness",
+        "deployment"
+      ]
+    },
+    "subject_type": {
+      "enum": [
+        "release",
+        "site-set",
+        "project",
+        "publish-plan"
+      ]
+    },
+    "subject_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "subject_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+    },
+    "scope": {
+      "enum": [
+        "edition",
+        "rights_review.podcast_audio",
+        "website",
+        "podcast",
+        "youtube",
+        "configuration"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "approved",
+        "rejected",
+        "revoked"
+      ]
+    },
+    "revokes": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/approval_ref"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/approval_ref"
+      },
+      "uniqueItems": true,
+      "maxItems": 200
+    },
+    "reviewed_by": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+    },
+    "reviewed_at": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "result": {
+            "enum": [
+              "pass",
+              "fail",
+              "not_applicable"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "name",
+          "result",
+          "evidence"
+        ]
+      },
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "approval_id",
+    "stage",
+    "subject_type",
+    "subject_id",
+    "subject_sha256",
+    "scope",
+    "decision",
+    "revokes",
+    "depends_on",
+    "reviewed_by",
+    "reviewed_at",
+    "reason",
+    "checks"
+  ]
+}

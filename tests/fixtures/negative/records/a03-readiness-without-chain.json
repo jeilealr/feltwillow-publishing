@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "APPROVAL_CHAIN_MISSING",
+  "base": "publishing/examples/approval.v2.rejected.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/decision",
+      "value": "approved"
+    },
+    {
+      "op": "replace",
+      "path": "/checks/0/result",
+      "value": "pass"
+    }
+  ],
+  "description": "Readiness depends on editorial-rights.",
+  "rule": "H1 (Agent B)"
+}

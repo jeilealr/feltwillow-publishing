@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "COLLECTION_MASTER_REFERENCE_MISSING",
+  "base": "tests/fixtures/v2-carried/collection.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/master_asset_id",
+      "value": "absent-master"
+    }
+  ],
+  "description": "Master must be a collection asset.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

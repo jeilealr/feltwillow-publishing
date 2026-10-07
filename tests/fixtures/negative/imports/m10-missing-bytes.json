@@ -1,0 +1,13 @@
+{
+  "fixture": "negative-import",
+  "expect": "MISSING_BYTES",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "remove_file",
+      "name": "files/illus-s01-explores-start/s01_explores_start_r01.png"
+    }
+  ],
+  "options": {},
+  "description": "Declared asset absent."
+}

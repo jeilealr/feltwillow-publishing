@@ -1,0 +1,31 @@
+{
+  "fixture": "import-scenario",
+  "description": "h0002 supersedes h0001; h0003 superseding h0001 is a fork.",
+  "steps": [
+    {
+      "mutations": [],
+      "expect_outcome": "accepted"
+    },
+    {
+      "mutations": [
+        {
+          "op": "make_correction",
+          "revision": 2,
+          "parent_payload": "@step0"
+        }
+      ],
+      "expect_outcome": "accepted"
+    },
+    {
+      "mutations": [
+        {
+          "op": "make_correction",
+          "revision": 3,
+          "parent_payload": "@step0"
+        }
+      ],
+      "expect_outcome": "rejected",
+      "expect": "HANDOFF_FORK"
+    }
+  ]
+}

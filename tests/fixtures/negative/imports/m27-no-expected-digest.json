@@ -1,0 +1,10 @@
+{
+  "fixture": "negative-import",
+  "expect": "EXPECTED_DIGEST_REQUIRED",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [],
+  "options": {
+    "no_expected_digest": true
+  },
+  "description": "F-I02 / M1: no out-of-band expected digest supplied."
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/provider-registry.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "provider-registry"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "destination": {
+            "enum": [
+              "ghost",
+              "youtube",
+              "spotify",
+              "apple",
+              "amazon",
+              "pocket_casts"
+            ]
+          },
+          "external_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "external_url": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/https"
+          },
+          "feed_guid": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "first_published_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "submitted_asset_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "remote_updated_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "entity_type": {
+            "enum": [
+              "show",
+              "episode",
+              "website-story"
+            ]
+          },
+          "entity_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "destination",
+          "external_id",
+          "external_url",
+          "feed_guid",
+          "first_published_at",
+          "observed_at",
+          "submitted_asset_sha256",
+          "remote_updated_at",
+          "entity_type",
+          "entity_id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "records"
+  ]
+}

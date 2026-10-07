@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "REVOCATION_TARGET_MISSING",
+  "base": "publishing/examples/approval.v2.rejected.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/decision",
+      "value": "revoked"
+    }
+  ],
+  "description": "Revocation names its target.",
+  "rule": "H1 (Agent B)"
+}

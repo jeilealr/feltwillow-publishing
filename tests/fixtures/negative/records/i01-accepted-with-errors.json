@@ -1,0 +1,16 @@
+{
+  "fixture": "negative-record",
+  "expect": "RECEIPT_OUTCOME_INCONSISTENT",
+  "base": "publishing/examples/import-receipt.accepted.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/errors",
+      "value": [
+        "HASH_MISMATCH"
+      ]
+    }
+  ],
+  "description": "Accepted receipts have no errors.",
+  "rule": "H1 (Agent B)"
+}

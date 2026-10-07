@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-import",
+  "expect": "CONTRACT_VERSION_UNSUPPORTED",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "patch_handoff",
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/schema_version",
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "options": {},
+  "description": "Producer newer than consumer."
+}

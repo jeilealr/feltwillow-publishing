@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNKNOWN_ASSET",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/channels/podcast/audio_asset",
+      "value": "absent-audio"
+    }
+  ],
+  "description": "Channel assets resolve in the release.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

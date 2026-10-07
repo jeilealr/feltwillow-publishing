@@ -1,0 +1,336 @@
+{
+  "algorithm": "bllt-canonical-json-v1",
+  "profile": "H1 safe domain",
+  "generated_by": "tools/make_golden.py",
+  "cases": [
+    {
+      "id": "in01-key-order-ascii",
+      "file": "cases/in01-key-order-ascii.json",
+      "input_sha256": "a8a9c83b2eb70c31b2f1841c730ef3cc91391082e42ab9f3aaa04fa174757cd8",
+      "note": "ASCII member names sort by code point; uppercase before underscore before lowercase.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b2241223a5b5d2c2261223a7b2242223a6e756c6c2c225f223a66616c73652c22612d62223a322c22615f62223a332c226161223a342c227a223a747275657d2c2262223a317d",
+      "canonical_text": "{\"A\":[],\"a\":{\"B\":null,\"_\":false,\"a-b\":2,\"a_b\":3,\"aa\":4,\"z\":true},\"b\":1}",
+      "sha256": "b142c73641012b21844121d98b84f43a1535017d37afcf52efff0d2569ef4860",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"A\":[],\"a\":{\"B\":null,\"_\":false,\"a-b\":2,\"a_b\":3,\"aa\":4,\"z\":true},\"b\":1}",
+        "sha256": "b142c73641012b21844121d98b84f43a1535017d37afcf52efff0d2569ef4860"
+      }
+    },
+    {
+      "id": "in02-nfc-unicode-values",
+      "file": "cases/in02-nfc-unicode-values.json",
+      "input_sha256": "b05217846b41410d93280f585f868f3007d6452d415601e4a25237391d25d4a4",
+      "note": "Precomposed (NFC) Latin, Cyrillic and Ukrainian text is emitted raw as UTF-8.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b226465223a224772c3bcc39f65222c226672223a22c3a974c3a9222c227275223a22d0bcd18bd188d18c222c22756b223a22d197d0b6d0b0d0ba227d",
+      "canonical_text": "{\"de\":\"Grüße\",\"fr\":\"été\",\"ru\":\"мышь\",\"uk\":\"їжак\"}",
+      "sha256": "b19b6b8cda933900079c0af039b522b2a70620f09961770912652fdcfa222018",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"de\":\"Grüße\",\"fr\":\"été\",\"ru\":\"мышь\",\"uk\":\"їжак\"}",
+        "sha256": "b19b6b8cda933900079c0af039b522b2a70620f09961770912652fdcfa222018"
+      }
+    },
+    {
+      "id": "in03-non-bmp-values",
+      "file": "cases/in03-non-bmp-values.json",
+      "input_sha256": "b17399b95b2a854a8de7ec184d67ac575d233bc058902888eac7c1ddc1c541fc",
+      "note": "Non-BMP characters in VALUES are fine: values are not sorted.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b22656d6f6a69223a22f09fa681f09f90ad222c226d617468223a22f09d929c222c226d69786564223a2261f09f988062efac8163227d",
+      "canonical_text": "{\"emoji\":\"🦁🐭\",\"math\":\"𝒜\",\"mixed\":\"a😀bﬁc\"}",
+      "sha256": "b17399b95b2a854a8de7ec184d67ac575d233bc058902888eac7c1ddc1c541fc",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"emoji\":\"🦁🐭\",\"math\":\"𝒜\",\"mixed\":\"a😀bﬁc\"}",
+        "sha256": "b17399b95b2a854a8de7ec184d67ac575d233bc058902888eac7c1ddc1c541fc"
+      }
+    },
+    {
+      "id": "in04-escaped-input-forms",
+      "file": "cases/in04-escaped-input-forms.json",
+      "input_sha256": "b07668ad15d2fdaffc23252602f3e9bb309db37adc29e51ea9ca554747f7f1f8",
+      "note": "Escapes in the input are decoded; output uses raw UTF-8, short escapes, unescaped solidus.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b2265223a22c3a9222c2270616972223a22f09fa681222c22736c617368223a222f222c22746162223a225c74227d",
+      "canonical_text": "{\"e\":\"é\",\"pair\":\"🦁\",\"slash\":\"/\",\"tab\":\"\\t\"}",
+      "sha256": "5189c894b4d4174894be66a5b55090d625d47290cf5fdf068330606067f64ae3",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"e\":\"é\",\"pair\":\"🦁\",\"slash\":\"/\",\"tab\":\"\\t\"}",
+        "sha256": "5189c894b4d4174894be66a5b55090d625d47290cf5fdf068330606067f64ae3"
+      }
+    },
+    {
+      "id": "in05-control-and-special-escapes",
+      "file": "cases/in05-control-and-special-escapes.json",
+      "input_sha256": "79fe4feec013eae9167dd7b0621be7fa205ddceb3868abd5f78e433da6f4f9da",
+      "note": "U+0000..U+001F escaped (short forms for b,t,n,f,r; lowercase \\u00xx otherwise); DEL, U+2028/2029 raw.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b2273223a22715c2220625c5c206e5c6e20725c7220745c7420625c6220665c66207a5c753030303020755c75303031662064656c7f206c73e280a8207073e280a9227d",
+      "canonical_text": "{\"s\":\"q\\\" b\\\\ n\\n r\\r t\\t b\\b f\\f z\\u0000 u\\u001f del ls  ps \"}",
+      "sha256": "b354ebfc17c20a5ac2246b2c21d7e05d36f86a0fab9d6ffcb2750246994c92aa",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"s\":\"q\\\" b\\\\ n\\n r\\r t\\t b\\b f\\f z\\u0000 u\\u001f del ls  ps \"}",
+        "sha256": "b354ebfc17c20a5ac2246b2c21d7e05d36f86a0fab9d6ffcb2750246994c92aa"
+      }
+    },
+    {
+      "id": "in06-safe-integers",
+      "file": "cases/in06-safe-integers.json",
+      "input_sha256": "aabcbec922f7f9e04bef6868ef0b8c60a4d042eaef844544919d16b021c00935",
+      "note": "Integers within +-(2^53-1). Integer -0 serializes as 0 in both languages.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b226d6178223a393030373139393235343734303939312c226d696e223a2d393030373139393235343734303939312c226e656730223a302c226f6e65223a312c227a65726f223a307d",
+      "canonical_text": "{\"max\":9007199254740991,\"min\":-9007199254740991,\"neg0\":0,\"one\":1,\"zero\":0}",
+      "sha256": "30014ecead84441b7570057cdb99c02724d520a2dbcce3af1a45bfc25b362efb",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"max\":9007199254740991,\"min\":-9007199254740991,\"neg0\":0,\"one\":1,\"zero\":0}",
+        "sha256": "30014ecead84441b7570057cdb99c02724d520a2dbcce3af1a45bfc25b362efb"
+      }
+    },
+    {
+      "id": "in07-nested-and-empty",
+      "file": "cases/in07-nested-and-empty.json",
+      "input_sha256": "2d6f11f4234442e5e8830c4f4e159f2a5e56ba10fde04e431820cf93c44adb13",
+      "note": "Array order preserved; nested objects sorted; empty containers and empty string.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b226c697374223a5b7b2278223a312c2279223a327d2c5b5d2c7b7d2c5b6e756c6c2c747275652c66616c73655d5d2c226f626a223a7b226b223a7b2261223a7b7d2c2262223a5b5d7d7d2c2273223a22227d",
+      "canonical_text": "{\"list\":[{\"x\":1,\"y\":2},[],{},[null,true,false]],\"obj\":{\"k\":{\"a\":{},\"b\":[]}},\"s\":\"\"}",
+      "sha256": "71014e8c86ee2fd8e0152be070acf3a47054cd71cc959942bcbcc50f2047a387",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"list\":[{\"x\":1,\"y\":2},[],{},[null,true,false]],\"obj\":{\"k\":{\"a\":{},\"b\":[]}},\"s\":\"\"}",
+        "sha256": "71014e8c86ee2fd8e0152be070acf3a47054cd71cc959942bcbcc50f2047a387"
+      }
+    },
+    {
+      "id": "in08-whitespace-input",
+      "file": "cases/in08-whitespace-input.json",
+      "input_sha256": "ef5b25d58f23a40b8e951aadf41727c6326dc5614082f0ece2aed72738cdc735",
+      "note": "Insignificant whitespace is removed.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b2261223a2278222c2262223a5b312c325d7d",
+      "canonical_text": "{\"a\":\"x\",\"b\":[1,2]}",
+      "sha256": "721ef82f2d6c0997bffb7a8ab3f40f8fb45b0b52ce2af3afa6b0f05efbdc317f",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"a\":\"x\",\"b\":[1,2]}",
+        "sha256": "721ef82f2d6c0997bffb7a8ab3f40f8fb45b0b52ce2af3afa6b0f05efbdc317f"
+      }
+    },
+    {
+      "id": "in09-record-shaped",
+      "file": "cases/in09-record-shaped.json",
+      "input_sha256": "45a90149069c1d8a594b26ef41cb76bf033cc22f975275faf2ce4d28061f2f0d",
+      "note": "Typical record with typographic punctuation.",
+      "expect": "ok",
+      "canonical_utf8_hex": "7b226b696e64223a2270726f64756374696f6e2d68616e646f6666222c227061796c6f6164223a7b226c616e6775616765223a22656e222c2273746f72795f6964223a226c696f6e2d616e642d6d6f757365222c227469746c65223a224c65c3b36e207920726174c3b36e20e2809420e2809c74657374e2809d227d2c22736368656d615f76657273696f6e223a317d",
+      "canonical_text": "{\"kind\":\"production-handoff\",\"payload\":{\"language\":\"en\",\"story_id\":\"lion-and-mouse\",\"title\":\"León y ratón — “test”\"},\"schema_version\":1}",
+      "sha256": "cf1b05c0bef4cd8f9d0766d60b2bf7e64a87cd864f919c1f45e044eb832b777a",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"kind\":\"production-handoff\",\"payload\":{\"language\":\"en\",\"story_id\":\"lion-and-mouse\",\"title\":\"León y ratón — “test”\"},\"schema_version\":1}",
+        "sha256": "cf1b05c0bef4cd8f9d0766d60b2bf7e64a87cd864f919c1f45e044eb832b777a"
+      }
+    },
+    {
+      "id": "x01-float-one",
+      "file": "cases/x01-float-one.json",
+      "input_sha256": "c002321e4b0538bbb345ecf063240a23b762aad1409b05c9b26740ff96767de5",
+      "note": "Python keeps 1.0 as float and emits 1.0; JavaScript emits 1.",
+      "expect": "reject",
+      "code": "CJ_FLOAT",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"duration_seconds\":1.0}",
+        "sha256": "c002321e4b0538bbb345ecf063240a23b762aad1409b05c9b26740ff96767de5"
+      }
+    },
+    {
+      "id": "x02-float-forms",
+      "file": "cases/x02-float-forms.json",
+      "input_sha256": "12e7eb83d9f9558e6e064ef4a71bb925d83eefe3c469661db4c948ff8cb9e18f",
+      "note": "repr(float) vs ECMAScript Number::toString differ for 1e16, 1e-7, -0.0, large magnitudes.",
+      "expect": "reject",
+      "code": "CJ_FLOAT",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"a\":1e+21,\"b\":1e+16,\"c\":1e-07,\"d\":0.1,\"e\":-0.0,\"f\":1.2345678901234568e+20}",
+        "sha256": "7e9ed4916bd638ceecae231dc3f032cc979e66171283cbc766d4338d134a6c83"
+      }
+    },
+    {
+      "id": "x03-int-2pow53",
+      "file": "cases/x03-int-2pow53.json",
+      "input_sha256": "66c87d9cb3014e05a11baa97df62282d89d425f22ee15816577c84534e2ef1bb",
+      "note": "2^53 is exact in both but 2^53+1 is not; the bound is symmetric safe-integer range.",
+      "expect": "reject",
+      "code": "CJ_INT_RANGE",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"n\":9007199254740992}",
+        "sha256": "66c87d9cb3014e05a11baa97df62282d89d425f22ee15816577c84534e2ef1bb"
+      }
+    },
+    {
+      "id": "x04-int-2pow64",
+      "file": "cases/x04-int-2pow64.json",
+      "input_sha256": "5171b3f02739553257cde342c54398ac7f809898b9fbce52c1b40f7ff07c5d22",
+      "note": "Python keeps the big integer; JSON.parse rounds it to a double.",
+      "expect": "reject",
+      "code": "CJ_INT_RANGE",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"n\":18446744073709551616}",
+        "sha256": "5171b3f02739553257cde342c54398ac7f809898b9fbce52c1b40f7ff07c5d22"
+      }
+    },
+    {
+      "id": "x05-nfd-string",
+      "file": "cases/x05-nfd-string.json",
+      "input_sha256": "c79c75794ce2fe200abe5ab45723462cad356c253b89378d9bd0104e2ff7c635",
+      "note": "Decomposed text: both languages serialize it identically, but the digest differs from the NFC spelling.",
+      "expect": "reject",
+      "code": "CJ_NOT_NFC",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"t\":\"été\"}",
+        "sha256": "c79c75794ce2fe200abe5ab45723462cad356c253b89378d9bd0104e2ff7c635"
+      }
+    },
+    {
+      "id": "x06-non-bmp-key-order",
+      "file": "cases/x06-non-bmp-key-order.json",
+      "input_sha256": "d6e04d736001a7b9fa276e830bdb968798f5789741d575d9b4c39b6a0c3637aa",
+      "note": "Code point order puts U+FB01 first; UTF-16 order (JCS, JS sort) puts U+1F600 (D83D..) first.",
+      "expect": "reject",
+      "code": "CJ_KEY_NOT_ASCII",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"ﬁ\":1,\"😀\":2}",
+        "sha256": "d6e04d736001a7b9fa276e830bdb968798f5789741d575d9b4c39b6a0c3637aa"
+      }
+    },
+    {
+      "id": "x07-lone-surrogate",
+      "file": "cases/x07-lone-surrogate.json",
+      "input_sha256": "d06a70a1ca4d3ac4099cd5f35ecbb551be652247e0950c05790e8f0c58010851",
+      "note": "Python cannot encode the result as UTF-8; JS JSON.stringify emits the escape \\ud800.",
+      "expect": "reject",
+      "code": "CJ_LONE_SURROGATE",
+      "v2_python_unconstrained": {
+        "ok": false,
+        "error": "UnicodeEncodeError: 'utf-8' codec can't encode character '\\ud800' in position 6: surrogates not allowed"
+      }
+    },
+    {
+      "id": "x08-duplicate-key",
+      "file": "cases/x08-duplicate-key.json",
+      "input_sha256": "1c53ee0df7b12fd4d65b976120c7fa6b847dc41dffd7f0331c3237a1ceab1756",
+      "note": "JSON.parse silently keeps the last value.",
+      "expect": "reject",
+      "code": "CJ_DUPLICATE_KEY",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"a\":2}",
+        "sha256": "7e8059f495589fcd981232cc11d00b00da3802c01d688fa1cf1f6bed6e5bb33c"
+      }
+    },
+    {
+      "id": "x09-nan-token",
+      "file": "cases/x09-nan-token.json",
+      "input_sha256": "0ce896293703c00486a61416514acc94d2919f4bd42141dedcca7ddfb97ec422",
+      "note": "Not JSON; Python json.loads accepts it by default.",
+      "expect": "reject",
+      "code": "CJ_SYNTAX",
+      "v2_python_unconstrained": {
+        "ok": false,
+        "error": "ValueError: Out of range float values are not JSON compliant: nan"
+      }
+    },
+    {
+      "id": "x10-overflow-float",
+      "file": "cases/x10-overflow-float.json",
+      "input_sha256": "2e9966f0a48696339871c527738aa570226f2672927cc96a9b5400f7cc8ab0d3",
+      "note": "Python parses to inf (v2 rejects later); JS parses to Infinity and stringifies null.",
+      "expect": "reject",
+      "code": "CJ_FLOAT",
+      "v2_python_unconstrained": {
+        "ok": false,
+        "error": "ValueError: Out of range float values are not JSON compliant: inf"
+      }
+    },
+    {
+      "id": "x11-bom",
+      "file": "cases/x11-bom.json",
+      "input_sha256": "e3170108e7583c4ad52e05763a606c1dceef76c81a8e1503dde511b5ca764f81",
+      "note": "Byte-order mark is not allowed.",
+      "expect": "reject",
+      "code": "CJ_BOM",
+      "v2_python_unconstrained": {
+        "ok": false,
+        "error": "JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "id": "x12-invalid-utf8",
+      "file": "cases/x12-invalid-utf8.json",
+      "input_sha256": "2a5b4ed4d247457b197c41ae0389160ee014382304c55a52acce702155c578ad",
+      "note": "Ill-formed UTF-8 sequence.",
+      "expect": "reject",
+      "code": "CJ_INVALID_UTF8",
+      "v2_python_unconstrained": {
+        "ok": false,
+        "error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 6: invalid continuation byte"
+      }
+    },
+    {
+      "id": "x13-trailing-data",
+      "file": "cases/x13-trailing-data.json",
+      "input_sha256": "b3583052341ed170ea8562a471af03e16ec9c256320c606f52a67736d1192409",
+      "note": "Two documents.",
+      "expect": "reject",
+      "code": "CJ_SYNTAX",
+      "v2_python_unconstrained": {
+        "ok": false,
+        "error": "JSONDecodeError: Extra data: line 1 column 9 (char 8)"
+      }
+    },
+    {
+      "id": "x14-non-ascii-key-bmp",
+      "file": "cases/x14-non-ascii-key-bmp.json",
+      "input_sha256": "c9528cb40a63a30156d86d9d90ee6d6c8dcfebc7631eadbbcce1c3d2ababb6a7",
+      "note": "BMP keys would sort identically, but the profile restricts keys to printable ASCII (all schema keys are ASCII).",
+      "expect": "reject",
+      "code": "CJ_KEY_NOT_ASCII",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"clé\":1}",
+        "sha256": "c9528cb40a63a30156d86d9d90ee6d6c8dcfebc7631eadbbcce1c3d2ababb6a7"
+      }
+    },
+    {
+      "id": "x15-unicode-version-nfc",
+      "file": "cases/x15-unicode-version-nfc.json",
+      "input_sha256": "a275f488c6a513b4eb27e62ff1a18d8164acdc02614e4a48b0911771c9e1e2a5",
+      "note": "Todhri U+105D2 U+0307 (Unicode 16): Python 3.12 (Unicode 15.0) calls it NFC, Node 24 (Unicode 17) does not. Authoritative (Python) validators reject unassigned code points; JS consumers hash bytes and do not re-judge NFC.",
+      "expect": "reject",
+      "code": "CJ_UNASSIGNED_CODEPOINT",
+      "authority": "python-only",
+      "v2_python_unconstrained": {
+        "ok": true,
+        "text": "{\"t\":\"𐗉\"}",
+        "sha256": "a275f488c6a513b4eb27e62ff1a18d8164acdc02614e4a48b0911771c9e1e2a5"
+      }
+    }
+  ],
+  "nfc_nfd_digests": {
+    "nfc": "9fca6afd06631b873152dc75f07f81803f5ff5cd722b3030d882958beb4ed48b",
+    "nfd_unconstrained": "c79c75794ce2fe200abe5ab45723462cad356c253b89378d9bd0104e2ff7c635"
+  }
+}

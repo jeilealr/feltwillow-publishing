@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/story-allocation.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/canonicalization",
+      "value": "jcs-rfc8785"
+    }
+  ],
+  "description": "JCS migration rejected for now (s.3).",
+  "rule": "H2 (DECISIONS_H2)"
+}

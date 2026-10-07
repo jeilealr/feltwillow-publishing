@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/publish-receipt.v2.json",
+  "title": "Publish receipt v2",
+  "description": "Append-only record of one plan action (IC-B4, IC-C4, IC-D5). Written as manual_pending before the owner acts; conflict records the Ghost remote-edit stop; evidence is a private reference, never free text. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "publish-receipt"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "plan_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "plan_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+    },
+    "action_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "operation": {
+      "enum": [
+        "create-draft",
+        "update-draft",
+        "publish",
+        "manual-upload",
+        "manual-submit",
+        "deploy",
+        "withdraw",
+        "manual_audio_replace",
+        "manual_metadata_edit",
+        "observe_feed",
+        "manual_redirect"
+      ]
+    },
+    "result": {
+      "enum": [
+        "manual_pending",
+        "succeeded",
+        "failed",
+        "unknown",
+        "conflict"
+      ]
+    },
+    "observed_at": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+    },
+    "external_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "external_url": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observation_id": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/observation_id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "submitted_sha256": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/private_ref"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "conflict": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/error_code"
+            },
+            "detail": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            }
+          },
+          "required": [
+            "code",
+            "detail"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "plan_id",
+    "plan_sha256",
+    "action_id",
+    "operation",
+    "result",
+    "observed_at",
+    "external_id",
+    "external_url",
+    "observation_id",
+    "submitted_sha256",
+    "evidence",
+    "conflict"
+  ]
+}

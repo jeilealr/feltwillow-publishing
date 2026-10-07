@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "FEED_AUTHORITY_NOT_SELECTED",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/podcast_authority",
+      "value": "undecided"
+    },
+    {
+      "op": "replace",
+      "path": "/modules/spotify_hosted",
+      "value": "enabled"
+    }
+  ],
+  "description": "Enabled feed module without an authority.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

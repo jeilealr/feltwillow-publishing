@@ -1,0 +1,646 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/web-bundle.v2.json",
+  "title": "Public web payload v2",
+  "description": "The single public data file (data/web-bundle.json) of a render-input bundle (Agent C, IC-C1). Every renderer (astro, ghost, plain_static) reads only this file plus the media it lists; media are named media/<sha256>.<ext>. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "web-bundle"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "site_set": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "site_set_id": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+        },
+        "sha256": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+        }
+      },
+      "required": [
+        "site_set_id",
+        "sha256"
+      ]
+    },
+    "origin": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 253,
+          "pattern": "^https://[a-z0-9]+(?:[.-][a-z0-9]+)*(?::[0-9]{1,5})?$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "default_language": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+    },
+    "trailing_slash": {
+      "const": "always"
+    },
+    "languages": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4,
+            "pattern": "^/(?:en|de|es|fr|ru|uk)/$"
+          }
+        },
+        "required": [
+          "language",
+          "label",
+          "path"
+        ]
+      }
+    },
+    "pages": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "page_id": {
+            "enum": [
+              "about",
+              "contact",
+              "privacy",
+              "legal"
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^/(?:(?:en|de|es|fr|ru|uk)/)?(?:about|contact|privacy|legal)/$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "blocks": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 500,
+            "items": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/block"
+            }
+          }
+        },
+        "required": [
+          "page_id",
+          "language",
+          "path",
+          "title",
+          "blocks"
+        ]
+      }
+    },
+    "stories": {
+      "type": "array",
+      "maxItems": 2000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "story_id": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+          },
+          "language": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+          },
+          "release": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_pin"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "pattern": "^/(?:en|de|es|fr|ru|uk)/stories/[a-z0-9]+(?:-[a-z0-9]+)*/$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "moral": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "age_min": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18
+          },
+          "age_max": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 18
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "cover": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "asset_id": {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                  },
+                  "alt": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  }
+                },
+                "required": [
+                  "asset_id",
+                  "alt"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "blocks": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2000,
+            "items": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/block"
+            }
+          },
+          "reading_divergence": {
+            "enum": [
+              "identical",
+              "intentional-adaptation",
+              "not-applicable"
+            ]
+          },
+          "transcript": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "source": {
+                    "const": "spoken-transcript"
+                  },
+                  "blocks": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 4000,
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "type": {
+                              "const": "paragraph"
+                            },
+                            "text": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 4000
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "text"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "type": {
+                              "const": "heading"
+                            },
+                            "level": {
+                              "enum": [
+                                2,
+                                3
+                              ]
+                            },
+                            "text": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 300
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "level",
+                            "text"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "type": {
+                              "const": "quote"
+                            },
+                            "speaker": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 120
+                            },
+                            "text": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 4000
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "speaker",
+                            "text"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "source",
+                  "blocks"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "listening": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "duration_ms": {
+                "anyOf": [
+                  {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "player": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "const": "none"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "const": "spotify_embed"
+                      },
+                      "embed_url": {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+                      },
+                      "fallback_url": {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "embed_url",
+                      "fallback_url"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "const": "native_audio"
+                      },
+                      "asset_id": {
+                        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "asset_id"
+                    ]
+                  }
+                ]
+              },
+              "links": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "service": {
+                      "enum": [
+                        "spotify",
+                        "apple-podcasts",
+                        "amazon-music",
+                        "pocket-casts",
+                        "youtube",
+                        "rss",
+                        "other"
+                      ]
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "url": {
+                      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+                    }
+                  },
+                  "required": [
+                    "service",
+                    "label",
+                    "url"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "duration_ms",
+              "player",
+              "links"
+            ]
+          },
+          "video": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "youtube_url": {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+                  }
+                },
+                "required": [
+                  "youtube_url"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "story_id",
+          "language",
+          "release",
+          "path",
+          "title",
+          "summary",
+          "moral",
+          "age_min",
+          "age_max",
+          "published_at",
+          "updated_at",
+          "cover",
+          "blocks",
+          "reading_divergence",
+          "transcript",
+          "listening",
+          "video"
+        ]
+      }
+    },
+    "redirects": {
+      "type": "array",
+      "maxItems": 2000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "pattern": "^/(?:[a-z0-9]+(?:-[a-z0-9]+)*/)*$"
+          },
+          "to": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "pattern": "^/(?:[a-z0-9]+(?:-[a-z0-9]+)*/)*$"
+          },
+          "status": {
+            "enum": [
+              301,
+              308
+            ]
+          }
+        },
+        "required": [
+          "from",
+          "to",
+          "status"
+        ]
+      }
+    },
+    "media": {
+      "type": "object",
+      "maxProperties": 20000,
+      "propertyNames": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^media/[a-f0-9]{64}\\.(?:webp|png|jpg|mp3|m4a|vtt)$"
+          },
+          "sha256": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          },
+          "bytes": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+          },
+          "media_type": {
+            "enum": [
+              "image/webp",
+              "image/png",
+              "image/jpeg",
+              "audio/mpeg",
+              "audio/mp4",
+              "text/vtt"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_ms": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "release_id": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_id"
+              },
+              "asset_id": {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+              }
+            },
+            "required": [
+              "release_id",
+              "asset_id"
+            ]
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "bytes",
+          "media_type",
+          "width",
+          "height",
+          "duration_ms",
+          "source"
+        ]
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "site_set",
+    "origin",
+    "brand",
+    "default_language",
+    "trailing_slash",
+    "languages",
+    "pages",
+    "stories",
+    "redirects",
+    "media"
+  ]
+}

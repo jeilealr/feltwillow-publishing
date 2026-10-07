@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/media-delivery.v2.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/records/0/duration_seconds",
+      "value": 412
+    }
+  ],
+  "description": "duration_seconds removed (IC-B2).",
+  "rule": "H2 (DECISIONS_H2)"
+}

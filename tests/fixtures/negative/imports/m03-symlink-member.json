@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-import",
+  "expect": "ARCHIVE_LINK_FORBIDDEN",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "add_symlink",
+      "name": "files/reading-text-en/link",
+      "target": "/etc/passwd"
+    }
+  ],
+  "options": {},
+  "description": "Symlink member."
+}

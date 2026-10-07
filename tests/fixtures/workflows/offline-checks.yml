@@ -1,0 +1,37 @@
+# PROPOSED, NOT ENABLED (Agent E, BLLT Blueprint v3). Future path: bllt-publishing/.github/workflows/offline-checks.yml
+# Untrusted-tier checks: runs on PRs and pushes to main, read-only token, no secrets, no network beyond
+# installing hash-pinned requirements. Action SHAs below are PLACEHOLDERS (all zeros): the owner pins
+# reviewed full-length commit SHAs before enabling (E-G17). ci_lint refuses zero pins without
+# --allow-placeholder-pins.
+name: offline-checks
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: offline-checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@0000000000000000000000000000000000000000
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@0000000000000000000000000000000000000000
+        with:
+          python-version: "3.12"
+      - name: install pinned requirements (hash-checked)
+        run: python -m pip install --require-hashes -r requirements/blueprint-check.lock
+      - name: contract and fixture checks (no production checkout, no credentials)
+        run: python -m bllt_publish validate --all-fixtures --offline
+      - name: leakage scan of fixture bundles
+        run: python tools/leak_scan.py tests/fixtures/bundles/clean --manifest tests/fixtures/bundles/clean.manifest.json --policy tests/fixtures/scan-policy.json
+      - name: strict-zero declaration check
+        run: python tools/strict_zero.py --project publishing/project.json --services publishing/service-inventory.json
+      - name: workflow lint
+        run: python tools/ci_lint.py .github/workflows/*.yml

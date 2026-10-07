@@ -1,0 +1,18 @@
+{
+  "fixture": "negative-record",
+  "expect": "WEBSITE_PLAN_TOUCHES_PODCAST",
+  "base": "publishing/examples/publish-plan.v2.website-preview.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/auxiliary_inputs/-",
+      "value": {
+        "record_kind": "episode-publication",
+        "path": "publishing/episodes/x.json",
+        "sha256": "abababababababababababababababababababababababababababababababab"
+      }
+    }
+  ],
+  "description": "IC-D12: a website plan may not change podcast records.",
+  "rule": "H2 (DECISIONS_H2)"
+}

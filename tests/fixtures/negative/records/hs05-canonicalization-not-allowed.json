@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/canonicalization",
+      "value": "bllt-canonical-json-v1"
+    }
+  ],
+  "description": "L-23: YAML selection is pinned by blob digest, not canonical JSON.",
+  "rule": "H2 (DECISIONS_H2)"
+}

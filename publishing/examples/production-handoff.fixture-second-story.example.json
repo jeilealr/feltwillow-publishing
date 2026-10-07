@@ -1,0 +1,274 @@
+{
+  "kind": "production-handoff",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "contract_package": {
+    "name": "bllt-contracts",
+    "version": "0.2.0-h2",
+    "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
+  },
+  "envelope": {
+    "created_at": "2026-10-08T09:30:00Z",
+    "operator": "EXAMPLE-OPERATOR",
+    "exporter": {
+      "tool": "production/export_handoff.py (PROPOSED)",
+      "tool_version": "0.1.0",
+      "repository": "jeilealr/big_lessons_little_tales",
+      "commit": "1111111111111111111111111111111111111111",
+      "tool_dirty": false
+    },
+    "transport": "self-contained-tar"
+  },
+  "payload": {
+    "handoff_id": "fixture-second-story.en.h0002",
+    "story_id": "fixture-second-story",
+    "language": "en",
+    "handoff_revision": 2,
+    "purpose": "correction",
+    "supersedes": {
+      "handoff_id": "fixture-second-story.en.h0001",
+      "payload_sha256": "5c1e338e036c82646d6d6e9c5fbbf4f632b08c86d1ab09a4f92a7012e2881838"
+    },
+    "reason": "EXAMPLE ONLY: narrator mispronunciation in scene 3 re-recorded; reading text unchanged.",
+    "story_allocation_sha256": "c14c573339a8e4add36b3b0054f4f986353a31bf2e26b41c5a97c267b3a794eb",
+    "production_slugs": [
+      "fixture_second_story_v1"
+    ],
+    "source_repositories": [
+      {
+        "repo_role": "production",
+        "repository": "jeilealr/big_lessons_little_tales",
+        "branch": "working-cloud-branch",
+        "commit": "1111111111111111111111111111111111111111",
+        "worktree": {
+          "state": "clean",
+          "dirty_paths": []
+        }
+      }
+    ],
+    "source_files": [
+      {
+        "source_id": "script-en",
+        "purpose": "script",
+        "repo_role": "production",
+        "path": "stories/fixture_second_story_v1/dialogue_coverage.json",
+        "commit": "1111111111111111111111111111111111111111",
+        "sha256": "5c2c8d411f6acde68563facfeeeb508a922efbb92adcd07e8f71d121c02dbd45",
+        "bytes": 5000
+      }
+    ],
+    "assets": [
+      {
+        "asset_id": "reading-text-en",
+        "role": "reading-text",
+        "media_type": "application/vnd.bllt.reading-blocks+json",
+        "bytes": 1000,
+        "sha256": "3fd9a4d5673b91995a6c0d32864eec65d3443c3c7880ebe3ef789687edb9461d",
+        "transport": "embedded",
+        "package_path": "files/reading-text-en/reading-text.json",
+        "measured": {
+          "width_px": null,
+          "height_px": null,
+          "duration_ms": null,
+          "sample_rate_hz": null,
+          "channels": null,
+          "frame_rate": null
+        },
+        "derived_from": [
+          {
+            "sha256": "5c2c8d411f6acde68563facfeeeb508a922efbb92adcd07e8f71d121c02dbd45",
+            "asset_id": null,
+            "relation": "text-adaptation"
+          }
+        ],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "EXAMPLE-ONLY/reading-text.json",
+          "commit": null
+        },
+        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
+      },
+      {
+        "asset_id": "transcript-en",
+        "role": "spoken-transcript",
+        "media_type": "text/plain",
+        "bytes": 1000,
+        "sha256": "c2a58e61fe70d813766dd9438078e095d25d461a0a77c256b8294824436f7cd2",
+        "transport": "embedded",
+        "package_path": "files/transcript-en/transcript.txt",
+        "measured": {
+          "width_px": null,
+          "height_px": null,
+          "duration_ms": null,
+          "sample_rate_hz": null,
+          "channels": null,
+          "frame_rate": null
+        },
+        "derived_from": [],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "EXAMPLE-ONLY/transcript.txt",
+          "commit": null
+        },
+        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
+      },
+      {
+        "asset_id": "audio-master-en",
+        "role": "audio-master",
+        "media_type": "audio/wav",
+        "bytes": 1000,
+        "sha256": "0effe883fe0aae1bc74438b256d9f7a930796795062fa385b2220a4da3bfcc32",
+        "transport": "embedded",
+        "package_path": "files/audio-master-en/master.wav",
+        "measured": {
+          "width_px": null,
+          "height_px": null,
+          "duration_ms": 412500,
+          "sample_rate_hz": 48000,
+          "channels": 2,
+          "frame_rate": null
+        },
+        "derived_from": [
+          {
+            "sha256": "1d30dab38cc31ec192b6ada63e5d7c0d214c9da22e185dad0770f2a85162180e",
+            "asset_id": null,
+            "relation": "export"
+          }
+        ],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "EXAMPLE-ONLY/master.wav",
+          "commit": null
+        },
+        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
+      },
+      {
+        "asset_id": "audio-delivery-en",
+        "role": "audio-delivery",
+        "media_type": "audio/mpeg",
+        "bytes": 1000,
+        "sha256": "bef24bbe19ffc7947dc553645ac0ecd322e3cb3e0766cb2ceb233cdfe2722018",
+        "transport": "embedded",
+        "package_path": "files/audio-delivery-en/episode.mp3",
+        "measured": {
+          "width_px": null,
+          "height_px": null,
+          "duration_ms": 412526,
+          "sample_rate_hz": 44100,
+          "channels": 2,
+          "frame_rate": null
+        },
+        "derived_from": [
+          {
+            "sha256": "0effe883fe0aae1bc74438b256d9f7a930796795062fa385b2220a4da3bfcc32",
+            "asset_id": "audio-master-en",
+            "relation": "transcode"
+          }
+        ],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "EXAMPLE-ONLY/episode.mp3",
+          "commit": null
+        },
+        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
+      },
+      {
+        "asset_id": "illus-01",
+        "role": "illustration",
+        "media_type": "image/png",
+        "bytes": 1000,
+        "sha256": "d7c0f3b0ad3421d94c75a232e3ea27d746fd604b8e304c76681ffcb0080b5d46",
+        "transport": "embedded",
+        "package_path": "files/illus-01/illus-01.png",
+        "measured": {
+          "width_px": 1920,
+          "height_px": 1080,
+          "duration_ms": null,
+          "sample_rate_hz": null,
+          "channels": null,
+          "frame_rate": null
+        },
+        "derived_from": [],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "EXAMPLE-ONLY/illus-01.png",
+          "commit": null
+        },
+        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
+      },
+      {
+        "asset_id": "cover-en",
+        "role": "cover-art",
+        "media_type": "image/png",
+        "bytes": 1000,
+        "sha256": "efb8ca4da45d0bea3ee39e7ef440aed2f28fe875406a37a9a4e288c2b3eb5251",
+        "transport": "embedded",
+        "package_path": "files/cover-en/cover.png",
+        "measured": {
+          "width_px": 3000,
+          "height_px": 3000,
+          "duration_ms": null,
+          "sample_rate_hz": null,
+          "channels": null,
+          "frame_rate": null
+        },
+        "derived_from": [],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "EXAMPLE-ONLY/cover.png",
+          "commit": null
+        },
+        "selection_note": "EXAMPLE ONLY: synthetic digest, no file exists."
+      }
+    ],
+    "components": {
+      "reading": {
+        "text_asset": "reading-text-en",
+        "illustration_assets": [
+          "illus-01"
+        ],
+        "cover_asset": "cover-en"
+      },
+      "audio": {
+        "master_asset": "audio-master-en",
+        "delivery_asset": "audio-delivery-en",
+        "transcript_asset": "transcript-en"
+      },
+      "video": null
+    },
+    "editorial_selection": {
+      "selected_by": "EXAMPLE-OWNER",
+      "selected_at": "2026-10-08T09:00:00Z",
+      "statement": "EXAMPLE ONLY: owner selected the corrected final mix; video not part of this handoff.",
+      "evidence": [
+        {
+          "ref": "EXAMPLE-ONLY/selection-notes.md",
+          "sha256": null
+        }
+      ]
+    },
+    "rights_evidence": [
+      {
+        "component": "voices",
+        "evidence": {
+          "ref": "EXAMPLE-ONLY/voice-terms-check.md",
+          "sha256": null
+        },
+        "note": "EXAMPLE ONLY."
+      }
+    ],
+    "generation_provenance": [
+      {
+        "asset_id": "audio-master-en",
+        "tools": [
+          "EXAMPLE ONLY: tool list from production sidecars"
+        ],
+        "evidence": {
+          "ref": "EXAMPLE-ONLY/timing.json",
+          "sha256": null
+        }
+      }
+    ]
+  }
+}

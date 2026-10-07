@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/site-set.v2.json",
+  "title": "Site set v2",
+  "description": "Complete list of story-language releases on the website (IC-A2): same pins as publish-plan v2. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "site-set"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "site_set_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "renderer": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/module_id"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_pin"
+      },
+      "maxItems": 2000
+    },
+    "remove_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200,
+        "pattern": "^/"
+      },
+      "uniqueItems": true,
+      "maxItems": 2000
+    },
+    "publishing_commit": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+    },
+    "contract_version": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+    },
+    "contract_package": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/contract_package"
+    },
+    "handoff_package_digests": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_package_digest"
+      },
+      "maxItems": 500
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "site_set_id",
+    "lifecycle",
+    "renderer",
+    "entries",
+    "remove_paths",
+    "publishing_commit",
+    "contract_version",
+    "contract_package",
+    "handoff_package_digests"
+  ]
+}

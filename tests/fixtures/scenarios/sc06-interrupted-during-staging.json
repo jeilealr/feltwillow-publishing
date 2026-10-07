@@ -1,0 +1,20 @@
+{
+  "fixture": "import-scenario",
+  "description": "Crash after staging: nothing promoted, stale staging swept.",
+  "steps": [
+    {
+      "mutations": [],
+      "crash_after": "staging",
+      "expect_outcome": "crash"
+    },
+    {
+      "mutations": [],
+      "expect_outcome": "accepted"
+    }
+  ],
+  "expect_final": {
+    "accepted_receipts": 1,
+    "archive_files": 1,
+    "staging_left": 0
+  }
+}

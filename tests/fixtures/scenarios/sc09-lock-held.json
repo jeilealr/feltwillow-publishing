@@ -1,0 +1,18 @@
+{
+  "fixture": "import-scenario",
+  "description": "F-I03 / m2: a held import.lock refuses with IMPORT_LOCKED and still writes a receipt.",
+  "steps": [
+    {
+      "mutations": [],
+      "options": {
+        "preseed_lock": true
+      },
+      "expect_outcome": "rejected",
+      "expect": "IMPORT_LOCKED"
+    }
+  ],
+  "expect_final": {
+    "accepted_receipts": 0,
+    "archive_files": 0
+  }
+}

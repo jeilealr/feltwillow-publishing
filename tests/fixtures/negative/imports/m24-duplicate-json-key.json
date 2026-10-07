@@ -1,0 +1,12 @@
+{
+  "fixture": "negative-import",
+  "expect": "CJ_DUPLICATE_KEY",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "raw_handoff_suffix_dup"
+    }
+  ],
+  "options": {},
+  "description": "Repeated key."
+}

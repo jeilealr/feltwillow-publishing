@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/release.v2.json",
+  "title": "Publishing release v2",
+  "description": "Immutable publication edition (asset roots: package/masters/publishing; production paths are provenance only, via referenced handoffs). Approvals are separate records. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "release"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "release_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_id"
+    },
+    "story_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "language": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/language"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9999
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/release_pin"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "handoffs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_package_digest"
+      },
+      "maxItems": 20
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "slug": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "age_min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18
+        },
+        "age_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18
+        },
+        "moral": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "reading_text_asset": {
+          "anyOf": [
+            {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "spoken_transcript_asset": {
+          "anyOf": [
+            {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reading_divergence": {
+          "enum": [
+            "identical",
+            "intentional-adaptation",
+            "not-applicable"
+          ]
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/block"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "slug",
+        "summary",
+        "age_min",
+        "age_max",
+        "moral",
+        "reading_text_asset",
+        "spoken_transcript_asset",
+        "reading_divergence",
+        "blocks"
+      ]
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "asset_id": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+          },
+          "role": {
+            "enum": [
+              "image",
+              "podcast-cover",
+              "audio-master",
+              "podcast-audio",
+              "video-master",
+              "transcript",
+              "chapters",
+              "reading-text",
+              "captions"
+            ]
+          },
+          "origin": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "enum": [
+                  "handoff",
+                  "publishing-derivative"
+                ]
+              },
+              "handoff_id": {
+                "anyOf": [
+                  {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_id"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "handoff_asset_id": {
+                "anyOf": [
+                  {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "kind",
+              "handoff_id",
+              "handoff_asset_id"
+            ]
+          },
+          "sha256": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          },
+          "bytes": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+          },
+          "media_type": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/media_type"
+          },
+          "width": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_ms": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "selection": {
+            "enum": [
+              "pending",
+              "approved",
+              "rejected"
+            ]
+          },
+          "derived_from_sha256": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "asset_id",
+          "role",
+          "origin",
+          "sha256",
+          "bytes",
+          "media_type",
+          "width",
+          "height",
+          "duration_ms",
+          "selection",
+          "derived_from_sha256"
+        ]
+      }
+    },
+    "channels": {
+      "$ref": "https://bllt.example.invalid/schemas/release.v1.json#/properties/channels"
+    },
+    "rights": {
+      "$ref": "https://bllt.example.invalid/schemas/release.v1.json#/properties/rights"
+    },
+    "emergency_override": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "authored_by": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/person"
+            },
+            "authored_at": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+            },
+            "backport": {
+              "enum": [
+                "pending",
+                "backported",
+                "waived-by-owner"
+              ]
+            },
+            "backport_handoff": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/handoff_ref"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "reason",
+            "authored_by",
+            "authored_at",
+            "backport",
+            "backport_handoff"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "frozen_with": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "publishing_commit": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+            },
+            "tool_version": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+            },
+            "contract_package": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/contract_package"
+            }
+          },
+          "required": [
+            "publishing_commit",
+            "tool_version",
+            "contract_package"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "release_id",
+    "story_id",
+    "language",
+    "revision",
+    "lifecycle",
+    "supersedes",
+    "handoffs",
+    "content",
+    "assets",
+    "channels",
+    "rights",
+    "emergency_override",
+    "frozen_with"
+  ]
+}

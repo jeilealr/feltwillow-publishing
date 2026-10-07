@@ -1,0 +1,124 @@
+{
+  "kind": "handoff-selection",
+  "schema_version": 1,
+  "example": true,
+  "story_id": "lion-and-mouse",
+  "language": "en",
+  "handoff_revision": 1,
+  "purpose": "initial",
+  "supersedes": null,
+  "reason": null,
+  "production_slugs": [
+    "lion_and_mouse_v5"
+  ],
+  "editorial_selection": {
+    "selected_by": "EXAMPLE-OWNER",
+    "selected_at": "2026-10-06T17:00:00Z",
+    "statement": "EXAMPLE ONLY: no owner selection of final Lion-and-Mouse assets has been made.",
+    "evidence": []
+  },
+  "source_files": [
+    {
+      "source_id": "runtime-inputs-v5",
+      "purpose": "runtime",
+      "path": "stories/lion_and_mouse_v5/runtime_inputs.json"
+    },
+    {
+      "source_id": "dialogue-v5",
+      "purpose": "dialogue",
+      "path": "stories/lion_and_mouse_v5/dialogue_coverage.json"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "illus-s01-explores-start",
+      "role": "illustration",
+      "media_type": "image/png",
+      "store": "production-git",
+      "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_start_r01.png",
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    },
+    {
+      "asset_id": "illus-s01-explores-end",
+      "role": "illustration",
+      "media_type": "image/png",
+      "store": "production-git",
+      "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_end_r01.png",
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    },
+    {
+      "asset_id": "illus-s01-acorn-start",
+      "role": "illustration",
+      "media_type": "image/png",
+      "store": "production-git",
+      "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_start_r01.png",
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    },
+    {
+      "asset_id": "illus-s01-acorn-end",
+      "role": "illustration",
+      "media_type": "image/png",
+      "store": "production-git",
+      "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_end_r01.png",
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+    }
+  ],
+  "components": {
+    "reading": {
+      "text_asset": null,
+      "illustration_assets": [
+        "illus-s01-explores-start",
+        "illus-s01-explores-end",
+        "illus-s01-acorn-start",
+        "illus-s01-acorn-end"
+      ],
+      "cover_asset": null
+    },
+    "audio": null,
+    "video": null
+  },
+  "missing_masters": [
+    {
+      "component": "reading",
+      "slot": "text_asset",
+      "status": "not-yet-created",
+      "note": "Reading edition (reading-blocks JSON) not written; the owner's script is SCRIPT_REVIEW.md."
+    },
+    {
+      "component": "audio",
+      "slot": "master_asset",
+      "status": "not-yet-created",
+      "note": "Final mix (DaVinci export, WAV/FLAC) does not exist; it will come from BLLT_MASTER_ROOT."
+    },
+    {
+      "component": "video",
+      "slot": "master_asset",
+      "status": "not-yet-created",
+      "note": "No assembled video; takes are still being selected (RENDER_REVIEW.md)."
+    },
+    {
+      "component": "reading",
+      "slot": "cover_asset",
+      "status": "not-yet-created",
+      "note": "No cover art."
+    }
+  ],
+  "rights_evidence": [
+    {
+      "component": "images",
+      "evidence": {
+        "repo_path": "docs/licensing.md"
+      },
+      "note": "EXAMPLE ONLY: the register lists image-tool terms still to verify; not a clearance."
+    }
+  ],
+  "generation_provenance": [
+    {
+      "asset_id": "illus-s01-explores-start",
+      "tools": [
+        "ChatGPT Pro image generation (owner-made v5; exact tool/version not recorded)"
+      ],
+      "evidence": null
+    }
+  ]
+}

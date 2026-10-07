@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/public-bundle-manifest.web.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/inputs/renderer",
+      "value": {
+        "name": "plain-static",
+        "version": "0.0.1"
+      }
+    }
+  ],
+  "description": "Module ids astro/ghost/plain_static (IC-C3).",
+  "rule": "H2 (DECISIONS_H2)"
+}

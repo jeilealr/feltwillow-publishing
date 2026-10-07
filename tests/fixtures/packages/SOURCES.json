@@ -1,0 +1,31 @@
+{
+  "note": "Synthetic PNGs replace production bytes (Agent B IC 8). Same file names and dimensions; different bytes and digests.",
+  "files": [
+    {
+      "package_path": "files/illus-s01-explores-start/s01_explores_start_r01.png",
+      "synthetic_sha256": "0934e25db3b7cf39d2ef9016804470c036651b1646fb935cacf0a505179f84c5",
+      "synthetic_bytes": 7766,
+      "stands_in_for": "b880c23:character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_start_r01.png",
+      "source_sha256": "2bf719f4756214ce7a804c4c9ad85587edaf54c43cd73a5f9e2f6c6ae36a3872",
+      "source_bytes": 4329316,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "evidence": "REPO, measured by Agent B with git show (read-only)"
+    },
+    {
+      "package_path": "files/illus-s01-acorn-start/s01_acorn_start_r01.png",
+      "synthetic_sha256": "d1c0ee74516fdcb927dcda7368ea44c5969fca5d9d3365e9d3bd57eb30c69d76",
+      "synthetic_bytes": 7766,
+      "stands_in_for": "b880c23:character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_start_r01.png",
+      "source_sha256": "eb2761b3be520496be21265fb6680e12998cf755c19387dec149ad2b1ceaa10f",
+      "source_bytes": 4327468,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "evidence": "REPO, measured by Agent B with git show (read-only)"
+    }
+  ]
+}

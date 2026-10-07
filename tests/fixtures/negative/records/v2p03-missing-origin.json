@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "MISSING_ORIGIN",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/plain_static",
+      "value": "enabled"
+    },
+    {
+      "op": "replace",
+      "path": "/website/primary",
+      "value": "plain_static"
+    }
+  ],
+  "description": "Primary site needs an origin.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

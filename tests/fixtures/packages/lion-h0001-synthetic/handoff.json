@@ -1,0 +1,187 @@
+{
+  "kind": "production-handoff",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "contract_package": {
+    "name": "bllt-contracts",
+    "version": "0.2.0-h2",
+    "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
+  },
+  "envelope": {
+    "created_at": "2026-10-06T18:00:00Z",
+    "operator": "EXAMPLE-OPERATOR",
+    "exporter": {
+      "tool": "production/export_handoff.py (PROPOSED)",
+      "tool_version": "0.1.0",
+      "repository": "jeilealr/big_lessons_little_tales",
+      "commit": "b880c230c6de419c809e879c422972c4122c9917",
+      "tool_dirty": false
+    },
+    "transport": "self-contained-tar"
+  },
+  "payload": {
+    "handoff_id": "lion-and-mouse.en.h0001",
+    "story_id": "lion-and-mouse",
+    "language": "en",
+    "handoff_revision": 1,
+    "purpose": "initial",
+    "supersedes": null,
+    "reason": null,
+    "story_allocation_sha256": "33820dfa1af84026fd44a9b61968ee64a6518b490f8c02c2f95691be698eb967",
+    "production_slugs": [
+      "lion_and_mouse_v5"
+    ],
+    "source_repositories": [
+      {
+        "repo_role": "production",
+        "repository": "jeilealr/big_lessons_little_tales",
+        "branch": "working-cloud-branch",
+        "commit": "b880c230c6de419c809e879c422972c4122c9917",
+        "worktree": {
+          "state": "dirty",
+          "dirty_paths": [
+            "CLAUDE.md",
+            "production/export_runtime.py",
+            "stories/lion_and_mouse_v5/story.yaml",
+            "stories/ugly_duckling_v1/prompt_manifest.json",
+            "stories/ugly_duckling_v1/runtime_inputs.json",
+            "stories/ugly_duckling_v1/story.yaml"
+          ]
+        }
+      }
+    ],
+    "source_files": [
+      {
+        "source_id": "dialogue-v4",
+        "purpose": "dialogue",
+        "repo_role": "production",
+        "path": "stories/lion_and_mouse_v4/dialogue_coverage.json",
+        "commit": "b880c230c6de419c809e879c422972c4122c9917",
+        "sha256": "595e4b9669ef88f458c4feb59bfb364d64f54366450bb0b8d0a02e1a524737f8",
+        "bytes": 77164
+      },
+      {
+        "source_id": "prompt-manifest-v4",
+        "purpose": "prompt-manifest",
+        "repo_role": "production",
+        "path": "stories/lion_and_mouse_v4/prompt_manifest.json",
+        "commit": "b880c230c6de419c809e879c422972c4122c9917",
+        "sha256": "2734b6f0032c2d3f0c8aa2a744d4a742707e0cf8ca2c70b358af840e2eed7cf3",
+        "bytes": 3240572
+      },
+      {
+        "source_id": "runtime-inputs-v5",
+        "purpose": "runtime",
+        "repo_role": "production",
+        "path": "stories/lion_and_mouse_v5/runtime_inputs.json",
+        "commit": "b880c230c6de419c809e879c422972c4122c9917",
+        "sha256": "cc69c1c47c67978168cd35d51aae33c8bf172a7bb5737a5263a2cab79f251fbb",
+        "bytes": 23342
+      }
+    ],
+    "assets": [
+      {
+        "asset_id": "reading-text-en",
+        "role": "reading-text",
+        "media_type": "application/vnd.bllt.reading-blocks+json",
+        "bytes": 394,
+        "sha256": "6d14393fa42813242fd5206c16d83fb94882f168838046e02ab9cfe72aa3ac8d",
+        "transport": "embedded",
+        "package_path": "files/reading-text-en/reading-text.json",
+        "measured": {
+          "width_px": null,
+          "height_px": null,
+          "duration_ms": null,
+          "sample_rate_hz": null,
+          "channels": null,
+          "frame_rate": null
+        },
+        "derived_from": [],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "EXAMPLE-ONLY/reading-text.example.json",
+          "commit": null
+        },
+        "selection_note": "EXAMPLE ONLY: synthetic stand-in; the approved reading edition has not been supplied."
+      },
+      {
+        "asset_id": "illus-s01-explores-start",
+        "role": "illustration",
+        "media_type": "image/png",
+        "bytes": 7766,
+        "sha256": "0934e25db3b7cf39d2ef9016804470c036651b1646fb935cacf0a505179f84c5",
+        "transport": "embedded",
+        "package_path": "files/illus-s01-explores-start/s01_explores_start_r01.png",
+        "measured": {
+          "width_px": 1920,
+          "height_px": 1080,
+          "duration_ms": null,
+          "sample_rate_hz": null,
+          "channels": null,
+          "frame_rate": null
+        },
+        "derived_from": [],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "SYNTHETIC-FIXTURE/s01_explores_start_r01.png",
+          "commit": null
+        },
+        "selection_note": "SYNTHETIC FIXTURE: solid-colour 1920x1080 PNG standing in for b880c23:character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_start_r01.png (sha256 2bf719f47562...) so tests build without the production checkout."
+      },
+      {
+        "asset_id": "illus-s01-acorn-start",
+        "role": "illustration",
+        "media_type": "image/png",
+        "bytes": 7766,
+        "sha256": "d1c0ee74516fdcb927dcda7368ea44c5969fca5d9d3365e9d3bd57eb30c69d76",
+        "transport": "embedded",
+        "package_path": "files/illus-s01-acorn-start/s01_acorn_start_r01.png",
+        "measured": {
+          "width_px": 1920,
+          "height_px": 1080,
+          "duration_ms": null,
+          "sample_rate_hz": null,
+          "channels": null,
+          "frame_rate": null
+        },
+        "derived_from": [],
+        "origin": {
+          "store": "owner-master-store",
+          "ref": "SYNTHETIC-FIXTURE/s01_acorn_start_r01.png",
+          "commit": null
+        },
+        "selection_note": "SYNTHETIC FIXTURE: solid-colour 1920x1080 PNG standing in for b880c23:character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_start_r01.png (sha256 eb2761b3be52...) so tests build without the production checkout."
+      }
+    ],
+    "components": {
+      "reading": {
+        "text_asset": "reading-text-en",
+        "illustration_assets": [
+          "illus-s01-explores-start",
+          "illus-s01-acorn-start"
+        ],
+        "cover_asset": null
+      },
+      "audio": null,
+      "video": null
+    },
+    "editorial_selection": {
+      "selected_by": "EXAMPLE-OWNER",
+      "selected_at": "2026-10-06T17:00:00Z",
+      "statement": "EXAMPLE ONLY: no owner selection of final Lion-and-Mouse assets has been made.",
+      "evidence": []
+    },
+    "rights_evidence": [
+      {
+        "component": "images",
+        "evidence": {
+          "ref": "docs/licensing.md",
+          "sha256": "95178ac1f052c4dccadcacf0af2aaa3cbc74b42fac7806e390abfe1a03a8f568"
+        },
+        "note": "EXAMPLE ONLY: b880c23 licensing register; image-tool terms still to verify; not a clearance."
+      }
+    ],
+    "generation_provenance": []
+  }
+}

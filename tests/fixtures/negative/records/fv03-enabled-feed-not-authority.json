@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "FEED_MODULE_NOT_ENABLED",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/independent_rss",
+      "value": "enabled"
+    }
+  ],
+  "description": "F-V03: authority spotify, only independent_rss enabled (adapted rule).",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

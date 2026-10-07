@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNKNOWN_ASSET",
+  "base": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/components/reading/illustration_assets/-",
+      "value": "illus-missing"
+    }
+  ],
+  "description": "L-23: components reference selected assets.",
+  "rule": "H2 (DECISIONS_H2)"
+}

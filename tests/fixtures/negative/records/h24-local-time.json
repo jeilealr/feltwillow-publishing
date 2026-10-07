@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/envelope/created_at",
+      "value": "2026-10-06T21:00:00+03:00"
+    }
+  ],
+  "description": "UTC with Z.",
+  "rule": "H1 (Agent B)"
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CONTRACT_VERSION_UNSUPPORTED",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/schema_version",
+      "value": 2
+    }
+  ],
+  "description": "Consumer supports production-handoff v1 only.",
+  "rule": "H1 (Agent B)"
+}

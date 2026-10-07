@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/release.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "release"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "release_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "story_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+    },
+    "language": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/source"
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slug": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "age_min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "age_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "moral": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/block"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "slug",
+        "summary",
+        "age_min",
+        "age_max",
+        "moral",
+        "blocks"
+      ]
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/asset"
+      }
+    },
+    "channels": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "website": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requested": {
+              "type": "boolean"
+            },
+            "player": {
+              "enum": [
+                "none",
+                "spotify_embed",
+                "native_audio"
+              ]
+            },
+            "audio_asset": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "cover_asset": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "podcast_episode_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "youtube_edition_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "requested",
+            "player",
+            "audio_asset",
+            "cover_asset",
+            "podcast_episode_id",
+            "youtube_edition_id"
+          ]
+        },
+        "podcast": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requested": {
+              "type": "boolean"
+            },
+            "show_id": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "episode_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "episode_type": {
+              "enum": [
+                "full",
+                "trailer",
+                "bonus"
+              ]
+            },
+            "audio_asset": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "artwork_asset": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "chapters_asset": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "explicit": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "requested",
+            "show_id",
+            "episode_id",
+            "episode_type",
+            "audio_asset",
+            "artwork_asset",
+            "chapters_asset",
+            "explicit"
+          ]
+        },
+        "youtube": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requested": {
+              "type": "boolean"
+            },
+            "video_asset": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "thumbnail_asset": {
+              "anyOf": [
+                {
+                  "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "made_for_kids": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "requested",
+            "video_asset",
+            "thumbnail_asset",
+            "made_for_kids"
+          ]
+        }
+      },
+      "required": [
+        "website",
+        "podcast",
+        "youtube"
+      ]
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "cleared",
+            "blocked"
+          ]
+        },
+        "record_path": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+        },
+        "record_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "record_path",
+        "record_sha256"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "release_id",
+    "story_id",
+    "language",
+    "revision",
+    "lifecycle",
+    "sources",
+    "content",
+    "assets",
+    "channels",
+    "rights"
+  ]
+}

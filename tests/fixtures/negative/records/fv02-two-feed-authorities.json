@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "MULTIPLE_FEED_AUTHORITIES",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/spotify_hosted",
+      "value": "enabled"
+    },
+    {
+      "op": "replace",
+      "path": "/modules/independent_rss",
+      "value": "enabled"
+    }
+  ],
+  "description": "F-V02 (v2 I07).",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

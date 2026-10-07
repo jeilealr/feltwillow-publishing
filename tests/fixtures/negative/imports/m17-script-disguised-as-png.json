@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-import",
+  "expect": "MEDIA_TYPE_MISMATCH",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "replace_asset_bytes",
+      "asset_index": 1,
+      "data": "#!/bin/sh\necho executed\n"
+    }
+  ],
+  "options": {},
+  "description": "PNG whose bytes are a script."
+}

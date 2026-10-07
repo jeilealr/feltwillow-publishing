@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "NO_COMPONENTS",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/components/reading",
+      "value": null
+    }
+  ],
+  "description": "At least one component.",
+  "rule": "H1 (Agent B)"
+}

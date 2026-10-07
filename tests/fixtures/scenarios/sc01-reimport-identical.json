@@ -1,0 +1,29 @@
+{
+  "fixture": "import-scenario",
+  "description": "Retry (also re-exported with a new created_at) = one logical handoff.",
+  "steps": [
+    {
+      "mutations": [],
+      "expect_outcome": "accepted"
+    },
+    {
+      "mutations": [],
+      "expect_outcome": "duplicate-identical"
+    },
+    {
+      "mutations": [
+        {
+          "op": "patch_handoff",
+          "patch": [
+            {
+              "op": "replace",
+              "path": "/envelope/created_at",
+              "value": "2026-10-06T20:00:00Z"
+            }
+          ]
+        }
+      ],
+      "expect_outcome": "duplicate-identical"
+    }
+  ]
+}

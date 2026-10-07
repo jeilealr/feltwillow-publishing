@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/site-set.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/renderer",
+      "value": "plain-static"
+    }
+  ],
+  "description": "Module ids (IC-C3).",
+  "rule": "H2 (DECISIONS_H2)"
+}

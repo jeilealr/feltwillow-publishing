@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_LOCK_PATH",
+  "base": "publishing/examples/contract-lock.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/files/-",
+      "value": {
+        "path": "schemas/common.v2.schema.json",
+        "sha256": "abababababababababababababababababababababababababababababababab"
+      }
+    }
+  ],
+  "description": "One digest per file.",
+  "rule": "H1 (Agent B)"
+}

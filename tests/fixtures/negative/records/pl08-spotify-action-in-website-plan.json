@@ -1,0 +1,20 @@
+{
+  "fixture": "negative-record",
+  "expect": "ACTION_DESTINATION_MISMATCH",
+  "base": "publishing/examples/publish-plan.v2.website-preview.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/actions/-",
+      "value": {
+        "action_id": "obs",
+        "target": "spotify",
+        "operation": "observe_feed",
+        "subject_id": "s",
+        "artifact": null
+      }
+    }
+  ],
+  "description": "Explicit destination (IC-D4).",
+  "rule": "H2 (DECISIONS_H2)"
+}

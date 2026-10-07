@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/story.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "story"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "story_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+    },
+    "source_kind": {
+      "enum": [
+        "public_domain_adaptation",
+        "original",
+        "licensed",
+        "undecided"
+      ]
+    },
+    "source_review": {
+      "enum": [
+        "pending",
+        "cleared",
+        "blocked"
+      ]
+    },
+    "editorial_note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "editions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+          },
+          "draft_path": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+          }
+        },
+        "required": [
+          "language",
+          "draft_path"
+        ]
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "story_id",
+    "source_kind",
+    "source_review",
+    "editorial_note",
+    "editions"
+  ]
+}

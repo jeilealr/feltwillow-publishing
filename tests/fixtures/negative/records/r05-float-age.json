@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CJ_FLOAT",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/content/age_min",
+      "value": 3.0
+    }
+  ],
+  "description": "No floats.",
+  "rule": "H1 (Agent B)"
+}

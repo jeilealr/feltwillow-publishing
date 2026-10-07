@@ -1,0 +1,11 @@
+kind: collection
+schema_version: 1
+example: true
+collection_id: classic-fables-volume-1
+language: en
+title: 'EXAMPLE ONLY: proposed collection'
+status: draft
+items: []
+master_asset_id: null
+rights_status: pending
+assets: []

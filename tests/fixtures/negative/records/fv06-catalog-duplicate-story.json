@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_CATALOG_OR_EDITION",
+  "base": "tests/fixtures/v2-carried/catalog.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/stories/-",
+      "value": {
+        "story_id": "lion-and-mouse",
+        "record_path": "publishing/stories/lion-and-mouse.yaml"
+      }
+    }
+  ],
+  "description": "F-V06 (v2 I01).",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

@@ -1,0 +1,25 @@
+{
+  "fixture": "negative-record",
+  "expect": "RIGHTS_REVIEW_EVIDENCE_MISSING",
+  "base": "publishing/examples/approval.v2.podcast-audio-rights-review.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/decision",
+      "value": "approved"
+    },
+    {
+      "op": "replace",
+      "path": "/checks",
+      "value": [
+        {
+          "name": "x",
+          "result": "pass",
+          "evidence": "EXAMPLE ONLY"
+        }
+      ]
+    }
+  ],
+  "description": "rights_review.podcast_audio needs gemini-terms-answer and mix-music-and-effects (IC-D7).",
+  "rule": "H2 (DECISIONS_H2)"
+}

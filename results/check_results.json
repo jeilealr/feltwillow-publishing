@@ -1,0 +1,4389 @@
+{
+ "tool": "bllt_publish.check",
+ "contract_revision": "H2 (PROPOSED CONTRACT)",
+ "summary": {
+  "schemas_check_schema": "35/35",
+  "positive_examples": "36/36",
+  "negative_records": "135/135",
+  "golden_python": "24/24",
+  "negative_raw": "1/1",
+  "v2_semantics_ported": "35/35",
+  "negative_imports": "27/27",
+  "import_scenarios": "9/9",
+  "positive_import": "1/1",
+  "import_roots": "8/8",
+  "web_payload_positive": "2/2",
+  "web_payload_negative": "22/22",
+  "web_render_input_positive": "2/2",
+  "web_render_input_negative": "9/9",
+  "web_completeness": "5/5",
+  "web_site_artifact": "11/11",
+  "podcast": "60/60",
+  "leak_scan": "44/44",
+  "strict_zero": "28/28",
+  "ci_lint": "24/24",
+  "state_roots": "10/10",
+  "handoff_index_scan": "3/3",
+  "error_catalogue": "2/2",
+  "js_parity": "2/2"
+ },
+ "totals": {
+  "cases": 535,
+  "passed": 535
+ },
+ "success": true,
+ "js_parity_run": true,
+ "environment": {
+  "python": "3.12.9",
+  "unicodedata": "15.0.0",
+  "jsonschema": "4.26.0",
+  "pyyaml": "6.0.3"
+ },
+ "results": {
+  "schemas_check_schema": [
+   {
+    "case": "approval.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "approval.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "catalog.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "collection.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "common.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "common.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "contract-lock.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "episode-publication.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "episode-publication.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "feed-observation.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "handoff-selection.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "import-receipt.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "media-delivery.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "media-delivery.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "production-handoff.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "project.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "project.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "provider-registry.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "provider-registry.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "public-bundle-manifest.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "publish-plan.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "publish-plan.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "publish-receipt.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "publish-receipt.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "release.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "release.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "rights-review.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "service-inventory.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "show.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "site-set.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "site-set.v2.schema.json",
+    "pass": true
+   },
+   {
+    "case": "story-allocation.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "story.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "web-bundle.v1.schema.json",
+    "pass": true
+   },
+   {
+    "case": "web-bundle.v2.schema.json",
+    "pass": true
+   }
+  ],
+  "positive_examples": [
+   {
+    "case": "publishing/examples/approval.v2.podcast-audio-rights-review.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/approval.v2.rejected.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/contract-lock.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/episode-publication.v2.spotify-prepared.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/episode-publication.v2.spotify-published.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/feed-observation.v1.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/import-receipt.accepted.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/media-delivery.v2.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/production-handoff.fixture-second-story.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/project.v2.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/provider-registry.v2.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/public-bundle-manifest.web.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/publish-plan.v2.podcast-spotify.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/publish-plan.v2.website-preview.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/publish-receipt.v2.ghost-conflict.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/publish-receipt.v2.manual-pending.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/service-inventory.v1.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/site-set.v2.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/story-allocation.fixture-second-story.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/story-allocation.lion-and-mouse.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/web/manifests/render-input.site-set-0001.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/web/manifests/render-input.site-set-0002.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/ops/project.zero_cost.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/ops/service-inventory.strict-zero.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/packages/lion-h0001-synthetic/handoff.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/packages/story-allocation.lion-and-mouse.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/v2-carried/catalog.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/v2-carried/collection.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/v2-carried/rights-review.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/v2-carried/show.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "tests/fixtures/v2-carried/story.example.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/web/render-input/site-set-0001/data/web-bundle.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   },
+   {
+    "case": "publishing/examples/web/render-input/site-set-0002/data/web-bundle.json",
+    "pass": true,
+    "expect": "valid",
+    "got": []
+   }
+  ],
+  "negative_records": [
+   {
+    "case": "a01-approved-with-failed-check",
+    "pass": true,
+    "expect": "INVALID_POSITIVE_APPROVAL",
+    "got": [
+     "INVALID_POSITIVE_APPROVAL"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "a02-revoked-without-target",
+    "pass": true,
+    "expect": "REVOCATION_TARGET_MISSING",
+    "got": [
+     "REVOCATION_TARGET_MISSING"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "a03-readiness-without-chain",
+    "pass": true,
+    "expect": "APPROVAL_CHAIN_MISSING",
+    "got": [
+     "APPROVAL_CHAIN_MISSING"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "a04-deployment-on-release",
+    "pass": true,
+    "expect": "STAGE_SUBJECT_MISMATCH",
+    "got": [
+     "STAGE_SUBJECT_MISMATCH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "a05-old-approval-v1",
+    "pass": true,
+    "expect": "CONTRACT_VERSION_UNSUPPORTED",
+    "got": [
+     "CONTRACT_VERSION_UNSUPPORTED"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "ap01-podcast-audio-review-missing-checks",
+    "pass": true,
+    "expect": "RIGHTS_REVIEW_EVIDENCE_MISSING",
+    "got": [
+     "RIGHTS_REVIEW_EVIDENCE_MISSING"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "ap02-podcast-audio-review-wrong-stage",
+    "pass": true,
+    "expect": "STAGE_SUBJECT_MISMATCH",
+    "got": [
+     "STAGE_SUBJECT_MISMATCH"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "ap03-unknown-scope",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "c01-missing-canonicalization",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "c02-wrong-canonicalization",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "c03-common-v2-email-pattern",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "dp00-leading-dot-dirty-path-accepted",
+    "pass": true,
+    "expect": "VALID",
+    "got": [],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "dp01-dirty-path-parent-segment",
+    "pass": true,
+    "expect": "UNSAFE_PATH",
+    "got": [
+     "UNSAFE_PATH"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "dp02-dirty-path-empty-segment",
+    "pass": true,
+    "expect": "UNSAFE_PATH",
+    "got": [
+     "UNSAFE_PATH"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "fv01-three-websites-enabled",
+    "pass": true,
+    "expect": "MULTIPLE_WEBSITES",
+    "got": [
+     "MULTIPLE_WEBSITES"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "fv02-two-feed-authorities",
+    "pass": true,
+    "expect": "MULTIPLE_FEED_AUTHORITIES",
+    "got": [
+     "MULTIPLE_FEED_AUTHORITIES"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "fv03-enabled-feed-not-authority",
+    "pass": true,
+    "expect": "FEED_MODULE_NOT_ENABLED",
+    "got": [
+     "FEED_MODULE_NOT_ENABLED"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "fv04-production-without-remote-writes",
+    "pass": true,
+    "expect": "PRODUCTION_WRITE_SWITCH_CONFLICT",
+    "got": [
+     "PRODUCTION_WRITE_SWITCH_CONFLICT"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "fv05-rights-cleared-one-component",
+    "pass": true,
+    "expect": "INCOMPLETE_RIGHTS_CLEARANCE",
+    "got": [
+     "INCOMPLETE_RIGHTS_CLEARANCE"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "fv06-catalog-duplicate-story",
+    "pass": true,
+    "expect": "DUPLICATE_CATALOG_OR_EDITION",
+    "got": [
+     "DUPLICATE_CATALOG_OR_EDITION"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "fv07-native-audio-without-asset",
+    "pass": true,
+    "expect": "NATIVE_AUDIO_REFERENCE_MISSING",
+    "got": [
+     "NATIVE_AUDIO_REFERENCE_MISSING"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "fv09-registry-two-listed-show-pages",
+    "pass": true,
+    "expect": "DUPLICATE_PROVIDER_MAPPING",
+    "got": [
+     "DUPLICATE_PROVIDER_MAPPING"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "h01-unknown-top-level-field",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h02-unsupported-schema-version",
+    "pass": true,
+    "expect": "CONTRACT_VERSION_UNSUPPORTED",
+    "got": [
+     "CONTRACT_VERSION_UNSUPPORTED"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h03-handoff-id-mismatch",
+    "pass": true,
+    "expect": "HANDOFF_ID_MISMATCH",
+    "got": [
+     "HANDOFF_ID_MISMATCH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h04-correction-without-supersedes",
+    "pass": true,
+    "expect": "SUPERSEDES_REQUIRED",
+    "got": [
+     "SUPERSEDES_REQUIRED"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h05-initial-with-supersedes",
+    "pass": true,
+    "expect": "SUPERSEDES_UNEXPECTED",
+    "got": [
+     "SUPERSEDES_UNEXPECTED"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h06-duplicate-asset-id",
+    "pass": true,
+    "expect": "DUPLICATE_ASSET_ID",
+    "got": [
+     "DUPLICATE_ASSET_ID",
+     "UNKNOWN_ASSET"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h07-component-unknown-asset",
+    "pass": true,
+    "expect": "UNKNOWN_ASSET",
+    "got": [
+     "UNKNOWN_ASSET"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h08-component-wrong-role",
+    "pass": true,
+    "expect": "WRONG_ASSET_ROLE",
+    "got": [
+     "WRONG_ASSET_ROLE"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h09-media-type-role-mismatch",
+    "pass": true,
+    "expect": "MEDIA_TYPE_ROLE_MISMATCH",
+    "got": [
+     "MEDIA_TYPE_ROLE_MISMATCH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h10-missing-image-measurement",
+    "pass": true,
+    "expect": "MISSING_MEASUREMENT",
+    "got": [
+     "MISSING_MEASUREMENT"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h11-package-path-mismatch",
+    "pass": true,
+    "expect": "PACKAGE_PATH_MISMATCH",
+    "got": [
+     "PACKAGE_PATH_MISMATCH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h12-source-path-traversal",
+    "pass": true,
+    "expect": "UNSAFE_PATH",
+    "got": [
+     "UNSAFE_PATH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h13-selected-source-dirty",
+    "pass": true,
+    "expect": "SELECTED_SOURCE_DIRTY",
+    "got": [
+     "SELECTED_SOURCE_DIRTY"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h14-float-duration",
+    "pass": true,
+    "expect": "CJ_FLOAT",
+    "got": [
+     "CJ_FLOAT"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h15-publication-approval-smuggled",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h16-parent-hash-mismatch",
+    "pass": true,
+    "expect": "PARENT_HASH_MISMATCH",
+    "got": [
+     "PARENT_HASH_MISMATCH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h17-derivation-self-cycle",
+    "pass": true,
+    "expect": "DERIVATION_CYCLE",
+    "got": [
+     "DERIVATION_CYCLE"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h18-referenced-media",
+    "pass": true,
+    "expect": "REFERENCED_MEDIA_NOT_SUPPORTED",
+    "got": [
+     "REFERENCED_MEDIA_NOT_SUPPORTED"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h19-no-components",
+    "pass": true,
+    "expect": "NO_COMPONENTS",
+    "got": [
+     "NO_COMPONENTS",
+     "UNREFERENCED_ASSET"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h20-revocation-with-assets",
+    "pass": true,
+    "expect": "REVOCATION_WITH_ASSETS",
+    "got": [
+     "REVOCATION_WITH_ASSETS"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h21-created-before-selected",
+    "pass": true,
+    "expect": "TIMESTAMP_ORDER",
+    "got": [
+     "TIMESTAMP_ORDER"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h22-nfd-text",
+    "pass": true,
+    "expect": "CJ_NOT_NFC",
+    "got": [
+     "CJ_NOT_NFC"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h23-url-as-private-ref",
+    "pass": true,
+    "expect": "REMOTE_REFERENCE_FORBIDDEN",
+    "got": [
+     "REMOTE_REFERENCE_FORBIDDEN"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h24-local-time",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h25-exporter-dirty",
+    "pass": true,
+    "expect": "EXPORTER_DIRTY",
+    "got": [
+     "EXPORTER_DIRTY"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h26-unreferenced-asset",
+    "pass": true,
+    "expect": "UNREFERENCED_ASSET",
+    "got": [
+     "UNREFERENCED_ASSET"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h27-large-integer",
+    "pass": true,
+    "expect": "CJ_INT_RANGE",
+    "got": [
+     "CJ_INT_RANGE"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "h28-correction-without-reason",
+    "pass": true,
+    "expect": "REASON_REQUIRED",
+    "got": [
+     "REASON_REQUIRED"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "hs01-missing-master-bad-slot",
+    "pass": true,
+    "expect": "SELECTION_SLOT_INVALID",
+    "got": [
+     "SELECTION_SLOT_INVALID"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "hs02-filled-and-declared-missing",
+    "pass": true,
+    "expect": "SELECTION_MISSING_CONTRADICTION",
+    "got": [
+     "SELECTION_MISSING_CONTRADICTION",
+     "WRONG_ASSET_ROLE"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "hs03-glob-path",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "hs04-revision-purpose-mismatch",
+    "pass": true,
+    "expect": "PURPOSE_REVISION_MISMATCH",
+    "got": [
+     "PURPOSE_REVISION_MISMATCH"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "hs05-canonicalization-not-allowed",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "hs06-unknown-component-asset",
+    "pass": true,
+    "expect": "UNKNOWN_ASSET",
+    "got": [
+     "UNKNOWN_ASSET"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "i01-accepted-with-errors",
+    "pass": true,
+    "expect": "RECEIPT_OUTCOME_INCONSISTENT",
+    "got": [
+     "RECEIPT_OUTCOME_INCONSISTENT"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "i02-receipt-authorizes-publication",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "i03-locator-mismatch",
+    "pass": true,
+    "expect": "ARCHIVAL_LOCATOR_MISMATCH",
+    "got": [
+     "ARCHIVAL_LOCATOR_MISMATCH"
+    ],
+    "rule": "H2 s.2 layout"
+   },
+   {
+    "case": "i04-old-archive-layout",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "l01-lock-duplicate-path",
+    "pass": true,
+    "expect": "DUPLICATE_LOCK_PATH",
+    "got": [
+     "DUPLICATE_LOCK_PATH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "l02-lock-missing-emitted-schema",
+    "pass": true,
+    "expect": "LOCK_MISSING_EMITTED_SCHEMA",
+    "got": [
+     "LOCK_MISSING_EMITTED_SCHEMA"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "md01-float-duration",
+    "pass": true,
+    "expect": "CJ_FLOAT",
+    "got": [
+     "CJ_FLOAT"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "md02-v1-duration-seconds",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "md03-duplicate-url",
+    "pass": true,
+    "expect": "DUPLICATE_DELIVERY_URL",
+    "got": [
+     "DUPLICATE_DELIVERY_URL"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "p01-public-env-file",
+    "pass": true,
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "p02-public-serverless-entry",
+    "pass": true,
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "p03-public-handoff-json",
+    "pass": true,
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "p04-public-path-traversal",
+    "pass": true,
+    "expect": "UNSAFE_PATH",
+    "got": [
+     "UNSAFE_PATH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "p05-public-import-receipt-name",
+    "pass": true,
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "p06-public-release-record-name",
+    "pass": true,
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "p07-public-source-map",
+    "pass": true,
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pj01-source-branch",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pj02-podcast-enabled-without-disclosure",
+    "pass": true,
+    "expect": "AI_DISCLOSURE_REQUIRED",
+    "got": [
+     "AI_DISCLOSURE_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pj03-podcast-enabled-without-acknowledged-contact",
+    "pass": true,
+    "expect": "PUBLIC_CONTACT_REQUIRED",
+    "got": [
+     "PUBLIC_CONTACT_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pj04-acknowledged-without-email",
+    "pass": true,
+    "expect": "PUBLIC_CONTACT_ACK_WITHOUT_EMAIL",
+    "got": [
+     "PUBLIC_CONTACT_ACK_WITHOUT_EMAIL"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pj05-zero-cost-without-inventory",
+    "pass": true,
+    "expect": "SERVICE_INVENTORY_REQUIRED",
+    "got": [
+     "SERVICE_INVENTORY_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pj06-v1-owner-email-field",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pj07-primary-module-spec-only",
+    "pass": true,
+    "expect": "PRIMARY_MODULE_SPEC_ONLY",
+    "got": [
+     "MISSING_ORIGIN",
+     "MODULE_NOT_ENABLED",
+     "PRIMARY_MODULE_SPEC_ONLY"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl01-website-plan-touches-podcast",
+    "pass": true,
+    "expect": "WEBSITE_PLAN_TOUCHES_PODCAST",
+    "got": [
+     "WEBSITE_PLAN_TOUCHES_PODCAST"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl02-deploy-without-leak-scan",
+    "pass": true,
+    "expect": "LEAK_SCAN_REPORT_REQUIRED",
+    "got": [
+     "LEAK_SCAN_REPORT_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl03-production-without-strict-zero",
+    "pass": true,
+    "expect": "STRICT_ZERO_REPORT_REQUIRED",
+    "got": [
+     "STRICT_ZERO_REPORT_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl04-contract-version-pin-mismatch",
+    "pass": true,
+    "expect": "CONTRACT_VERSION_PIN_MISMATCH",
+    "got": [
+     "CONTRACT_VERSION_PIN_MISMATCH"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl05-v1-source-commit",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl06-operation-target-mismatch",
+    "pass": true,
+    "expect": "UNSUPPORTED_OPERATION",
+    "got": [
+     "UNSUPPORTED_OPERATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl07-deploy-without-artifact",
+    "pass": true,
+    "expect": "ARTIFACT_REQUIRED",
+    "got": [
+     "ARTIFACT_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl08-spotify-action-in-website-plan",
+    "pass": true,
+    "expect": "ACTION_DESTINATION_MISMATCH",
+    "got": [
+     "ACTION_DESTINATION_MISMATCH"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl09-ghost-input-without-ghost-action",
+    "pass": true,
+    "expect": "GHOST_INPUT_WITHOUT_GHOST_ACTION",
+    "got": [
+     "GHOST_INPUT_WITHOUT_GHOST_ACTION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl10-duplicate-handoff-pin",
+    "pass": true,
+    "expect": "DUPLICATE_HANDOFF_PIN",
+    "got": [
+     "DUPLICATE_HANDOFF_PIN"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl11-observe-feed-with-artifact",
+    "pass": true,
+    "expect": "ARTIFACT_UNEXPECTED",
+    "got": [
+     "ARTIFACT_UNEXPECTED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pl12-newsletter-send",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pm01-renderer-old-spelling",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "pm02-renderer-ghost-theme",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "r01-frozen-without-handoff",
+    "pass": true,
+    "expect": "FROZEN_WITHOUT_HANDOFF",
+    "got": [
+     "FROZEN_WITHOUT_HANDOFF"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "r02-release-id-mismatch",
+    "pass": true,
+    "expect": "RELEASE_ID_MISMATCH",
+    "got": [
+     "RELEASE_ID_MISMATCH"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "r03-unlisted-handoff",
+    "pass": true,
+    "expect": "UNLISTED_HANDOFF",
+    "got": [
+     "UNLISTED_HANDOFF"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "r04-v1-schema-version",
+    "pass": true,
+    "expect": "CONTRACT_VERSION_UNSUPPORTED",
+    "got": [
+     "CONTRACT_VERSION_UNSUPPORTED"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "r05-float-age",
+    "pass": true,
+    "expect": "CJ_FLOAT",
+    "got": [
+     "CJ_FLOAT"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "rc01-conflict-without-detail",
+    "pass": true,
+    "expect": "CONFLICT_INCONSISTENT",
+    "got": [
+     "CONFLICT_INCONSISTENT"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "rc02-succeeded-without-evidence",
+    "pass": true,
+    "expect": "RECEIPT_EVIDENCE_REQUIRED",
+    "got": [
+     "RECEIPT_EVIDENCE_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "rc03-evidence-free-text",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "rc04-observe-without-observation-id",
+    "pass": true,
+    "expect": "OBSERVATION_ID_REQUIRED",
+    "got": [
+     "OBSERVATION_ID_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "rc05-v1-manual-pending-spelling",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "rc06-pending-with-outcome",
+    "pass": true,
+    "expect": "MANUAL_PENDING_WITH_OUTCOME",
+    "got": [
+     "MANUAL_PENDING_WITH_OUTCOME"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "rc07-upload-without-submitted-sha",
+    "pass": true,
+    "expect": "SUBMITTED_SHA256_REQUIRED",
+    "got": [
+     "SUBMITTED_SHA256_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "rc08-accepted-without-out-of-band-digest",
+    "pass": true,
+    "expect": "RECEIPT_DIGEST_SOURCE_REQUIRED",
+    "got": [
+     "RECEIPT_DIGEST_SOURCE_REQUIRED"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "s01-allocation-bad-id",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H1 (Agent B)"
+   },
+   {
+    "case": "si01-duplicate-service",
+    "pass": true,
+    "expect": "DUPLICATE_SERVICE",
+    "got": [
+     "DUPLICATE_SERVICE"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "si02-bad-state",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "sp01-selection-source-purpose-accepted",
+    "pass": true,
+    "expect": "VALID",
+    "got": [],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "ss01-renderer-old-spelling",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "ss02-v1-source-commit",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "ss03-duplicate-story",
+    "pass": true,
+    "expect": "DUPLICATE_SITE_EDITION",
+    "got": [
+     "DUPLICATE_SITE_EDITION"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "ss04-pin-mismatch",
+    "pass": true,
+    "expect": "CONTRACT_VERSION_PIN_MISMATCH",
+    "got": [
+     "CONTRACT_VERSION_PIN_MISMATCH"
+    ],
+    "rule": "H2 (DECISIONS_H2)"
+   },
+   {
+    "case": "v2p01-primary-not-selected",
+    "pass": true,
+    "expect": "PRIMARY_NOT_SELECTED",
+    "got": [
+     "PRIMARY_NOT_SELECTED"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p02-primary-module-not-enabled",
+    "pass": true,
+    "expect": "MODULE_NOT_ENABLED",
+    "got": [
+     "MODULE_NOT_ENABLED"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p03-missing-origin",
+    "pass": true,
+    "expect": "MISSING_ORIGIN",
+    "got": [
+     "MISSING_ORIGIN"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p04-feed-authority-not-selected",
+    "pass": true,
+    "expect": "FEED_AUTHORITY_NOT_SELECTED",
+    "got": [
+     "FEED_AUTHORITY_NOT_SELECTED"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p05-zero-cost-commerce",
+    "pass": true,
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p06-story-duplicate-edition",
+    "pass": true,
+    "expect": "DUPLICATE_CATALOG_OR_EDITION",
+    "got": [
+     "DUPLICATE_CATALOG_OR_EDITION"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p07-duplicate-rights-component",
+    "pass": true,
+    "expect": "DUPLICATE_RIGHTS_COMPONENT",
+    "got": [
+     "DUPLICATE_RIGHTS_COMPONENT"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p08-collection-duplicate-asset",
+    "pass": true,
+    "expect": "DUPLICATE_COLLECTION_ASSET",
+    "got": [
+     "DUPLICATE_COLLECTION_ASSET"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p09-collection-master-missing",
+    "pass": true,
+    "expect": "COLLECTION_MASTER_REFERENCE_MISSING",
+    "got": [
+     "COLLECTION_MASTER_REFERENCE_MISSING"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p10-collection-order-invalid",
+    "pass": true,
+    "expect": "COLLECTION_ORDER_INVALID",
+    "got": [
+     "COLLECTION_ORDER_INVALID"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p11-collection-duplicate-episode",
+    "pass": true,
+    "expect": "DUPLICATE_COLLECTION_EPISODE",
+    "got": [
+     "DUPLICATE_COLLECTION_EPISODE"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p12-spotify-player-without-episode",
+    "pass": true,
+    "expect": "SPOTIFY_EPISODE_REFERENCE_MISSING",
+    "got": [
+     "SPOTIFY_EPISODE_REFERENCE_MISSING"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p13-channel-unknown-asset",
+    "pass": true,
+    "expect": "UNKNOWN_ASSET",
+    "got": [
+     "UNKNOWN_ASSET"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p14-channel-wrong-role",
+    "pass": true,
+    "expect": "WRONG_ASSET_ROLE",
+    "got": [
+     "WRONG_ASSET_ROLE"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p15-plan-expiry-order",
+    "pass": true,
+    "expect": "PLAN_EXPIRY_ORDER",
+    "got": [
+     "PLAN_EXPIRY_ORDER"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p16-duplicate-action",
+    "pass": true,
+    "expect": "DUPLICATE_ACTION",
+    "got": [
+     "DUPLICATE_ACTION"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p17-empty-production-plan",
+    "pass": true,
+    "expect": "EMPTY_PRODUCTION_PLAN",
+    "got": [
+     "EMPTY_PRODUCTION_PLAN"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p18-duplicate-removal",
+    "pass": true,
+    "expect": "SCHEMA_VIOLATION",
+    "got": [
+     "SCHEMA_VIOLATION"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p19-unsafe-removal-path",
+    "pass": true,
+    "expect": "UNSAFE_REMOVAL_PATH",
+    "got": [
+     "UNSAFE_REMOVAL_PATH"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p20-url-with-credentials",
+    "pass": true,
+    "expect": "UNSAFE_URL",
+    "got": [
+     "UNSAFE_URL"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   },
+   {
+    "case": "v2p21-wrong-embed-host",
+    "pass": true,
+    "expect": "WRONG_EMBED_HOST",
+    "got": [
+     "WB_DIVERGENCE_INCONSISTENT",
+     "WRONG_EMBED_HOST"
+    ],
+    "rule": "v2 rule ported (B1, Agent F)"
+   }
+  ],
+  "golden_python": [
+   {
+    "case": "in01-key-order-ascii",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok b142c73641012b21"
+   },
+   {
+    "case": "in02-nfc-unicode-values",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok b19b6b8cda933900"
+   },
+   {
+    "case": "in03-non-bmp-values",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok b17399b95b2a854a"
+   },
+   {
+    "case": "in04-escaped-input-forms",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok 5189c894b4d41748"
+   },
+   {
+    "case": "in05-control-and-special-escapes",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok b354ebfc17c20a5a"
+   },
+   {
+    "case": "in06-safe-integers",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok 30014ecead84441b"
+   },
+   {
+    "case": "in07-nested-and-empty",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok 71014e8c86ee2fd8"
+   },
+   {
+    "case": "in08-whitespace-input",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok 721ef82f2d6c0997"
+   },
+   {
+    "case": "in09-record-shaped",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok cf1b05c0bef4cd8f"
+   },
+   {
+    "case": "x01-float-one",
+    "pass": true,
+    "expect": "CJ_FLOAT",
+    "got": "CJ_FLOAT"
+   },
+   {
+    "case": "x02-float-forms",
+    "pass": true,
+    "expect": "CJ_FLOAT",
+    "got": "CJ_FLOAT"
+   },
+   {
+    "case": "x03-int-2pow53",
+    "pass": true,
+    "expect": "CJ_INT_RANGE",
+    "got": "CJ_INT_RANGE"
+   },
+   {
+    "case": "x04-int-2pow64",
+    "pass": true,
+    "expect": "CJ_INT_RANGE",
+    "got": "CJ_INT_RANGE"
+   },
+   {
+    "case": "x05-nfd-string",
+    "pass": true,
+    "expect": "CJ_NOT_NFC",
+    "got": "CJ_NOT_NFC"
+   },
+   {
+    "case": "x06-non-bmp-key-order",
+    "pass": true,
+    "expect": "CJ_KEY_NOT_ASCII",
+    "got": "CJ_KEY_NOT_ASCII"
+   },
+   {
+    "case": "x07-lone-surrogate",
+    "pass": true,
+    "expect": "CJ_LONE_SURROGATE",
+    "got": "CJ_LONE_SURROGATE"
+   },
+   {
+    "case": "x08-duplicate-key",
+    "pass": true,
+    "expect": "CJ_DUPLICATE_KEY",
+    "got": "CJ_DUPLICATE_KEY"
+   },
+   {
+    "case": "x09-nan-token",
+    "pass": true,
+    "expect": "CJ_SYNTAX",
+    "got": "CJ_SYNTAX"
+   },
+   {
+    "case": "x10-overflow-float",
+    "pass": true,
+    "expect": "CJ_FLOAT",
+    "got": "CJ_FLOAT"
+   },
+   {
+    "case": "x11-bom",
+    "pass": true,
+    "expect": "CJ_BOM",
+    "got": "CJ_BOM"
+   },
+   {
+    "case": "x12-invalid-utf8",
+    "pass": true,
+    "expect": "CJ_INVALID_UTF8",
+    "got": "CJ_INVALID_UTF8"
+   },
+   {
+    "case": "x13-trailing-data",
+    "pass": true,
+    "expect": "CJ_SYNTAX",
+    "got": "CJ_SYNTAX"
+   },
+   {
+    "case": "x14-non-ascii-key-bmp",
+    "pass": true,
+    "expect": "CJ_KEY_NOT_ASCII",
+    "got": "CJ_KEY_NOT_ASCII"
+   },
+   {
+    "case": "x15-unicode-version-nfc",
+    "pass": true,
+    "expect": "CJ_UNASSIGNED_CODEPOINT",
+    "got": "CJ_UNASSIGNED_CODEPOINT"
+   }
+  ],
+  "negative_raw": [
+   {
+    "case": "fv08-5000-digit-integer",
+    "pass": true,
+    "expect": "CJ_INT_RANGE",
+    "got": "CJ_INT_RANGE"
+   }
+  ],
+  "v2_semantics_ported": [
+   {
+    "case": "01 valid draft example",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "02 safe inactive project requires no credentials",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "03 unknown field rejected",
+    "pass": true,
+    "got": [
+     "SCHEMA_VIOLATION"
+    ]
+   },
+   {
+    "case": "04 unsupported schema version rejected",
+    "pass": true,
+    "got": [
+     "CONTRACT_VERSION_UNSUPPORTED"
+    ]
+   },
+   {
+    "case": "05 release identity mismatch rejected",
+    "pass": true,
+    "got": [
+     "SCHEMA_VIOLATION"
+    ]
+   },
+   {
+    "case": "06 reversed age range rejected",
+    "pass": true,
+    "got": [
+     "AGE_RANGE_REVERSED"
+    ]
+   },
+   {
+    "case": "07 path traversal rejected (rights.record_path; v2 sources[] became handoffs)",
+    "pass": true,
+    "got": [
+     "UNSAFE_PATH"
+    ]
+   },
+   {
+    "case": "08 empty path segment rejected",
+    "pass": true,
+    "got": [
+     "UNSAFE_PATH"
+    ]
+   },
+   {
+    "case": "09 missing image reference rejected",
+    "pass": true,
+    "got": [
+     "UNKNOWN_ASSET"
+    ]
+   },
+   {
+    "case": "10 native audio without asset rejected",
+    "pass": true,
+    "got": [
+     "NATIVE_AUDIO_REFERENCE_MISSING"
+    ]
+   },
+   {
+    "case": "11 Spotify player without episode rejected",
+    "pass": true,
+    "got": [
+     "SPOTIFY_EPISODE_REFERENCE_MISSING"
+    ]
+   },
+   {
+    "case": "12 spec-only module cannot be selected",
+    "pass": true,
+    "got": [
+     "MODULE_NOT_ENABLED",
+     "PRIMARY_MODULE_SPEC_ONLY"
+    ]
+   },
+   {
+    "case": "13 two enabled websites rejected",
+    "pass": true,
+    "got": [
+     "MULTIPLE_WEBSITES",
+     "PRIMARY_NOT_SELECTED"
+    ]
+   },
+   {
+    "case": "14 two feed authorities rejected",
+    "pass": true,
+    "got": [
+     "MULTIPLE_FEED_AUTHORITIES"
+    ]
+   },
+   {
+    "case": "15 unselected feed authority rejected",
+    "pass": true,
+    "got": [
+     "FEED_AUTHORITY_NOT_SELECTED"
+    ]
+   },
+   {
+    "case": "16 zero-cost commerce activation rejected",
+    "pass": true,
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ]
+   },
+   {
+    "case": "17 approval cannot pass failed check",
+    "pass": true,
+    "got": [
+     "APPROVAL_CHAIN_MISSING",
+     "INVALID_POSITIVE_APPROVAL"
+    ]
+   },
+   {
+    "case": "18 private field in public bundle rejected",
+    "pass": true,
+    "got": [
+     "SCHEMA_VIOLATION"
+    ]
+   },
+   {
+    "case": "19 duplicate public page rejected",
+    "pass": true,
+    "got": [
+     "WB_ROUTE_DUPLICATE",
+     "WB_STORY_LANGUAGE_DUPLICATE"
+    ]
+   },
+   {
+    "case": "20 language path disagreement rejected",
+    "pass": true,
+    "got": [
+     "WB_RELEASE_MISMATCH",
+     "WB_STORY_LANGUAGE_UNKNOWN",
+     "WB_STORY_PATH_LANGUAGE_MISMATCH"
+    ]
+   },
+   {
+    "case": "21 public player mismatch rejected",
+    "pass": true,
+    "got": [
+     "SCHEMA_VIOLATION"
+    ]
+   },
+   {
+    "case": "22 URL with embedded credential rejected",
+    "pass": true,
+    "got": [
+     "SCHEMA_VIOLATION"
+    ]
+   },
+   {
+    "case": "23 example cannot satisfy declarative readiness",
+    "pass": true
+   },
+   {
+    "case": "24 missing selected delivery assets detected",
+    "pass": true
+   },
+   {
+    "case": "25 pending rights detected",
+    "pass": true
+   },
+   {
+    "case": "26 canonical map ordering stable",
+    "pass": true
+   },
+   {
+    "case": "27 content mutation changes digest",
+    "pass": true
+   },
+   {
+    "case": "28 duplicate YAML keys rejected",
+    "pass": true
+   },
+   {
+    "case": "29 duplicate JSON keys rejected",
+    "pass": true
+   },
+   {
+    "case": "30 nonfinite canonical number rejected",
+    "pass": true
+   },
+   {
+    "case": "31 unsafe YAML tag rejected",
+    "pass": true
+   },
+   {
+    "case": "32 unreviewed rights cannot be marked cleared",
+    "pass": true,
+    "got": [
+     "INCOMPLETE_RIGHTS_CLEARANCE"
+    ]
+   },
+   {
+    "case": "33 unrequested newsletter send rejected",
+    "pass": true,
+    "got": [
+     "SCHEMA_VIOLATION"
+    ]
+   },
+   {
+    "case": "34 invalid plan time interval rejected",
+    "pass": true,
+    "got": [
+     "PLAN_EXPIRY_ORDER"
+    ]
+   },
+   {
+    "case": "35 empty production plan rejected",
+    "pass": true,
+    "got": [
+     "EMPTY_PRODUCTION_PLAN"
+    ]
+   }
+  ],
+  "info_g3_compat": [
+   {
+    "case": "G3 example CONTRACT.lock validated as contract-lock.v1 (H2)",
+    "pass": true,
+    "got": [],
+    "note": "G3's lock regenerated for H2 (0.2.0-h2, with canonicalization), refreshed by the lead 2026-10-07"
+   },
+   {
+    "case": "G3 lock pins vs the H2 schema files shipped here",
+    "pass": true,
+    "got": {
+     "pinned": 35,
+     "digest_differs": []
+    },
+    "note": "G3's lock pins exactly the H2 schema files shipped here"
+   }
+  ],
+  "negative_imports": [
+   {
+    "case": "m01-traversal-member",
+    "pass": true,
+    "expect": "ARCHIVE_UNSAFE_PATH",
+    "got": [
+     "ARCHIVE_UNSAFE_PATH"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m02-absolute-member",
+    "pass": true,
+    "expect": "ARCHIVE_UNSAFE_PATH",
+    "got": [
+     "ARCHIVE_UNSAFE_PATH"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m03-symlink-member",
+    "pass": true,
+    "expect": "ARCHIVE_LINK_FORBIDDEN",
+    "got": [
+     "ARCHIVE_LINK_FORBIDDEN"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m04-hardlink-member",
+    "pass": true,
+    "expect": "ARCHIVE_LINK_FORBIDDEN",
+    "got": [
+     "ARCHIVE_LINK_FORBIDDEN"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m05-fifo-member",
+    "pass": true,
+    "expect": "ARCHIVE_SPECIAL_FILE",
+    "got": [
+     "ARCHIVE_SPECIAL_FILE"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m06-device-member",
+    "pass": true,
+    "expect": "ARCHIVE_SPECIAL_FILE",
+    "got": [
+     "ARCHIVE_SPECIAL_FILE"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m07-gzip-archive",
+    "pass": true,
+    "expect": "ARCHIVE_FORMAT_UNSUPPORTED",
+    "got": [
+     "ARCHIVE_FORMAT_UNSUPPORTED"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m08-not-a-tar",
+    "pass": true,
+    "expect": "ARCHIVE_MALFORMED",
+    "got": [
+     "ARCHIVE_MALFORMED"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m09-truncated-tar",
+    "pass": true,
+    "expect": "ARCHIVE_MALFORMED",
+    "got": [
+     "ARCHIVE_MALFORMED"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m10-missing-bytes",
+    "pass": true,
+    "expect": "MISSING_BYTES",
+    "got": [
+     "MISSING_BYTES"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m11-extra-file",
+    "pass": true,
+    "expect": "UNEXPECTED_FILE",
+    "got": [
+     "UNEXPECTED_FILE"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m12-modified-bytes",
+    "pass": true,
+    "expect": "HASH_MISMATCH",
+    "got": [
+     "HASH_MISMATCH",
+     "SIZE_MISMATCH"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m13-too-many-members",
+    "pass": true,
+    "expect": "ARCHIVE_TOO_MANY_MEMBERS",
+    "got": [
+     "ARCHIVE_TOO_MANY_MEMBERS"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m14-expansion-limit",
+    "pass": true,
+    "expect": "ARCHIVE_SIZE_LIMIT",
+    "got": [
+     "ARCHIVE_SIZE_LIMIT"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m15-duplicate-member",
+    "pass": true,
+    "expect": "ARCHIVE_DUPLICATE_MEMBER",
+    "got": [
+     "ARCHIVE_DUPLICATE_MEMBER"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m16-case-collision",
+    "pass": true,
+    "expect": "ARCHIVE_CASE_COLLISION",
+    "got": [
+     "ARCHIVE_CASE_COLLISION"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m17-script-disguised-as-png",
+    "pass": true,
+    "expect": "MEDIA_TYPE_MISMATCH",
+    "got": [
+     "MEDIA_TYPE_MISMATCH"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m18-handoff-json-missing",
+    "pass": true,
+    "expect": "HANDOFF_RECORD_MISSING",
+    "got": [
+     "HANDOFF_RECORD_MISSING"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m19-out-of-band-digest-mismatch",
+    "pass": true,
+    "expect": "ARCHIVE_DIGEST_MISMATCH",
+    "got": [
+     "ARCHIVE_DIGEST_MISMATCH"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m20-unsupported-version-in-package",
+    "pass": true,
+    "expect": "CONTRACT_VERSION_UNSUPPORTED",
+    "got": [
+     "CONTRACT_VERSION_UNSUPPORTED"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m21-measurement-mismatch",
+    "pass": true,
+    "expect": "MEASUREMENT_MISMATCH",
+    "got": [
+     "MEASUREMENT_MISMATCH"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m22-example-into-production-state",
+    "pass": true,
+    "expect": "EXAMPLE_RECORD",
+    "got": [
+     "EXAMPLE_RECORD"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m23-story-not-allocated",
+    "pass": true,
+    "expect": "STORY_NOT_ALLOCATED",
+    "got": [
+     "STORY_NOT_ALLOCATED"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m24-duplicate-json-key",
+    "pass": true,
+    "expect": "CJ_DUPLICATE_KEY",
+    "got": [
+     "CJ_DUPLICATE_KEY"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m25-unsafe-name-backslash",
+    "pass": true,
+    "expect": "ARCHIVE_UNSAFE_PATH",
+    "got": [
+     "ARCHIVE_UNSAFE_PATH"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m26-member-prefix-collision",
+    "pass": true,
+    "expect": "ARCHIVE_MEMBER_PREFIX_COLLISION",
+    "got": [
+     "ARCHIVE_MEMBER_PREFIX_COLLISION"
+    ],
+    "archived_files": 0
+   },
+   {
+    "case": "m27-no-expected-digest",
+    "pass": true,
+    "expect": "EXPECTED_DIGEST_REQUIRED",
+    "got": [
+     "EXPECTED_DIGEST_REQUIRED"
+    ],
+    "archived_files": 0
+   }
+  ],
+  "import_scenarios": [
+   {
+    "case": "sc01-reimport-identical",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "accepted",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 1,
+      "outcome": "duplicate-identical",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 2,
+      "outcome": "duplicate-identical",
+      "errors": [],
+      "pass": true
+     }
+    ],
+    "final": {}
+   },
+   {
+    "case": "sc02-revision-conflict",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "accepted",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 1,
+      "outcome": "rejected",
+      "errors": [
+       "HANDOFF_REVISION_CONFLICT"
+      ],
+      "pass": true
+     }
+    ],
+    "final": {}
+   },
+   {
+    "case": "sc03-supersedes-unknown",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "rejected",
+      "errors": [
+       "SUPERSEDES_UNKNOWN"
+      ],
+      "pass": true
+     }
+    ],
+    "final": {}
+   },
+   {
+    "case": "sc04-correction-then-fork",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "accepted",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 1,
+      "outcome": "accepted",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 2,
+      "outcome": "rejected",
+      "errors": [
+       "HANDOFF_FORK"
+      ],
+      "pass": true
+     }
+    ],
+    "final": {}
+   },
+   {
+    "case": "sc05-interrupted-then-retry",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "crash",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 1,
+      "outcome": "accepted",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 2,
+      "outcome": "duplicate-identical",
+      "errors": [],
+      "pass": true
+     }
+    ],
+    "final": {
+     "accepted_receipts": 1,
+     "archive_files": 1,
+     "staging_left": 0
+    }
+   },
+   {
+    "case": "sc06-interrupted-during-staging",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "crash",
+      "errors": [],
+      "pass": true
+     },
+     {
+      "step": 1,
+      "outcome": "accepted",
+      "errors": [],
+      "pass": true
+     }
+    ],
+    "final": {
+     "accepted_receipts": 1,
+     "archive_files": 1,
+     "staging_left": 0
+    }
+   },
+   {
+    "case": "sc07-archive-store-corrupt",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "rejected",
+      "errors": [
+       "ARCHIVE_STORE_CORRUPT"
+      ],
+      "pass": true
+     }
+    ],
+    "final": {
+     "accepted_receipts": 0,
+     "archive_files": 1,
+     "staging_left": 0
+    }
+   },
+   {
+    "case": "sc08-corrupt-prior-receipt",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "rejected",
+      "errors": [
+       "IMPORT_STATE_CORRUPT"
+      ],
+      "pass": true
+     }
+    ],
+    "final": {
+     "accepted_receipts": 0,
+     "archive_files": 0,
+     "staging_left": 0
+    }
+   },
+   {
+    "case": "sc09-lock-held",
+    "pass": true,
+    "got": [
+     {
+      "step": 0,
+      "outcome": "rejected",
+      "errors": [
+       "IMPORT_LOCKED"
+      ],
+      "pass": true
+     }
+    ],
+    "final": {
+     "accepted_receipts": 0,
+     "archive_files": 0,
+     "staging_left": 0
+    }
+   }
+  ],
+  "positive_import": [
+   {
+    "case": "lion-h0001-synthetic accepted; tar in MASTER_ROOT/handoffs/<sha256>.tar; receipt in STATE_ROOT",
+    "pass": true,
+    "got": {
+     "outcome": "accepted",
+     "errors": [],
+     "archival_locator": "handoffs/39bd4814abf8527f2366c155e28bc19204171f10e836ae9be4367782973bc81f.tar",
+     "archive_bytes": 30720
+    }
+   }
+  ],
+  "import_roots": [
+   {
+    "case": "inbox unset (state root usable: rejection receipt written)",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSET",
+    "got": [
+     "STATE_ROOT_UNSET"
+    ],
+    "receipt_written": 1
+   },
+   {
+    "case": "master root unset",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSET",
+    "got": [
+     "STATE_ROOT_UNSET"
+    ],
+    "receipt_written": 1
+   },
+   {
+    "case": "state root on LUMI scratch (default rules)",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": [
+     "STATE_ROOT_UNSAFE"
+    ],
+    "receipt_written": 0
+   },
+   {
+    "case": "state root relative",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": [
+     "STATE_ROOT_UNSAFE"
+    ],
+    "receipt_written": 0
+   },
+   {
+    "case": "archive outside inbox (receipt written)",
+    "pass": true,
+    "expect": "ARCHIVE_OUTSIDE_INBOX",
+    "got": [
+     "ARCHIVE_OUTSIDE_INBOX"
+    ],
+    "receipt_written": 1
+   },
+   {
+    "case": "safe roots accept",
+    "pass": true,
+    "expect": "accepted",
+    "got": [
+     "accepted"
+    ],
+    "receipt_written": 1
+   },
+   {
+    "case": "test-only switch: no digest -> accepted receipt marked example:true",
+    "pass": true,
+    "got": {
+     "outcome": "accepted",
+     "example": true
+    }
+   },
+   {
+    "case": "every negative import wrote exactly one rejection receipt",
+    "pass": true,
+    "got": []
+   }
+  ],
+  "web_payload_positive": [
+   {
+    "case": "site-set-0001",
+    "errors": [],
+    "pass": true
+   },
+   {
+    "case": "site-set-0002",
+    "errors": [],
+    "pass": true
+   }
+  ],
+  "web_payload_negative": [
+   {
+    "case": "unknown block type",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: stories.0.blocks.4"
+    ],
+    "pass": true
+   },
+   {
+    "case": "private field leaks into story",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: stories.0"
+    ],
+    "pass": true
+   },
+   {
+    "case": "float duration",
+    "expected": "WB_CANONICAL_DOMAIN",
+    "errors": [
+     "WB_CANONICAL_DOMAIN: CJ_FLOAT: 1.5"
+    ],
+    "pass": true
+   },
+   {
+    "case": "http (not https) youtube url",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: stories.0.video"
+    ],
+    "pass": true
+   },
+   {
+    "case": "javascript: url in link",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: stories.0.listening.links.0.url"
+    ],
+    "pass": true
+   },
+   {
+    "case": "empty alt text",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: stories.0.blocks.2"
+    ],
+    "pass": true
+   },
+   {
+    "case": "story path in other language",
+    "expected": "WB_STORY_PATH_LANGUAGE_MISMATCH",
+    "errors": [
+     "WB_STORY_PATH_LANGUAGE_MISMATCH: lion-and-mouse.en"
+    ],
+    "pass": true
+   },
+   {
+    "case": "duplicate route",
+    "expected": "WB_ROUTE_DUPLICATE",
+    "errors": [
+     "WB_ROUTE_DUPLICATE: /en/stories/the-lion-and-the-mouse/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "image block references missing media",
+    "expected": "WB_MEDIA_UNRESOLVED",
+    "errors": [
+     "WB_MEDIA_UNRESOLVED: lion-and-mouse.en:illus-missing",
+     "WB_MEDIA_UNUSED: illus-s01-explores-start"
+    ],
+    "pass": true
+   },
+   {
+    "case": "unused media (nonselected asset)",
+    "expected": "WB_MEDIA_UNUSED",
+    "errors": [
+     "WB_MEDIA_UNUSED: illus-extra"
+    ],
+    "pass": true
+   },
+   {
+    "case": "media path not content-addressed",
+    "expected": "WB_MEDIA_PATH_NOT_CONTENT_ADDRESSED",
+    "errors": [
+     "WB_MEDIA_PATH_NOT_CONTENT_ADDRESSED: illus-fixture-01"
+    ],
+    "pass": true
+   },
+   {
+    "case": "spotify embed without measured duration",
+    "expected": "WB_DURATION_REQUIRED",
+    "errors": [
+     "WB_DURATION_REQUIRED: lion-and-mouse.en",
+     "WB_DIVERGENCE_INCONSISTENT: lion-and-mouse.en"
+    ],
+    "pass": true
+   },
+   {
+    "case": "spotify embed without fallback link",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: stories.0.listening.player"
+    ],
+    "pass": true
+   },
+   {
+    "case": "audio but divergence not-applicable",
+    "expected": "WB_DIVERGENCE_INCONSISTENT",
+    "errors": [
+     "WB_DIVERGENCE_INCONSISTENT: lion-and-mouse.en"
+    ],
+    "pass": true
+   },
+   {
+    "case": "adapted reading text with audio but no transcript",
+    "expected": "WB_TRANSCRIPT_REQUIRED",
+    "errors": [
+     "WB_TRANSCRIPT_REQUIRED: lion-and-mouse.en"
+    ],
+    "pass": true
+   },
+   {
+    "case": "age range inverted",
+    "expected": "WB_AGE_RANGE",
+    "errors": [
+     "WB_AGE_RANGE: lion-and-mouse.en"
+    ],
+    "pass": true
+   },
+   {
+    "case": "release of another story",
+    "expected": "WB_RELEASE_MISMATCH",
+    "errors": [
+     "WB_RELEASE_MISMATCH: lion-and-mouse.en"
+    ],
+    "pass": true
+   },
+   {
+    "case": "redirect to missing route",
+    "expected": "WB_REDIRECT_TARGET_MISSING",
+    "errors": [
+     "WB_REDIRECT_TARGET_MISSING: /en/stories/nowhere/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "redirect shadows live route",
+    "expected": "WB_REDIRECT_SHADOWS_ROUTE",
+    "errors": [
+     "WB_REDIRECT_SHADOWS_ROUTE: /en/about/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "default language not offered",
+    "expected": "WB_DEFAULT_LANGUAGE_UNKNOWN",
+    "errors": [
+     "WB_DEFAULT_LANGUAGE_UNKNOWN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "origin is http",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: origin"
+    ],
+    "pass": true
+   },
+   {
+    "case": "trailing slash policy changed",
+    "expected": "WB_SCHEMA",
+    "errors": [
+     "WB_SCHEMA: trailing_slash"
+    ],
+    "pass": true
+   }
+  ],
+  "web_render_input_positive": [
+   {
+    "case": "site-set-0001",
+    "errors": [],
+    "pass": true
+   },
+   {
+    "case": "site-set-0002",
+    "errors": [],
+    "pass": true
+   }
+  ],
+  "web_render_input_negative": [
+   {
+    "case": "extra unlisted file (e.g. leaked notes)",
+    "expected": "RI_UNLISTED_FILE",
+    "errors": [
+     "RI_UNLISTED_FILE: notes.txt"
+    ],
+    "pass": true
+   },
+   {
+    "case": "missing media bytes",
+    "expected": "RI_MISSING_FILE",
+    "errors": [
+     "RI_MISSING_FILE: media/31df5e30f608460ad0514e3850cb487a67ddb47a83317a03f6eacf7bd4a2211d.png"
+    ],
+    "pass": true
+   },
+   {
+    "case": "media bytes changed",
+    "expected": "RI_FILE_DIGEST_MISMATCH",
+    "errors": [
+     "RI_FILE_DIGEST_MISMATCH: media/31df5e30f608460ad0514e3850cb487a67ddb47a83317a03f6eacf7bd4a2211d.png"
+    ],
+    "pass": true
+   },
+   {
+    "case": "escaping symlink",
+    "expected": "RI_TREE_SYMLINK",
+    "errors": [
+     "RI_TREE_SYMLINK: media/link.png"
+    ],
+    "pass": true
+   },
+   {
+    "case": "renderer already set",
+    "expected": "RI_RENDERER_MUST_BE_NULL",
+    "errors": [
+     "RI_RENDERER_MUST_BE_NULL"
+    ],
+    "pass": true
+   },
+   {
+    "case": "payload digest not pinned",
+    "expected": "RI_PUBLIC_RECORD_DIGEST_MISMATCH",
+    "errors": [
+     "RI_PUBLIC_RECORD_DIGEST_MISMATCH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "release list differs from payload",
+    "expected": "RI_RELEASES_MISMATCH",
+    "errors": [
+     "RI_RELEASES_MISMATCH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "forbidden function file listed (B rule)",
+    "expected": "RI_PUBLIC_FORBIDDEN_FILE",
+    "errors": [
+     "RI_PUBLIC_FORBIDDEN_FILE: functions/api.js"
+    ],
+    "pass": true
+   },
+   {
+    "case": "payload rewritten non-canonically",
+    "expected": "RI_PAYLOAD_NOT_CANONICAL",
+    "errors": [
+     "RI_PAYLOAD_NOT_CANONICAL"
+    ],
+    "pass": true
+   }
+  ],
+  "web_completeness": [
+   {
+    "case": "first -> second story keeps the first",
+    "expected": "pass",
+    "errors": [],
+    "pass": true
+   },
+   {
+    "case": "second site-set drops the first story",
+    "expected": "SC_STORY_DROPPED",
+    "errors": [
+     "SC_STORY_DROPPED: lion-and-mouse.en"
+    ],
+    "pass": true
+   },
+   {
+    "case": "explicit withdrawal via remove_paths",
+    "expected": "pass",
+    "errors": [],
+    "pass": true
+   },
+   {
+    "case": "slug change without redirect",
+    "expected": "SC_PATH_CHANGED_WITHOUT_REDIRECT",
+    "errors": [
+     "SC_PATH_CHANGED_WITHOUT_REDIRECT: /en/stories/the-lion-and-the-mouse/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "slug change with redirect",
+    "expected": "pass",
+    "errors": [],
+    "pass": true
+   }
+  ],
+  "web_site_artifact": [
+   {
+    "case": "synthetic complete artifact",
+    "expected": "pass",
+    "errors": [],
+    "pass": true
+   },
+   {
+    "case": "missing 404 page",
+    "expected": "SA_404_MISSING",
+    "errors": [
+     "SA_404_MISSING"
+    ],
+    "pass": true
+   },
+   {
+    "case": "story route missing",
+    "expected": "SA_ROUTE_MISSING",
+    "errors": [
+     "SA_ROUTE_MISSING: /en/stories/fixture-second-story/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "renderer re-encoded media",
+    "expected": "SA_MEDIA_NOT_FROM_INPUT",
+    "errors": [
+     "SA_MEDIA_NOT_FROM_INPUT: media/1111111111111111111111111111111111111111111111111111111111111111.webp"
+    ],
+    "pass": true
+   },
+   {
+    "case": "functions dir shipped",
+    "expected": "SA_PUBLIC_FORBIDDEN_FILE",
+    "errors": [
+     "SA_PUBLIC_FORBIDDEN_FILE: functions/api.js"
+    ],
+    "pass": true
+   },
+   {
+    "case": "local path leaked",
+    "expected": "SA_LOCAL_PATH_OR_SECRET_PATTERN",
+    "errors": [
+     "SA_LOCAL_PATH_OR_SECRET_PATTERN: en/about/index.html"
+    ],
+    "pass": true
+   },
+   {
+    "case": "autoplay audio",
+    "expected": "SA_AUTOPLAY",
+    "errors": [
+     "SA_AUTOPLAY: /en/stories/fixture-second-story/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "illustration missing from story page",
+    "expected": "SA_ILLUSTRATION_ORDER",
+    "errors": [
+     "SA_ILLUSTRATION_ORDER: /en/stories/the-lion-and-the-mouse/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "img without alt",
+    "expected": "SA_IMG_WITHOUT_ALT",
+    "errors": [
+     "SA_IMG_WITHOUT_ALT: /en/stories/fixture-second-story/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "eager third-party iframe",
+    "expected": "SA_EAGER_IFRAME",
+    "errors": [
+     "SA_EAGER_IFRAME: /en/stories/fixture-second-story/"
+    ],
+    "pass": true
+   },
+   {
+    "case": "wrong html lang",
+    "expected": "SA_HTML_LANG_MISMATCH",
+    "errors": [
+     "SA_HTML_LANG_MISMATCH: /en/stories/fixture-second-story/"
+    ],
+    "pass": true
+   }
+  ],
+  "podcast": [
+   {
+    "case": "example:episode-publication.v2.spotify-prepared.example.json",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "example:episode-publication.v2.spotify-published.example.json",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "example:feed-observation.v1.example.json",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "example:provider-registry.v2.example.json",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "negative:n01-placeholder-url-in-real-record",
+    "pass": true,
+    "got": {
+     "expected": [
+      "PLACEHOLDER_URL_IN_REAL_RECORD"
+     ],
+     "got": [
+      "PLACEHOLDER_URL_IN_REAL_RECORD"
+     ]
+    }
+   },
+   {
+    "case": "negative:n02-real-looking-url-in-example",
+    "pass": true,
+    "got": {
+     "expected": [
+      "REAL_LOOKING_URL_IN_EXAMPLE"
+     ],
+     "got": [
+      "REAL_LOOKING_URL_IN_EXAMPLE"
+     ]
+    }
+   },
+   {
+    "case": "negative:n03-spotify-guid-guessed-before-observation",
+    "pass": true,
+    "got": {
+     "expected": [
+      "SPOTIFY_GUID_BEFORE_OBSERVATION"
+     ],
+     "got": [
+      "SPOTIFY_GUID_BEFORE_OBSERVATION"
+     ]
+    }
+   },
+   {
+    "case": "negative:n04-published-without-evidence",
+    "pass": true,
+    "got": {
+     "expected": [
+      "PUBLISHED_EPISODE_INCOMPLETE"
+     ],
+     "got": [
+      "PUBLISHED_EPISODE_INCOMPLETE"
+     ]
+    }
+   },
+   {
+    "case": "negative:n05-float-duration",
+    "pass": true,
+    "got": {
+     "expected": [
+      "CJ_FLOAT"
+     ],
+     "got": [
+      "CJ_FLOAT"
+     ]
+    }
+   },
+   {
+    "case": "negative:n06-spotify-generated-guid",
+    "pass": true,
+    "got": {
+     "expected": [
+      "GUID_SOURCE_AUTHORITY_MISMATCH"
+     ],
+     "got": [
+      "GUID_SOURCE_AUTHORITY_MISMATCH"
+     ]
+    }
+   },
+   {
+    "case": "negative:n07-release-other-episode",
+    "pass": true,
+    "got": {
+     "expected": [
+      "EPISODE_RELEASE_MISMATCH"
+     ],
+     "got": [
+      "EPISODE_RELEASE_MISMATCH"
+     ]
+    }
+   },
+   {
+    "case": "negative:n08-pubdate-raw-utc-mismatch",
+    "pass": true,
+    "got": {
+     "expected": [
+      "PUBDATE_RAW_UTC_MISMATCH"
+     ],
+     "got": [
+      "PUBDATE_RAW_UTC_MISMATCH"
+     ]
+    }
+   },
+   {
+    "case": "negative:n09-supersedes-on-revision-1",
+    "pass": true,
+    "got": {
+     "expected": [
+      "EPISODE_SUPERSEDES_INCONSISTENT"
+     ],
+     "got": [
+      "EPISODE_SUPERSEDES_INCONSISTENT"
+     ]
+    }
+   },
+   {
+    "case": "negative:n10-url-kind-conflict",
+    "pass": true,
+    "got": {
+     "expected": [
+      "URL_KIND_CONFLICT"
+     ],
+     "got": [
+      "URL_KIND_CONFLICT"
+     ]
+    }
+   },
+   {
+    "case": "negative:n11-rss-feed-on-episode",
+    "pass": true,
+    "got": {
+     "expected": [
+      "URL_KIND_ENTITY_MISMATCH"
+     ],
+     "got": [
+      "URL_KIND_ENTITY_MISMATCH"
+     ]
+    }
+   },
+   {
+    "case": "negative:n12-listed-without-url",
+    "pass": true,
+    "got": {
+     "expected": [
+      "LISTED_WITHOUT_URL"
+     ],
+     "got": [
+      "LISTED_WITHOUT_URL"
+     ]
+    }
+   },
+   {
+    "case": "negative:n13-enclosure-for-apple",
+    "pass": true,
+    "got": {
+     "expected": [
+      "URL_KIND_DESTINATION_MISMATCH"
+     ],
+     "got": [
+      "URL_KIND_DESTINATION_MISMATCH"
+     ]
+    }
+   },
+   {
+    "case": "negative:n14-supersedes-unknown",
+    "pass": true,
+    "got": {
+     "expected": [
+      "SUPERSEDES_UNKNOWN_RECORD"
+     ],
+     "got": [
+      "SUPERSEDES_UNKNOWN_RECORD"
+     ]
+    }
+   },
+   {
+    "case": "negative:n15-http-url",
+    "pass": true,
+    "got": {
+     "expected": [
+      "SCHEMA_VIOLATION"
+     ],
+     "got": [
+      "SCHEMA_VIOLATION"
+     ]
+    }
+   },
+   {
+    "case": "negative:n16-email-field-smuggled",
+    "pass": true,
+    "got": {
+     "expected": [
+      "SCHEMA_VIOLATION"
+     ],
+     "got": [
+      "SCHEMA_VIOLATION"
+     ]
+    }
+   },
+   {
+    "case": "negative:s01-metadata-correction-keeps-identity",
+    "pass": true,
+    "got": {
+     "expected": [],
+     "got": []
+    }
+   },
+   {
+    "case": "negative:s02-audio-replacement-keeps-guid-and-date",
+    "pass": true,
+    "got": {
+     "expected": [],
+     "got": []
+    }
+   },
+   {
+    "case": "negative:s03-guid-changed",
+    "pass": true,
+    "got": {
+     "expected": [
+      "EPISODE_IDENTITY_CHANGED"
+     ],
+     "got": [
+      "EPISODE_IDENTITY_CHANGED"
+     ]
+    }
+   },
+   {
+    "case": "negative:s04-first-date-reset",
+    "pass": true,
+    "got": {
+     "expected": [
+      "EPISODE_IDENTITY_CHANGED"
+     ],
+     "got": [
+      "EPISODE_IDENTITY_CHANGED"
+     ]
+    }
+   },
+   {
+    "case": "negative:s05-replacement-same-bytes",
+    "pass": true,
+    "got": {
+     "expected": [
+      "AUDIO_REPLACEMENT_WITHOUT_NEW_AUDIO"
+     ],
+     "got": [
+      "AUDIO_REPLACEMENT_WITHOUT_NEW_AUDIO"
+     ]
+    }
+   },
+   {
+    "case": "negative:s06-migration-new-guid",
+    "pass": true,
+    "got": {
+     "expected": [
+      "EPISODE_IDENTITY_CHANGED",
+      "MIGRATION_GUID_NOT_RETAINED"
+     ],
+     "got": [
+      "EPISODE_IDENTITY_CHANGED",
+      "MIGRATION_GUID_NOT_RETAINED"
+     ]
+    }
+   },
+   {
+    "case": "negative:s07-migration-retained",
+    "pass": true,
+    "got": {
+     "expected": [],
+     "got": []
+    }
+   },
+   {
+    "case": "hostile:x01_billion_laughs.xml",
+    "pass": true,
+    "got": "FEED_DTD_FORBIDDEN"
+   },
+   {
+    "case": "hostile:x02_xxe.xml",
+    "pass": true,
+    "got": "FEED_DTD_FORBIDDEN"
+   },
+   {
+    "case": "hostile:x03_latin1.xml",
+    "pass": true,
+    "got": "FEED_ENCODING_UNSUPPORTED"
+   },
+   {
+    "case": "hostile:x04_malformed.xml",
+    "pass": true,
+    "got": "FEED_XML_MALFORMED"
+   },
+   {
+    "case": "hostile:x05_atom.xml",
+    "pass": true,
+    "got": "FEED_NOT_RSS"
+   },
+   {
+    "case": "hostile:x06_lowercase_doctype.xml",
+    "pass": true,
+    "got": "FEED_DTD_FORBIDDEN"
+   },
+   {
+    "case": "observe:f01 validates",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "observe:f01 no problems",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "observe:isPermaLink default true when attribute absent",
+    "pass": true,
+    "got": null
+   },
+   {
+    "case": "observe:+0200 pubDate normalized to UTC",
+    "pass": true,
+    "got": "2026-10-13T16:00:00Z"
+   },
+   {
+    "case": "observe:entity-escaped title decoded",
+    "pass": true,
+    "got": null
+   },
+   {
+    "case": "observe:email value not stored",
+    "pass": true,
+    "got": null
+   },
+   {
+    "case": "observe:missing itunes email flagged",
+    "pass": true,
+    "got": [
+     "FEED_EMAIL_ABSENT"
+    ]
+   },
+   {
+    "case": "observe:duplicate guid/enclosure flagged",
+    "pass": true,
+    "got": [
+     "DUPLICATE_ENCLOSURE_URL",
+     "DUPLICATE_GUID"
+    ]
+   },
+   {
+    "case": "diff:correction + replacement + new episode are non-breaking",
+    "pass": true,
+    "got": [
+     [
+      "ENCLOSURE_LENGTH_CHANGED",
+      false
+     ],
+     [
+      "ENCLOSURE_URL_CHANGED",
+      false
+     ],
+     [
+      "ITEM_ADDED",
+      false
+     ],
+     [
+      "TITLE_CHANGED",
+      false
+     ]
+    ]
+   },
+   {
+    "case": "diff:guid rewrite detected as breaking",
+    "pass": true,
+    "got": [
+     [
+      "SUSPECTED_GUID_REWRITE",
+      true
+     ]
+    ]
+   },
+   {
+    "case": "diff:pubdate reset is breaking",
+    "pass": true,
+    "got": [
+     [
+      "PUBDATE_CHANGED",
+      true
+     ]
+    ]
+   },
+   {
+    "case": "diff:new-feed-url announced",
+    "pass": true,
+    "got": [
+     [
+      "NEW_FEED_URL_ANNOUNCED",
+      false
+     ]
+    ]
+   },
+   {
+    "case": "diff:email removed is breaking (directory verification)",
+    "pass": true,
+    "got": [
+     [
+      "FEED_EMAIL_REMOVED",
+      true
+     ]
+    ]
+   },
+   {
+    "case": "reconcile:ledger matches f01",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "reconcile:date drift reported",
+    "pass": true,
+    "got": [
+     [
+      "lion-and-mouse.en",
+      "FIRST_PUBLISHED_AT_DRIFT"
+     ]
+    ]
+   },
+   {
+    "case": "reconcile:enclosure change reported",
+    "pass": true,
+    "got": [
+     [
+      "lion-and-mouse.en",
+      "ENCLOSURE_CHANGED_SINCE_RECORD"
+     ]
+    ]
+   },
+   {
+    "case": "build:round trip has no problems",
+    "pass": true,
+    "got": []
+   },
+   {
+    "case": "build:only published episodes emitted",
+    "pass": true,
+    "got": null
+   },
+   {
+    "case": "build:special characters survive",
+    "pass": true,
+    "got": "Lion & Mouse — 🦁 <part 1>"
+   },
+   {
+    "case": "build:raw host pubDate retained verbatim",
+    "pass": true,
+    "got": null
+   },
+   {
+    "case": "build:ledger reconciles with generated feed",
+    "pass": true,
+    "got": null
+   },
+   {
+    "case": "build:duplicate GUID refused",
+    "pass": true,
+    "got": "DUPLICATE_GUID"
+   },
+   {
+    "case": "probe:/ok.mp3",
+    "pass": true,
+    "got": {
+     "findings": [],
+     "facts": {
+      "head_status": 200,
+      "content_type": "audio/mpeg",
+      "content_length": "131072",
+      "accept_ranges": "bytes",
+      "range_status": 206,
+      "redirect_chain": [],
+      "final_url": "http://127.0.0.1:35091/ok.mp3"
+     }
+    }
+   },
+   {
+    "case": "probe:/norange.mp3",
+    "pass": true,
+    "got": {
+     "findings": [
+      "RANGE_NOT_SUPPORTED"
+     ],
+     "facts": {
+      "head_status": 200,
+      "content_type": "audio/mpeg",
+      "content_length": "131072",
+      "accept_ranges": null,
+      "range_status": 200,
+      "redirect_chain": [],
+      "final_url": "http://127.0.0.1:35091/norange.mp3"
+     }
+    }
+   },
+   {
+    "case": "probe:/wrongtype.mp3",
+    "pass": true,
+    "got": {
+     "findings": [
+      "CONTENT_TYPE_MISMATCH"
+     ],
+     "facts": {
+      "head_status": 200,
+      "content_type": "text/html",
+      "content_length": "131072",
+      "accept_ranges": null,
+      "range_status": 206,
+      "redirect_chain": [],
+      "final_url": "http://127.0.0.1:35091/wrongtype.mp3"
+     }
+    }
+   },
+   {
+    "case": "probe:/redir.mp3",
+    "pass": true,
+    "got": {
+     "findings": [
+      "REDIRECT_TO_UNAPPROVED_HOST"
+     ],
+     "facts": {
+      "redirect_chain": [],
+      "final_url": "http://127.0.0.1:35091/redir.mp3"
+     }
+    }
+   },
+   {
+    "case": "probe:length mismatch",
+    "pass": true,
+    "got": [
+     "CONTENT_LENGTH_MISMATCH",
+     "RANGE_TOTAL_MISMATCH"
+    ]
+   }
+  ],
+  "leak_scan": [
+   {
+    "case": "L00-clean",
+    "expect": "clean",
+    "got": [],
+    "pass": true
+   },
+   {
+    "case": "L01-google-key",
+    "expect": "PUBLIC_SECRET_PATTERN",
+    "got": [
+     "PUBLIC_SECRET_PATTERN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L02-openai-key",
+    "expect": "PUBLIC_SECRET_PATTERN",
+    "got": [
+     "PUBLIC_SECRET_PATTERN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L03-private-key",
+    "expect": "PUBLIC_SECRET_PATTERN",
+    "got": [
+     "PUBLIC_SECRET_PATTERN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L04-machine-path",
+    "expect": "PUBLIC_MACHINE_PATH",
+    "got": [
+     "PUBLIC_MACHINE_PATH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L05-mac-path",
+    "expect": "PUBLIC_MACHINE_PATH",
+    "got": [
+     "PUBLIC_MACHINE_PATH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L06-production-path",
+    "expect": "PUBLIC_PRODUCTION_PATH",
+    "got": [
+     "PUBLIC_PRODUCTION_PATH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L07-private-field-json",
+    "expect": "PUBLIC_PRIVATE_FIELD",
+    "got": [
+     "PUBLIC_PRIVATE_FIELD"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L08-placeholder",
+    "expect": "PUBLIC_PLACEHOLDER",
+    "got": [
+     "PUBLIC_PLACEHOLDER"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L09-email",
+    "expect": "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+    "got": [
+     "PUBLIC_EMAIL_NOT_ALLOWLISTED"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L10-signed-url",
+    "expect": "PUBLIC_SIGNED_URL",
+    "got": [
+     "PUBLIC_SIGNED_URL"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L11-url-credentials",
+    "expect": "PUBLIC_URL_CREDENTIALS",
+    "got": [
+     "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+     "PUBLIC_URL_CREDENTIALS"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L12-private-address",
+    "expect": "PUBLIC_PRIVATE_ADDRESS",
+    "got": [
+     "PUBLIC_PRIVATE_ADDRESS",
+     "PUBLIC_URL_HOST_NOT_ALLOWED",
+     "PUBLIC_URL_NOT_HTTPS"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L13-host-not-allowed",
+    "expect": "PUBLIC_URL_HOST_NOT_ALLOWED",
+    "got": [
+     "PUBLIC_URL_HOST_NOT_ALLOWED"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L14-png-text-chunk",
+    "expect": "PUBLIC_MEDIA_METADATA",
+    "got": [
+     "PUBLIC_MEDIA_METADATA"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L15-jpeg-exif",
+    "expect": "PUBLIC_MEDIA_METADATA",
+    "got": [
+     "PUBLIC_MEDIA_METADATA"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L16-id3-private-frame",
+    "expect": "PUBLIC_MEDIA_METADATA",
+    "got": [
+     "PUBLIC_MEDIA_METADATA"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L17-id3-allowed-frame",
+    "expect": "clean",
+    "got": [],
+    "pass": true
+   },
+   {
+    "case": "L18-elf-binary",
+    "expect": "PUBLIC_EXECUTABLE_CONTENT",
+    "got": [
+     "PUBLIC_EXECUTABLE_CONTENT"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L19-env-file",
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L20-serverless",
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L21-wav-master",
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L22-undeclared-file",
+    "expect": "BUNDLE_UNDECLARED_FILE",
+    "got": [
+     "BUNDLE_UNDECLARED_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L23-missing-file",
+    "expect": "BUNDLE_MISSING_FILE",
+    "got": [
+     "BUNDLE_MISSING_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L24-hash-mismatch",
+    "expect": "BUNDLE_HASH_MISMATCH",
+    "got": [
+     "BUNDLE_HASH_MISMATCH",
+     "BUNDLE_SIZE_MISMATCH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L25-symlink",
+    "expect": "PUBLIC_LINK_FORBIDDEN",
+    "got": [
+     "PUBLIC_LINK_FORBIDDEN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L26-executable-mode",
+    "expect": "PUBLIC_EXECUTABLE_MODE",
+    "got": [
+     "PUBLIC_EXECUTABLE_MODE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L27-denylist-term",
+    "expect": "PUBLIC_DENYLIST_TERM",
+    "got": [
+     "PUBLIC_DENYLIST_TERM"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L28-example-outside-test",
+    "expect": "EXAMPLE_RECORD",
+    "got": [
+     "EXAMPLE_RECORD"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L29-secret-in-binary-strings",
+    "expect": "PUBLIC_SECRET_PATTERN",
+    "got": [
+     "PUBLIC_SECRET_PATTERN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L30-http-not-https",
+    "expect": "PUBLIC_URL_NOT_HTTPS",
+    "got": [
+     "PUBLIC_URL_NOT_HTTPS"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L31-git-dir",
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L32-github-token",
+    "expect": "PUBLIC_SECRET_PATTERN",
+    "got": [
+     "PUBLIC_SECRET_PATTERN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L35-report-never-contains-secret",
+    "expect": "redacted",
+    "got": [
+     "PUBLIC_SECRET_PATTERN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L33-prefixed-record-name",
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L34-import-receipt-name",
+    "expect": "PUBLIC_FORBIDDEN_FILE",
+    "got": [
+     "PUBLIC_FORBIDDEN_FILE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L36-utf16-text-flagged (F-L01)",
+    "expect": "PUBLIC_TEXT_NOT_UTF8",
+    "got": [
+     "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+     "PUBLIC_SECRET_PATTERN",
+     "PUBLIC_TEXT_NOT_UTF8"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L37-utf16-secret-still-found (F-L01)",
+    "expect": "PUBLIC_SECRET_PATTERN",
+    "got": [
+     "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+     "PUBLIC_SECRET_PATTERN",
+     "PUBLIC_TEXT_NOT_UTF8"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L38-production-keyframe-path (F-L02)",
+    "expect": "PUBLIC_PRODUCTION_PATH",
+    "got": [
+     "PUBLIC_PRODUCTION_PATH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L39-json-escaped-private-key (F-L03)",
+    "expect": "PUBLIC_PRIVATE_FIELD",
+    "got": [
+     "PUBLIC_PRIVATE_FIELD"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L40-mp4-udta-metadata (F-L04)",
+    "expect": "PUBLIC_MEDIA_METADATA",
+    "got": [
+     "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+     "PUBLIC_MEDIA_METADATA"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L41-email-in-binary-strings (F-L04)",
+    "expect": "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+    "got": [
+     "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+     "PUBLIC_MEDIA_METADATA"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L42-invalid-json",
+    "expect": "PUBLIC_JSON_INVALID",
+    "got": [
+     "PUBLIC_JSON_INVALID"
+    ],
+    "pass": true
+   },
+   {
+    "case": "L43-entity-encoded-email (F-L05)",
+    "expect": "PUBLIC_EMAIL_NOT_ALLOWLISTED",
+    "got": [
+     "PUBLIC_EMAIL_NOT_ALLOWLISTED"
+    ],
+    "pass": true
+   }
+  ],
+  "strict_zero": [
+   {
+    "case": "Z00-strict-zero-example-passes",
+    "expect": "pass",
+    "got": [],
+    "pass": true
+   },
+   {
+    "case": "Z01-ghost-module",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z02-commerce",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z03-newsletter",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z04-independent-rss",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z05-custom-domain-origin",
+    "expect": "ZERO_PROFILE_ORIGIN_NOT_PROVIDER_SUBDOMAIN",
+    "got": [
+     "ZERO_PROFILE_ORIGIN_NOT_PROVIDER_SUBDOMAIN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z06-serverless-functions",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z07-object-storage",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z08-ghost-pro",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z09-vercel-hobby",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+     "ZERO_PROFILE_MULTIPLE_HOSTS"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z10-unknown-provider-fails-closed",
+    "expect": "UNKNOWN_CAPABILITY_OR_PROVIDER",
+    "got": [
+     "UNKNOWN_CAPABILITY_OR_PROVIDER"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z11-unknown-capability-fails-closed",
+    "expect": "UNKNOWN_CAPABILITY_OR_PROVIDER",
+    "got": [
+     "UNKNOWN_CAPABILITY_OR_PROVIDER"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z12-tts-in-publishing",
+    "expect": "PUBLISHING_HOLDS_PRODUCTION_CAPABILITY",
+    "got": [
+     "PUBLISHING_HOLDS_PRODUCTION_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z13-actions-payment-method",
+    "expect": "ZERO_PROFILE_HARD_LIMIT_NOT_PROVEN",
+    "got": [
+     "ZERO_PROFILE_HARD_LIMIT_NOT_PROVEN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z14-actions-larger-runner",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z15-auto-recharge",
+    "expect": "ZERO_PROFILE_OVERAGE_ENABLED",
+    "got": [
+     "ZERO_PROFILE_MULTIPLE_HOSTS",
+     "ZERO_PROFILE_OVERAGE_ENABLED"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z16-stale-evidence",
+    "expect": "COST_EVIDENCE_STALE",
+    "got": [
+     "COST_EVIDENCE_STALE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z17-missing-evidence",
+    "expect": "COST_EVIDENCE_MISSING",
+    "got": [
+     "COST_EVIDENCE_MISSING"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z18-github-pro-plan",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z19-two-hosts",
+    "expect": "ZERO_PROFILE_MULTIPLE_HOSTS",
+    "got": [
+     "ZERO_PROFILE_MULTIPLE_HOSTS"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z20-host-undeclared",
+    "expect": "ZERO_PROFILE_HOST_UNDECLARED",
+    "got": [
+     "ZERO_PROFILE_HOST_UNDECLARED"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z21-profile-mismatch",
+    "expect": "PROFILE_MISMATCH",
+    "got": [
+     "PROFILE_MISMATCH"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z22-third-party-analytics",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z23-paid-podcast-subscriptions",
+    "expect": "ZERO_PROFILE_FORBIDDEN_CAPABILITY",
+    "got": [
+     "ZERO_PROFILE_FORBIDDEN_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "Z24-standard-profile-allows-ghost-pro",
+    "expect": "pass",
+    "got": [],
+    "pass": true
+   },
+   {
+    "case": "Z25-tts-refused-even-in-standard",
+    "expect": "PUBLISHING_HOLDS_PRODUCTION_CAPABILITY",
+    "got": [
+     "PUBLISHING_HOLDS_PRODUCTION_CAPABILITY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "owner project + inventory (standard profile) pass; OneDrive and HDD declared as owner infra",
+    "pass": true,
+    "got": {
+     "errors": [],
+     "info": [
+      "OWNER_INFRA_COST_DECLARED: services[2] backup-cloud-storage/onedrive/microsoft-365-personal",
+      "OWNER_INFRA_COST_DECLARED: services[3] backup-local-disk/owner-external-hdd/owned-1tb"
+     ]
+    }
+   },
+   {
+    "case": "strict-zero fixtures are valid project.v2 / service-inventory.v1 records",
+    "pass": true,
+    "got": []
+   }
+  ],
+  "ci_lint": [
+   {
+    "case": "C00-offline-checks-example",
+    "expect": "clean",
+    "got": [],
+    "pass": true
+   },
+   {
+    "case": "C01-deploy-example",
+    "expect": "clean",
+    "got": [],
+    "pass": true
+   },
+   {
+    "case": "C02-placeholder-pins-refused-outside-test",
+    "expect": "CI-R10_PLACEHOLDER_PIN",
+    "got": [
+     "CI-R10_PLACEHOLDER_PIN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C03-pull-request-target",
+    "expect": "CI-R1_FORBIDDEN_TRIGGER",
+    "got": [
+     "CI-R1_FORBIDDEN_TRIGGER"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C04-workflow-run-chain",
+    "expect": "CI-R1_FORBIDDEN_TRIGGER",
+    "got": [
+     "CI-R1_FORBIDDEN_TRIGGER"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C05-repository-dispatch",
+    "expect": "CI-R1_FORBIDDEN_TRIGGER",
+    "got": [
+     "CI-R1_FORBIDDEN_TRIGGER"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C06-deploy-on-push",
+    "expect": "CI-R2_DEPLOY_NOT_MANUAL_ONLY",
+    "got": [
+     "CI-R2_DEPLOY_NOT_MANUAL_ONLY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C07-deploy-without-plan-digest",
+    "expect": "CI-R2_DEPLOY_WITHOUT_PLAN_DIGEST",
+    "got": [
+     "CI-R2_DEPLOY_WITHOUT_PLAN_DIGEST"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C08-write-all",
+    "expect": "CI-R3_TOP_LEVEL_PERMISSIONS_NOT_READ_ONLY",
+    "got": [
+     "CI-R3_TOP_LEVEL_PERMISSIONS_NOT_READ_ONLY"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C09-no-permissions",
+    "expect": "CI-R3_TOP_LEVEL_PERMISSIONS_MISSING",
+    "got": [
+     "CI-R3_TOP_LEVEL_PERMISSIONS_MISSING"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C10-no-concurrency",
+    "expect": "CI-R4_CONCURRENCY_MISSING",
+    "got": [
+     "CI-R4_CONCURRENCY_MISSING"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C11-secret-in-check",
+    "expect": "CI-R5_SECRET_IN_NON_DEPLOY_WORKFLOW",
+    "got": [
+     "CI-R5_SECRET_IN_NON_DEPLOY_WORKFLOW"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C12-gemini-key",
+    "expect": "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING",
+    "got": [
+     "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C13-production-checkout",
+    "expect": "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING",
+    "got": [
+     "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C14-import-in-ci",
+    "expect": "CI-R7_IMPORT_IN_CI",
+    "got": [
+     "CI-R7_IMPORT_IN_CI"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C15-apply-in-check",
+    "expect": "CI-R7_DEPLOY_COMMAND_IN_NON_DEPLOY_WORKFLOW",
+    "got": [
+     "CI-R7_DEPLOY_COMMAND_IN_NON_DEPLOY_WORKFLOW"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C16-self-hosted",
+    "expect": "CI-R8_RUNNER_NOT_STANDARD_HOSTED",
+    "got": [
+     "CI-R8_RUNNER_NOT_STANDARD_HOSTED"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C17-no-timeout",
+    "expect": "CI-R9_TIMEOUT_MISSING_OR_LARGE",
+    "got": [
+     "CI-R9_TIMEOUT_MISSING_OR_LARGE"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C18-unpinned-action",
+    "expect": "CI-R10_ACTION_NOT_SHA_PINNED",
+    "got": [
+     "CI-R10_ACTION_NOT_SHA_PINNED"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C19-checkout-persists",
+    "expect": "CI-R11_CHECKOUT_PERSISTS_CREDENTIALS",
+    "got": [
+     "CI-R11_CHECKOUT_PERSISTS_CREDENTIALS"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C20-cross-repo-artifact",
+    "expect": "CI-R12_CROSS_REPO_ARTIFACT",
+    "got": [
+     "CI-R12_CROSS_REPO_ARTIFACT",
+     "CI-R6_PRODUCTION_CREDENTIAL_OR_COUPLING"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C21-artifact-digest-not-enforced",
+    "expect": "CI-R12_ARTIFACT_DIGEST_NOT_ENFORCED",
+    "got": [
+     "CI-R12_ARTIFACT_DIGEST_NOT_ENFORCED"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C22-expression-injection",
+    "expect": "CI-R13_EXPRESSION_IN_RUN",
+    "got": [
+     "CI-R13_EXPRESSION_IN_RUN"
+    ],
+    "pass": true
+   },
+   {
+    "case": "C23-job-write-permission",
+    "expect": "CI-R3_WRITE_PERMISSION_IN_NON_DEPLOY",
+    "got": [
+     "CI-R3_WRITE_PERMISSION_IN_NON_DEPLOY"
+    ],
+    "pass": true
+   }
+  ],
+  "state_roots": [
+   {
+    "case": "unset",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSET",
+    "got": "STATE_ROOT_UNSET"
+   },
+   {
+    "case": "empty",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSET",
+    "got": "STATE_ROOT_UNSET"
+   },
+   {
+    "case": "relative",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": "STATE_ROOT_UNSAFE"
+   },
+   {
+    "case": "inside a git work tree",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": "STATE_ROOT_UNSAFE"
+   },
+   {
+    "case": "inside a OneDrive folder (name)",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": "STATE_ROOT_UNSAFE"
+   },
+   {
+    "case": "inside configured OneDrive dir",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": "STATE_ROOT_UNSAFE"
+   },
+   {
+    "case": "on LUMI scratch",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": "STATE_ROOT_UNSAFE"
+   },
+   {
+    "case": "on LUMI project storage",
+    "pass": true,
+    "expect": "STATE_ROOT_UNSAFE",
+    "got": "STATE_ROOT_UNSAFE"
+   },
+   {
+    "case": "plain owner disk accepted",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok"
+   },
+   {
+    "case": "macOS-style path accepted",
+    "pass": true,
+    "expect": "ok",
+    "got": "ok"
+   }
+  ],
+  "handoff_index_scan": [
+   {
+    "case": "clean index",
+    "pass": true,
+    "expect": "clean",
+    "got": []
+   },
+   {
+    "case": "private field in index",
+    "pass": true,
+    "expect": "HANDOFF_INDEX_PRIVATE_FIELD",
+    "got": [
+     "HANDOFF_INDEX_FORBIDDEN_FILE",
+     "HANDOFF_INDEX_PRIVATE_FIELD"
+    ]
+   },
+   {
+    "case": "tar in index",
+    "pass": true,
+    "expect": "HANDOFF_INDEX_FORBIDDEN_FILE",
+    "got": [
+     "HANDOFF_INDEX_FORBIDDEN_FILE",
+     "HANDOFF_INDEX_PRIVATE_FIELD"
+    ]
+   }
+  ],
+  "error_catalogue": [
+   {
+    "case": "249 distinct codes observed in suite results are catalogued",
+    "pass": true,
+    "got": [],
+    "observed": 249,
+    "catalogued": 433
+   },
+   {
+    "case": "no deprecated code is emitted any more",
+    "pass": true,
+    "got": []
+   }
+  ],
+  "js_parity": [
+   {
+    "case": "golden cases in JavaScript (node v24.21.0, Unicode 17.0)",
+    "pass": true,
+    "got": {
+     "cases": 24,
+     "mismatches": 0
+    }
+   },
+   {
+    "case": "record digests Python == JavaScript for 26 example records",
+    "pass": true,
+    "got": []
+   }
+  ]
+ }
+}

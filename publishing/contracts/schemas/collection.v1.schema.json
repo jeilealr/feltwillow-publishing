@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/collection.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "collection"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "collection_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+    },
+    "language": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/language"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "episode_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "release_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "release_sha256": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "episode_id",
+          "release_id",
+          "release_sha256",
+          "order"
+        ]
+      }
+    },
+    "master_asset_id": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "rights_status": {
+      "enum": [
+        "pending",
+        "cleared",
+        "blocked"
+      ]
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/asset"
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "collection_id",
+    "language",
+    "title",
+    "status",
+    "items",
+    "master_asset_id",
+    "rights_status",
+    "assets"
+  ]
+}

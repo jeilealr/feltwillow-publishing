@@ -1,0 +1,18 @@
+{
+  "fixture": "import-scenario",
+  "description": "F-I04 / m2: an unreadable earlier receipt stops the import with IMPORT_STATE_CORRUPT and a new receipt.",
+  "steps": [
+    {
+      "mutations": [],
+      "options": {
+        "preseed_corrupt_receipt": true
+      },
+      "expect_outcome": "rejected",
+      "expect": "IMPORT_STATE_CORRUPT"
+    }
+  ],
+  "expect_final": {
+    "accepted_receipts": 0,
+    "archive_files": 0
+  }
+}

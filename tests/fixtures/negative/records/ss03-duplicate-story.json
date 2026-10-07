@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_SITE_EDITION",
+  "base": "publishing/examples/site-set.v2.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/entries/-",
+      "value": {
+        "release_id": "lion-and-mouse.en.r0002",
+        "release_sha256": "abababababababababababababababababababababababababababababababab"
+      }
+    }
+  ],
+  "description": "One release per story-language.",
+  "rule": "H2 (DECISIONS_H2)"
+}

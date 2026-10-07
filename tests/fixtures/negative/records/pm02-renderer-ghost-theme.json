@@ -1,0 +1,17 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/public-bundle-manifest.web.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/inputs/renderer",
+      "value": {
+        "name": "ghost-theme",
+        "version": "0.0.1"
+      }
+    }
+  ],
+  "description": "ghost-theme is a folder name, not a module id.",
+  "rule": "H2 (DECISIONS_H2)"
+}

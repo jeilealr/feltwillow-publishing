@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "PRIMARY_MODULE_SPEC_ONLY",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/website/primary",
+      "value": "plain_static"
+    }
+  ],
+  "description": "A primary site needs at least an implemented module.",
+  "rule": "H2 (DECISIONS_H2)"
+}

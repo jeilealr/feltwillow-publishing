@@ -1,0 +1,10 @@
+{
+  "fixture": "negative-import",
+  "expect": "EXAMPLE_RECORD",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [],
+  "options": {
+    "allow_example": false
+  },
+  "description": "example:true cannot enter real state."
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "PURPOSE_REVISION_MISMATCH",
+  "base": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/handoff_revision",
+      "value": 2
+    }
+  ],
+  "description": "L-23: revision 1 <=> initial <=> supersedes null.",
+  "rule": "H2 (DECISIONS_H2)"
+}

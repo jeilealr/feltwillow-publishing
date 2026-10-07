@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/feed-observation.v1.json",
+  "title": "Feed observation v1",
+  "description": "Read-only observation of one RSS feed document (Agent D, IC-D3). Stores only the presence, never the value, of itunes:email. Raw feed bytes stay in BLLT_PUBLISH_STATE_ROOT, addressed by sha256. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "feed-observation"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "observation_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/observation_id"
+    },
+    "show_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "feed_url": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+    },
+    "fetched_at": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+    },
+    "fetch": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "final_url": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+            },
+            "http_status": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 599
+            },
+            "redirect_chain": {
+              "type": "array",
+              "maxItems": 10,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "status": {
+                    "type": "integer",
+                    "minimum": 300,
+                    "maximum": 399
+                  },
+                  "location": {
+                    "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+                  }
+                },
+                "required": [
+                  "status",
+                  "location"
+                ]
+              }
+            }
+          },
+          "required": [
+            "final_url",
+            "http_status",
+            "redirect_chain"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "feed_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+    },
+    "feed_bytes": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/positive_count"
+    },
+    "channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 2000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "language": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 32
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "itunes_email_present": {
+          "type": "boolean"
+        },
+        "itunes_new_feed_url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 2048
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "itunes_block": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 16
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "item_count": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/safe_count"
+        }
+      },
+      "required": [
+        "title",
+        "language",
+        "itunes_email_present",
+        "itunes_new_feed_url",
+        "itunes_block",
+        "item_count"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "guid": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2048
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "guid_is_permalink": {
+            "type": "boolean"
+          },
+          "guid_permalink_attr_present": {
+            "type": "boolean"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pubdate_raw": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pubdate_utc": {
+            "anyOf": [
+              {
+                "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "enclosure": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "maxLength": 2048
+                  },
+                  "length": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "maxLength": 32
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "type": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "maxLength": 128
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "url",
+                  "length",
+                  "type"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "itunes_duration_raw": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 32
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "itunes_episode_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 32
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "guid",
+          "guid_is_permalink",
+          "guid_permalink_attr_present",
+          "title",
+          "pubdate_raw",
+          "pubdate_utc",
+          "enclosure",
+          "itunes_duration_raw",
+          "itunes_episode_type"
+        ]
+      }
+    },
+    "problems": {
+      "type": "array",
+      "uniqueItems": true,
+      "maxItems": 500,
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/error_code"
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "observation_id",
+    "show_id",
+    "feed_url",
+    "fetched_at",
+    "fetch",
+    "feed_sha256",
+    "feed_bytes",
+    "channel",
+    "items",
+    "problems"
+  ]
+}

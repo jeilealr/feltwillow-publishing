@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "PRIMARY_NOT_SELECTED",
+  "base": "publishing/examples/project.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/modules/plain_static",
+      "value": "enabled"
+    }
+  ],
+  "description": "Enabled website without website.primary.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

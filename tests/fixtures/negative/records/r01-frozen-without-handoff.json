@@ -1,0 +1,52 @@
+{
+  "fixture": "negative-record",
+  "expect": "FROZEN_WITHOUT_HANDOFF",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/lifecycle",
+      "value": "frozen"
+    },
+    {
+      "op": "replace",
+      "path": "/handoffs",
+      "value": []
+    },
+    {
+      "op": "replace",
+      "path": "/assets",
+      "value": []
+    },
+    {
+      "op": "replace",
+      "path": "/content/reading_text_asset",
+      "value": null
+    },
+    {
+      "op": "replace",
+      "path": "/content/blocks",
+      "value": [
+        {
+          "type": "paragraph",
+          "text": "x"
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "path": "/frozen_with",
+      "value": {
+        "publishing_commit": "2222222222222222222222222222222222222222",
+        "tool_version": "0.1.0",
+        "contract_package": {
+          "name": "bllt-contracts",
+          "version": "0.1.0",
+          "archive_sha256": "abababababababababababababababababababababababababababababababab"
+        }
+      }
+    }
+  ],
+  "description": "Frozen release cites its handoffs.",
+  "rule": "H1 (Agent B)"
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "MEDIA_TYPE_ROLE_MISMATCH",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/media_type",
+      "value": "audio/wav"
+    }
+  ],
+  "description": "An illustration is an image.",
+  "rule": "H1 (Agent B)"
+}

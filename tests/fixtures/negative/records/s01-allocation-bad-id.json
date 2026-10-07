@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/story-allocation.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/story_id",
+      "value": "Lion_and_Mouse_v5"
+    }
+  ],
+  "description": "Story IDs are slugs.",
+  "rule": "H1 (Agent B)"
+}

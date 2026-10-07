@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/project.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "project"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "project_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+    },
+    "source_branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_option": {
+      "enum": [
+        "undecided",
+        "astro",
+        "ghost",
+        "zero_cost"
+      ]
+    },
+    "website": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "enum": [
+            "none",
+            "astro",
+            "ghost",
+            "plain_static"
+          ]
+        },
+        "origin": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^https://",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "locale_prefixes": {
+          "const": true
+        }
+      },
+      "required": [
+        "primary",
+        "origin",
+        "locale_prefixes"
+      ]
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "astro": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "ghost": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "plain_static": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "spotify_hosted": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "independent_rss": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "youtube": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        }
+      },
+      "required": [
+        "astro",
+        "ghost",
+        "plain_static",
+        "spotify_hosted",
+        "independent_rss",
+        "youtube"
+      ]
+    },
+    "podcast_authority": {
+      "enum": [
+        "undecided",
+        "spotify",
+        "independent"
+      ]
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "production_enabled": {
+          "type": "boolean"
+        },
+        "allow_remote_writes": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "production_enabled",
+        "allow_remote_writes"
+      ]
+    },
+    "newsletter": {
+      "enum": [
+        "disabled",
+        "planned",
+        "enabled"
+      ]
+    },
+    "commerce": {
+      "enum": [
+        "disabled",
+        "planned",
+        "enabled"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "project_id",
+    "source_branch",
+    "profile_option",
+    "website",
+    "modules",
+    "podcast_authority",
+    "safety",
+    "newsletter",
+    "commerce"
+  ]
+}

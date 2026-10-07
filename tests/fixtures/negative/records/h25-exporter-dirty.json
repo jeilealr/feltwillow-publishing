@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "EXPORTER_DIRTY",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/envelope/exporter/tool_dirty",
+      "value": true
+    }
+  ],
+  "description": "Exporter runs from committed code.",
+  "rule": "H1 (Agent B)"
+}

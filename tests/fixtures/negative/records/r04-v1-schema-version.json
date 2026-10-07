@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CONTRACT_VERSION_UNSUPPORTED",
+  "base": "publishing/examples/release.v2.lion-and-mouse.draft.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/schema_version",
+      "value": 1
+    }
+  ],
+  "description": "v1 releases are migrated explicitly.",
+  "rule": "H1 (Agent B)"
+}

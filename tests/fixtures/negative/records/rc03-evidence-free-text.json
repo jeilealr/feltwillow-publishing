@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/publish-receipt.v2.manual-pending.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/evidence",
+      "value": "uploaded it, looked fine"
+    }
+  ],
+  "description": "Evidence is a private_ref, not free text (IC-D5).",
+  "rule": "H2 (DECISIONS_H2)"
+}

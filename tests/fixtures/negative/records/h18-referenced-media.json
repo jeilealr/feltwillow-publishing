@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "REFERENCED_MEDIA_NOT_SUPPORTED",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/transport",
+      "value": "referenced"
+    },
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/package_path",
+      "value": null
+    }
+  ],
+  "description": "Only embedded media.",
+  "rule": "H1 (Agent B)"
+}

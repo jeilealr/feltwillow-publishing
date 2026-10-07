@@ -1,0 +1,32 @@
+{
+  "fixture": "negative-record",
+  "expect": "INCOMPLETE_RIGHTS_CLEARANCE",
+  "base": "tests/fixtures/v2-carried/rights-review.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/example",
+      "value": false
+    },
+    {
+      "op": "replace",
+      "path": "/status",
+      "value": "cleared"
+    },
+    {
+      "op": "replace",
+      "path": "/checks",
+      "value": [
+        {
+          "component": "underlying-story",
+          "decision": "cleared",
+          "evidence": "x",
+          "reviewed_by": "R",
+          "reviewed_at": "2026-10-06T00:00:00Z"
+        }
+      ]
+    }
+  ],
+  "description": "F-V05.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

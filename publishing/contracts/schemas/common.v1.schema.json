@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/common.v1.json",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "language": {
+      "enum": [
+        "en",
+        "de",
+        "es",
+        "fr",
+        "ru",
+        "uk"
+      ]
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "path": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9_.@/-]+$"
+    },
+    "https": {
+      "type": "string",
+      "pattern": "^https://",
+      "format": "uri"
+    },
+    "nullable_sha": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "block": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "paragraph"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "type",
+            "text"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "heading"
+            },
+            "level": {
+              "enum": [
+                2,
+                3
+              ]
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "type",
+            "level",
+            "text"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "quote"
+            },
+            "speaker": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "type",
+            "speaker",
+            "text"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "image"
+            },
+            "asset_id": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+            },
+            "alt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "caption": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "asset_id",
+            "alt",
+            "caption"
+          ]
+        }
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/id"
+        },
+        "role": {
+          "enum": [
+            "image",
+            "podcast-cover",
+            "audio-master",
+            "podcast-audio",
+            "video-master",
+            "transcript",
+            "chapters"
+          ]
+        },
+        "store": {
+          "enum": [
+            "repo",
+            "masters"
+          ]
+        },
+        "path": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+        },
+        "sha256": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "width": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "height": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "duration_seconds": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "selection": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ]
+        },
+        "derived_from_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "asset_id",
+        "role",
+        "store",
+        "path",
+        "sha256",
+        "bytes",
+        "media_type",
+        "width",
+        "height",
+        "duration_seconds",
+        "selection",
+        "derived_from_sha256"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "purpose": {
+          "enum": [
+            "dialogue",
+            "runtime",
+            "artwork",
+            "rights"
+          ]
+        },
+        "path": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "purpose",
+        "path",
+        "commit",
+        "sha256"
+      ]
+    },
+    "release_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "release_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/path"
+        },
+        "sha256": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+        }
+      },
+      "required": [
+        "release_id",
+        "path",
+        "sha256"
+      ]
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/approval.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "approval"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "subject_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_sha256": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/sha256"
+    },
+    "scope": {
+      "enum": [
+        "website",
+        "podcast",
+        "youtube",
+        "configuration"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "approved",
+        "rejected"
+      ]
+    },
+    "reviewed_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "enum": [
+              "pass",
+              "fail",
+              "not_applicable"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "result",
+          "evidence"
+        ]
+      }
+    },
+    "subject_type": {
+      "enum": [
+        "release",
+        "site-set",
+        "project",
+        "publish-plan"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "subject_id",
+    "subject_sha256",
+    "scope",
+    "decision",
+    "reviewed_by",
+    "reviewed_at",
+    "checks",
+    "subject_type"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "kind": "release",
+  "schema_version": 2,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "release_id": "lion-and-mouse.en.r0001",
+  "story_id": "lion-and-mouse",
+  "language": "en",
+  "revision": 1,
+  "lifecycle": "draft",
+  "supersedes": null,
+  "handoffs": [
+    {
+      "handoff_id": "lion-and-mouse.en.h0001",
+      "payload_sha256": "65dade1f2ed91a80c65d9092ffd373b6b3a45254970bd68cb793f4eb5bce8b8c",
+      "archive_sha256": "d7cc2a353c1f55a8da572d89a24b352dd3ff0b25bea32a91d1b9e54e8858bffa"
+    }
+  ],
+  "content": {
+    "title": "The Lion and the Mouse",
+    "slug": "the-lion-and-the-mouse",
+    "summary": "EXAMPLE ONLY: replace with the owner-approved public description.",
+    "age_min": 3,
+    "age_max": 7,
+    "moral": "EXAMPLE ONLY: replace with the approved moral.",
+    "reading_text_asset": "reading-text-en",
+    "spoken_transcript_asset": null,
+    "reading_divergence": "not-applicable",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "EXAMPLE ONLY: the approved reading edition has not been supplied."
+      },
+      {
+        "type": "image",
+        "asset_id": "illus-s01-explores-start",
+        "alt": "EXAMPLE ONLY: alt text pending review.",
+        "caption": null
+      }
+    ]
+  },
+  "assets": [
+    {
+      "asset_id": "reading-text-en",
+      "role": "reading-text",
+      "origin": {
+        "kind": "handoff",
+        "handoff_id": "lion-and-mouse.en.h0001",
+        "handoff_asset_id": "reading-text-en"
+      },
+      "sha256": "6d14393fa42813242fd5206c16d83fb94882f168838046e02ab9cfe72aa3ac8d",
+      "bytes": 394,
+      "media_type": "application/vnd.bllt.reading-blocks+json",
+      "width": null,
+      "height": null,
+      "duration_ms": null,
+      "selection": "pending",
+      "derived_from_sha256": null
+    },
+    {
+      "asset_id": "illus-s01-explores-start",
+      "role": "image",
+      "origin": {
+        "kind": "handoff",
+        "handoff_id": "lion-and-mouse.en.h0001",
+        "handoff_asset_id": "illus-s01-explores-start"
+      },
+      "sha256": "2bf719f4756214ce7a804c4c9ad85587edaf54c43cd73a5f9e2f6c6ae36a3872",
+      "bytes": 4329316,
+      "media_type": "image/png",
+      "width": 1920,
+      "height": 1080,
+      "duration_ms": null,
+      "selection": "pending",
+      "derived_from_sha256": null
+    }
+  ],
+  "channels": {
+    "website": {
+      "requested": true,
+      "player": "none",
+      "audio_asset": null,
+      "cover_asset": null,
+      "podcast_episode_id": null,
+      "youtube_edition_id": null
+    },
+    "podcast": {
+      "requested": true,
+      "show_id": "bllt-en",
+      "episode_id": "lion-and-mouse.en",
+      "episode_type": "full",
+      "audio_asset": null,
+      "artwork_asset": null,
+      "chapters_asset": null,
+      "explicit": false
+    },
+    "youtube": {
+      "requested": false,
+      "video_asset": null,
+      "thumbnail_asset": null,
+      "made_for_kids": true
+    }
+  },
+  "rights": {
+    "status": "pending",
+    "record_path": "publishing/rights/lion-and-mouse/en/review-0001.yaml",
+    "record_sha256": null
+  },
+  "emergency_override": null,
+  "frozen_with": null
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/site-set.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "site-set"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "site_set_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "renderer": {
+      "enum": [
+        "astro",
+        "ghost",
+        "plain_static"
+      ]
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "https://bllt.example.invalid/schemas/common.v1.json#/$defs/release_entry"
+      }
+    },
+    "remove_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^/"
+      }
+    },
+    "source_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "site_set_id",
+    "lifecycle",
+    "renderer",
+    "entries",
+    "remove_paths",
+    "source_commit"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_RIGHTS_COMPONENT",
+  "base": "tests/fixtures/v2-carried/rights-review.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/checks/-",
+      "value": {
+        "component": "voices",
+        "decision": "pending",
+        "evidence": "x",
+        "reviewed_by": null,
+        "reviewed_at": null
+      }
+    }
+  ],
+  "description": "One check per rights component.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

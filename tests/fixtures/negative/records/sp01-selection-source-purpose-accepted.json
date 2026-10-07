@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "VALID",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/source_files/0/purpose",
+      "value": "selection"
+    }
+  ],
+  "description": "L-23: source purpose selection (positive patch case).",
+  "rule": "H2 (DECISIONS_H2)"
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "publish-receipt",
+  "schema_version": 2,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "plan_id": "example-plan-ghost-0001",
+  "plan_sha256": "dbe551ced4ee9886526bfbc3e82dbe9433e54a63b27924b7c9cbde32d76b5187",
+  "action_id": "update-story-post",
+  "operation": "update-draft",
+  "result": "conflict",
+  "observed_at": "2026-10-07T10:06:00Z",
+  "external_id": null,
+  "external_url": null,
+  "observation_id": null,
+  "submitted_sha256": null,
+  "evidence": {
+    "ref": "EXAMPLE-ONLY/ghost-readback.json",
+    "sha256": "82672d71746ddc7e126f4d7cb72fedcdd17bbe81a5d940dd52451e6548f8ea4b"
+  },
+  "conflict": {
+    "code": "GHOST_REMOTE_EDIT_CONFLICT",
+    "detail": "EXAMPLE ONLY: updated_at and read-back digest differ from the last write; operator must adopt or discard."
+  }
+}

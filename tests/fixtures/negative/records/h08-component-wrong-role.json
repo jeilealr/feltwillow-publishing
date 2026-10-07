@@ -1,0 +1,21 @@
+{
+  "fixture": "negative-record",
+  "expect": "WRONG_ASSET_ROLE",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/components/reading/cover_asset",
+      "value": "illus-s01-acorn-start"
+    },
+    {
+      "op": "replace",
+      "path": "/payload/components/reading/illustration_assets",
+      "value": [
+        "illus-s01-explores-start"
+      ]
+    }
+  ],
+  "description": "An illustration is not cover art.",
+  "rule": "H1 (Agent B)"
+}

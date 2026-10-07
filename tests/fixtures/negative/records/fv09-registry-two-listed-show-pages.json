@@ -1,0 +1,27 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_PROVIDER_MAPPING",
+  "base": "publishing/examples/provider-registry.v2.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/records/-",
+      "value": {
+        "record_id": "reg-sp-show-2",
+        "destination": "spotify",
+        "entity_type": "show",
+        "entity_id": "example-show-en",
+        "url_kind": "show-page",
+        "external_url": "https://open.example.invalid/show/x2",
+        "external_id": null,
+        "status": "listed",
+        "observed_at": "2026-10-06T19:00:00Z",
+        "receipt_id": null,
+        "supersedes_record_id": null,
+        "note": "EXAMPLE ONLY"
+      }
+    }
+  ],
+  "description": "F-V09 / m3: one active listed row per (entity_type, entity_id, destination, url_kind).",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

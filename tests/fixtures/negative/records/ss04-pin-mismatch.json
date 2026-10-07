@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CONTRACT_VERSION_PIN_MISMATCH",
+  "base": "publishing/examples/site-set.v2.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/contract_version",
+      "value": "9.9.9"
+    }
+  ],
+  "description": "Pins agree.",
+  "rule": "H2 (DECISIONS_H2)"
+}

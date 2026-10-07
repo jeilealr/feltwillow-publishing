@@ -1,0 +1,24 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_DELIVERY_URL",
+  "base": "publishing/examples/media-delivery.v2.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/records/-",
+      "value": {
+        "asset_sha256": "abababababababababababababababababababababababababababababababab",
+        "provider": "spotify",
+        "url": "https://media.example.invalid/ep1-a.mp3",
+        "observed_sha256": null,
+        "observed_bytes": 1,
+        "duration_ms": null,
+        "observed_at": "2026-10-06T19:00:00Z",
+        "access": "public",
+        "review": "pending"
+      }
+    }
+  ],
+  "description": "One delivery record per URL.",
+  "rule": "H2 (DECISIONS_H2)"
+}

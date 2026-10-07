@@ -1,0 +1,52 @@
+kind: rights-review
+schema_version: 1
+example: true
+story_id: lion-and-mouse
+language: en
+status: pending
+checks:
+- component: underlying-story
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: adaptation
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: translation
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: voices
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: images
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: music
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: sound-effects
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: video
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null
+- component: compute-resources
+  decision: pending
+  evidence: 'EXAMPLE ONLY: record applicable evidence before release.'
+  reviewed_by: null
+  reviewed_at: null

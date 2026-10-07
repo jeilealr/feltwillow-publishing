@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/handoff-selection.v1.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/assets/0/path",
+      "value": "character/characters/lion_and_mouse_v5/interactions/keyframes/*.png"
+    }
+  ],
+  "description": "L-23: no globs, name every file.",
+  "rule": "H2 (DECISIONS_H2)"
+}

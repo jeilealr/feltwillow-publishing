@@ -1,0 +1,30 @@
+{
+  "kind": "approval",
+  "schema_version": 2,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "approval_id": "example-approval-0002",
+  "stage": "editorial-rights",
+  "subject_type": "release",
+  "subject_id": "lion-and-mouse.en.r0001",
+  "subject_sha256": "eae72ddb991a79d7bfd8b0368c6483cdf9736cccd213131157cccfd88fd3083f",
+  "scope": "rights_review.podcast_audio",
+  "decision": "rejected",
+  "revokes": null,
+  "depends_on": [],
+  "reviewed_by": "EXAMPLE-REVIEWER",
+  "reviewed_at": "2026-10-06T19:10:00Z",
+  "reason": "EXAMPLE ONLY: podcast-audio rights review cannot pass yet.",
+  "checks": [
+    {
+      "name": "gemini-terms-answer",
+      "result": "fail",
+      "evidence": "EXAMPLE ONLY: the Gemini Age Requirements question is drafted but not sent (REPO b880c23:docs/google_gemini_terms_question.md)."
+    },
+    {
+      "name": "mix-music-and-effects",
+      "result": "fail",
+      "evidence": "EXAMPLE ONLY: no final DaVinci mix exists yet; music/effects sources unknown."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "PLAN_EXPIRY_ORDER",
+  "base": "publishing/examples/publish-plan.v2.website-preview.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/expires_at",
+      "value": "2026-10-07T10:00:00Z"
+    }
+  ],
+  "description": "expires_at after created_at.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

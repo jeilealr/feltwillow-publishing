@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CONFLICT_INCONSISTENT",
+  "base": "publishing/examples/publish-receipt.v2.ghost-conflict.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/conflict",
+      "value": null
+    }
+  ],
+  "description": "conflict result carries its code (IC-B4).",
+  "rule": "H2 (DECISIONS_H2)"
+}

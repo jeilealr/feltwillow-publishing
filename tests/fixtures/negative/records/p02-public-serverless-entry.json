@@ -1,0 +1,20 @@
+{
+  "fixture": "negative-record",
+  "expect": "PUBLIC_FORBIDDEN_FILE",
+  "base": "publishing/examples/public-bundle-manifest.web.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/files/-",
+      "value": {
+        "path": "functions/api.js",
+        "sha256": "abababababababababababababababababababababababababababababababab",
+        "bytes": 10,
+        "media_type": "application/javascript",
+        "source": null
+      }
+    }
+  ],
+  "description": "No serverless entry points.",
+  "rule": "H1 (Agent B)"
+}

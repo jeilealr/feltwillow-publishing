@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-import",
+  "expect": "ARCHIVE_MEMBER_PREFIX_COLLISION",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "add_file",
+      "name": "files/zz",
+      "data": "x"
+    },
+    {
+      "op": "add_file",
+      "name": "files/zz/y.txt",
+      "data": "y"
+    }
+  ],
+  "options": {},
+  "description": "F-I01 / m2: a regular member used as a directory."
+}

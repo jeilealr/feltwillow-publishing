@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_ACTION",
+  "base": "publishing/examples/publish-plan.v2.podcast-spotify.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/actions/1/action_id",
+      "value": "upload-episode"
+    }
+  ],
+  "description": "Action ids unique.",
+  "rule": "v2 rule ported (B1, Agent F)"
+}

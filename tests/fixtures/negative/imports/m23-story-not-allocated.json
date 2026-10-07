@@ -1,0 +1,10 @@
+{
+  "fixture": "negative-import",
+  "expect": "STORY_NOT_ALLOCATED",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [],
+  "options": {
+    "allocations": {}
+  },
+  "description": "Story without allocation."
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "HANDOFF_ID_MISMATCH",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/handoff_id",
+      "value": "lion-and-mouse.en.h0002"
+    }
+  ],
+  "description": "handoff_id = <story>.<lang>.h<revision>.",
+  "rule": "H1 (Agent B)"
+}

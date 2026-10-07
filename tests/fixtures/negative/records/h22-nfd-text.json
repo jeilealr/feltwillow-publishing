@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "CJ_NOT_NFC",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/editorial_selection/statement",
+      "value": "Café selection"
+    }
+  ],
+  "description": "Strings are NFC.",
+  "rule": "H1 (Agent B)"
+}

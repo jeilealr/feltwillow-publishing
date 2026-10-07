@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/contract-lock.v1.json",
+  "title": "Contract lock v1",
+  "description": "Pinned copy of a released contract package (production/contracts/CONTRACT.lock). Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "contract-lock"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "package": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "bllt-contracts"
+        },
+        "version": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/semver"
+        },
+        "archive_sha256": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+        },
+        "source_repository": {
+          "const": "jeilealr/bllt-publishing"
+        },
+        "source_commit": {
+          "anyOf": [
+            {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/git_commit"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "released_at": {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/utc_timestamp"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "archive_sha256",
+        "source_repository",
+        "source_commit",
+        "released_at"
+      ]
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+          },
+          "sha256": {
+            "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ]
+      },
+      "minItems": 1
+    },
+    "producer_emits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "production-handoff": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "production-handoff"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "package",
+    "files",
+    "producer_emits"
+  ]
+}

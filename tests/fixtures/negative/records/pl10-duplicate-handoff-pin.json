@@ -1,0 +1,18 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_HANDOFF_PIN",
+  "base": "publishing/examples/publish-plan.v2.podcast-spotify.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/handoff_package_digests/-",
+      "value": {
+        "handoff_id": "lion-and-mouse.en.h0001",
+        "payload_sha256": "abababababababababababababababababababababababababababababababab",
+        "archive_sha256": "abababababababababababababababababababababababababababababababab"
+      }
+    }
+  ],
+  "description": "One pin per handoff.",
+  "rule": "H2 (DECISIONS_H2)"
+}

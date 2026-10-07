@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-import",
+  "expect": "MEASUREMENT_MISMATCH",
+  "base_package": "lion-h0001-synthetic",
+  "mutations": [
+    {
+      "op": "patch_handoff",
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/payload/assets/1/measured/width_px",
+          "value": 1280
+        }
+      ]
+    }
+  ],
+  "options": {},
+  "description": "Width differs from PNG header."
+}

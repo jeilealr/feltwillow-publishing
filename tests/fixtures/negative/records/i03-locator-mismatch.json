@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "ARCHIVAL_LOCATOR_MISMATCH",
+  "base": "publishing/examples/import-receipt.accepted.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/archival_locator",
+      "value": "handoffs/abababababababababababababababababababababababababababababababab.tar"
+    }
+  ],
+  "description": "Locator is handoffs/<archive sha256>.tar.",
+  "rule": "H2 s.2 layout"
+}

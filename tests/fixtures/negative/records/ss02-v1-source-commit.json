@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/site-set.v2.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/source_commit",
+      "value": "b880c230c6de419c809e879c422972c4122c9917"
+    }
+  ],
+  "description": "Same pins as publish-plan (IC-A2).",
+  "rule": "H2 (DECISIONS_H2)"
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "MISSING_MEASUREMENT",
+  "base": "publishing/examples/production-handoff.lion-and-mouse.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/payload/assets/1/measured/width_px",
+      "value": null
+    }
+  ],
+  "description": "Images need measured dimensions.",
+  "rule": "H1 (Agent B)"
+}

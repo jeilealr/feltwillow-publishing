@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "UNSAFE_PATH",
+  "base": "publishing/examples/public-bundle-manifest.web.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/files/0/path",
+      "value": "../index.html"
+    }
+  ],
+  "description": "No traversal.",
+  "rule": "H1 (Agent B)"
+}

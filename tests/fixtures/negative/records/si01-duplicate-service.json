@@ -1,0 +1,19 @@
+{
+  "fixture": "negative-record",
+  "expect": "DUPLICATE_SERVICE",
+  "base": "publishing/examples/service-inventory.v1.example.json",
+  "patch": [
+    {
+      "op": "add",
+      "path": "/services/-",
+      "value": {
+        "capability": "podcast-host",
+        "provider": "spotify-for-creators",
+        "plan": "free",
+        "state": "disabled"
+      }
+    }
+  ],
+  "description": "(capability, provider) unique (E-05).",
+  "rule": "H2 (DECISIONS_H2)"
+}

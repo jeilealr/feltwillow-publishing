@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bllt.example.invalid/schemas/project.v2.json",
+  "title": "Project v2",
+  "description": "Sole active configuration (IC-A8, IC-D6, IC-E3): no source_branch (branch policy is documentation); ai_disclosure; public contact e-mail with explicit acknowledgement; pinned service-inventory reference. Contract revision H2 (PROPOSED CONTRACT; not released).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "project"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "example": {
+      "type": "boolean"
+    },
+    "canonicalization": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/canonicalization"
+    },
+    "project_id": {
+      "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/id"
+    },
+    "profile_option": {
+      "enum": [
+        "undecided",
+        "astro",
+        "ghost",
+        "zero_cost"
+      ]
+    },
+    "website": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "enum": [
+            "none",
+            "astro",
+            "ghost",
+            "plain_static"
+          ]
+        },
+        "origin": {
+          "anyOf": [
+            {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/https_url"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "locale_prefixes": {
+          "const": true
+        }
+      },
+      "required": [
+        "primary",
+        "origin",
+        "locale_prefixes"
+      ]
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "astro": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "ghost": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "plain_static": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "spotify_hosted": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "independent_rss": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        },
+        "youtube": {
+          "enum": [
+            "spec_only",
+            "implemented",
+            "enabled"
+          ]
+        }
+      },
+      "required": [
+        "astro",
+        "ghost",
+        "plain_static",
+        "spotify_hosted",
+        "independent_rss",
+        "youtube"
+      ]
+    },
+    "podcast_authority": {
+      "enum": [
+        "undecided",
+        "spotify",
+        "independent"
+      ]
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "production_enabled": {
+          "type": "boolean"
+        },
+        "allow_remote_writes": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "production_enabled",
+        "allow_remote_writes"
+      ]
+    },
+    "newsletter": {
+      "enum": [
+        "disabled",
+        "planned",
+        "enabled"
+      ]
+    },
+    "commerce": {
+      "enum": [
+        "disabled",
+        "planned",
+        "enabled"
+      ]
+    },
+    "ai_disclosure": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "spoken": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "text",
+            "spoken"
+          ],
+          "description": "Show-level synthetic-voice disclosure (Apple guideline 1.11)."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "public_contact_email": {
+      "anyOf": [
+        {
+          "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/email"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "public_contact_acknowledged": {
+      "type": "boolean",
+      "description": "True only when the owner has acknowledged that this address becomes public (RSS feed)."
+    },
+    "service_inventory": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/relpath"
+            },
+            "sha256": {
+              "$ref": "https://bllt.example.invalid/schemas/common.v2.json#/$defs/sha256"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "example",
+    "canonicalization",
+    "project_id",
+    "profile_option",
+    "website",
+    "modules",
+    "podcast_authority",
+    "safety",
+    "newsletter",
+    "commerce",
+    "ai_disclosure",
+    "public_contact_email",
+    "public_contact_acknowledged",
+    "service_inventory"
+  ]
+}

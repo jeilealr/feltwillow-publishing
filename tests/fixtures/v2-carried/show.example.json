@@ -1,0 +1,25 @@
+{
+  "kind": "show",
+  "schema_version": 1,
+  "example": true,
+  "show_id": "bllt-en",
+  "language": "en",
+  "title": "Big Lessons, Little Tales",
+  "description": "EXAMPLE ONLY: an English-language story show; branding and description await approval.",
+  "author": "Big Lessons, Little Tales",
+  "show_type": "episodic",
+  "category": "Kids & Family",
+  "subcategory": "Stories for Kids",
+  "explicit": false,
+  "owner_email": null,
+  "hosting": {
+    "authority": "undecided",
+    "rss_url": null,
+    "website_url": null
+  },
+  "artwork": {
+    "url": null,
+    "width": null,
+    "height": null
+  }
+}

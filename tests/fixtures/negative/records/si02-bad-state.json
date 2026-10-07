@@ -1,0 +1,14 @@
+{
+  "fixture": "negative-record",
+  "expect": "SCHEMA_VIOLATION",
+  "base": "publishing/examples/service-inventory.v1.example.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/services/0/state",
+      "value": "trial"
+    }
+  ],
+  "description": "state is disabled/planned/enabled.",
+  "rule": "H2 (DECISIONS_H2)"
+}

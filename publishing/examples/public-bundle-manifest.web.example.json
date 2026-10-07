@@ -1,0 +1,60 @@
+{
+  "kind": "public-bundle-manifest",
+  "schema_version": 1,
+  "example": true,
+  "canonicalization": "bllt-canonical-json-v1",
+  "bundle_id": "example-web-site-artifact-0001",
+  "bundle_type": "web",
+  "manifest_visibility": "internal",
+  "inputs": {
+    "releases": [
+      {
+        "release_id": "lion-and-mouse.en.r0001",
+        "release_sha256": "eae72ddb991a79d7bfd8b0368c6483cdf9736cccd213131157cccfd88fd3083f"
+      }
+    ],
+    "site_set": {
+      "site_set_id": "example-site-set-0001",
+      "sha256": "a32c4d3ef9a0c255629b07bed7315258dab8113138be38931d8315f18a60bf74"
+    },
+    "public_record_sha256": "ddd21cf329995013a87534ddb0fdcb26c4671edc8dc805569bf5d10167513892",
+    "renderer": {
+      "name": "plain_static",
+      "version": "0.0.0-spec-only"
+    },
+    "contract_package": {
+      "name": "bllt-contracts",
+      "version": "0.2.0-h2",
+      "archive_sha256": "0e7952daf17fc755b1297f9e8be0774bef7a578c19c3063637791e10e447a72b"
+    }
+  },
+  "files": [
+    {
+      "path": "en/stories/the-lion-and-the-mouse/index.html",
+      "sha256": "1322f2b83cfdb834b5e892c5ab36d7942b4f6aa0e185da7b273ed44b61eb7645",
+      "bytes": 4000,
+      "media_type": "text/html",
+      "source": null
+    },
+    {
+      "path": "media/98c4fa30871386aab3c00aae45ab15847f0567ca3ccc21b37729a86f7af051c3.png",
+      "sha256": "98c4fa30871386aab3c00aae45ab15847f0567ca3ccc21b37729a86f7af051c3",
+      "bytes": 77,
+      "media_type": "image/png",
+      "source": {
+        "release_id": "lion-and-mouse.en.r0001",
+        "asset_id": "illus-s01-explores-start"
+      }
+    },
+    {
+      "path": "media/acb7367bf5a1f78f2efdd23c958bebc6f0450a29c3746feb37a9fa1a476be441.png",
+      "sha256": "acb7367bf5a1f78f2efdd23c958bebc6f0450a29c3746feb37a9fa1a476be441",
+      "bytes": 74,
+      "media_type": "image/png",
+      "source": {
+        "release_id": "lion-and-mouse.en.r0001",
+        "asset_id": "cover-lion-and-mouse"
+      }
+    }
+  ]
+}

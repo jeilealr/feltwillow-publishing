@@ -1,0 +1,17 @@
+{
+  "fixture": "import-scenario",
+  "description": "A correction supersedes an accepted handoff.",
+  "steps": [
+    {
+      "mutations": [
+        {
+          "op": "make_correction",
+          "revision": 2,
+          "parent_payload": "abababababababababababababababababababababababababababababababab"
+        }
+      ],
+      "expect_outcome": "rejected",
+      "expect": "SUPERSEDES_UNKNOWN"
+    }
+  ]
+}
