@@ -1,8 +1,8 @@
 # feltwillow-publishing (scaffold, contract revision H2)
 
-**Status: PROPOSED CONTRACT. Nothing is released, committed or enabled.** This folder is a scaffold for the
-private repository `jeilealr/feltwillow-publishing` (branch `main`; the owner does all git). It is delivered
-inside the Blueprint v3 review package and has **not** been written into the real clone.
+**Status: PROPOSED CONTRACT. No contract is released and no module is enabled.** This is the private
+repository `jeilealr/feltwillow-publishing` (branch `main`; the owner does all git), started from the
+Blueprint v3 scaffold (2026-10-07).
 
 This is the one canonical home of the H2 contracts and code: Agent B's handoff contract (draft H1), Agents
 C/D/E's schemas and tools, and the lead's DECISIONS_H2.
