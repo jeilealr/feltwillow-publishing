@@ -1,0 +1,10 @@
+name: feltwillow-publishing-blueprint-check
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - PyYAML==6.0.3
+      - jsonschema==4.26.0

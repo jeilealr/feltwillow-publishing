@@ -13,20 +13,25 @@
   ],
   "editorial_selection": {
     "selected_by": "EXAMPLE-OWNER",
-    "selected_at": "2026-10-06T17:00:00Z",
+    "selected_at": "2026-10-07T00:00:00Z",
     "statement": "EXAMPLE ONLY: no owner selection of final Lion-and-Mouse assets has been made.",
     "evidence": []
   },
   "source_files": [
     {
-      "source_id": "runtime-inputs-v5",
-      "purpose": "runtime",
-      "path": "stories/lion_and_mouse_v5/runtime_inputs.json"
+      "source_id": "script-v5",
+      "purpose": "script",
+      "path": "stories/lion_and_mouse_v5/SCRIPT_REVIEW.md"
     },
     {
       "source_id": "dialogue-v5",
       "purpose": "dialogue",
       "path": "stories/lion_and_mouse_v5/dialogue_coverage.json"
+    },
+    {
+      "source_id": "runtime-inputs-v5",
+      "purpose": "runtime",
+      "path": "stories/lion_and_mouse_v5/runtime_inputs.json"
     }
   ],
   "assets": [
@@ -36,7 +41,7 @@
       "media_type": "image/png",
       "store": "production-git",
       "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_start_r01.png",
-      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
     },
     {
       "asset_id": "illus-s01-explores-end",
@@ -44,7 +49,7 @@
       "media_type": "image/png",
       "store": "production-git",
       "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_explores_end_r01.png",
-      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
     },
     {
       "asset_id": "illus-s01-acorn-start",
@@ -52,7 +57,7 @@
       "media_type": "image/png",
       "store": "production-git",
       "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_start_r01.png",
-      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
     },
     {
       "asset_id": "illus-s01-acorn-end",
@@ -60,7 +65,7 @@
       "media_type": "image/png",
       "store": "production-git",
       "path": "character/characters/lion_and_mouse_v5/interactions/keyframes/s01_acorn_end_r01.png",
-      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected reading illustration."
+      "selection_note": "EXAMPLE ONLY: tracked v5 video keyframe, not an owner-selected illustration."
     }
   ],
   "components": {
